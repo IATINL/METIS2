@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Log download processing</name>
+    <name>Remove publisher from DWH</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2015&#x2f;09&#x2f;01 16&#x3a;03&#x3a;28.740</created_date>
+  <created_date>2016&#x2f;02&#x2f;04 14&#x3a;25&#x3a;58.582</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;09 12&#x3a;10&#x3a;53.588</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;08 15&#x3a;05&#x3a;44.718</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -213,13 +213,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get Variables</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get end time of url processing</from><to>Update log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Get end time of url processing</to><enabled>Y</enabled> </hop>
+  <hop> <from>Generate Rows</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Remove all publishers records from DWH</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Get Variables</name>
-    <type>GetVariable</type>
+    <name>Generate Rows</name>
+    <type>RowGenerator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -230,238 +229,58 @@
            </partitioning>
     <fields>
       <field>
-        <name>job-number</name>
-        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>publisher-id</name>
-        <variable>&#x24;&#x7b;publisher-id&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>url-id</name>
-        <variable>&#x24;&#x7b;url-id&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>archive-path</name>
-        <variable>&#x24;&#x7b;ARCHIVEPATH&#x7d;</variable>
+        <name>Trigger</name>
         <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
+        <nullif>Remove from DWH</nullif>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>filename</name>
-        <variable>&#x24;&#x7b;URL-FILENAME&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;ARCHIVE-TIMESTAMP&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>version</name>
-        <variable>&#x24;&#x7b;VERSION&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>http-status</name>
-        <variable>&#x24;&#x7b;HTTP-STATUS&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>log-message</name>
-        <variable>&#x24;&#x7b;LOG-MESSAGE&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>log-status</name>
-        <variable>&#x24;&#x7b;LOG-STATUS&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>110</xloc>
-      <yloc>74</yloc>
+      <xloc>93</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get end time of url processing</name>
-    <type>SystemInfo</type>
+    <name>Remove all publishers records from DWH</name>
+    <type>ExecSQL</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <name>publisher-job-url-end-date-time</name>
-        <type>system date &#x28;variable&#x29;</type>
-        </field>
-      </fields>
+    <connection>IATI_database</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>DELETE FROM iatidatamart.&#x60;dim-activity&#x60;      PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-transactions&#x60;  PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-descriptions&#x60;  PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-budgets&#x60;       PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-documents&#x60;     PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-results&#x60;       PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-locations&#x60;     PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;&#xd;&#xa;DELETE FROM iatischema.&#x60;dwh-organisations&#x60; PARTITION &#x28;&#x24;&#x7b;Publisher&#x7d;&#x29;&#x3b;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field>delete-stats</delete_field>
+    <read_field/>
+    <arguments>
+    </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>377</xloc>
-      <yloc>74</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Update log</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_datamart</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>log-publisher-job-url</table>
-      <key>
-        <name>job-number</name>
-        <field>job-number</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>publisher-id</name>
-        <field>publisher-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>url-id</name>
-        <field>url-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>publisher-job-url-end-date-time</name>
-        <rename>publisher-job-url-end-date-time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>archive-path</name>
-        <rename>archive-path</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>generated-datetime</name>
-        <rename>generated-datetime</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>version</name>
-        <rename>version</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>http-status</name>
-        <rename>http-status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>log-message</name>
-        <rename>log-message</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>log-status</name>
-        <rename>log-status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>filename</name>
-        <rename>filename</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>526</xloc>
+      <xloc>443</xloc>
       <yloc>74</yloc>
       <draw>Y</draw>
       </GUI>
@@ -482,24 +301,15 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>HTTP status</logmessage>
+      <logmessage>--------------------------------------------------------------------&#xd;&#xa;Removing previous data for publisher &#x24;&#x7b;Publisher&#x7d; from datawarehouse&#xd;&#xa;--------------------------------------------------------------------&#xd;&#xa;</logmessage>
     <fields>
       <field>
-        <name>http-status</name>
-        </field>
-      <field>
-        <name>log-message</name>
-        </field>
-      <field>
-        <name>log-status</name>
-        </field>
-      <field>
-        <name>generated-datetime</name>
+        <name>Trigger</name>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>231</xloc>
+      <xloc>262</xloc>
       <yloc>74</yloc>
       <draw>Y</draw>
       </GUI>

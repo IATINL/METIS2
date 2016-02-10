@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;01 16&#x3a;21&#x3a;49.528</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;08 15&#x3a;11&#x3a;35.778</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -104,6 +104,34 @@
     </attributes>
   </connection>
   <connection>
+    <name>IATI_datamart</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatidatamart</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>IATI_logging</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -125,6 +153,62 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_reference</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatireference</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_staging</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatistaging</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
@@ -452,7 +536,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
+    <connection>IATI_datamart</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>10000</cache_size>
@@ -526,8 +610,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, value&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM iatischema.&#x60;src-act-transactions&#x60;&#xd;&#xa;</sql>
+    <connection>IATI_staging</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, value&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-transactions&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -834,8 +918,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
+    <connection>IATI_staging</connection>
+    <schema/>
     <table>stg-act-transactions</table>
     <commit>1000</commit>
     <truncate>N</truncate>

@@ -1,0 +1,3861 @@
+<transformation>
+  <info>
+    <name>Remove duplicate identifiers</name>
+    <description>Check on the occurence of double iati identifiers. Set the errorflag if doubles are found.</description>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2016&#x2f;02&#x2f;04 13&#x3a;53&#x3a;05.512</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2016&#x2f;02&#x2f;08 13&#x3a;26&#x3a;31.322</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>IATI_database</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatimariadb</database>
+    <port>3306</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.Database type</code><attribute>Innodb</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_logging</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatilogging</database>
+    <port>3307</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_staging</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatistaging</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>Read activities</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Activity seq</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read act sector</from><to>Sort sector rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort sector rows</from><to>Add sector sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read countries</from><to>Sort country rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort country rows</from><to>Add country sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read regions</from><to>Sort region rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort region rows</from><to>Add region sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read locations</from><to>Sort location</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort location</from><to>Add location sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read organisations</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort orgs</from><to>Add organisation sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read activity dates</from><to>Sort dates</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort dates</from><to>Add dates sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read budgets</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort budgets</from><to>Add budget sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read markers</from><to>Sort markers</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort markers</from><to>Add marker sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read related activities</from><to>Sort related act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort related act</from><to>Add related act sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read descriptions</from><to>Sort descriptions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort descriptions</from><to>Add description sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read results</from><to>Sort results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort results</from><to>Add result sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read documents</from><to>Sort documents</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort documents</from><to>Add document sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read transactions</from><to>Sort transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort transactions</from><to>Add transaction sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Activity seq</from><to>Unique activities&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique activities&#x3f;</from><to>Duplicate activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique activities&#x3f;</from><to>Write activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique sectors&#x3f;</from><to>Duplicate sectors</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add sector sequence</from><to>Unique sectors&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique sectors&#x3f;</from><to>Write sector</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique countries&#x3f;</from><to>Duplicate countries</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add country sequence</from><to>Unique countries&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique countries&#x3f;</from><to>Write countries</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique regions&#x3f;</from><to>Duplicate regions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add region sequence</from><to>Unique regions&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique regions&#x3f;</from><to>Write regions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique locations&#x3f;</from><to>Duplicate locations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add location sequence</from><to>Unique locations&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique locations&#x3f;</from><to>Write locations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique organisations&#x3f;</from><to>Duplicate organisations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add organisation sequence</from><to>Unique organisations&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique organisations&#x3f;</from><to>Write organisations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique dates&#x3f;</from><to>Duplicate dates</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add dates sequence</from><to>Unique dates&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique dates&#x3f;</from><to>Write dates</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique budgets&#x3f;</from><to>Duplicate budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add budget sequence</from><to>Unique budgets&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique budgets&#x3f;</from><to>Write budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique markers&#x3f;</from><to>Duplicate markers</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add marker sequence</from><to>Unique markers&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique markers&#x3f;</from><to>Write markers</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique rel act&#x3f;</from><to>Duplicate rel act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add related act sequence</from><to>Unique rel act&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique rel act&#x3f;</from><to>Write rel act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique descriptions&#x3f;</from><to>Duplicate descriptions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add description sequence</from><to>Unique descriptions&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique descriptions&#x3f;</from><to>Write descriptions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique results&#x3f;</from><to>Duplicate results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add result sequence</from><to>Unique results&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique results&#x3f;</from><to>Write results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique documents&#x3f;</from><to>Duplicate documents</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add document sequence</from><to>Unique documents&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique documents&#x3f;</from><to>Write documents</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique transactions&#x3f;</from><to>Duplicate transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add transaction sequence</from><to>Unique transactions&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique transactions&#x3f;</from><to>Write transactions</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Activity seq</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>438</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add budget sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>budget-type</name>
+        </field>
+      <field>
+        <name>budget-period-start</name>
+        </field>
+      <field>
+        <name>budget-period-end</name>
+        </field>
+      <field>
+        <name>budget-value-date</name>
+        </field>
+      <field>
+        <name>budget-value-currency</name>
+        </field>
+      <field>
+        <name>default-currency</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>441</xloc>
+      <yloc>1132</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add country sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier-countries</name>
+        </field>
+      <field>
+        <name>recipient-country-code</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>439</xloc>
+      <yloc>327</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add dates sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>activity-date-type-2x</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>442</xloc>
+      <yloc>967</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add description sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>description-type-code</name>
+        </field>
+      <field>
+        <name>description</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>430</xloc>
+      <yloc>1645</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add document sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>document-type-code</name>
+        </field>
+      <field>
+        <name>document-url</name>
+        </field>
+      <field>
+        <name>document-title</name>
+        </field>
+      <field>
+        <name>document-language</name>
+        </field>
+      <field>
+        <name>document-format</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>426</xloc>
+      <yloc>2002</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add location sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier-locations</name>
+        </field>
+      <field>
+        <name>location-name</name>
+        </field>
+      <field>
+        <name>location-coordinates-latitude</name>
+        </field>
+      <field>
+        <name>location-coordinates-longitude</name>
+        </field>
+      <field>
+        <name>location-type-code</name>
+        </field>
+      <field>
+        <name>location-administrative-country-code</name>
+        </field>
+      <field>
+        <name>location-coordinates-precision</name>
+        </field>
+      <field>
+        <name>url-id</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>436</xloc>
+      <yloc>647</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add marker sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>vocabulary</name>
+        </field>
+      <field>
+        <name>code</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>437</xloc>
+      <yloc>1310</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add organisation sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>participating-org</name>
+        </field>
+      <field>
+        <name>participating-org-role</name>
+        </field>
+      <field>
+        <name>participating-org-ref</name>
+        </field>
+      <field>
+        <name>participating-org-type-code</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>439</xloc>
+      <yloc>806</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add region sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier-regions</name>
+        </field>
+      <field>
+        <name>recipient-region-code</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>438</xloc>
+      <yloc>482</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add related act sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>related-activity-ref</name>
+        </field>
+      <field>
+        <name>related-activity-type</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>429</xloc>
+      <yloc>1489</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add result sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>result-type-code</name>
+        </field>
+      <field>
+        <name>result-title</name>
+        </field>
+      <field>
+        <name>indicator-measure-code</name>
+        </field>
+      <field>
+        <name>indicator-title</name>
+        </field>
+      <field>
+        <name>indicator-description</name>
+        </field>
+      <field>
+        <name>period-start</name>
+        </field>
+      <field>
+        <name>period-end</name>
+        </field>
+      <field>
+        <name>baseline-year</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>432</xloc>
+      <yloc>1838</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add sector sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>sector-code</name>
+        </field>
+      <field>
+        <name>sector-vocabulary</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>440</xloc>
+      <yloc>171</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add transaction sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>transaction-type-code</name>
+        </field>
+      <field>
+        <name>provider-org</name>
+        </field>
+      <field>
+        <name>provider-org-reference</name>
+        </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        </field>
+      <field>
+        <name>receiver-org</name>
+        </field>
+      <field>
+        <name>receiver-org-reference</name>
+        </field>
+      <field>
+        <name>transaction-iso-date</name>
+        </field>
+      <field>
+        <name>default-currency</name>
+        </field>
+      <field>
+        <name>transaction-currency</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>426</xloc>
+      <yloc>2199</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate activities</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>595</xloc>
+      <yloc>102</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate budgets</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>601</xloc>
+      <yloc>1215</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate countries</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>410</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate dates</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>1049</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate descriptions</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>611</xloc>
+      <yloc>1722</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate documents</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>604</xloc>
+      <yloc>2085</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate locations</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>730</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate markers</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>605</xloc>
+      <yloc>1393</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate organisations</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>598</xloc>
+      <yloc>888</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate regions</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>602</xloc>
+      <yloc>565</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate rel act</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>609</xloc>
+      <yloc>1570</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate results</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>606</xloc>
+      <yloc>1928</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate sectors</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>253</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate transactions</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>604</xloc>
+      <yloc>2280</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read act sector</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-sectors&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>102</xloc>
+      <yloc>170</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read activities</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-data&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>106</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read activity dates</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-dates&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>98</xloc>
+      <yloc>968</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read budgets</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-budgets&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>99</xloc>
+      <yloc>1132</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read countries</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-countries&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>98</xloc>
+      <yloc>330</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read descriptions</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-descriptions&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>87</xloc>
+      <yloc>1644</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read documents</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-documents&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>87</xloc>
+      <yloc>2002</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read locations</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-locations&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>98</xloc>
+      <yloc>648</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read markers</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-policy-markers&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>94</xloc>
+      <yloc>1312</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read organisations</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-organisations&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>99</xloc>
+      <yloc>808</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read regions</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-regions&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>99</xloc>
+      <yloc>482</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read related activities</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-related&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>86</xloc>
+      <yloc>1488</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read results</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-results&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>90</xloc>
+      <yloc>1841</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read transactions</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT &#x2a;&#xd;&#xa;FROM &#x60;xml-act-transactions&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>86</xloc>
+      <yloc>2198</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort budgets</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-type</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-period-start</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-period-end</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-value-date</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-value-currency</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>default-currency</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>274</xloc>
+      <yloc>1132</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort country rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-countries</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>recipient-country-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>273</xloc>
+      <yloc>328</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort dates</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>activity-date-type-2x</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>275</xloc>
+      <yloc>968</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort descriptions</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>description-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>description</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>264</xloc>
+      <yloc>1645</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort documents</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>document-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>document-url</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>document-title</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>document-language</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>document-format</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>258</xloc>
+      <yloc>2002</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort location</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-locations</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-name</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-administrative-country-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-coordinates-precision</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-coordinates-longitude</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-coordinates-latitude</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>272</xloc>
+      <yloc>647</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort markers</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>vocabulary</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>270</xloc>
+      <yloc>1312</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort orgs</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org-role</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org-ref</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>274</xloc>
+      <yloc>806</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort region rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-regions</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>recipient-region-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>recipient-region-percentage</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>274</xloc>
+      <yloc>482</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort related act</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>related-activity-ref</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>related-activity-type</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>262</xloc>
+      <yloc>1489</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort results</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>result-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>result-title</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>indicator-measure-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>indicator-title</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>indicator-description</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>period-start</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>period-end</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>baseline-year</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>264</xloc>
+      <yloc>1840</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>273</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort sector rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sector-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sector-vocabulary</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>274</xloc>
+      <yloc>170</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort transactions</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>provider-org</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>provider-org-reference</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>receiver-org</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>receiver-org-reference</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>default-currency</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>transaction-currency</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>261</xloc>
+      <yloc>2199</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique activities&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write activity data</send_true_to>
+<send_false_to>Duplicate activities</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>595</xloc>
+      <yloc>19</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique budgets&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write budgets</send_true_to>
+<send_false_to>Duplicate budgets</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>601</xloc>
+      <yloc>1133</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique countries&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write countries</send_true_to>
+<send_false_to>Duplicate countries</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>327</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique dates&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write dates</send_true_to>
+<send_false_to>Duplicate dates</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>967</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique descriptions&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write descriptions</send_true_to>
+<send_false_to>Duplicate descriptions</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>610</xloc>
+      <yloc>1644</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique documents&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write documents</send_true_to>
+<send_false_to>Duplicate documents</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>604</xloc>
+      <yloc>2003</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique locations&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write locations</send_true_to>
+<send_false_to>Duplicate locations</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>647</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique markers&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write markers</send_true_to>
+<send_false_to>Duplicate markers</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>605</xloc>
+      <yloc>1311</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique organisations&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write organisations</send_true_to>
+<send_false_to>Duplicate organisations</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>598</xloc>
+      <yloc>806</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique regions&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write regions</send_true_to>
+<send_false_to>Duplicate regions</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>602</xloc>
+      <yloc>482</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique rel act&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write rel act</send_true_to>
+<send_false_to>Duplicate rel act</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>609</xloc>
+      <yloc>1488</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique results&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write results</send_true_to>
+<send_false_to>Duplicate results</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>608</xloc>
+      <yloc>1839</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique sectors&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write sector</send_true_to>
+<send_false_to>Duplicate sectors</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>170</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique transactions&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Write transactions</send_true_to>
+<send_false_to>Duplicate transactions</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sequence</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>604</xloc>
+      <yloc>2198</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write activity data</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-data</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>activity-title</column_name>
+          <stream_name>activity-title</stream_name>
+        </field>
+        <field>
+          <column_name>activity-status</column_name>
+          <stream_name>activity-status</stream_name>
+        </field>
+        <field>
+          <column_name>contact-organisation</column_name>
+          <stream_name>contact-organisation</stream_name>
+        </field>
+        <field>
+          <column_name>contact-person-name</column_name>
+          <stream_name>contact-person-name</stream_name>
+        </field>
+        <field>
+          <column_name>contact-telephone</column_name>
+          <stream_name>contact-telephone</stream_name>
+        </field>
+        <field>
+          <column_name>contact-email</column_name>
+          <stream_name>contact-email</stream_name>
+        </field>
+        <field>
+          <column_name>contact-mailing-address</column_name>
+          <stream_name>contact-mailing-address</stream_name>
+        </field>
+        <field>
+          <column_name>activity-website</column_name>
+          <stream_name>activity-website</stream_name>
+        </field>
+        <field>
+          <column_name>reporting-org-name</column_name>
+          <stream_name>reporting-org-name</stream_name>
+        </field>
+        <field>
+          <column_name>reporting-org-ref</column_name>
+          <stream_name>reporting-org-ref</stream_name>
+        </field>
+        <field>
+          <column_name>reporting-org-type</column_name>
+          <stream_name>reporting-org-type</stream_name>
+        </field>
+        <field>
+          <column_name>default-finance-type</column_name>
+          <stream_name>default-finance-type</stream_name>
+        </field>
+        <field>
+          <column_name>default-tied-status</column_name>
+          <stream_name>default-tied-status</stream_name>
+        </field>
+        <field>
+          <column_name>contact-job-title</column_name>
+          <stream_name>contact-job-title</stream_name>
+        </field>
+        <field>
+          <column_name>contact-website</column_name>
+          <stream_name>contact-website</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>753</xloc>
+      <yloc>19</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write budgets</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-budgets</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>budget-type</column_name>
+          <stream_name>budget-type</stream_name>
+        </field>
+        <field>
+          <column_name>budget-period-start</column_name>
+          <stream_name>budget-period-start</stream_name>
+        </field>
+        <field>
+          <column_name>budget-period-end</column_name>
+          <stream_name>budget-period-end</stream_name>
+        </field>
+        <field>
+          <column_name>budget-value</column_name>
+          <stream_name>budget-value</stream_name>
+        </field>
+        <field>
+          <column_name>budget-value-date</column_name>
+          <stream_name>budget-value-date</stream_name>
+        </field>
+        <field>
+          <column_name>budget-value-currency</column_name>
+          <stream_name>budget-value-currency</stream_name>
+        </field>
+        <field>
+          <column_name>default-currency</column_name>
+          <stream_name>default-currency</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>746</xloc>
+      <yloc>1132</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write countries</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-countries</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier-countries</column_name>
+          <stream_name>iati-identifier-countries</stream_name>
+        </field>
+        <field>
+          <column_name>recipient-country-code</column_name>
+          <stream_name>recipient-country-code</stream_name>
+        </field>
+        <field>
+          <column_name>recipient-country-percentage</column_name>
+          <stream_name>recipient-country-percentage</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>750</xloc>
+      <yloc>329</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write dates</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-dates</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>activity-iso-date</column_name>
+          <stream_name>activity-iso-date</stream_name>
+        </field>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>activity-date-type-2x</column_name>
+          <stream_name>activity-date-type-2x</stream_name>
+        </field>
+        <field>
+          <column_name>activity-date-type-1x</column_name>
+          <stream_name>activity-date-type-1x</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>750</xloc>
+      <yloc>968</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write descriptions</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-descriptions</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>description</column_name>
+          <stream_name>description</stream_name>
+        </field>
+        <field>
+          <column_name>description-type-code</column_name>
+          <stream_name>description-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>756</xloc>
+      <yloc>1644</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write documents</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-documents</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>document-type-code</column_name>
+          <stream_name>document-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>document-url</column_name>
+          <stream_name>document-url</stream_name>
+        </field>
+        <field>
+          <column_name>document-title</column_name>
+          <stream_name>document-title</stream_name>
+        </field>
+        <field>
+          <column_name>document-language</column_name>
+          <stream_name>document-language</stream_name>
+        </field>
+        <field>
+          <column_name>document-format</column_name>
+          <stream_name>document-format</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>743</xloc>
+      <yloc>2004</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write locations</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-locations</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier-locations</column_name>
+          <stream_name>iati-identifier-locations</stream_name>
+        </field>
+        <field>
+          <column_name>location-name</column_name>
+          <stream_name>location-name</stream_name>
+        </field>
+        <field>
+          <column_name>location-coordinates-latitude</column_name>
+          <stream_name>location-coordinates-latitude</stream_name>
+        </field>
+        <field>
+          <column_name>location-coordinates-longitude</column_name>
+          <stream_name>location-coordinates-longitude</stream_name>
+        </field>
+        <field>
+          <column_name>location-type-code</column_name>
+          <stream_name>location-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>location-administrative-country-code</column_name>
+          <stream_name>location-administrative-country-code</stream_name>
+        </field>
+        <field>
+          <column_name>location-coordinates-precision</column_name>
+          <stream_name>location-coordinates-precision</stream_name>
+        </field>
+        <field>
+          <column_name>location-coordinates-percentage</column_name>
+          <stream_name>location-coordinates-percentage</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>753</xloc>
+      <yloc>647</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write markers</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-policy-markers</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>vocabulary</column_name>
+          <stream_name>vocabulary</stream_name>
+        </field>
+        <field>
+          <column_name>code</column_name>
+          <stream_name>code</stream_name>
+        </field>
+        <field>
+          <column_name>significance</column_name>
+          <stream_name>significance</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>745</xloc>
+      <yloc>1311</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write organisations</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-organisations</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>participating-org</column_name>
+          <stream_name>participating-org</stream_name>
+        </field>
+        <field>
+          <column_name>participating-org-role</column_name>
+          <stream_name>participating-org-role</stream_name>
+        </field>
+        <field>
+          <column_name>participating-org-ref</column_name>
+          <stream_name>participating-org-ref</stream_name>
+        </field>
+        <field>
+          <column_name>participating-org-type-code</column_name>
+          <stream_name>participating-org-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>751</xloc>
+      <yloc>807</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write regions</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-regions</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier-regions</column_name>
+          <stream_name>iati-identifier-regions</stream_name>
+        </field>
+        <field>
+          <column_name>recipient-region-code</column_name>
+          <stream_name>recipient-region-code</stream_name>
+        </field>
+        <field>
+          <column_name>recipient-region-percentage</column_name>
+          <stream_name>recipient-region-percentage</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>753</xloc>
+      <yloc>481</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write rel act</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-related</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>related-activity-ref</column_name>
+          <stream_name>related-activity-ref</stream_name>
+        </field>
+        <field>
+          <column_name>related-activity-type</column_name>
+          <stream_name>related-activity-type</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>751</xloc>
+      <yloc>1486</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write results</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-results</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>result-type-code</column_name>
+          <stream_name>result-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>result-title</column_name>
+          <stream_name>result-title</stream_name>
+        </field>
+        <field>
+          <column_name>indicator-measure-code</column_name>
+          <stream_name>indicator-measure-code</stream_name>
+        </field>
+        <field>
+          <column_name>indicator-title</column_name>
+          <stream_name>indicator-title</stream_name>
+        </field>
+        <field>
+          <column_name>indicator-description</column_name>
+          <stream_name>indicator-description</stream_name>
+        </field>
+        <field>
+          <column_name>period-start</column_name>
+          <stream_name>period-start</stream_name>
+        </field>
+        <field>
+          <column_name>period-end</column_name>
+          <stream_name>period-end</stream_name>
+        </field>
+        <field>
+          <column_name>actual-comment</column_name>
+          <stream_name>actual-comment</stream_name>
+        </field>
+        <field>
+          <column_name>target-comment</column_name>
+          <stream_name>target-comment</stream_name>
+        </field>
+        <field>
+          <column_name>baseline-year</column_name>
+          <stream_name>baseline-year</stream_name>
+        </field>
+        <field>
+          <column_name>baseline-value</column_name>
+          <stream_name>baseline-value</stream_name>
+        </field>
+        <field>
+          <column_name>actual-value</column_name>
+          <stream_name>actual-value</stream_name>
+        </field>
+        <field>
+          <column_name>target-value</column_name>
+          <stream_name>target-value</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>752</xloc>
+      <yloc>1841</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write sector</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-sectors</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>sector-code</column_name>
+          <stream_name>sector-code</stream_name>
+        </field>
+        <field>
+          <column_name>sector-percentage</column_name>
+          <stream_name>sector-percentage</stream_name>
+        </field>
+        <field>
+          <column_name>sector-vocabulary</column_name>
+          <stream_name>sector-vocabulary</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>750</xloc>
+      <yloc>172</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write transactions</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>src-act-transactions</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-type-code</column_name>
+          <stream_name>transaction-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>provider-org</column_name>
+          <stream_name>provider-org</stream_name>
+        </field>
+        <field>
+          <column_name>provider-org-reference</column_name>
+          <stream_name>provider-org-reference</stream_name>
+        </field>
+        <field>
+          <column_name>provider-org-activity-id</column_name>
+          <stream_name>provider-org-activity-id</stream_name>
+        </field>
+        <field>
+          <column_name>receiver-org</column_name>
+          <stream_name>receiver-org</stream_name>
+        </field>
+        <field>
+          <column_name>receiver-org-reference</column_name>
+          <stream_name>receiver-org-reference</stream_name>
+        </field>
+        <field>
+          <column_name>value</column_name>
+          <stream_name>value</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-iso-date</column_name>
+          <stream_name>transaction-iso-date</stream_name>
+        </field>
+        <field>
+          <column_name>default-currency</column_name>
+          <stream_name>default-currency</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-currency</column_name>
+          <stream_name>transaction-currency</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-description</column_name>
+          <stream_name>transaction-description</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-flow-type-code</column_name>
+          <stream_name>transaction-flow-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-finance-type-code</column_name>
+          <stream_name>transaction-finance-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-aid-type-code</column_name>
+          <stream_name>transaction-aid-type-code</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-tied-status-code</column_name>
+          <stream_name>transaction-tied-status-code</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>sequence</column_name>
+          <stream_name>sequence</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>740</xloc>
+      <yloc>2200</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

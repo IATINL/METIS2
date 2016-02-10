@@ -1,14 +1,14 @@
 <job>
-  <name>Process one publisher</name>
-    <description>The job processes all the IATI files of one publisher.</description>
-    <extended_description/>
+  <name>Download all publisher files</name>
+    <description>Process each IATI publishers URL one at a time</description>
+    <extended_description>This job downloads and checks publishers file one by one&#xd;&#xa;Input&#x3a; file url&#xd;&#xa;Output&#x3a; file stored in archive</extended_description>
     <job_version/>
     <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2015&#x2f;06&#x2f;16 11&#x3a;23&#x3a;58.334</created_date>
+  <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;09 12&#x3a;21&#x3a;16.155</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;09 14&#x3a;33&#x3a;04.260</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -182,43 +182,6 @@
    <shared_objects_file/>
   <entries>
     <entry>
-      <name>Get all URLs for one publisher</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Get all IATI dataset URLs for one publisher</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>Publisher</name>
-            <stream_name>Publisher</stream_name>
-            <value/>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>421</xloc>
-      <yloc>85</yloc>
-      </entry>
-    <entry>
       <name>START</name>
       <description/>
       <type>SPECIAL</type>
@@ -235,8 +198,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>24</xloc>
-      <yloc>85</yloc>
+      <xloc>45</xloc>
+      <yloc>231</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -245,123 +208,34 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2260</xloc>
-      <yloc>84</yloc>
+      <xloc>2222</xloc>
+      <yloc>237</yloc>
       </entry>
     <entry>
-      <name>Get publisher id and log start of publisher job</name>
+      <name>Show URL</name>
       <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Get publisher id and log start of publisher job</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>----------------------------------------------------------------------------------------------------------------------&#xd;&#xa;&#x24;&#x7b;Publisher&#x7d; &#x28;publisher-id&#x3a; &#x24;&#x7b;publisher-id&#x7d;&#x29; URL &#x24;&#x7b;jsonURL&#x7d; &#x28;url-id&#x3a; &#x24;&#x7b;url-id&#x7d;&#x29;&#xd;&#xa;----------------------------------------------------------------------------------------------------------------------</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>Processing next URL for publisher</logsubject>
+      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>193</xloc>
-      <yloc>85</yloc>
+      <xloc>386</xloc>
+      <yloc>230</yloc>
       </entry>
     <entry>
-      <name>Log end of publisher job</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Log end of publisher job</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>2135</xloc>
-      <yloc>84</yloc>
-      </entry>
-    <entry>
-      <name>Remove publisher from staging</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Remove publisher from staging</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1068</xloc>
-      <yloc>83</yloc>
-      </entry>
-    <entry>
-      <name>Download all publisher files</name>
+      <name>Archive XML files</name>
       <description/>
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
       <job_object_id/>
       <filename/>
-      <jobname>Download all publisher files</jobname>
+      <jobname>Archive XML files</jobname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
+      <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
@@ -374,29 +248,22 @@
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
-      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>jsonURL</name>
-            <stream_name>jsonURL</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>Publisher</name>
-            <stream_name>Publisher</stream_name>
-            <value/>
-            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>629</xloc>
-      <yloc>85</yloc>
+      <xloc>1442</xloc>
+      <yloc>231</yloc>
       </entry>
     <entry>
-      <name>Check changes</name>
+      <name>Get url id and start url log</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Check changes</transname>
+      <transname>Get url id and start log url processing</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -420,19 +287,255 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>786</xloc>
-      <yloc>84</yloc>
+      <xloc>173</xloc>
+      <yloc>230</yloc>
       </entry>
     <entry>
-      <name>Simple evaluation</name>
+      <name>Log download processing</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Log download processing</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2104</xloc>
+      <yloc>236</yloc>
+      </entry>
+    <entry>
+      <name>Copy test file</name>
+      <description/>
+      <type>COPY_FILES</type>
+      <copy_empty_folders>N</copy_empty_folders>
+      <arg_from_previous>N</arg_from_previous>
+      <overwrite_files>Y</overwrite_files>
+      <include_subfolders>N</include_subfolders>
+      <remove_source_files>N</remove_source_files>
+      <add_result_filesname>N</add_result_filesname>
+      <destination_is_a_file>Y</destination_is_a_file>
+      <create_destination_folder>Y</create_destination_folder>
+      <fields>
+        <field>
+          <source_filefolder>&#x24;&#x7b;jsonURL&#x7d;</source_filefolder>
+          <source_configuration_name>STATIC-SOURCE-FILE-0</source_configuration_name>
+          <destination_filefolder>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</destination_filefolder>
+          <destination_configuration_name>STATIC-DEST-FILE-0</destination_configuration_name>
+          <wildcard/>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>675</xloc>
+      <yloc>139</yloc>
+      </entry>
+    <entry>
+      <name>Is it an URL&#x3f;</name>
       <description/>
       <type>SIMPLE_EVAL</type>
-      <valuetype>field</valuetype>
-      <fieldname>Action</fieldname>
-      <variablename/>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>&#x24;&#x7b;Publisher&#x7d;</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
-      <comparevalue>Continue</comparevalue>
+      <comparevalue>test</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>different</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>491</xloc>
+      <yloc>230</yloc>
+      </entry>
+    <entry>
+      <name>Write failed test file copy to log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>------------------------------------------------------------------------------------&#xd;&#xa;&#x24;&#x7b;jsonURL&#x7d;&#xd;&#xa;------------------------------------------------------------------------------------&#xd;&#xa;</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>Failed to copy testfile for file</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>676</xloc>
+      <yloc>31</yloc>
+      </entry>
+    <entry>
+      <name>Get file timestamp &#x26; version</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Get activity file timestamp</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>848</xloc>
+      <yloc>232</yloc>
+      </entry>
+    <entry>
+      <name>Activity file exists in archive&#x3f;</name>
+      <description/>
+      <type>FILES_EXIST</type>
+      <filename/>
+      <fields>
+        <field>
+          <name>&#x24;&#x7b;ARCHIVEPATH&#x7d;&#x5c;&#x24;&#x7b;Publisher&#x7d;&#x5c;&#x24;&#x7b;ARCHIVE-TIMESTAMP&#x7d;&#x5c;&#x24;&#x7b;URL-FILENAME&#x7d;</name>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1241</xloc>
+      <yloc>231</yloc>
+      </entry>
+    <entry>
+      <name>File changed compared with archive&#x3f;</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>DISTINCT-NR-OF-MD5</variablename>
+      <fieldtype>number</fieldtype>
+      <mask/>
+      <comparevalue>1</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>different</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1439</xloc>
+      <yloc>352</yloc>
+      </entry>
+    <entry>
+      <name>Calc MD5 checksum</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Calculate MD5 checksum</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1240</xloc>
+      <yloc>353</yloc>
+      </entry>
+    <entry>
+      <name>Download activity</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Download activity file from URL</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>604</xloc>
+      <yloc>232</yloc>
+      </entry>
+    <entry>
+      <name>Download OK &#x3f;</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname>httpstatus</fieldname>
+      <variablename>&#x24;&#x7b;HTTP-STATUS&#x7d;</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>200</comparevalue>
       <minvalue/>
       <maxvalue/>
       <successcondition>equal</successcondition>
@@ -442,151 +545,132 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>920</xloc>
-      <yloc>84</yloc>
+      <xloc>711</xloc>
+      <yloc>232</yloc>
       </entry>
     <entry>
-      <name>Write skip message to log</name>
+      <name>Init variables</name>
       <description/>
-      <type>WRITE_TO_LOG</type>
-      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because of download errors or because nothing has changed since last download.</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject>Download result</logsubject>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>ARCHIVE-TIMESTAMP</variable_name>
+          <variable_value/>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>HTTP-STATUS</variable_name>
+          <variable_value>Not defined</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value/>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value/>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>VERSION</variable_name>
+          <variable_value/>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1634</xloc>
+      <xloc>291</xloc>
       <yloc>230</yloc>
       </entry>
     <entry>
-      <name>Get publishers file list</name>
+      <name>Failed download message</name>
       <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
       <filename/>
-      <transname>Get publishers file list</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1227</xloc>
-      <yloc>83</yloc>
-      </entry>
-    <entry>
-      <name>Load publisher file into staging</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id/>
-      <filename/>
-      <jobname>Load publisher file into staging</jobname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <force_separate_logging>N</force_separate_logging>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>PAR-ARCHIVE-PATH</name>
-            <stream_name>archive-path</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>PAR-ARCHIVE-TIMESTAMP</name>
-            <stream_name>generated-datetime</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>PAR-PUBLISHER</name>
-            <stream_name>publisher</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>PAR-PUBLISHER-ID</name>
-            <stream_name>publisher-id</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>PAR-URL-FILENAME</name>
-            <stream_name>filename</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>PAR-URL-ID</name>
-            <stream_name>url-id</stream_name>
-            <value/>
-            </parameter>            <parameter>            <name>PAR-VERSION</name>
-            <stream_name>version</stream_name>
-            <value/>
-            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>Download of &#x24;&#x7b;jsonURL&#x7d; failed</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Error</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1394</xloc>
-      <yloc>83</yloc>
+      <xloc>1952</xloc>
+      <yloc>588</yloc>
       </entry>
     <entry>
-      <name>Load publisher staging data in dwh</name>
+      <name>Unchanged file message</name>
       <description/>
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
       <filename/>
-      <jobname>Load publisher staging data in dwh</jobname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <force_separate_logging>N</force_separate_logging>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>Activity file &#x24;&#x7b;jsonURL&#x7d; is unchanged and therefore not processed. </variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Unchanged</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+      </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1955</xloc>
-      <yloc>84</yloc>
+      <xloc>1954</xloc>
+      <yloc>354</yloc>
       </entry>
     <entry>
-      <name>Remove duplicate identifiers</name>
+      <name>Ok message</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>Activity file &#x24;&#x7b;jsonURL&#x7d; is succesfully processed. </variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Ok</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1957</xloc>
+      <yloc>236</yloc>
+      </entry>
+    <entry>
+      <name>XSD validation 6.01</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Remove duplicate identifiers</transname>
+      <transname>XSD validation 6.01</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -610,17 +694,128 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1567</xloc>
-      <yloc>83</yloc>
+      <xloc>990</xloc>
+      <yloc>232</yloc>
       </entry>
     <entry>
-      <name>Remove publisher from DWH</name>
+      <name>XSD valid&#x3f;</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>field</valuetype>
+      <fieldname>ValidationResult</fieldname>
+      <variablename/>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>Ok</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1110</xloc>
+      <yloc>232</yloc>
+      </entry>
+    <entry>
+      <name>Write XSD error to log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file &#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml does not validate for IATI version &#x24;&#x7b;VERSION&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>XSD validation</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1110</xloc>
+      <yloc>429</yloc>
+      </entry>
+    <entry>
+      <name>XSD validation error</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>XSD validation error</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Error</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1957</xloc>
+      <yloc>430</yloc>
+      </entry>
+    <entry>
+      <name>Write timestamp or version error to log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>---------------------------------------&#xd;&#xa;Unable to retrieve timestamp or version&#xd;&#xa;---------------------------------------</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>Unable to retrieve timestamp or version</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>981</xloc>
+      <yloc>500</yloc>
+      </entry>
+    <entry>
+      <name>Timestamp or version error</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>Unable to retrieve timestamp or version from &#x24;&#x7b;jsonURL&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Error</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1953</xloc>
+      <yloc>503</yloc>
+      </entry>
+    <entry>
+      <name>Write failed download to log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Download of &#x24;&#x7b;jsonURL&#x7d; failed.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>Download failed</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>890</xloc>
+      <yloc>592</yloc>
+      </entry>
+    <entry>
+      <name>Read processing flag</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Remove publisher from DWH</transname>
+      <transname>Read processing flag</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -644,31 +839,35 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1746</xloc>
-      <yloc>84</yloc>
+      <xloc>1619</xloc>
+      <yloc>353</yloc>
+      </entry>
+    <entry>
+      <name>Force processing&#x3f;</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>field</valuetype>
+      <fieldname>force-processing</fieldname>
+      <variablename/>
+      <fieldtype>boolean</fieldtype>
+      <mask/>
+      <comparevalue>1</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>true</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1780</xloc>
+      <yloc>354</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>START</from>
-      <to>Get publisher id and log start of publisher job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Get publisher id and log start of publisher job</from>
-      <to>Get all URLs for one publisher</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Log end of publisher job</from>
+      <from>Log download processing</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -677,8 +876,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Get all URLs for one publisher</from>
-      <to>Download all publisher files</to>
+      <from>START</from>
+      <to>Get url id and start url log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -686,35 +885,17 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Download all publisher files</from>
-      <to>Check changes</to>
+      <from>Show URL</from>
+      <to>Is it an URL&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Check changes</from>
-      <to>Simple evaluation</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Simple evaluation</from>
-      <to>Remove publisher from staging</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Simple evaluation</from>
-      <to>Write skip message to log</to>
+      <from>Is it an URL&#x3f;</from>
+      <to>Copy test file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -722,8 +903,35 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write skip message to log</from>
-      <to>Log end of publisher job</to>
+      <from>Copy test file</from>
+      <to>Write failed test file copy to log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Copy test file</from>
+      <to>Get file timestamp &#x26; version</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Activity file exists in archive&#x3f;</from>
+      <to>Calc MD5 checksum</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Calc MD5 checksum</from>
+      <to>File changed compared with archive&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -731,8 +939,17 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Get publishers file list</from>
-      <to>Load publisher file into staging</to>
+      <from>Is it an URL&#x3f;</from>
+      <to>Download activity</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Download activity</from>
+      <to>Download OK &#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -740,8 +957,17 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Load publisher staging data in dwh</from>
-      <to>Log end of publisher job</to>
+      <from>Download OK &#x3f;</from>
+      <to>Get file timestamp &#x26; version</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Get url id and start url log</from>
+      <to>Init variables</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -749,17 +975,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Remove publisher from staging</from>
-      <to>Get publishers file list</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Load publisher file into staging</from>
-      <to>Remove duplicate identifiers</to>
+      <from>Init variables</from>
+      <to>Show URL</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -767,8 +984,26 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Remove publisher from DWH</from>
-      <to>Load publisher staging data in dwh</to>
+      <from>Failed download message</from>
+      <to>Log download processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Unchanged file message</from>
+      <to>Log download processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Ok message</from>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -776,13 +1011,166 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Remove duplicate identifiers</from>
-      <to>Remove publisher from DWH</to>
+      <from>XSD validation 6.01</from>
+      <to>XSD valid&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>XSD valid&#x3f;</from>
+      <to>Activity file exists in archive&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>XSD valid&#x3f;</from>
+      <to>Write XSD error to log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write XSD error to log</from>
+      <to>XSD validation error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>XSD validation error</from>
+      <to>Log download processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Get file timestamp &#x26; version</from>
+      <to>Write timestamp or version error to log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Timestamp or version error</from>
+      <to>Log download processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write timestamp or version error to log</from>
+      <to>Timestamp or version error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Download OK &#x3f;</from>
+      <to>Write failed download to log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write failed download to log</from>
+      <to>Failed download message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Archive XML files</from>
+      <to>Ok message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Activity file exists in archive&#x3f;</from>
+      <to>Archive XML files</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>File changed compared with archive&#x3f;</from>
+      <to>Archive XML files</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Get file timestamp &#x26; version</from>
+      <to>XSD validation 6.01</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>File changed compared with archive&#x3f;</from>
+      <to>Read processing flag</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Read processing flag</from>
+      <to>Force processing&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Force processing&#x3f;</from>
+      <to>Unchanged file message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Force processing&#x3f;</from>
+      <to>Ok message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>

@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Log download processing</name>
+    <name>XSD validation 6.01</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2015&#x2f;09&#x2f;01 16&#x3a;03&#x3a;28.740</created_date>
+  <created_date>2016&#x2f;01&#x2f;21 11&#x3a;25&#x3a;54.066</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;09 12&#x3a;10&#x3a;53.588</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;09 14&#x3a;31&#x3a;26.284</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -213,12 +213,222 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get Variables</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get end time of url processing</from><to>Update log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Get end time of url processing</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get datapath variable</from><to>Calc XML filename</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc XML filename</from><to>Validate IATI XSD job</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validate IATI XSD job</from><to>catch result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set Ok</from><to>FK</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set Error</from><to>FK</to><enabled>Y</enabled> </hop>
+  <hop> <from>catch result</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Ok meta</to><enabled>Y</enabled> </hop>
+  <hop> <from>Ok meta</from><to>Set Ok</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Error meta</to><enabled>Y</enabled> </hop>
+  <hop> <from>Error meta</from><to>Set Error</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add result</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>FK</from><to>Add result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc XML filename</from><to>PK</to><enabled>Y</enabled> </hop>
+  <hop> <from>PK</from><to>Add result</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Get Variables</name>
+    <name>Add result</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>FK</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>PK</name>
+        <field>FK</field>
+      </key>
+      <value>
+        <name>ValidationMessage</name>
+        <rename>ValidationMessage</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>ValidationResult</name>
+        <rename>ValidationResult</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>900</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calc XML filename</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>filename</field_name>
+<formula_string>&#x5b;datapath&#x5d;&#x26;&#x22;&#x2f;activities.xml&#x22;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+       <formula><field_name>xsdfile</field_name>
+<formula_string>&#x5b;xsdpath&#x5d;&#x26;&#x22;&#x2f;&#x22;&#x26;&#x5b;version&#x5d;&#x26;&#x22;&#x2f;iati-activities-schema.xsd&#x22;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>280</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Copy rows to result</name>
+    <type>RowsToResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1060</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Error meta</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>ValidationResult</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ValidationMessage</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>ValidationResult</name>
+        <rename>ValidationResult</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>700</xloc>
+      <yloc>200</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>FK</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>FK</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>900</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Ok meta</send_true_to>
+<send_false_to>Error meta</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>ValidationResult</leftvalue>
+ <function>TRUE</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Boolean</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>560</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get datapath variable</name>
     <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
@@ -230,44 +440,8 @@
            </partitioning>
     <fields>
       <field>
-        <name>job-number</name>
-        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>publisher-id</name>
-        <variable>&#x24;&#x7b;publisher-id&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>url-id</name>
-        <variable>&#x24;&#x7b;url-id&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>archive-path</name>
-        <variable>&#x24;&#x7b;ARCHIVEPATH&#x7d;</variable>
+        <name>datapath</name>
+        <variable>&#x24;&#x7b;DATAPATH&#x7d;</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -278,20 +452,8 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>filename</name>
-        <variable>&#x24;&#x7b;URL-FILENAME&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <name>xsdpath</name>
+        <variable>&#x24;&#x7b;XSDPATH&#x7d;</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -313,54 +475,94 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
-      <field>
-        <name>http-status</name>
-        <variable>&#x24;&#x7b;HTTP-STATUS&#x7d;</variable>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>100</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Ok meta</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>ValidationResult</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ValidationMessage</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>ValidationResult</name>
+        <rename>ValidationResult</rename>
         <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>700</xloc>
+      <yloc>120</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>PK</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>PK</name>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
+        <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>log-message</name>
-        <variable>&#x24;&#x7b;LOG-MESSAGE&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>log-status</name>
-        <variable>&#x24;&#x7b;LOG-STATUS&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>110</xloc>
-      <yloc>74</yloc>
+      <xloc>700</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get end time of url processing</name>
-    <type>SystemInfo</type>
+    <name>Set Error</name>
+    <type>SetValueConstant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -369,23 +571,26 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
+   <usevar>N</usevar>
     <fields>
       <field>
-        <name>publisher-job-url-end-date-time</name>
-        <type>system date &#x28;variable&#x29;</type>
+        <name>ValidationResult</name>
+        <value>Error</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>377</xloc>
-      <yloc>74</yloc>
+      <xloc>780</xloc>
+      <yloc>200</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Update log</name>
-    <type>InsertUpdate</type>
+    <name>Set Ok</name>
+    <type>SetValueConstant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -394,113 +599,88 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_datamart</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>log-publisher-job-url</table>
-      <key>
-        <name>job-number</name>
-        <field>job-number</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>publisher-id</name>
-        <field>publisher-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>url-id</name>
-        <field>url-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>publisher-job-url-end-date-time</name>
-        <rename>publisher-job-url-end-date-time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>archive-path</name>
-        <rename>archive-path</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>generated-datetime</name>
-        <rename>generated-datetime</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>version</name>
-        <rename>version</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>http-status</name>
-        <rename>http-status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>log-message</name>
-        <rename>log-message</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>log-status</name>
-        <rename>log-status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>filename</name>
-        <rename>filename</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>526</xloc>
-      <yloc>74</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>HTTP status</logmessage>
+   <usevar>N</usevar>
     <fields>
       <field>
-        <name>http-status</name>
-        </field>
-      <field>
-        <name>log-message</name>
-        </field>
-      <field>
-        <name>log-status</name>
-        </field>
-      <field>
-        <name>generated-datetime</name>
+        <name>ValidationResult</name>
+        <value>Ok</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>231</xloc>
-      <yloc>74</yloc>
+      <xloc>780</xloc>
+      <yloc>120</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>catch result</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>420</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Validate IATI XSD job</name>
+    <type>JobExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <specification_method>rep_name</specification_method>
+    <job_object_id/>
+    <job_name>Validate IATI xsd job</job_name>
+    <filename/>
+    <directory_path>&#x2f;</directory_path>
+    <group_size>1</group_size>
+    <group_field/>
+    <group_time/>
+    <parameters>
+      <variablemapping><variable>XSDFILE</variable><field>xsdfile</field><input/></variablemapping>
+      <variablemapping><variable>XMLFILE</variable><field>filename</field><input/></variablemapping>
+      <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    <execution_result_target_step>catch result</execution_result_target_step>
+    <execution_time_field/>
+    <execution_result_field>ValidationResult</execution_result_field>
+    <execution_errors_field/>
+    <execution_lines_read_field/>
+    <execution_lines_written_field/>
+    <execution_lines_input_field/>
+    <execution_lines_output_field/>
+    <execution_lines_rejected_field/>
+    <execution_lines_updated_field/>
+    <execution_lines_deleted_field/>
+    <execution_files_retrieved_field/>
+    <execution_exit_status_field/>
+    <execution_log_text_field>ValidationMessage</execution_log_text_field>
+    <execution_log_channelid_field/>
+    <result_rows_target_step/>
+    <result_files_target_step/>
+    <result_files_file_name_field>FileName</result_files_file_name_field>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>280</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

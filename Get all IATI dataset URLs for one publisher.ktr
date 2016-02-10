@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 15&#x3a;47&#x3a;45.026</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;01&#x2f;28 11&#x3a;07&#x3a;46.652</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;09 14&#x3a;47&#x3a;29.396</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -104,6 +104,34 @@
     </attributes>
   </connection>
   <connection>
+    <name>IATI_datamart</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatidatamart</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>IATI_logging</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -128,27 +156,82 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>IATI_reference</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatireference</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_staging</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatistaging</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>Check URL</from><to>URL Ok&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>URL Ok&#x3f;</from><to>Invalid URL log</to><enabled>Y</enabled> </hop>
   <hop> <from>Specify publisher URL</from><to>HTTP Client</to><enabled>Y</enabled> </hop>
-  <hop> <from>Invalid URL log</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Invalid URL log</from><to>Write invalid URL to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter testfiles from url</from><to>Specify publisher URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter testfiles from url</from><to>Rename test file to url</to><enabled>Y</enabled> </hop>
   <hop> <from>Get rows from result</from><to>Database lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup</from><to>Filter testfiles from url</to><enabled>Y</enabled> </hop>
   <hop> <from>URL Ok&#x3f;</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Get System Info</from><to>Insert &#x2f; Update urllist</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams</from><to>Get System Info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Rename test file to url</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Append</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append</from><to>Get System Info</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename test file to url</from><to>Append</to><enabled>Y</enabled> </hop>
   <hop> <from>Get all URLs</from><to>Check URL</to><enabled>Y</enabled> </hop>
   <hop> <from>HTTP Client</from><to>Get all URLs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get System Info</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log 2</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get System Info</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Append streams</name>
+    <name>Append</name>
     <type>Append</type>
     <description/>
     <distribute>Y</distribute>
@@ -162,7 +245,7 @@
 <tail_name>Rename test file to url</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1129</xloc>
+      <xloc>1167</xloc>
       <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
@@ -185,8 +268,8 @@
     <resultfieldname>URLOk</resultfieldname>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>839</xloc>
-      <yloc>187</yloc>
+      <xloc>814</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -204,8 +287,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1439</xloc>
-      <yloc>189</yloc>
+      <xloc>1409</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -300,8 +383,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1229</xloc>
-      <yloc>189</yloc>
+      <xloc>1283</xloc>
+      <yloc>191</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -362,8 +445,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>721</xloc>
-      <yloc>188</yloc>
+      <xloc>699</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -422,7 +505,7 @@
     </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>596</xloc>
+      <xloc>590</xloc>
       <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
@@ -439,11 +522,11 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
+    <connection>IATI_datamart</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema>iatischema</schema>
+      <schema/>
       <table>dim-url</table>
       <key>
         <name>jsonURL</name>
@@ -475,8 +558,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1227</xloc>
-      <yloc>17</yloc>
+      <xloc>1281</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -551,8 +634,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>932</xloc>
-      <yloc>88</yloc>
+      <xloc>914</xloc>
+      <yloc>89</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -663,14 +746,14 @@
 <target_step>Invalid URL log</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>933</xloc>
-      <yloc>187</yloc>
+      <xloc>915</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write to log</name>
+    <name>Write invalid URL to log</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -698,43 +781,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>931</xloc>
-      <yloc>13</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write to log 2</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>All URLs</logmessage>
-    <fields>
-      <field>
-        <name>Publisher</name>
-        </field>
-      <field>
-        <name>jsonURL</name>
-        </field>
-      <field>
-        <name>system-date-url-load</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1325</xloc>
-      <yloc>191</yloc>
+      <xloc>913</xloc>
+      <yloc>12</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
