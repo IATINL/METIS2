@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;08 10&#x3a;15&#x3a;10.798</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;01 15&#x3a;47&#x3a;08.163</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;08 13&#x3a;14&#x3a;02.729</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -128,6 +128,34 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>IATI_staging</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatistaging</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>Set position delimeter</from><to>Split position in lat and lon</to><enabled>Y</enabled> </hop>
   <hop> <from>Lattitude clean&#x3f;</from><to>Longitude clean &#x3f;</to><enabled>Y</enabled> </hop>
@@ -139,7 +167,6 @@
   <hop> <from>Map reporting org type</from><to>Replace NL-1 in act src</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill empty location type code</from><to>Set position delimeter</to><enabled>Y</enabled> </hop>
   <hop> <from>If org type is null</from><to>Map org type text to codes</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in sector src</from><to>Write src sectors</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in country src</from><to>Write src countries</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in region src</from><to>Write src regions</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter clean values</from><to>Replace NL-1 in location src</to><enabled>Y</enabled> </hop>
@@ -147,21 +174,27 @@
   <hop> <from>Trim organisation names</from><to>Replace NL-1 in org src</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in org src</from><to>If participating org name or ref is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If participating org name or ref is null</from><to>Write src organisations</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique iati identifier</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in act src</from><to>Sort on iati identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort on iati identifier</from><to>Unique iati identifier</to><enabled>Y</enabled> </hop>
   <hop> <from>Get sectors from XML 2.x</from><to>Get sector vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get sector vars</from><to>Replace NL-1 in sector src</to><enabled>Y</enabled> </hop>
   <hop> <from>Get countries from XML 2.x</from><to>Get country vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get country vars</from><to>Replace NL-1 in country src</to><enabled>Y</enabled> </hop>
   <hop> <from>Get regions from XML 2.x</from><to>Get region vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get region vars</from><to>Replace NL-1 in region src</to><enabled>Y</enabled> </hop>
   <hop> <from>Get general activity data from XML 2.x</from><to>Get act vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get act vars</from><to>Map reporting org type</to><enabled>Y</enabled> </hop>
   <hop> <from>Get locations from XML 2.x</from><to>Get loc vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get loc vars</from><to>Fill empty location type code</to><enabled>Y</enabled> </hop>
   <hop> <from>Get organisations from XML 2.x</from><to>Get org vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get org vars</from><to>If org type is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get sector vars</from><to>Sort sector rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort sector rows</from><to>Replace NL-1 in sector src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get country vars</from><to>Sort country rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort country rows</from><to>Replace NL-1 in country src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get region vars</from><to>Sort region rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort region rows</from><to>Replace NL-1 in region src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in act src</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get act vars</from><to>Sort activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort activities</from><to>Map reporting org type</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get loc vars</from><to>Sort location</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort location</from><to>Fill empty location type code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get org vars</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort orgs</from><to>If org type is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in sector src</from><to>Fill empty vocabulary code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Fill empty vocabulary code</from><to>Write src sectors</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Dummy &#x28;do nothing&#x29;</name>
@@ -176,8 +209,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1124</xloc>
-      <yloc>453</yloc>
+      <xloc>1218</xloc>
+      <yloc>209</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -210,8 +243,42 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>424</xloc>
-      <yloc>326</yloc>
+      <xloc>553</xloc>
+      <yloc>325</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Fill empty vocabulary code</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>sector-vocabulary</name>
+        <value>1</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>724</xloc>
+      <yloc>23</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -251,7 +318,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1123</xloc>
+      <xloc>1219</xloc>
       <yloc>325</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1037,8 +1104,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>281</xloc>
-      <yloc>540</yloc>
+      <xloc>285</xloc>
+      <yloc>418</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1167,8 +1234,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>99</xloc>
-      <yloc>540</yloc>
+      <xloc>103</xloc>
+      <yloc>418</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1554,8 +1621,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>428</xloc>
-      <yloc>540</yloc>
+      <xloc>564</xloc>
+      <yloc>414</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1594,8 +1661,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1265</xloc>
-      <yloc>538</yloc>
+      <xloc>1292</xloc>
+      <yloc>411</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1627,7 +1694,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>895</xloc>
+      <xloc>991</xloc>
       <yloc>326</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1660,7 +1727,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1010</xloc>
+      <xloc>1106</xloc>
       <yloc>325</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1816,8 +1883,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>616</xloc>
-      <yloc>539</yloc>
+      <xloc>705</xloc>
+      <yloc>413</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1972,8 +2039,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>424</xloc>
-      <yloc>240</yloc>
+      <xloc>554</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2004,8 +2071,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>776</xloc>
-      <yloc>540</yloc>
+      <xloc>836</xloc>
+      <yloc>413</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2047,7 +2114,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>611</xloc>
+      <xloc>701</xloc>
       <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2079,8 +2146,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>497</xloc>
-      <yloc>96</yloc>
+      <xloc>554</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2111,8 +2178,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1291</xloc>
-      <yloc>327</yloc>
+      <xloc>1361</xloc>
+      <yloc>324</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2154,8 +2221,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1076</xloc>
-      <yloc>538</yloc>
+      <xloc>1113</xloc>
+      <yloc>411</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2186,8 +2253,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>495</xloc>
-      <yloc>161</yloc>
+      <xloc>554</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2218,7 +2285,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>493</xloc>
+      <xloc>550</xloc>
       <yloc>23</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2244,14 +2311,14 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>612</xloc>
+      <xloc>708</xloc>
       <yloc>325</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sort on iati identifier</name>
+    <name>Sort activities</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2278,8 +2345,250 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>782</xloc>
-      <yloc>239</yloc>
+      <xloc>416</xloc>
+      <yloc>241</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort country rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-countries</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>recipient-country-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>414</xloc>
+      <yloc>97</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort location</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-locations</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-name</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>pos</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>location-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>409</xloc>
+      <yloc>326</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort orgs</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org-role</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org-ref</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>participating-org-type-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>411</xloc>
+      <yloc>417</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort region rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-regions</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>recipient-region-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>recipient-region-percentage</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>415</xloc>
+      <yloc>163</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort sector rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sector-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sector-vocabulary</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>412</xloc>
+      <yloc>24</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2326,7 +2635,7 @@
         <trimtype>both</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>763</xloc>
+      <xloc>859</xloc>
       <yloc>326</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2373,33 +2682,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>908</xloc>
-      <yloc>539</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique iati identifier</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>iati-identifier</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>940</xloc>
-      <yloc>238</yloc>
+      <xloc>961</xloc>
+      <yloc>412</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2415,9 +2699,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
-    <table>src-act-data</table>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-data</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2516,8 +2800,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1107</xloc>
-      <yloc>237</yloc>
+      <xloc>870</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2533,9 +2817,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
-    <table>src-act-countries</table>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-countries</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2582,8 +2866,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>779</xloc>
-      <yloc>98</yloc>
+      <xloc>868</xloc>
+      <yloc>95</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2599,9 +2883,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
-    <table>src-act-locations</table>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-locations</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2656,8 +2940,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1448</xloc>
-      <yloc>327</yloc>
+      <xloc>1512</xloc>
+      <yloc>326</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2673,9 +2957,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
-    <table>src-act-organisations</table>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-organisations</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2730,8 +3014,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1459</xloc>
-      <yloc>537</yloc>
+      <xloc>1512</xloc>
+      <yloc>410</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2747,9 +3031,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
-    <table>src-act-regions</table>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-regions</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2796,8 +3080,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>778</xloc>
-      <yloc>161</yloc>
+      <xloc>867</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2813,9 +3097,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <schema>iatischema</schema>
-    <table>src-act-sectors</table>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-sectors</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2866,7 +3150,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>775</xloc>
+      <xloc>868</xloc>
       <yloc>23</yloc>
       <draw>Y</draw>
       </GUI>
