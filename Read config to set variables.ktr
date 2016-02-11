@@ -68,41 +68,12 @@
   <created_user>-</created_user>
   <created_date>2011&#x2f;04&#x2f;22 12&#x3a;33&#x3a;24.933</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;01&#x2f;18 13&#x3a;42&#x3a;09.658</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;11 08&#x3a;59&#x3a;04.200</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>IATI_database</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatimariadb</database>
-    <port>3306</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.Database type</code><attribute>Innodb</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
   <hop> <from>config.properties</from><to>set variables</to><enabled>Y</enabled> </hop>
   </order>
@@ -132,7 +103,7 @@
     <ini_section_field/>
     <section/>
     <file>
-      <name>&#x24;&#x7b;CONFIG_DIR&#x7d;&#x2f;config.properties</name>
+      <name>&#x24;&#x7b;user.home&#x7d;&#x2f;iati_pdi_config&#x2f;config.properties</name>
       <exclude_filemask/>
       <filemask/>
       <file_required>N</file_required>
@@ -177,8 +148,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>86</xloc>
-      <yloc>61</yloc>
+      <xloc>80</xloc>
+      <yloc>60</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -195,7 +166,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#x2f;&#x2f;Script here&#xa;setVariable&#x28;Key,Value,&#x22;r&#x22;&#x29;&#x3b;</jsScript_script>
