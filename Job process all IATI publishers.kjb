@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;18 17&#x3a;23&#x3a;25.268</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;19 12&#x3a;01&#x3a;18.943</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -511,7 +511,7 @@
       <type>WRITE_TO_LOG</type>
       <logmessage>------------------------------------------------------------------------------&#xd;&#xa;Unable to read configuration, process aborted&#xd;&#xa;------------------------------------------------------------------------------</logmessage>
       <loglevel>Minimal</loglevel>
-      <logsubject>Unable to read configuration</logsubject>
+      <logsubject>Unable to read configuration file</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
