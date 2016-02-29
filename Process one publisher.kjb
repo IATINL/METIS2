@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;16 11&#x3a;23&#x3a;58.334</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;18 17&#x3a;06&#x3a;25.985</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;25 13&#x3a;16&#x3a;39.345</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -423,7 +423,7 @@
       <yloc>84</yloc>
       </entry>
     <entry>
-      <name>Simple evaluation</name>
+      <name>Changed files&#x3f;</name>
       <description/>
       <type>SIMPLE_EVAL</type>
       <valuetype>field</valuetype>
@@ -761,7 +761,7 @@
     </hop>
     <hop>
       <from>Check changes</from>
-      <to>Simple evaluation</to>
+      <to>Changed files&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -769,7 +769,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Simple evaluation</from>
+      <from>Changed files&#x3f;</from>
       <to>Remove publisher from staging</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -778,7 +778,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Simple evaluation</from>
+      <from>Changed files&#x3f;</from>
       <to>Write skip message to log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

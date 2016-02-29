@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;02&#x2f;17 14&#x3a;58&#x3a;17.683</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;18 16&#x3a;33&#x3a;25.287</modified_date>
+  <modified_date>2016&#x2f;02&#x2f;26 13&#x3a;17&#x3a;19.973</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -213,66 +213,15 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Read check total view</from><to>Formula</to><enabled>Y</enabled> </hop>
-  <hop> <from>Formula</from><to>Filter different rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter different rows</from><to>Write non matching check totals  to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter different rows</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read check total view</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Row denormaliser</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check for staging DWH differences</from><to>Check for DWH and DM differences</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check for staging DWH differences</from><to>Staging dwh difference</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check for DWH and DM differences</from><to>DWH DM difference</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check for DWH and DM differences</from><to>Everything OK</to><enabled>Y</enabled> </hop>
+  <hop> <from>Row denormaliser</from><to>Calculate differences</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate differences</from><to>Check for staging DWH differences</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Filter different rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Write non matching check totals  to log</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>difference</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>467</xloc>
-      <yloc>75</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Formula</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>difference</field_name>
-<formula_string>IF&#x28;&#x5b;check-total-source&#x5d;&#x3d;&#x5b;check-total-target&#x5d;&#x3b;&#x22;N&#x22;&#x3b;&#x22;Y&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>284</xloc>
-      <yloc>75</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Read check total view</name>
     <type>TableInput</type>
@@ -285,7 +234,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;job-number&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, subject&#xd;&#xa;, &#x60;step-source&#x60;&#xd;&#xa;, &#x60;step-target&#x60;&#xd;&#xa;, &#x60;check-total-source&#x60;&#xd;&#xa;, &#x60;check-total-target&#x60;&#xd;&#xa;FROM &#x60;iati-view-check-totals&#x60;&#xd;&#xa;WHERE&#xd;&#xa;	&#x60;job-number&#x60;&#x3d;&#x24;&#x7b;JOBNUMBER&#x7d;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;job-number&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, subject&#xd;&#xa;, step&#xd;&#xa;, &#x60;check-total&#x60;&#xd;&#xa;FROM iatidatamart.&#x60;log-check-totals&#x60;&#xd;&#xa;WHERE&#xd;&#xa;	&#x60;job-number&#x60;&#x3d;&#x24;&#x7b;JOBNUMBER&#x7d;&#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -300,8 +249,8 @@
     </step>
 
   <step>
-    <name>Write non matching check totals  to log</name>
-    <type>WriteToLog</type>
+    <name>Row denormaliser</name>
+    <type>Denormaliser</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -310,50 +259,235 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>NON MATCHING CHECK TOTALS</logmessage>
-    <fields>
-      <field>
-        <name>job-number</name>
-        </field>
-      <field>
-        <name>publisher-id</name>
-        </field>
-      <field>
-        <name>url-id</name>
-        </field>
-      <field>
-        <name>subject</name>
-        </field>
-      <field>
-        <name>step-source</name>
-        </field>
-      <field>
-        <name>step-target</name>
-        </field>
-      <field>
-        <name>check-total-source</name>
-        </field>
-      <field>
-        <name>check-total-target</name>
-        </field>
-      <field>
-        <name>difference</name>
-        </field>
-      </fields>
+      <key_field>step</key_field>
+      <group>
+        <field>
+          <name>job-number</name>
+          </field>
+        <field>
+          <name>publisher-id</name>
+          </field>
+        <field>
+          <name>url-id</name>
+          </field>
+        <field>
+          <name>subject</name>
+          </field>
+        </group>
+      <fields>
+        <field>
+          <field_name>check-total</field_name>
+          <key_value>staging</key_value>
+          <target_name>staging</target_name>
+          <target_type>Number</target_type>
+          <target_format/>
+          <target_length>20</target_length>
+          <target_precision>10</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>SUM</target_aggregation_type>
+          </field>
+        <field>
+          <field_name>check-total</field_name>
+          <key_value>dwh</key_value>
+          <target_name>dwh</target_name>
+          <target_type>Number</target_type>
+          <target_format/>
+          <target_length>20</target_length>
+          <target_precision>10</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>SUM</target_aggregation_type>
+          </field>
+        <field>
+          <field_name>check-total</field_name>
+          <key_value>dm</key_value>
+          <target_name>dm</target_name>
+          <target_type>Number</target_type>
+          <target_format/>
+          <target_length>20</target_length>
+          <target_precision>10</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>SUM</target_aggregation_type>
+          </field>
+        </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>689</xloc>
+      <xloc>388</xloc>
       <yloc>76</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>publisher-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>subject</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>step</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>258</xloc>
+      <yloc>76</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check for staging DWH differences</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Check for DWH and DM differences</send_true_to>
+<send_false_to>Staging dwh difference</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>stg-dwh-difference</leftvalue>
+ <function>&#x3c;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Number</type><text>0.5</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>716</xloc>
+      <yloc>76</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check for DWH and DM differences</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Everything OK</send_true_to>
+<send_false_to>DWH DM difference</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>dwh-dm-difference</leftvalue>
+ <function>&#x3c;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Number</type><text>0.5</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>940</xloc>
+      <yloc>76</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Staging dwh difference</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>Difference found between staging and datawarehouse layer</message>
+      <always_log_rows>Y</always_log_rows>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>715</xloc>
+      <yloc>250</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>DWH DM difference</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>Difference found between datawarehouse and datamart layer</message>
+      <always_log_rows>Y</always_log_rows>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>940</xloc>
+      <yloc>249</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Everything OK</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -365,8 +499,41 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>468</xloc>
-      <yloc>230</yloc>
+      <xloc>1165</xloc>
+      <yloc>75</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calculate differences</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>stg-dwh-difference</field_name>
+<formula_string>abs&#x28;&#x5b;staging&#x5d;-&#x5b;dwh&#x5d;&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+       <formula><field_name>dwh-dm-difference</field_name>
+<formula_string>abs&#x28;&#x5b;dm&#x5d;-&#x5b;dwh&#x5d;&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>521</xloc>
+      <yloc>77</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
