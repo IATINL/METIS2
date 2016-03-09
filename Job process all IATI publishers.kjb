@@ -1,14 +1,14 @@
 <job>
   <name>Job process all IATI publishers</name>
-    <description/>
-    <extended_description/>
-    <job_version>0.81</job_version>
+    <description>Process all active IATI publishers.</description>
+    <extended_description>This job process all active IATI publishers defined in the control table &#x28;ctl-publishers&#x29;. &#xd;&#xa;It is the main job which takes care of transforming all the IATI data of the publishers into an&#xd;&#xa;MySQL DB compatable reporting database. This reporting database can be accessed by reporting tools sunch as Tableau.</extended_description>
+    <job_version>1.12</job_version>
     <job_status>1</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;02 14&#x3a;38&#x3a;44.333</modified_date>
+  <modified_date>2016&#x2f;03&#x2f;07 17&#x3a;22&#x3a;11.162</modified_date>
     <parameters>
     </parameters>
   <connection>

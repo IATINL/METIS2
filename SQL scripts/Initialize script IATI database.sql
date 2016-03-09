@@ -10,6 +10,12 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Dumping database structure for iatidatamart
+DROP DATABASE IF EXISTS `iatidatamart`;
+CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iatidatamart`;
+
+
 -- Dumping structure for table iatidatamart.dim-activity
 DROP TABLE IF EXISTS `dim-activity`;
 CREATE TABLE IF NOT EXISTS `dim-activity` (
@@ -719,6 +725,12 @@ DROP TABLE IF EXISTS `iati-view-total-disbursements`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-total-disbursements` AS select `fct-transactions`.`iati-identifier` AS `iati-identifier`,`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `fct-transactions` where (`fct-transactions`.`transaction-type-code` = 'D') group by `fct-transactions`.`iati-identifier`,`fct-transactions`.`transaction-type-code`;
 
 
+-- Dumping database structure for iatilogging
+DROP DATABASE IF EXISTS `iatilogging`;
+CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iatilogging`;
+
+
 -- Dumping structure for table iatilogging.log-pdi-etl
 DROP TABLE IF EXISTS `log-pdi-etl`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl` (
@@ -794,6 +806,12 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
+
+
+-- Dumping database structure for iatireference
+DROP DATABASE IF EXISTS `iatireference`;
+CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iatireference`;
 
 
 -- Dumping structure for table iatireference.codelist-date-type
@@ -894,6 +912,12 @@ CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
 -- Data exporting was unselected.
 
 
+-- Dumping database structure for iatischema
+DROP DATABASE IF EXISTS `iatischema`;
+CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iatischema`;
+
+
 -- Dumping structure for table iatischema.ctl-publishers
 DROP TABLE IF EXISTS `ctl-publishers`;
 CREATE TABLE IF NOT EXISTS `ctl-publishers` (
@@ -916,7 +940,8 @@ CREATE TABLE IF NOT EXISTS `currency-rates` (
   `Jaar` int(11) NOT NULL DEFAULT '0',
   `Koers` double DEFAULT NULL,
   `Valuta` varchar(3) NOT NULL DEFAULT '',
-  PRIMARY KEY (`Jaar`,`Valuta`),
+  `Bron` char(20) NOT NULL,
+  PRIMARY KEY (`Jaar`,`Valuta`,`Bron`),
   KEY `idx_currency-rates_lookup` (`Valuta`,`Jaar`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1169,6 +1194,12 @@ CREATE TABLE IF NOT EXISTS `stg-parent-activities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
+
+
+-- Dumping database structure for iatistaging
+DROP DATABASE IF EXISTS `iatistaging`;
+CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iatistaging`;
 
 
 -- Dumping structure for table iatistaging.src-act-budgets
