@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 14&#x3a;10&#x3a;38.027</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;08 13&#x3a;17&#x3a;47.013</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;12 16&#x3a;16&#x3a;33.597</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -104,6 +104,34 @@
     </attributes>
   </connection>
   <connection>
+    <name>IATI_datamart</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatidatamart</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>IATI_logging</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -125,6 +153,34 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_reference</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatireference</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
@@ -161,7 +217,6 @@
   <hop> <from>Replace NL-1 in result src</from><to>Write src activity results</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in doc cat link src</from><to>Write src document link category</to><enabled>Y</enabled> </hop>
   <hop> <from>Get descriptions from XML v 2.x</from><to>Get desc vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get results from XML 2.x</from><to>Get result vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get documents from XML 2.x</from><to>Get doccat vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get desc vars</from><to>Sort descriptions</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort descriptions</from><to>Replace NL-1 in desc src</to><enabled>Y</enabled> </hop>
@@ -169,6 +224,7 @@
   <hop> <from>Sort results</from><to>Replace NL-1 in result src</to><enabled>Y</enabled> </hop>
   <hop> <from>Get doccat vars</from><to>Sort documents</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort documents</from><to>Replace NL-1 in doc cat link src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get results from XML 2.x</from><to>Get result vars</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Get desc vars</name>
@@ -616,8 +672,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>297</xloc>
-      <yloc>108</yloc>
+      <xloc>298</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -779,7 +835,7 @@
         <xpath>..&#x2f;baseline&#x2f;&#x40;value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -809,7 +865,7 @@
         <xpath>actual&#x2f;&#x40;value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -839,7 +895,7 @@
         <xpath>target&#x2f;&#x40;value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -881,7 +937,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>113</xloc>
+      <xloc>114</xloc>
       <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
@@ -977,8 +1033,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>586</xloc>
-      <yloc>107</yloc>
+      <xloc>587</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1169,8 +1225,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>421</xloc>
-      <yloc>108</yloc>
+      <xloc>422</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1279,8 +1335,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>787</xloc>
-      <yloc>109</yloc>
+      <xloc>788</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

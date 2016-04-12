@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 09&#x3a;37&#x3a;08.487</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;08 13&#x3a;17&#x3a;10.298</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;12 16&#x3a;51&#x3a;28.647</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -104,6 +104,34 @@
     </attributes>
   </connection>
   <connection>
+    <name>IATI_datamart</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatidatamart</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>IATI_logging</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -125,6 +153,34 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_reference</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatireference</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
@@ -780,7 +836,7 @@
         <xpath>..&#x2f;baseline&#x2f;&#x40;value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -810,7 +866,7 @@
         <xpath>actual&#x2f;&#x40;value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -840,7 +896,7 @@
         <xpath>target&#x2f;&#x40;value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
