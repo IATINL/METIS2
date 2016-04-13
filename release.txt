@@ -3,4 +3,5 @@ Version 1.05 basic control totals added
 Version 1.10 control totals for all layers and retrieving all exchange rates (ECB and non-ECB)
 Version 1.11 XSD directory and path added
 Version 1.12 Minor bug fixes and removal of hard coded path references
-Version 1.13 Fixed error when producing HTML pages 
+Version 1.13 Fixed error when producing HTML pages
+Version 1.14 Added HTTPS download handling and allowed non-numeric result values
