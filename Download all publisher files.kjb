@@ -8,10 +8,15 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;09 14&#x3a;33&#x3a;04.260</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;15 17&#x3a;17&#x3a;00.089</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>is-testfile</name>
             <default_value/>
             <description/>
         </parameter>
@@ -198,8 +203,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>45</xloc>
-      <yloc>231</yloc>
+      <xloc>30</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -208,8 +213,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2222</xloc>
-      <yloc>237</yloc>
+      <xloc>2210</xloc>
+      <yloc>231</yloc>
       </entry>
     <entry>
       <name>Show URL</name>
@@ -221,8 +226,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>386</xloc>
-      <yloc>230</yloc>
+      <xloc>368</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>Archive XML files</name>
@@ -253,8 +258,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1442</xloc>
-      <yloc>231</yloc>
+      <xloc>1430</xloc>
+      <yloc>225</yloc>
       </entry>
     <entry>
       <name>Get url id and start url log</name>
@@ -287,8 +292,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>173</xloc>
-      <yloc>230</yloc>
+      <xloc>141</xloc>
+      <yloc>223</yloc>
       </entry>
     <entry>
       <name>Log download processing</name>
@@ -321,8 +326,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2104</xloc>
-      <yloc>236</yloc>
+      <xloc>2092</xloc>
+      <yloc>230</yloc>
       </entry>
     <entry>
       <name>Copy test file</name>
@@ -348,17 +353,17 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>675</xloc>
-      <yloc>139</yloc>
+      <xloc>663</xloc>
+      <yloc>133</yloc>
       </entry>
     <entry>
-      <name>Is it an URL&#x3f;</name>
+      <name>Is it a testfile&#x3f;</name>
       <description/>
       <type>SIMPLE_EVAL</type>
-      <valuetype>variable</valuetype>
-      <fieldname/>
+      <valuetype>field</valuetype>
+      <fieldname>is-testfile</fieldname>
       <variablename>&#x24;&#x7b;Publisher&#x7d;</variablename>
-      <fieldtype>string</fieldtype>
+      <fieldtype>boolean</fieldtype>
       <mask/>
       <comparevalue>test</comparevalue>
       <minvalue/>
@@ -370,8 +375,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>491</xloc>
-      <yloc>230</yloc>
+      <xloc>479</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>Write failed test file copy to log</name>
@@ -383,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>676</xloc>
-      <yloc>31</yloc>
+      <xloc>664</xloc>
+      <yloc>25</yloc>
       </entry>
     <entry>
       <name>Get file timestamp &#x26; version</name>
@@ -417,8 +422,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>232</yloc>
+      <xloc>836</xloc>
+      <yloc>226</yloc>
       </entry>
     <entry>
       <name>Activity file exists in archive&#x3f;</name>
@@ -433,8 +438,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1241</xloc>
-      <yloc>231</yloc>
+      <xloc>1229</xloc>
+      <yloc>225</yloc>
       </entry>
     <entry>
       <name>File changed compared with archive&#x3f;</name>
@@ -455,8 +460,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1439</xloc>
-      <yloc>352</yloc>
+      <xloc>1427</xloc>
+      <yloc>346</yloc>
       </entry>
     <entry>
       <name>Calc MD5 checksum</name>
@@ -489,8 +494,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1240</xloc>
-      <yloc>353</yloc>
+      <xloc>1228</xloc>
+      <yloc>347</yloc>
       </entry>
     <entry>
       <name>Download activity</name>
@@ -523,8 +528,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>604</xloc>
-      <yloc>232</yloc>
+      <xloc>592</xloc>
+      <yloc>226</yloc>
       </entry>
     <entry>
       <name>Download OK &#x3f;</name>
@@ -545,8 +550,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>711</xloc>
-      <yloc>232</yloc>
+      <xloc>699</xloc>
+      <yloc>226</yloc>
       </entry>
     <entry>
       <name>Init variables</name>
@@ -585,8 +590,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>291</xloc>
-      <yloc>230</yloc>
+      <xloc>259</xloc>
+      <yloc>223</yloc>
       </entry>
     <entry>
       <name>Failed download message</name>
@@ -610,8 +615,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1952</xloc>
-      <yloc>588</yloc>
+      <xloc>1940</xloc>
+      <yloc>582</yloc>
       </entry>
     <entry>
       <name>Unchanged file message</name>
@@ -635,8 +640,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1954</xloc>
-      <yloc>354</yloc>
+      <xloc>1942</xloc>
+      <yloc>348</yloc>
       </entry>
     <entry>
       <name>Ok message</name>
@@ -660,8 +665,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1957</xloc>
-      <yloc>236</yloc>
+      <xloc>1945</xloc>
+      <yloc>230</yloc>
       </entry>
     <entry>
       <name>XSD validation 6.01</name>
@@ -694,8 +699,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>990</xloc>
-      <yloc>232</yloc>
+      <xloc>978</xloc>
+      <yloc>226</yloc>
       </entry>
     <entry>
       <name>XSD valid&#x3f;</name>
@@ -716,8 +721,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1110</xloc>
-      <yloc>232</yloc>
+      <xloc>1098</xloc>
+      <yloc>226</yloc>
       </entry>
     <entry>
       <name>Write XSD error to log</name>
@@ -729,8 +734,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1110</xloc>
-      <yloc>429</yloc>
+      <xloc>1098</xloc>
+      <yloc>423</yloc>
       </entry>
     <entry>
       <name>XSD validation error</name>
@@ -754,8 +759,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1957</xloc>
-      <yloc>430</yloc>
+      <xloc>1945</xloc>
+      <yloc>424</yloc>
       </entry>
     <entry>
       <name>Write timestamp or version error to log</name>
@@ -767,8 +772,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>981</xloc>
-      <yloc>500</yloc>
+      <xloc>969</xloc>
+      <yloc>494</yloc>
       </entry>
     <entry>
       <name>Timestamp or version error</name>
@@ -792,8 +797,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1953</xloc>
-      <yloc>503</yloc>
+      <xloc>1941</xloc>
+      <yloc>497</yloc>
       </entry>
     <entry>
       <name>Write failed download to log</name>
@@ -805,8 +810,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>890</xloc>
-      <yloc>592</yloc>
+      <xloc>878</xloc>
+      <yloc>586</yloc>
       </entry>
     <entry>
       <name>Read processing flag</name>
@@ -839,8 +844,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1619</xloc>
-      <yloc>353</yloc>
+      <xloc>1607</xloc>
+      <yloc>347</yloc>
       </entry>
     <entry>
       <name>Force processing&#x3f;</name>
@@ -861,8 +866,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1780</xloc>
-      <yloc>354</yloc>
+      <xloc>1768</xloc>
+      <yloc>348</yloc>
       </entry>
   </entries>
   <hops>
@@ -886,7 +891,7 @@
     </hop>
     <hop>
       <from>Show URL</from>
-      <to>Is it an URL&#x3f;</to>
+      <to>Is it a testfile&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -894,7 +899,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Is it an URL&#x3f;</from>
+      <from>Is it a testfile&#x3f;</from>
       <to>Copy test file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -939,7 +944,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Is it an URL&#x3f;</from>
+      <from>Is it a testfile&#x3f;</from>
       <to>Download activity</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

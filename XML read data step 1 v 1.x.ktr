@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;11 13&#x3a;37&#x3a;32.643</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;08 13&#x3a;12&#x3a;48.115</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;15 13&#x3a;25&#x3a;22.997</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -104,6 +104,34 @@
     </attributes>
   </connection>
   <connection>
+    <name>IATI_datamart</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatidatamart</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>IATI_logging</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -125,6 +153,34 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>IATI_reference</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatireference</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
@@ -157,17 +213,14 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Map participating role</from><to>Trim organisation names</to><enabled>Y</enabled> </hop>
   <hop> <from>Map organisation type </from><to>Replace NL-1</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1</from><to>Map participating role</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in act src</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
   <hop> <from>Map reporting org type</from><to>Replace NL-1 in act src</to><enabled>Y</enabled> </hop>
   <hop> <from>If org type is null</from><to>Map organisation type </to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in country src</from><to>Write src countries</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in region src</from><to>Write src regions</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill empty location type code</from><to>Replace NL-1 in location src</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in location src</from><to>Write src locations</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim organisation names</from><to>Replace NL-1 in org src</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in org src</from><to>If part org name or ref is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If part org name or ref is null</from><to>Write src organisations</to><enabled>Y</enabled> </hop>
   <hop> <from>Get sectors from XML 1.x</from><to>Get sector vars</to><enabled>Y</enabled> </hop>
@@ -189,8 +242,10 @@
   <hop> <from>Sort activities</from><to>Map reporting org type</to><enabled>Y</enabled> </hop>
   <hop> <from>Get org vars</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort orgs</from><to>If org type is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace voc DAC to 1</from><to>Fill empty vocabulary code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fill empty vocabulary code</from><to>Replace NL-1 in sector src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace voc DAC to 1</from><to>Fill empty voc code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Fill empty voc code</from><to>Replace NL-1 in sector src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in act src</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Map participating role</from><to>Replace NL-1 in org src</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Fill empty location type code</name>
@@ -220,14 +275,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>575</xloc>
+      <xloc>520</xloc>
       <yloc>212</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Fill empty vocabulary code</name>
+    <name>Fill empty voc code</name>
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
@@ -254,8 +309,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>745</xloc>
-      <yloc>36</yloc>
+      <xloc>641</xloc>
+      <yloc>38</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1587,7 +1642,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>542</xloc>
+      <xloc>515</xloc>
       <yloc>355</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1627,7 +1682,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1365</xloc>
+      <xloc>1217</xloc>
       <yloc>359</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1783,7 +1838,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>671</xloc>
+      <xloc>638</xloc>
       <yloc>356</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1995,8 +2050,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>578</xloc>
-      <yloc>286</yloc>
+      <xloc>634</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2070,8 +2125,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>753</xloc>
-      <yloc>285</yloc>
+      <xloc>789</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2102,7 +2157,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>744</xloc>
+      <xloc>789</xloc>
       <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2134,8 +2189,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>749</xloc>
-      <yloc>211</yloc>
+      <xloc>789</xloc>
+      <yloc>212</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2166,7 +2221,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1208</xloc>
+      <xloc>1060</xloc>
       <yloc>359</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2198,8 +2253,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>747</xloc>
-      <yloc>152</yloc>
+      <xloc>790</xloc>
+      <yloc>149</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2230,8 +2285,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>933</xloc>
-      <yloc>36</yloc>
+      <xloc>784</xloc>
+      <yloc>37</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2262,8 +2317,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>575</xloc>
-      <yloc>36</yloc>
+      <xloc>503</xloc>
+      <yloc>37</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2296,8 +2351,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>414</xloc>
-      <yloc>286</yloc>
+      <xloc>378</xloc>
+      <yloc>287</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2336,8 +2391,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>412</xloc>
-      <yloc>93</yloc>
+      <xloc>377</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2406,8 +2461,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>413</xloc>
-      <yloc>213</yloc>
+      <xloc>377</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2464,8 +2519,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>409</xloc>
-      <yloc>354</yloc>
+      <xloc>377</xloc>
+      <yloc>355</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2510,8 +2565,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>411</xloc>
-      <yloc>150</yloc>
+      <xloc>377</xloc>
+      <yloc>151</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2556,55 +2611,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>413</xloc>
-      <yloc>36</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Trim organisation names</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>participating-org</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>participating-org-ref</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1056</xloc>
-      <yloc>359</yloc>
+      <xloc>377</xloc>
+      <yloc>37</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2713,7 +2721,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>937</xloc>
+      <xloc>1382</xloc>
       <yloc>284</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2779,7 +2787,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>932</xloc>
+      <xloc>1382</xloc>
       <yloc>95</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2865,7 +2873,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>934</xloc>
+      <xloc>1384</xloc>
       <yloc>211</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2939,7 +2947,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1528</xloc>
+      <xloc>1380</xloc>
       <yloc>360</yloc>
       <draw>Y</draw>
       </GUI>
@@ -3005,7 +3013,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>933</xloc>
+      <xloc>1383</xloc>
       <yloc>153</yloc>
       <draw>Y</draw>
       </GUI>
@@ -3075,7 +3083,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1122</xloc>
+      <xloc>1380</xloc>
       <yloc>36</yloc>
       <draw>Y</draw>
       </GUI>
