@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;08 10&#x3a;15&#x3a;10.798</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;15 13&#x3a;27&#x3a;44.624</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;21 13&#x3a;07&#x3a;30.806</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1704,13 +1704,13 @@
     <fields>
       <field>
         <name>participating-org</name>
-        <value>Unknown participating organisation</value>
+        <value>Unknown organisation name</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
       <field>
         <name>participating-org-ref</name>
-        <value>Unknown participating organistion reference</value>
+        <value>Unknown organisation reference</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
@@ -2117,7 +2117,7 @@
         <in_stream_name>participating-org-ref</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -2160,7 +2160,7 @@
         <in_stream_name>reporting-org-ref</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>

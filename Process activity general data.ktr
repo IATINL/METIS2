@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 16&#x3a;03&#x3a;28.750</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;08 17&#x3a;01&#x3a;07.687</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;21 10&#x3a;24&#x3a;13.079</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -230,13 +230,15 @@
   <hop> <from>Denormalise markers</from><to>Join markers</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup rep org type</from><to>String operations</to><enabled>Y</enabled> </hop>
   <hop> <from>String operations</from><to>Join markers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read related act from DB</from><to>Get first parent</to><enabled>Y</enabled> </hop>
   <hop> <from>Join participating orgs</from><to>Join related activity</to><enabled>Y</enabled> </hop>
   <hop> <from>Get first parent</from><to>Join related activity</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup org id</from><to>Select part. orgs.</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act organisations from DB</from><to>If name or ref is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If name or ref is null</from><to>Lookup org id</to><enabled>Y</enabled> </hop>
   <hop> <from>Join related activity</from><to>Write activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read related act from DB</from><to>Filter parents</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter parents</from><to>Get first parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter parents</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Denormalise dates</name>
@@ -1643,6 +1645,54 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1174</xloc>
       <yloc>249</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter parents</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Get first parent</send_true_to>
+<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>related-activity-type</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>300</xloc>
+      <yloc>585</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>297</xloc>
+      <yloc>696</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
