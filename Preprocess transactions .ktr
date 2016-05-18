@@ -68,11 +68,95 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;19 09&#x3a;29&#x3a;48.557</modified_date>
+  <modified_date>2016&#x2f;05&#x2f;04 16&#x3a;06&#x3a;14.695</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Retrieve organisation names based on providing activity&#xd;&#xa;if no valid organisation name is specified.</note>
+      <xloc>2514</xloc>
+      <yloc>385</yloc>
+      <width>328</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Retrieve the providing activities for disbursements, expenditures and commitments &#xd;&#xa;based on the incoming fund activity identifiers. If multiple providing activities, split &#xd;&#xa;the transactions by the relative weigth of the incoming fund transactions.  </note>
+      <xloc>923</xloc>
+      <yloc>46</yloc>
+      <width>487</width>
+      <heigth>55</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Split all non IF transactions by providing activity identifier &#xd;&#xa;using the relative weigth of the IF transactions.</note>
+      <xloc>1735</xloc>
+      <yloc>66</yloc>
+      <width>340</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Add the IF transactions to &#xd;&#xa;make the stream complete.</note>
+      <xloc>2207</xloc>
+      <yloc>66</yloc>
+      <width>169</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -213,30 +297,49 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Convert date fmt</from><to>Derive currency &#x26; trx year</to><enabled>Y</enabled> </hop>
-  <hop> <from>Derive currency &#x26; trx year</from><to>Select trx</to><enabled>Y</enabled> </hop>
+  <hop> <from>Accountable org found &#x3f;</from><to>Remove null fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Accountable org found &#x3f;</from><to>Replace provider id &#x26; name</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams 1</from><to>Get receiver org id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams 2</from><to>Append streams 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get provider org id</from><to>Provider reference without name&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Lookup org names</from><to>Add org name and id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Provider reference without name&#x3f;</from><to>Reorder fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Provider reference without name&#x3f;</from><to>Add org name and id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read accountable orgs</from><to>Lookup org names</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read org names</from><to>Lookup org names</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove null fields</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Reorder fields</from><to>Append streams 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace provider id &#x26; name</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add org name and id</from><to>Accountable org found &#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Get exchange rate</from><to>Known rates</to><enabled>Y</enabled> </hop>
   <hop> <from>Known rates</from><to>Unknown trx rate log</to><enabled>Y</enabled> </hop>
   <hop> <from>Read EUR currency rate from DB</from><to>Get exchange rate</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select trx</from><to>Get exchange rate</to><enabled>Y</enabled> </hop>
-  <hop> <from>Known rates</from><to>Blank provider act for outflows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Blank provider act for outflows</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get receiver org id</from><to>Convert date fmt</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read act trx from DB</from><to>Get provider org id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get provider org id</from><to>Provider reference without name&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 1</from><to>Get receiver org id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Accountable org found &#x3f;</from><to>Replace provider id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Accountable org found &#x3f;</from><to>Remove null fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove null fields</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace provider id</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 2</from><to>Append streams 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Provider reference without name&#x3f;</from><to>Reorder fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Reorder fields</from><to>Append streams 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Provider reference without name&#x3f;</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read accountable orgs</from><to>Lookup org names</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup org names</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read org names</from><to>Lookup org names</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup</from><to>Accountable org found &#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Convert date fmt</from><to>Derive currency &#x26; trx year</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read act trx from DB</from><to>Convert date fmt</to><enabled>Y</enabled> </hop>
+  <hop> <from>Derive currency &#x26; trx year</from><to>Get exchange rate</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get receiver org id</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not an IF transaction&#x3f;</from><to>Calc euro amount</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort activities</from><to>Sum by act id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not an IF transaction&#x3f;</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort activities</from><to>Join totals</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sum by act id</from><to>Join totals</to><enabled>Y</enabled> </hop>
+  <hop> <from>Join totals</from><to>Calculate IF weigth</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate IF weigth</from><to>Sum weigths</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sum weigths</from><to>Sort on IF act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort on IF act</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc non IF trx weigth</from><to>Blank prov act nulls</to><enabled>Y</enabled> </hop>
+  <hop> <from>Blank prov act nulls</from><to>Calc provider act id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc euro amount</from><to>Sort activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>Known rates</from><to>If prov act is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>If prov act is null</from><to>Not an IF transaction&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append IF trx stream</from><to>Get provider org id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate IF weigth</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Append IF trx stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc provider act id</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Append IF trx stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>If no IF trx found set default weight</to><enabled>Y</enabled> </hop>
+  <hop> <from>If no IF trx found set default weight</from><to>Calc non IF trx weigth</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Accountable org found &#x3f;</name>
@@ -249,7 +352,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Replace provider id</send_true_to>
+<send_true_to>Replace provider id &#x26; name</send_true_to>
 <send_false_to>Remove null fields</send_false_to>
     <compare>
 <condition>
@@ -261,8 +364,77 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>578</xloc>
-      <yloc>299</yloc>
+      <xloc>2751</xloc>
+      <yloc>310</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add org name and id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Lookup org names</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>provider-org-activity-id</name>
+        <field>iati-identifier</field>
+      </key>
+      <value>
+        <name>iati-identifier</name>
+        <rename>iati-identifier</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>participating-org-id</name>
+        <rename>participating-org-id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>organisation-name</name>
+        <rename>organisation-name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2608</xloc>
+      <yloc>310</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append IF trx stream</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Select values 2</head_name>
+<tail_name>Select values</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2271</xloc>
+      <yloc>142</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -282,8 +454,8 @@
 <tail_name>Append streams 2</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>929</xloc>
-      <yloc>136</yloc>
+      <xloc>3102</xloc>
+      <yloc>147</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -300,17 +472,51 @@
            <schema_name/>
            </partitioning>
 <head_name>Remove null fields</head_name>
-<tail_name>Replace provider id</tail_name>
+<tail_name>Replace provider id &#x26; name</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>928</xloc>
-      <yloc>299</yloc>
+      <xloc>3101</xloc>
+      <yloc>310</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Blank provider act for outflows</name>
+    <name>Blank prov act nulls</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>provider-org-activity-id</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1892</xloc>
+      <yloc>142</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calc euro amount</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -320,8 +526,34 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-       <formula><field_name>calc-provider-org-activity-id</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;D&#x22; &#x3b; &#x5b;transaction-type-code&#x5d;&#x3d;&#x22;E&#x22;&#x29; &#x3b;&#x22;&#x22;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x29;</formula_string>
+       <formula><field_name>transaction-value-eur</field_name>
+<formula_string>&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;transaction-value&#x5d;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>875</xloc>
+      <yloc>391</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calc provider act id</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>calc-providing-activity</field_name>
+<formula_string>IF&#x28;OR&#x28;&#x5b;iati-identifier&#x5d;&#x3d;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3d;&#x22;Unspecified&#x22;&#x29;&#x3b;&#x5b;provider-org-activity-id_1&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x29;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -329,8 +561,34 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1868</xloc>
-      <yloc>136</yloc>
+      <xloc>2024</xloc>
+      <yloc>143</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calculate IF weigth</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>weigth</field_name>
+<formula_string>IF&#x28;&#x5b;total-transaction-value&#x5d;&#x3c;&#x3e;0&#x3b;100&#x2a;&#x5b;transaction-value-eur&#x5d;&#x2f;&#x5b;total-transaction-value&#x5d;&#x3b;100&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1370</xloc>
+      <yloc>392</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -358,10 +616,6 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>provider-org-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
       </field>      <field>        <name>provider-org-reference</name>
         <rename/>
         <length>-2</length>
@@ -374,11 +628,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-id</name>
+      </field>      <field>        <name>receiver-org-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-reference</name>
+      </field>      <field>        <name>receiver-org-activity-id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -430,10 +684,25 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
+      </meta>      <meta>        <name>value</name>
+        <rename>transaction-value</rename>
+        <type>Number</type>
+        <length>20</length>
+        <precision>2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>true</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1204</xloc>
-      <yloc>136</yloc>
+      <xloc>186</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -479,8 +748,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1339</xloc>
-      <yloc>136</yloc>
+      <xloc>332</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -503,11 +772,11 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>transaction-year</name>
+        <name>calculated-transaction-year</name>
         <field>Jaar</field>
       </key>
       <key>
-        <name>currency</name>
+        <name>calculated-transaction-currency</name>
         <field>Valuta</field>
       </key>
       <value>
@@ -519,8 +788,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1585</xloc>
-      <yloc>136</yloc>
+      <xloc>479</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -552,12 +821,6 @@
         <condition>&#x3d;</condition>
         <name2/>
       </key>
-      <key>
-        <name>provider-org-reference</name>
-        <field>organisation-ref</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
       <value>
         <name>organisation-id</name>
         <rename>provider-org-id</rename>
@@ -567,8 +830,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>268</xloc>
-      <yloc>132</yloc>
+      <xloc>2441</xloc>
+      <yloc>143</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -600,12 +863,6 @@
         <condition>&#x3d;</condition>
         <name2/>
       </key>
-      <key>
-        <name>receiver-org-reference</name>
-        <field>organisation-ref</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
       <value>
         <name>organisation-id</name>
         <rename>receiver-org-id</rename>
@@ -615,8 +872,70 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1076</xloc>
-      <yloc>136</yloc>
+      <xloc>3249</xloc>
+      <yloc>147</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If prov act is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>provider-org-activity-id</name>
+        <value>Unspecified</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>733</xloc>
+      <yloc>137</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Join totals</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort activities</step1>
+<step2>Sum by act id</step2>
+    <keys_1>
+      <key>iati-identifier</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1236</xloc>
+      <yloc>391</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -632,8 +951,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Blank provider act for outflows</send_true_to>
-<send_false_to>Unknown trx rate log</send_false_to>
+<send_true_to>If prov act is null</send_true_to>
+<send_false_to/>
     <compare>
 <condition>
  <negated>N</negated>
@@ -647,14 +966,14 @@
   <condition>
    <negated>N</negated>
    <operator>AND</operator>
-   <leftvalue>currency</leftvalue>
+   <leftvalue>calculated-transaction-currency</leftvalue>
    <function>IS NOT NULL</function>
    <rightvalue/>
    </condition>
   <condition>
    <negated>N</negated>
    <operator>AND</operator>
-   <leftvalue>transaction-year</leftvalue>
+   <leftvalue>calculated-transaction-year</leftvalue>
    <function>IS NOT NULL</function>
    <rightvalue/>
    </condition>
@@ -663,8 +982,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1707</xloc>
-      <yloc>136</yloc>
+      <xloc>601</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -699,8 +1018,65 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>264</xloc>
-      <yloc>301</yloc>
+      <xloc>2437</xloc>
+      <yloc>312</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort rows</step1>
+<step2>Sort on IF act</step2>
+    <keys_1>
+      <key>iati-identifier</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1371</xloc>
+      <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Not an IF transaction&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Sort rows</send_true_to>
+<send_false_to>Calc euro amount</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>transaction-type-code</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>IF</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>880</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -716,7 +1092,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Stream lookup</send_true_to>
+<send_true_to>Add org name and id</send_true_to>
 <send_false_to>Reorder fields</send_false_to>
     <compare>
 <condition>
@@ -727,21 +1103,14 @@
    <leftvalue>provider-org</leftvalue>
    <function>&#x3d;</function>
    <rightvalue/>
-   <value><name>constant</name><type>String</type><text>Unknown provider organisation</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>provider-org-reference</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>Unknown provider reference</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+   <value><name>constant</name><type>String</type><text>Unknown organisation name</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
   </conditions>
  </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>434</xloc>
-      <yloc>133</yloc>
+      <xloc>2607</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -766,8 +1135,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1585</xloc>
-      <yloc>26</yloc>
+      <xloc>479</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -792,8 +1161,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>111</xloc>
-      <yloc>299</yloc>
+      <xloc>2275</xloc>
+      <yloc>311</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -810,7 +1179,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, value&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-transactions&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, value&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-transactions&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -818,8 +1187,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>113</xloc>
-      <yloc>132</yloc>
+      <xloc>50</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -844,8 +1213,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>261</xloc>
-      <yloc>411</yloc>
+      <xloc>2434</xloc>
+      <yloc>422</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -893,7 +1262,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>value</name>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -925,11 +1298,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>749</xloc>
-      <yloc>368</yloc>
+      <xloc>2922</xloc>
+      <yloc>379</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -977,7 +1354,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>value</name>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1009,17 +1390,21 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>743</xloc>
-      <yloc>135</yloc>
+      <xloc>2916</xloc>
+      <yloc>146</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Replace provider id</name>
+    <name>Replace provider id &#x26; name</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1061,7 +1446,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>value</name>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1093,17 +1482,21 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>746</xloc>
-      <yloc>238</yloc>
+      <xloc>2919</xloc>
+      <yloc>249</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select trx</name>
+    <name>Select values</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1117,11 +1510,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>provider-org</name>
+      </field>      <field>        <name>transaction-type-code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>provider-org-id</name>
+      </field>      <field>        <name>provider-org</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1137,32 +1530,20 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
       </field>      <field>        <name>receiver-org-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>transaction-type-code</name>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>transaction-iso-date</name>
         <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
-        <rename>currency</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-year</name>
-        <rename>transaction-year</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>default-currency</name>
@@ -1189,48 +1570,30 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>calculated-transaction-currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>calculated-transaction-year</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>transaction-iso-date</name>
-        <rename>transaction-iso-date</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd</conversion_mask>
-        <date_format_lenient>true</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>value</name>
-        <rename>transaction-value</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>true</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
+    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1473</xloc>
-      <yloc>137</yloc>
+      <xloc>1942</xloc>
+      <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1239,39 +1602,297 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <from>Lookup org names</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>provider-org-activity-id</name>
-        <field>iati-identifier</field>
-      </key>
-      <value>
+    <fields>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-type-code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org-reference</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-reference</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-iso-date</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>default-currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>calculated-transaction-currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>calculated-transaction-year</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2139</xloc>
+      <yloc>143</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort activities</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
         <name>iati-identifier</name>
-        <rename>iati-identifier</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>participating-org-id</name>
-        <rename>participating-org-id</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>organisation-name</name>
-        <rename>organisation-name</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>435</xloc>
-      <yloc>299</yloc>
+      <xloc>1003</xloc>
+      <yloc>391</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort on IF act</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1371</xloc>
+      <yloc>220</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1011</xloc>
+      <yloc>137</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calc non IF trx weigth</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>&#x28;&#x5b;transaction-value&#x5d;&#x2a;&#x5b;weigth&#x5d;&#x29;&#x2f;100</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>transaction-value</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1755</xloc>
+      <yloc>142</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sum by act id</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>iati-identifier</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>total-transaction-value</aggregate>
+          <subject>transaction-value-eur</subject>
+          <type>SUM</type>
+          <valuefield/>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1116</xloc>
+      <yloc>488</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sum weigths</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>iati-identifier</name>
+        </field>
+        <field>
+          <name>provider-org-activity-id</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>weigth</aggregate>
+          <subject>weigth</subject>
+          <type>SUM</type>
+          <valuefield/>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1370</xloc>
+      <yloc>296</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1430,8 +2051,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1706</xloc>
-      <yloc>269</yloc>
+      <xloc>600</xloc>
+      <yloc>270</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1498,6 +2119,10 @@
           <stream_name>receiver-org-reference</stream_name>
         </field>
         <field>
+          <column_name>receiver-org-activity-id</column_name>
+          <stream_name>receiver-org-activity-id</stream_name>
+        </field>
+        <field>
           <column_name>transaction-value</column_name>
           <stream_name>transaction-value</stream_name>
         </field>
@@ -1507,7 +2132,7 @@
         </field>
         <field>
           <column_name>currency</column_name>
-          <stream_name>currency</stream_name>
+          <stream_name>transaction-currency</stream_name>
         </field>
         <field>
           <column_name>transaction-type-code</column_name>
@@ -1544,8 +2169,42 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2043</xloc>
-      <yloc>136</yloc>
+      <xloc>3418</xloc>
+      <yloc>148</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no IF trx found set default weight</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>weigth</name>
+        <value>100</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1529</xloc>
+      <yloc>140</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

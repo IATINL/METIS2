@@ -11,7 +11,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping database structure for iatidatamart
-DROP DATABASE IF EXISTS `iatidatamart`;
 CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatidatamart`;
 
@@ -56,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
   `generated-datetime` varchar(50) DEFAULT NULL,
   `related-activity-id` char(100) DEFAULT NULL,
   `Is-parent` char(1) DEFAULT NULL,
+  `activity-status-name` varchar(50) DEFAULT NULL,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
@@ -63,14 +63,9 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -156,11 +151,13 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   `organisation-name` varchar(255) DEFAULT NULL,
   `organisation-type-code` char(2) DEFAULT NULL,
   `organisation-type-name` varchar(85) DEFAULT NULL,
+  `publisher` char(21) DEFAULT NULL,
   PRIMARY KEY (`organisation-id`),
   KEY `idx-organisation-ref` (`organisation-ref`),
   KEY `idx-organisation-name` (`organisation-name`),
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`),
-  KEY `idx-organisation-type` (`organisation-type-code`)
+  KEY `idx-organisation-type` (`organisation-type-code`),
+  KEY `idx_dim-organisation_lookup` (`organisation-name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -261,30 +258,21 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
-  `provider-percentage` double DEFAULT NULL,
   `budget-value-eur` double DEFAULT NULL,
-  `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
-  KEY `idx-provider-act-id` (`provider-org-activity-id`),
   KEY `idx-buza-ancestor-activity-id` (`buza-ancestor-activity-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -299,29 +287,22 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
-  `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
+  `provider-org-activity-id` varchar(100) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
   KEY `idx-url-id` (`url-id`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`),
   KEY `idx-description-type-code` (`description-type-code`),
-  KEY `idx-provider-act-id` (`provider-org-activity-id`),
   KEY `idx-buza-ancestor-activity-id` (`buza-ancestor-activity-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -339,12 +320,11 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
@@ -353,14 +333,9 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -381,12 +356,11 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
@@ -395,14 +369,9 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -418,12 +387,11 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
   `participating-org-id` bigint(20) DEFAULT NULL,
   `participating-org-type-code` char(2) DEFAULT NULL,
   `participating-org-role-code` int(11) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
   KEY `idx-url-id` (`url-id`),
   KEY `idx-publisher-id` (`publisher-id`),
@@ -434,33 +402,9 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatidatamart.fct-parent-activities
-DROP TABLE IF EXISTS `fct-parent-activities`;
-CREATE TABLE IF NOT EXISTS `fct-parent-activities` (
-  `iati-identifier-child` varchar(100) DEFAULT NULL,
-  `iati-identifier-parent` varchar(100) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
-  `provider-percentage` double DEFAULT NULL,
-  `transaction-value-eur` double DEFAULT NULL,
-  `buza-descendant-yn` char(1) DEFAULT NULL,
-  `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
-  KEY `idx-iati-activity-parent` (`iati-identifier-parent`),
-  KEY `idx-iati-activity-child` (`iati-identifier-child`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -476,7 +420,7 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` tinytext,
-  `indicator-description` tinytext,
+  `indicator-description` mediumtext,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `period-start` datetime DEFAULT NULL,
@@ -489,12 +433,11 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
@@ -503,14 +446,9 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -521,7 +459,6 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `provider-org-id` bigint(20) DEFAULT NULL,
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
-  `provider-percentage` double DEFAULT NULL,
   `receiver-org-id` bigint(20) DEFAULT NULL,
   `sector-code` varchar(5) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
@@ -539,8 +476,8 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
   `url-id` int(11) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-descendant-without-childs` char(1) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
   KEY `idx-transaction-iso-date` (`transaction-iso-date`),
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
@@ -550,14 +487,9 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -660,6 +592,7 @@ CREATE TABLE `iati-view-funding-organisations` (
 	`iati-identifier` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
 	`participating-org-id` BIGINT(20) NULL,
 	`participating-org-role-code` INT(11) NULL,
+	`participating-org-type-code` CHAR(2) NULL COLLATE 'utf8_general_ci',
 	`transaction-type-code` TINYTEXT NULL COLLATE 'utf8_general_ci',
 	`publisher` CHAR(21) NULL COLLATE 'utf8_general_ci',
 	`transaction-value` DOUBLE NULL,
@@ -674,6 +607,7 @@ CREATE TABLE `iati-view-implementing-organisations` (
 	`iati-identifier` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
 	`participating-org-id` BIGINT(20) NULL,
 	`participating-org-role-code` INT(11) NULL,
+	`participating-org-type-code` CHAR(2) NULL COLLATE 'utf8_general_ci',
 	`transaction-type-code` TINYTEXT NULL COLLATE 'utf8_general_ci',
 	`publisher` CHAR(21) NULL COLLATE 'utf8_general_ci',
 	`transaction-value` DOUBLE NULL,
@@ -695,6 +629,21 @@ CREATE TABLE `iati-view-last-date-published` (
 ) ENGINE=MyISAM;
 
 
+-- Dumping structure for view iatidatamart.iati-view-organisations
+DROP VIEW IF EXISTS `iati-view-organisations`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `iati-view-organisations` (
+	`iati-identifier` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`participating-org-id` BIGINT(20) NULL,
+	`participating-org-role-code` INT(11) NULL,
+	`participating-org-type-code` CHAR(2) NULL COLLATE 'utf8_general_ci',
+	`transaction-type-code` TINYTEXT NULL COLLATE 'utf8_general_ci',
+	`publisher` CHAR(21) NULL COLLATE 'utf8_general_ci',
+	`transaction-value` DOUBLE NULL,
+	`transaction-value-eur` DOUBLE NULL
+) ENGINE=MyISAM;
+
+
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -709,46 +658,52 @@ CREATE TABLE `iati-view-total-disbursements` (
 DROP VIEW IF EXISTS `iati-view-budget-total`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-budget-total`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-budget-total` AS select `fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `fct-budgets` group by `fct-budgets`.`iati-identifier`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-budget-total` AS select `iatidatamart`.`fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`iatidatamart`.`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `iatidatamart`.`fct-budgets` group by `iatidatamart`.`fct-budgets`.`iati-identifier`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-check-totals
 DROP VIEW IF EXISTS `iati-view-check-totals`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-check-totals`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`log-check-totals` `a` join `log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`iatidatamart`.`log-check-totals` `a` join `iatidatamart`.`log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-funding-organisations
 DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-funding-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF') and (`t`.`publisher` = 'rvo')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-implementing-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E')) and (`t`.`publisher` = 'rvo')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
 DROP VIEW IF EXISTS `iati-view-last-date-published`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-last-date-published`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(`a`.`publisher-job-url-end-date-time`) AS `end-date`,max(`a`.`generated-datetime`) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`)) group by `a`.`publisher-id`,`u`.`url`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(`a`.`publisher-job-url-end-date-time`) AS `end-date`,max(`a`.`generated-datetime`) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`)) group by `a`.`publisher-id`,`u`.`url`;
+
+
+-- Dumping structure for view iatidatamart.iati-view-organisations
+DROP VIEW IF EXISTS `iati-view-organisations`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `iati-view-organisations`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-organisations` AS (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`) union (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`);
 
 
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-total-disbursements`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-total-disbursements` AS select `fct-transactions`.`iati-identifier` AS `iati-identifier`,`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `fct-transactions` where (`fct-transactions`.`transaction-type-code` = 'D') group by `fct-transactions`.`iati-identifier`,`fct-transactions`.`transaction-type-code`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-total-disbursements` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`iatidatamart`.`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `iatidatamart`.`fct-transactions` where (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'D') group by `iatidatamart`.`fct-transactions`.`iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code`;
 
 
 -- Dumping database structure for iatilogging
-DROP DATABASE IF EXISTS `iatilogging`;
 CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatilogging`;
 
@@ -831,9 +786,20 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 
 
 -- Dumping database structure for iatireference
-DROP DATABASE IF EXISTS `iatireference`;
 CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatireference`;
+
+
+-- Dumping structure for table iatireference.codelist-activity-status
+DROP TABLE IF EXISTS `codelist-activity-status`;
+CREATE TABLE IF NOT EXISTS `codelist-activity-status` (
+  `code` int(11) DEFAULT NULL,
+  `name` tinytext,
+  `description` tinytext,
+  KEY `idx_codelist-activity-status_lookup` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
 
 
 -- Dumping structure for table iatireference.codelist-date-type
@@ -934,8 +900,21 @@ CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
 -- Data exporting was unselected.
 
 
+-- Dumping structure for table iatireference.ref-country-classification
+DROP TABLE IF EXISTS `ref-country-classification`;
+CREATE TABLE IF NOT EXISTS `ref-country-classification` (
+  `ISOA2` char(2),
+  `ISOA3` char(3) DEFAULT NULL,
+  `UNCountry` tinytext,
+  `UNLDC` char(3) DEFAULT NULL,
+  `Income` varchar(25) DEFAULT NULL,
+  `Region` varchar(35) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
 -- Dumping database structure for iatischema
-DROP DATABASE IF EXISTS `iatischema`;
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatischema`;
 
@@ -999,14 +978,9 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1028,14 +1002,9 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1059,14 +1028,9 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1093,14 +1057,9 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1124,14 +1083,33 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+
+-- Data exporting was unselected.
+
+
+-- Dumping structure for table iatischema.dwh-related
+DROP TABLE IF EXISTS `dwh-related`;
+CREATE TABLE IF NOT EXISTS `dwh-related` (
+  `iati-identifier` char(100) DEFAULT NULL,
+  `related-activity-ref` char(100) DEFAULT NULL,
+  `related-activity-type` int(11) DEFAULT NULL,
+  `publisher` char(21) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
+  `generated-datetime` varchar(50) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
+  `sequence` bigint(20) DEFAULT NULL,
+  KEY `idx-iati-identifier` (`iati-identifier`),
+  KEY `idx-activity-ref` (`related-activity-ref`),
+  KEY `iati-identifier_related-activity-ref` (`iati-identifier`,`related-activity-ref`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+/*!50100 PARTITION BY LIST (`publisher-id`)
+(PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1147,7 +1125,7 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` tinytext,
-  `indicator-description` tinytext,
+  `indicator-description` mediumtext,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `period-start` datetime DEFAULT NULL,
@@ -1166,14 +1144,9 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1199,6 +1172,7 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `transaction-value-eur` double DEFAULT NULL,
+  `receiver-org-activity-id` varchar(100) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
   KEY `idx-transaction-iso-date` (`transaction-iso-date`),
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
@@ -1206,35 +1180,46 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
- PARTITION cordaid VALUES IN (2) ENGINE = InnoDB,
- PARTITION dfid VALUES IN (3) ENGINE = InnoDB,
- PARTITION afdb VALUES IN (4) ENGINE = InnoDB,
- PARTITION afd VALUES IN (5) ENGINE = InnoDB,
- PARTITION test VALUES IN (6) ENGINE = InnoDB,
- PARTITION gavi VALUES IN (7) ENGINE = InnoDB,
- PARTITION zoa VALUES IN (8) ENGINE = InnoDB,
- PARTITION rvo VALUES IN (9) ENGINE = InnoDB) */;
+ PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
+ PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
 
--- Dumping structure for table iatischema.stg-parent-activities
-DROP TABLE IF EXISTS `stg-parent-activities`;
-CREATE TABLE IF NOT EXISTS `stg-parent-activities` (
+-- Dumping structure for table iatischema.stg-parent-child-other
+DROP TABLE IF EXISTS `stg-parent-child-other`;
+CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
   `iati-identifier-child` varchar(100) DEFAULT NULL,
   `iati-identifier-parent` varchar(100) DEFAULT NULL,
-  `provider-org-id` bigint(20) DEFAULT NULL,
-  `provider-percentage` double DEFAULT NULL,
-  `transaction-value-eur` double DEFAULT NULL,
-  KEY `idx-iati-activity-parent` (`iati-identifier-parent`),
-  KEY `idx-iati-activity-child` (`iati-identifier-child`)
+  `buza-descendant-yn` char(1) DEFAULT NULL,
+  `buza-descendant-level` int(11) DEFAULT NULL,
+  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 
 
+-- Dumping structure for table iatischema.stg-parent-child-trx
+DROP TABLE IF EXISTS `stg-parent-child-trx`;
+CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
+  `iati-identifier-child` varchar(100) DEFAULT NULL,
+  `iati-identifier-parent` varchar(100) DEFAULT NULL,
+  `buza-descendant-yn` char(1) DEFAULT NULL,
+  `buza-descendant-level` int(11) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
+  `has-childs` char(1) DEFAULT NULL,
+  `weigth-parent` double DEFAULT NULL,
+  `weigth-grand-parent` double DEFAULT NULL,
+  KEY `idx-iati-activity-parent` (`iati-identifier-parent`),
+  KEY `idx-iati-activity-child` (`iati-identifier-child`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- Data exporting was unselected.
+
+
 -- Dumping database structure for iatistaging
-DROP DATABASE IF EXISTS `iatistaging`;
 CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatistaging`;
 
@@ -1454,7 +1439,7 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` tinytext,
-  `indicator-description` tinytext,
+  `indicator-description` mediumtext,
   `period-start` datetime DEFAULT NULL,
   `period-end` datetime DEFAULT NULL,
   `actual-comment` text,
@@ -1514,7 +1499,8 @@ CREATE TABLE IF NOT EXISTS `src-act-transactions` (
   `publisher-id` varchar(24) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(24) DEFAULT NULL,
-  `sequence` bigint(20) DEFAULT NULL
+  `sequence` bigint(20) DEFAULT NULL,
+  `receiver-org-activity-id` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1575,7 +1561,8 @@ CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` varchar(24) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(11) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL,
+  `receiver-org-activity-id` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1785,7 +1772,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` tinytext,
-  `indicator-description` tinytext,
+  `indicator-description` mediumtext,
   `period-start` datetime DEFAULT NULL,
   `period-end` datetime DEFAULT NULL,
   `actual-comment` text,
@@ -1842,7 +1829,8 @@ CREATE TABLE IF NOT EXISTS `xml-act-transactions` (
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` varchar(24) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(24) DEFAULT NULL,
+  `receiver-org-activity-id` char(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.

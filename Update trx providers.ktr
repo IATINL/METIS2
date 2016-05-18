@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;18 17&#x3a;15&#x3a;29.240</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;08 15&#x3a;06&#x3a;36.879</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;25 09&#x3a;17&#x3a;31.055</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -227,7 +227,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;&#x60;provider-org&#x60;&#xd;&#xa;,&#x60;provider-org-reference&#x60;&#xd;&#xa;FROM &#x60;src-act-transactions&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;&#x60;provider-org&#x60;&#xd;&#xa;,&#x60;provider-org-reference&#x60;&#xd;&#xa;,&#x60;publisher&#x60;&#xd;&#xa;FROM &#x60;src-act-transactions&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -259,25 +259,24 @@
       <schema/>
       <table>dim-organisation</table>
       <key>
-        <name>provider-org-reference</name>
-        <field>organisation-ref</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
         <name>provider-org</name>
         <field>organisation-name</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
+        <name>organisation-ref</name>
+        <rename>provider-org-reference</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>organisation-name</name>
         <rename>provider-org</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>organisation-ref</name>
-        <rename>provider-org-reference</rename>
+        <name>publisher</name>
+        <rename>publisher</rename>
         <update>Y</update>
       </value>
     </lookup>
