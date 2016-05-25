@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;20 09&#x3a;50&#x3a;47.288</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;12 12&#x3a;16&#x3a;34.006</modified_date>
+  <modified_date>2016&#x2f;05&#x2f;25 12&#x3a;44&#x3a;29.708</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -225,7 +225,6 @@
   <hop> <from>Known rates</from><to>Unknown rates </to><enabled>Y</enabled> </hop>
   <hop> <from>Read EUR rates</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Stream lookup</from><to>Known rates</to><enabled>Y</enabled> </hop>
-  <hop> <from>Known rates</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
   <hop> <from>By sector &#x26; country</from><to>Calc EUR value</to><enabled>Y</enabled> </hop>
   <hop> <from>Read sectors from DB</from><to>Select sector fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Select sector fields</from><to>Sort sector</to><enabled>Y</enabled> </hop>
@@ -238,7 +237,33 @@
   <hop> <from>Calc EUR value</from><to>Missing codes</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill budget currency</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace missing code</from><to>Write budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Known rates</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>If rate is null</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unknown rates </from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>If rate is null</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Known rates</head_name>
+<tail_name>If rate is null</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>870</xloc>
+      <yloc>225</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>By sector &#x26; country</name>
     <type>Formula</type>
@@ -277,7 +302,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>value &#x28;eur&#x29;</field_name>
-<formula_string>&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;value&#x5d;</formula_string>
+<formula_string>IF&#x28;&#x5b;exchange-rate&#x5d;&#x3c;&#x3e;0&#x3b;&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;value&#x5d;&#x3b;0&#x29;</formula_string>
 <value_type>Number</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -492,7 +517,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>507</xloc>
+      <xloc>470</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
@@ -534,6 +559,40 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1532</xloc>
       <yloc>305</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If rate is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>exchange-rate</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>871</xloc>
+      <yloc>314</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -617,7 +676,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Sort budgets</send_true_to>
+<send_true_to>Append streams</send_true_to>
 <send_false_to>Unknown rates </send_false_to>
     <compare>
 <condition>
@@ -655,8 +714,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>837</xloc>
-      <yloc>225</yloc>
+      <xloc>688</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -766,7 +825,7 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>671</xloc>
+      <xloc>587</xloc>
       <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1133,8 +1192,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>967</xloc>
-      <yloc>224</yloc>
+      <xloc>968</xloc>
+      <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1275,7 +1334,7 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>669</xloc>
+      <xloc>585</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1327,8 +1386,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>840</xloc>
-      <yloc>314</yloc>
+      <xloc>691</xloc>
+      <yloc>313</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1443,6 +1502,62 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2129</xloc>
       <yloc>303</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>Y</limitRows>
+      <limitRowsNumber>10</limitRowsNumber>
+      <logmessage>Warning&#x3a; Unable to retrieve valid exchange rate. Invalid rates are set to 0.</logmessage>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>budget-type</name>
+        </field>
+      <field>
+        <name>budget-period-start</name>
+        </field>
+      <field>
+        <name>budget-period-end</name>
+        </field>
+      <field>
+        <name>budget-value</name>
+        </field>
+      <field>
+        <name>budget-value-date</name>
+        </field>
+      <field>
+        <name>budget-value-currency</name>
+        </field>
+      <field>
+        <name>default-currency</name>
+        </field>
+      <field>
+        <name>publisher</name>
+        </field>
+      <field>
+        <name>exchange-rate</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>780</xloc>
+      <yloc>313</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

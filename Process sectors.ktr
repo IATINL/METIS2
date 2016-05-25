@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;06 15&#x3a;36&#x3a;32.106</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;08 17&#x3a;00&#x3a;10.588</modified_date>
+  <modified_date>2016&#x2f;05&#x2f;25 11&#x3a;48&#x3a;49.598</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Select all activities without dac sector specification&#xd;&#xa;and add a default DAC sector code &#x28;no sector specified&#x29;</note>
+      <xloc>568</xloc>
+      <yloc>378</yloc>
+      <width>334</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -216,9 +237,9 @@
   <hop> <from>Sort on sector code</from><to>Add sector seqnr</to><enabled>Y</enabled> </hop>
   <hop> <from>Write sectors to stg</from><to>Error log write sectors</to><enabled>Y</enabled> </hop>
   <hop> <from>Select only DAC sectors</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fill vocabulary</from><to>Is DAC sector&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Is DAC sector&#x3f;</from><to>Select only DAC sectors</to><enabled>Y</enabled> </hop>
-  <hop> <from>Is DAC sector&#x3f;</from><to>Count DAC sectors</to><enabled>Y</enabled> </hop>
+  <hop> <from>Fill vocabulary</from><to>DAC sector indicator</to><enabled>Y</enabled> </hop>
+  <hop> <from>DAC sector indicator</from><to>Select only DAC sectors</to><enabled>Y</enabled> </hop>
+  <hop> <from>DAC sector indicator</from><to>Count DAC sectors</to><enabled>Y</enabled> </hop>
   <hop> <from>Count DAC sectors</from><to>Select non DAC sectors</to><enabled>Y</enabled> </hop>
   <hop> <from>Select non DAC sectors</from><to>Add default DAC sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Select non DAC sectors</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
@@ -233,16 +254,14 @@
   <hop> <from>Get act sectors from src</from><to>Sort sector iati id </to><enabled>Y</enabled> </hop>
   <hop> <from>Sort sector iati id </from><to>Merge Join</to><enabled>Y</enabled> </hop>
   <hop> <from>Select &#x25; field</from><to>Total &#x25; per activity</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort percentages</from><to>Sort total counts</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort on iati identifiers</from><to>Add totals</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort total counts</from><to>Add totals</to><enabled>Y</enabled> </hop>
   <hop> <from>Add totals</from><to>Rescale percentage</to><enabled>Y</enabled> </hop>
   <hop> <from>Rescale percentage</from><to>Write sectors to stg</to><enabled>Y</enabled> </hop>
   <hop> <from>Add sector seqnr</from><to>If &#x25; or code is missing</to><enabled>Y</enabled> </hop>
   <hop> <from>If &#x25; or code is missing</from><to>Sort on iati identifiers</to><enabled>Y</enabled> </hop>
   <hop> <from>If &#x25; or code is missing</from><to>Select &#x25; field</to><enabled>Y</enabled> </hop>
-  <hop> <from>Total &#x25; per activity</from><to>Replace zero totals</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace zero totals</from><to>Sort percentages</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort percentages</from><to>Add totals</to><enabled>Y</enabled> </hop>
+  <hop> <from>Total &#x25; per activity</from><to>Sort percentages</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add default DAC sector</name>
@@ -295,7 +314,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>802</xloc>
+      <xloc>814</xloc>
       <yloc>442</yloc>
       <draw>Y</draw>
       </GUI>
@@ -341,7 +360,7 @@
            </partitioning>
 <join_type>INNER</join_type>
 <step1>Sort on iati identifiers</step1>
-<step2>Sort total counts</step2>
+<step2>Sort percentages</step2>
     <keys_1>
       <key>iati-identifier</key>
       <key>sector-vocabulary</key>
@@ -352,8 +371,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1693</xloc>
-      <yloc>251</yloc>
+      <xloc>1601</xloc>
+      <yloc>249</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -373,7 +392,7 @@
 <tail_name>Remove count</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>920</xloc>
+      <xloc>932</xloc>
       <yloc>250</yloc>
       <draw>Y</draw>
       </GUI>
@@ -430,7 +449,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>512</xloc>
+      <xloc>524</xloc>
       <yloc>443</yloc>
       <draw>Y</draw>
       </GUI>
@@ -449,7 +468,7 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>657</xloc>
+      <xloc>669</xloc>
       <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
@@ -468,8 +487,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>651</xloc>
-      <yloc>544</yloc>
+      <xloc>664</xloc>
+      <yloc>550</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -580,8 +599,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1957</xloc>
-      <yloc>119</yloc>
+      <xloc>1865</xloc>
+      <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -687,7 +706,7 @@
     </step>
 
   <step>
-    <name>Is DAC sector&#x3f;</name>
+    <name>DAC sector indicator</name>
     <type>Formula</type>
     <description/>
     <distribute>N</distribute>
@@ -706,7 +725,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>512</xloc>
+      <xloc>524</xloc>
       <yloc>251</yloc>
       <draw>Y</draw>
       </GUI>
@@ -812,7 +831,7 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>801</xloc>
+      <xloc>813</xloc>
       <yloc>251</yloc>
       <draw>Y</draw>
       </GUI>
@@ -864,34 +883,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>919</xloc>
+      <xloc>931</xloc>
       <yloc>442</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Replace zero totals</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>calc-total-percentage</field_name>
-<formula_string>IF&#x28;&#x5b;total-percentage&#x5d;&#x3d;0&#x3b;100&#x3b;&#x5b;total-percentage&#x5d;&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>total-percentage</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1570</xloc>
-      <yloc>444</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -908,7 +901,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>scaled-sector-percentage</field_name>
-<formula_string>100&#x2a;&#x28;&#x5b;sector-percentage&#x5d;&#x2f;&#x5b;total-percentage&#x5d;&#x29;</formula_string>
+<formula_string>IF&#x28;&#x5b;total-percentage&#x5d;&#x3c;&#x3e;0&#x3b;100&#x2a;&#x28;&#x5b;sector-percentage&#x5d;&#x2f;&#x5b;total-percentage&#x5d;&#x29;&#x3b;100&#x2f;&#x5b;total-count&#x5d;&#x29;</formula_string>
 <value_type>Number</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -916,8 +909,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1823</xloc>
-      <yloc>253</yloc>
+      <xloc>1730</xloc>
+      <yloc>251</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -977,7 +970,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>652</xloc>
+      <xloc>664</xloc>
       <yloc>443</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1006,7 +999,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>658</xloc>
+      <xloc>670</xloc>
       <yloc>250</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1080,7 +1073,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1473</xloc>
+      <xloc>1460</xloc>
       <yloc>250</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1160,8 +1153,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1691</xloc>
-      <yloc>444</yloc>
+      <xloc>1599</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1201,46 +1194,6 @@
     </step>
 
   <step>
-    <name>Sort total counts</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>sector-vocabulary</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1692</xloc>
-      <yloc>343</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Total &#x25; per activity</name>
     <type>MemoryGroupBy</type>
     <description/>
@@ -1267,11 +1220,17 @@
           <type>SUM</type>
           <valuefield/>
         </field>
+        <field>
+          <aggregate>total-count</aggregate>
+          <subject>iati-identifier</subject>
+          <type>COUNT_ANY</type>
+          <valuefield/>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1434</xloc>
-      <yloc>443</yloc>
+      <xloc>1467</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1344,8 +1303,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1958</xloc>
-      <yloc>252</yloc>
+      <xloc>1866</xloc>
+      <yloc>250</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
