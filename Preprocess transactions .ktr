@@ -68,16 +68,16 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;25 12&#x3a;12&#x3a;27.036</modified_date>
+  <modified_date>2016&#x2f;05&#x2f;25 17&#x3a;39&#x3a;00.089</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Retrieve organisation names based on providing activity&#xd;&#xa;if no valid organisation name is specified.</note>
-      <xloc>3137</xloc>
-      <yloc>201</yloc>
-      <width>328</width>
+      <note>If no organisation name is specified, retrieve the provider &#xd;&#xa;organisation names based on providing activity.</note>
+      <xloc>3086</xloc>
+      <yloc>204</yloc>
+      <width>336</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -95,11 +95,11 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Retrieve the providing activities for disbursements, &#xd;&#xa;expenditures and commitments based on the &#xd;&#xa;incoming fund transactions. If more than 1 providing &#xd;&#xa;activity, split  the transactions by the relative weigth &#xd;&#xa;of the incoming fund transactions.  </note>
-      <xloc>1325</xloc>
-      <yloc>330</yloc>
-      <width>311</width>
-      <heigth>85</heigth>
+      <note>Split outgoing transactions by the relative weigth of &#xd;&#xa;the incoming transactions. Example&#x3a; if an activity has&#xd;&#xa;incoming fund transactions from 2 provider activities,&#xd;&#xa;all disbursements and expenditures are split by the&#xd;&#xa;weigth of the incoming funds totalled per provider &#xd;&#xa;activity.  </note>
+      <xloc>1311</xloc>
+      <yloc>336</yloc>
+      <width>319</width>
+      <heigth>100</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -116,11 +116,11 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Calculate the weigthed transaction values for disbursements, &#xd;&#xa;expenditures and commitments using the relative weigth of &#xd;&#xa;the IF transactions.</note>
-      <xloc>1864</xloc>
-      <yloc>330</yloc>
-      <width>364</width>
-      <heigth>55</heigth>
+      <note>Calculate the weigthed outgoing transaction values using the previously&#xd;&#xa;calculated weigth of the incoming transactions by provider activity. The &#xd;&#xa;provider activity id of the outgoing transaction is set to the provider activity&#xd;&#xa;of the corresponding incoming transaction. </note>
+      <xloc>1850</xloc>
+      <yloc>336</yloc>
+      <width>434</width>
+      <heigth>70</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -137,10 +137,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Add the IF transactions to &#xd;&#xa;make the stream complete.</note>
-      <xloc>2480</xloc>
-      <yloc>184</yloc>
-      <width>169</width>
+      <note>Add the IF and IC transactions to make &#xd;&#xa;the stream complete.</note>
+      <xloc>2519</xloc>
+      <yloc>207</yloc>
+      <width>241</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -159,9 +159,30 @@
     </notepad>
     <notepad>
       <note>Calculate EUR amounts  so that transactions &#xd;&#xa;with different currencies are weighted correctly.</note>
-      <xloc>969</xloc>
-      <yloc>328</yloc>
+      <xloc>953</xloc>
+      <yloc>336</yloc>
       <width>280</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Log unknown exchange rates&#xd;&#xa;and set those rates to zero.</note>
+      <xloc>669</xloc>
+      <yloc>334</yloc>
+      <width>179</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -320,12 +341,12 @@
   <order>
   <hop> <from>Accountable org found &#x3f;</from><to>Remove null fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Accountable org found &#x3f;</from><to>Replace provider id &#x26; name</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append unknown prov streams</from><to>Get receiver org id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append unknown prov streams</from><to>Lookup receiver org id</to><enabled>Y</enabled> </hop>
   <hop> <from>Append acc org streams</from><to>Append unknown prov streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get provider org id</from><to>Unknown provider name</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get provider org id</from><to>If unknown provider org name</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup org names</from><to>Add org name and id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unknown provider name</from><to>Reorder fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unknown provider name</from><to>Add org name and id</to><enabled>Y</enabled> </hop>
+  <hop> <from>If unknown provider org name</from><to>Reorder fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>If unknown provider org name</from><to>Add org name and id</to><enabled>Y</enabled> </hop>
   <hop> <from>Read accountable orgs</from><to>Lookup org names</to><enabled>Y</enabled> </hop>
   <hop> <from>Read org names</from><to>Lookup org names</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove null fields</from><to>Append acc org streams</to><enabled>Y</enabled> </hop>
@@ -338,33 +359,33 @@
   <hop> <from>Convert date fmt</from><to>Derive currency &#x26; trx year</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act trx from DB</from><to>Convert date fmt</to><enabled>Y</enabled> </hop>
   <hop> <from>Derive currency &#x26; trx year</from><to>Get exchange rate</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get receiver org id</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
+  <hop> <from>Lookup receiver org id</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort activities</from><to>Sum by act id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Not an IF transaction&#x3f;</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not an IF or IC trx&#x3f;</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort activities</from><to>Join totals</to><enabled>Y</enabled> </hop>
   <hop> <from>Sum by act id</from><to>Join totals</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join totals</from><to>Calculate IF weigth</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculate IF weigth</from><to>Sum weigths</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sum weigths</from><to>Sort on IF act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort on IF act</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc non IF trx weigth</from><to>Blank prov act nulls</to><enabled>Y</enabled> </hop>
+  <hop> <from>Join totals</from><to>Calculate incoming weigth per transaction</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate incoming weigth per transaction</from><to>Sum weigths by provider activity</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sum weigths by provider activity</from><to>Sort on IF activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort on IF activities</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc outgoing trx values</from><to>Blank prov act nulls</to><enabled>Y</enabled> </hop>
   <hop> <from>Blank prov act nulls</from><to>Calc provider act id</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append IF trx stream</from><to>Get provider org id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculate IF weigth</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Append IF trx stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc provider act id</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Append IF trx stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>If no IF trx found set default weight</to><enabled>Y</enabled> </hop>
-  <hop> <from>If no IF trx found set default weight</from><to>Calc non IF trx weigth</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate incoming weigth per transaction</from><to>Select IF&#x2f;IC values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select IF&#x2f;IC values</from><to>Append IF&#x2f;IC trx stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc provider act id</from><to>Select values out trx</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values out trx</from><to>Append IF&#x2f;IC trx stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>If no IF&#x2f;IC trx set weight to 100</to><enabled>Y</enabled> </hop>
+  <hop> <from>If no IF&#x2f;IC trx set weight to 100</from><to>Calc outgoing trx values</to><enabled>Y</enabled> </hop>
   <hop> <from>Known rates</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams</from><to>If prov act is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams</from><to>If prov. org act. is null</to><enabled>Y</enabled> </hop>
   <hop> <from>Set ex rate to 0 if not found</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>If prov act is null</from><to>Calc euro trx amount</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc euro trx amount</from><to>Not an IF transaction&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Not an IF transaction&#x3f;</from><to>Sort activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>If prov. org act. is null</from><to>Calc euro trx amount</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc euro trx amount</from><to>Not an IF or IC trx&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unknown trx rate log</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log</from><to>Set ex rate to 0 if not found</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append IF&#x2f;IC trx stream</from><to>Get provider org id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not an IF or IC trx&#x3f;</from><to>Sort activities</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Accountable org found &#x3f;</name>
@@ -389,8 +410,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3073</xloc>
-      <yloc>71</yloc>
+      <xloc>3186</xloc>
+      <yloc>76</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -437,14 +458,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2931</xloc>
-      <yloc>72</yloc>
+      <xloc>3044</xloc>
+      <yloc>77</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Append IF trx stream</name>
+    <name>Append IF&#x2f;IC trx stream</name>
     <type>Append</type>
     <description/>
     <distribute>Y</distribute>
@@ -454,54 +475,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Select values 2</head_name>
-<tail_name>Select values</tail_name>
+<head_name>Select values out trx</head_name>
+<tail_name>Select IF&#x2f;IC values</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2555</xloc>
-      <yloc>268</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Known rates</head_name>
-<tail_name>Set ex rate to 0 if not found</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>902</xloc>
-      <yloc>263</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append unknown prov streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Reorder fields</head_name>
-<tail_name>Append acc org streams</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3515</xloc>
-      <yloc>273</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -521,8 +500,50 @@
 <tail_name>Replace provider id &#x26; name</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3514</xloc>
-      <yloc>68</yloc>
+      <xloc>3627</xloc>
+      <yloc>73</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Known rates</head_name>
+<tail_name>Set ex rate to 0 if not found</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>886</xloc>
+      <yloc>271</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append unknown prov streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Reorder fields</head_name>
+<tail_name>Append acc org streams</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3628</xloc>
+      <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -555,14 +576,40 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2176</xloc>
-      <yloc>268</yloc>
+      <xloc>2154</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Calc non IF trx weigth</name>
+    <name>Calc euro trx amount</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>transaction-value-eur</field_name>
+<formula_string>IF&#x28;&#x5b;exchange-rate&#x5d;&#x3c;&#x3e;0&#x3b;&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;transaction-value&#x5d;&#x3b;0&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1131</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calc outgoing trx values</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -588,8 +635,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2039</xloc>
-      <yloc>268</yloc>
+      <xloc>1998</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -606,7 +653,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>calc-providing-activity</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;iati-identifier&#x5d;&#x3d;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3d;&#x22;Unspecified&#x22;&#x29;&#x3b;&#x5b;provider-org-activity-id_1&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x29;</formula_string>
+<formula_string>&#x5b;provider-org-activity-id_1&#x5d;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -614,14 +661,14 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2308</xloc>
-      <yloc>269</yloc>
+      <xloc>2280</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Calculate IF weigth</name>
+    <name>Calculate incoming weigth per transaction</name>
     <type>Formula</type>
     <description/>
     <distribute>N</distribute>
@@ -640,8 +687,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1619</xloc>
-      <yloc>517</yloc>
+      <xloc>1687</xloc>
+      <yloc>522</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -754,8 +801,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>203</xloc>
-      <yloc>263</yloc>
+      <xloc>187</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -801,8 +848,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>349</xloc>
-      <yloc>263</yloc>
+      <xloc>333</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -841,8 +888,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>263</yloc>
+      <xloc>480</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -883,14 +930,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2725</xloc>
-      <yloc>269</yloc>
+      <xloc>2838</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get receiver org id</name>
+    <name>Lookup receiver org id</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -925,48 +972,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3678</xloc>
-      <yloc>273</yloc>
+      <xloc>3791</xloc>
+      <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Set ex rate to 0 if not found</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>exchange-rate</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>899</xloc>
-      <yloc>396</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If no IF trx found set default weight</name>
+    <name>If no IF&#x2f;IC trx set weight to 100</name>
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
@@ -993,14 +1006,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1868</xloc>
-      <yloc>267</yloc>
+      <xloc>1819</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>If prov act is null</name>
+    <name>If prov. org act. is null</name>
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
@@ -1027,8 +1040,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1017</xloc>
-      <yloc>263</yloc>
+      <xloc>1000</xloc>
+      <yloc>270</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1055,8 +1068,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1520</xloc>
-      <yloc>517</yloc>
+      <xloc>1506</xloc>
+      <yloc>523</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1103,8 +1116,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>618</xloc>
-      <yloc>263</yloc>
+      <xloc>602</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1139,8 +1152,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2731</xloc>
-      <yloc>73</yloc>
+      <xloc>2844</xloc>
+      <yloc>78</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1158,7 +1171,7 @@
            </partitioning>
 <join_type>LEFT OUTER</join_type>
 <step1>Sort rows</step1>
-<step2>Sort on IF act</step2>
+<step2>Sort on IF activities</step2>
     <keys_1>
       <key>iati-identifier</key>
     </keys_1>
@@ -1167,14 +1180,14 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1731</xloc>
-      <yloc>267</yloc>
+      <xloc>1692</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Not an IF transaction&#x3f;</name>
+    <name>Not an IF or IC trx&#x3f;</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1189,15 +1202,27 @@
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>transaction-type-code</leftvalue>
- <function>&#x3c;&#x3e;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>IF</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>transaction-type-code</leftvalue>
+   <function>&#x3c;&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>IF</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>transaction-type-code</leftvalue>
+   <function>&#x3c;&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>IC</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  </conditions>
+ </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1285</xloc>
-      <yloc>264</yloc>
+      <xloc>1269</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1222,8 +1247,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>146</yloc>
+      <xloc>480</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1248,8 +1273,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2585</xloc>
-      <yloc>73</yloc>
+      <xloc>2698</xloc>
+      <yloc>78</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1274,8 +1299,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>67</xloc>
-      <yloc>263</yloc>
+      <xloc>51</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1300,8 +1325,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2728</xloc>
-      <yloc>183</yloc>
+      <xloc>2841</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1396,8 +1421,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3291</xloc>
-      <yloc>140</yloc>
+      <xloc>3404</xloc>
+      <yloc>145</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1492,8 +1517,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3288</xloc>
-      <yloc>273</yloc>
+      <xloc>3401</xloc>
+      <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1588,14 +1613,14 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3288</xloc>
-      <yloc>20</yloc>
+      <xloc>3401</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values</name>
+    <name>Select IF&#x2f;IC values</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1688,14 +1713,14 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2424</xloc>
-      <yloc>517</yloc>
+      <xloc>2551</xloc>
+      <yloc>523</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values 2</name>
+    <name>Select values out trx</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1788,8 +1813,42 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2423</xloc>
-      <yloc>269</yloc>
+      <xloc>2401</xloc>
+      <yloc>271</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set ex rate to 0 if not found</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>exchange-rate</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>883</xloc>
+      <yloc>404</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1822,14 +1881,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1283</xloc>
-      <yloc>516</yloc>
+      <xloc>1271</xloc>
+      <yloc>525</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sort on IF act</name>
+    <name>Sort on IF activities</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1856,8 +1915,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1697</xloc>
-      <yloc>349</yloc>
+      <xloc>1689</xloc>
+      <yloc>356</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1896,8 +1955,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1439</xloc>
-      <yloc>265</yloc>
+      <xloc>1425</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1936,14 +1995,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1400</xloc>
-      <yloc>614</yloc>
+      <xloc>1386</xloc>
+      <yloc>620</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sum weigths</name>
+    <name>Sum weigths by provider activity</name>
     <type>MemoryGroupBy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1972,14 +2031,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1661</xloc>
-      <yloc>427</yloc>
+      <xloc>1687</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Unknown provider name</name>
+    <name>If unknown provider org name</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2006,8 +2065,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2931</xloc>
-      <yloc>270</yloc>
+      <xloc>3044</xloc>
+      <yloc>275</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2286,8 +2345,61 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>617</xloc>
-      <yloc>396</yloc>
+      <xloc>601</xloc>
+      <yloc>404</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>Y</limitRows>
+      <limitRowsNumber>10</limitRowsNumber>
+      <logmessage>Warning&#x3a; Unable to retrieve valid exchange rate. Invalid rates are set to 0.</logmessage>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>transaction-type-code</name>
+        </field>
+      <field>
+        <name>transaction-value</name>
+        </field>
+      <field>
+        <name>transaction-iso-date</name>
+        </field>
+      <field>
+        <name>default-currency</name>
+        </field>
+      <field>
+        <name>transaction-currency</name>
+        </field>
+      <field>
+        <name>publisher</name>
+        </field>
+      <field>
+        <name>generated-datetime</name>
+        </field>
+      <field>
+        <name>exchange-rate</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>733</xloc>
+      <yloc>404</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2408,87 +2520,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3828</xloc>
-      <yloc>274</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Calc euro trx amount</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>transaction-value-eur</field_name>
-<formula_string>IF&#x28;&#x5b;exchange-rate&#x5d;&#x3c;&#x3e;0&#x3b;&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;transaction-value&#x5d;&#x3b;0&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1147</xloc>
-      <yloc>264</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>Y</limitRows>
-      <limitRowsNumber>10</limitRowsNumber>
-      <logmessage>Warning&#x3a; Unable to retrieve valid exchange rate. Invalid rates are set to 0.</logmessage>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        </field>
-      <field>
-        <name>transaction-type-code</name>
-        </field>
-      <field>
-        <name>transaction-value</name>
-        </field>
-      <field>
-        <name>transaction-iso-date</name>
-        </field>
-      <field>
-        <name>default-currency</name>
-        </field>
-      <field>
-        <name>transaction-currency</name>
-        </field>
-      <field>
-        <name>publisher</name>
-        </field>
-      <field>
-        <name>generated-datetime</name>
-        </field>
-      <field>
-        <name>exchange-rate</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>749</xloc>
-      <yloc>396</yloc>
+      <xloc>3941</xloc>
+      <yloc>279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

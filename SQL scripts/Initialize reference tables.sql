@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `ref-country-classification` (
   `Region` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table iatireference.ref-country-classification: ~0 rows (approximately)
+-- Dumping data for table iatireference.ref-country-classification: ~239 rows (approximately)
 DELETE FROM `ref-country-classification`;
 /*!40000 ALTER TABLE `ref-country-classification` DISABLE KEYS */;
 INSERT INTO `ref-country-classification` (`ISOA2`, `ISOA3`, `UNCountry`, `UNLDC`, `Income`, `Region`) VALUES
