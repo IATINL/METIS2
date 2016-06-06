@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;05 11&#x3a;55&#x3a;01.592</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;04 14&#x3a;30&#x3a;52.369</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;03 15&#x3a;10&#x3a;57.352</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -188,8 +188,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>49</xloc>
-      <yloc>87</yloc>
+      <xloc>44</xloc>
+      <yloc>114</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -198,8 +198,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1317</xloc>
-      <yloc>75</yloc>
+      <xloc>1170</xloc>
+      <yloc>108</yloc>
       </entry>
     <entry>
       <name>Make parent child list trx</name>
@@ -232,8 +232,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>210</xloc>
-      <yloc>15</yloc>
+      <xloc>208</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Split budget by provider</name>
@@ -266,8 +266,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>381</xloc>
-      <yloc>149</yloc>
+      <xloc>684</xloc>
+      <yloc>109</yloc>
       </entry>
     <entry>
       <name>Split descriptions by provider</name>
@@ -300,8 +300,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>539</xloc>
-      <yloc>150</yloc>
+      <xloc>399</xloc>
+      <yloc>202</yloc>
       </entry>
     <entry>
       <name>Split documents by provider</name>
@@ -334,8 +334,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>708</xloc>
-      <yloc>150</yloc>
+      <xloc>568</xloc>
+      <yloc>202</yloc>
       </entry>
     <entry>
       <name>Split results by provider</name>
@@ -368,8 +368,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>871</xloc>
-      <yloc>150</yloc>
+      <xloc>731</xloc>
+      <yloc>202</yloc>
       </entry>
     <entry>
       <name>Split locations by provider</name>
@@ -402,8 +402,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1022</xloc>
-      <yloc>151</yloc>
+      <xloc>882</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>Split organisations by provider</name>
@@ -436,8 +436,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1195</xloc>
-      <yloc>151</yloc>
+      <xloc>1055</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>Split transactions by provider</name>
@@ -470,8 +470,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1192</xloc>
-      <yloc>16</yloc>
+      <xloc>682</xloc>
+      <yloc>21</yloc>
       </entry>
     <entry>
       <name>Make parent child list other</name>
@@ -504,20 +504,11 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>213</xloc>
-      <yloc>149</yloc>
+      <xloc>208</xloc>
+      <yloc>202</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Split budget by provider</from>
-      <to>Split descriptions by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Split descriptions by provider</from>
       <to>Split documents by provider</to>
@@ -601,7 +592,25 @@
     </hop>
     <hop>
       <from>Make parent child list other</from>
+      <to>Split descriptions by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list trx</from>
       <to>Split budget by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Split budget by provider</from>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
