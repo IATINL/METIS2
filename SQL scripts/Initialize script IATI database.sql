@@ -65,7 +65,12 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -261,20 +266,20 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
   `budget-value-eur` double DEFAULT NULL,
-  `buza-descendant-yn` char(1) DEFAULT NULL,
-  `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
-  `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
-  KEY `idx-url-id` (`url-id`),
-  KEY `idx-buza-ancestor-activity-id` (`buza-ancestor-activity-id`)
+  KEY `idx-url-id` (`url-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -304,7 +309,12 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -337,7 +347,12 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -373,7 +388,12 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -406,7 +426,12 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -415,9 +440,6 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
 DROP TABLE IF EXISTS `fct-results`;
 CREATE TABLE IF NOT EXISTS `fct-results` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `recipient-country-code` varchar(85) DEFAULT NULL,
-  `recipient-region-code` varchar(85) DEFAULT NULL,
-  `country-region-percentage` double DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
@@ -450,7 +472,12 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -491,7 +518,12 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -982,7 +1014,12 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1006,7 +1043,12 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1032,7 +1074,12 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1061,7 +1108,12 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1087,7 +1139,12 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1111,7 +1168,12 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1120,9 +1182,6 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
 DROP TABLE IF EXISTS `dwh-results`;
 CREATE TABLE IF NOT EXISTS `dwh-results` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `recipient-country-code` varchar(85) DEFAULT NULL,
-  `recipient-region-code` varchar(85) DEFAULT NULL,
-  `country-region-percentage` double DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
@@ -1148,7 +1207,12 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1184,7 +1248,12 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
  PARTITION zoa VALUES IN (2) ENGINE = InnoDB,
  PARTITION rvo VALUES IN (3) ENGINE = InnoDB,
- PARTITION nlrc VALUES IN (5) ENGINE = InnoDB) */;
+ PARTITION nlrc VALUES IN (5) ENGINE = InnoDB,
+ PARTITION bothends VALUES IN (6) ENGINE = InnoDB,
+ PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
+ PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
+ PARTITION somo VALUES IN (9) ENGINE = InnoDB,
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1214,6 +1283,7 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
   `has-childs` char(1) DEFAULT NULL,
   `weigth-parent` double DEFAULT NULL,
   `weigth-grand-parent` double DEFAULT NULL,
+  `weigth-great-grand-parent` double DEFAULT NULL,
   KEY `idx-iati-activity-parent` (`iati-identifier-parent`),
   KEY `idx-iati-activity-child` (`iati-identifier-child`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
