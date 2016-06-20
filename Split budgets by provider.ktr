@@ -68,17 +68,17 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;20 10&#x3a;05&#x3a;36.901</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;08 17&#x3a;13&#x3a;29.911</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;15 16&#x3a;25&#x3a;12.530</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Apply weights from parent child list to budget transactions.</note>
+      <note>Apply weights from parent child list to budgets&#xd;&#xa;and transactions.</note>
       <xloc>1379</xloc>
-      <yloc>130</yloc>
-      <width>349</width>
-      <heigth>25</heigth>
+      <yloc>128</yloc>
+      <width>277</width>
+      <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -95,11 +95,11 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Retrieve actuals per budget period</note>
-      <xloc>82</xloc>
-      <yloc>262</yloc>
-      <width>207</width>
-      <heigth>25</heigth>
+      <note>Retrieve actuals per budget period and join the&#xd;&#xa;actuals to the budgets in the corresponding period.</note>
+      <xloc>83</xloc>
+      <yloc>266</yloc>
+      <width>303</width>
+      <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -266,14 +266,14 @@
   <hop> <from>Filter disbursements and expenditures</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort budget rows</from><to>Join actuals</to><enabled>Y</enabled> </hop>
   <hop> <from>Get activity budgets</from><to>Sort budget rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Apply weigth to budget values</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort actual rows</from><to>Join actuals</to><enabled>Y</enabled> </hop>
   <hop> <from>Denormalize</from><to>Sort actual rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Join actuals</from><to>If budget is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If budget is null</from><to>Select budget &#x26; actuals</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select budget &#x26; actuals</from><to>Remove zero amounts</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove zero amounts</from><to>Join weights</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove zero amounts</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select budget &#x26; actuals</from><to>Remove zero budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove zero budgets</from><to>Join weights</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove zero budgets</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apply weigth to budget values</from><to>Select values</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Apply weigth to budget values</name>
@@ -300,10 +300,24 @@
 <value_precision>-1</value_precision>
 <replace_field>budget-value-eur</replace_field>
 </formula>
+       <formula><field_name>disbursement-eur</field_name>
+<formula_string>&#x5b;disbursement-eur&#x5d;&#x2a;&#x28;&#x5b;weigth-parent&#x5d;&#x2a;&#x5b;weigth-grand-parent&#x5d;&#x2a;&#x5b;weigth-great-grand-parent&#x5d;&#x2f;1000000&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>disbursement-eur</replace_field>
+</formula>
+       <formula><field_name>expenditure-eur</field_name>
+<formula_string>&#x5b;expenditure-eur&#x5d;&#x2a;&#x28;&#x5b;weigth-parent&#x5d;&#x2a;&#x5b;weigth-grand-parent&#x5d;&#x2a;&#x5b;weigth-great-grand-parent&#x5d;&#x2f;1000000&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>expenditure-eur</replace_field>
+</formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1571</xloc>
-      <yloc>188</yloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -401,8 +415,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1159</xloc>
-      <yloc>308</yloc>
+      <xloc>1155</xloc>
+      <yloc>346</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -581,7 +595,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1421</xloc>
-      <yloc>188</yloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -638,7 +652,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT &#xd;&#xa;	b.&#x60;iati-identifier&#x60;&#xd;&#xa;	,b.&#x60;recipient-country-code&#x60;&#xd;&#xa;	,b.&#x60;recipient-region-code&#x60;&#xd;&#xa;	,b.&#x60;sector-code&#x60;&#xd;&#xa;	,b.&#x60;budget-period-start&#x60;&#xd;&#xa;	,b.&#x60;budget-period-end&#x60;&#xd;&#xa;    ,b.&#x60;budget-type&#x60;&#xd;&#xa;	,t.&#x60;transaction-type-code&#x60;&#xd;&#xa;	,sum&#x28;t.&#x60;transaction-value-eur&#x60;&#x29; &#x60;transaction-value-eur&#x60;&#xd;&#xa;  FROM &#x60;dwh-budgets&#x60; b&#xd;&#xa;  LEFT&#xd;&#xa;  JOIN &#x60;dwh-transactions&#x60; t &#xd;&#xa;    ON b.&#x60;iati-identifier&#x60;&#x3d; t.&#x60;iati-identifier&#x60;&#xd;&#xa;   AND t.&#x60;transaction-iso-date&#x60; &#x3e;&#x3d; b.&#x60;budget-period-start&#x60;&#xd;&#xa;   AND t.&#x60;transaction-iso-date&#x60; &#x3c;&#x3d; b.&#x60;budget-period-end&#x60;&#xd;&#xa; GROUP BY &#xd;&#xa;	b.&#x60;iati-identifier&#x60;&#xd;&#xa;	,b.&#x60;recipient-country-code&#x60;&#xd;&#xa;	,b.&#x60;recipient-region-code&#x60;&#xd;&#xa;	,b.&#x60;sector-code&#x60;&#xd;&#xa;	,b.&#x60;budget-period-start&#x60;&#xd;&#xa;	,b.&#x60;budget-period-end&#x60;&#xd;&#xa;    ,b.&#x60;budget-type&#x60;&#xd;&#xa;	,t.&#x60;transaction-type-code&#x60;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>SELECT &#xd;&#xa;	b.&#x60;iati-identifier&#x60;&#xd;&#xa;	,b.&#x60;recipient-country-code&#x60;&#xd;&#xa;	,b.&#x60;recipient-region-code&#x60;&#xd;&#xa;	,b.&#x60;sector-code&#x60;&#xd;&#xa;	,b.&#x60;budget-period-start&#x60;&#xd;&#xa;	,b.&#x60;budget-period-end&#x60;&#xd;&#xa;    ,b.&#x60;budget-type&#x60;&#xd;&#xa;	,t.&#x60;transaction-type-code&#x60;&#xd;&#xa;	,sum&#x28;t.&#x60;transaction-value-eur&#x60;&#x29; &#x60;transaction-value-eur&#x60;&#xd;&#xa;  FROM &#x60;dwh-budgets&#x60; b&#xd;&#xa;  LEFT&#xd;&#xa;  JOIN &#x60;dwh-transactions&#x60; t &#xd;&#xa;    ON b.&#x60;iati-identifier&#x60;&#x3d; t.&#x60;iati-identifier&#x60;&#xd;&#xa;   AND t.&#x60;transaction-iso-date&#x60; &#x3e;&#x3d; b.&#x60;budget-period-start&#x60;&#xd;&#xa;   AND t.&#x60;transaction-iso-date&#x60; &#x3c;&#x3d; b.&#x60;budget-period-end&#x60;&#xd;&#xa;   AND t.&#x60;recipient-country-code&#x60;&#x3d;b.&#x60;recipient-country-code&#x60;&#xd;&#xa;   AND t.&#x60;recipient-region-code&#x60;&#x3d;b.&#x60;recipient-region-code&#x60;&#xd;&#xa;   AND t.&#x60;sector-code&#x60;&#x3d;b.&#x60;sector-code&#x60;&#xd;&#xa; GROUP BY &#xd;&#xa;	b.&#x60;iati-identifier&#x60;&#xd;&#xa;	,b.&#x60;recipient-country-code&#x60;&#xd;&#xa;	,b.&#x60;recipient-region-code&#x60;&#xd;&#xa;	,b.&#x60;sector-code&#x60;&#xd;&#xa;	,b.&#x60;budget-period-start&#x60;&#xd;&#xa;	,b.&#x60;budget-period-end&#x60;&#xd;&#xa;    ,b.&#x60;budget-type&#x60;&#xd;&#xa;	,t.&#x60;transaction-type-code&#x60;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -664,7 +678,7 @@
            <schema_name/>
            </partitioning>
 <join_type>LEFT OUTER</join_type>
-<step1>Remove zero amounts</step1>
+<step1>Remove zero budgets</step1>
 <step2>Sort on child and parent</step2>
     <keys_1>
       <key>iati-identifier</key>
@@ -675,13 +689,13 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1310</xloc>
-      <yloc>188</yloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Remove zero amounts</name>
+    <name>Remove zero budgets</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -703,27 +717,13 @@
    <function>&#x3c;&#x3e;</function>
    <rightvalue/>
    <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>disbursement-eur</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>expenditure-eur</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
   </conditions>
  </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1155</xloc>
-      <yloc>188</yloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -824,7 +824,52 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+      <meta>        <name>budget-period-start</name>
+        <rename>budget-period-start</rename>
+        <type>Date</type>
+        <length>0</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>budget-period-end</name>
+        <rename>budget-period-end</rename>
+        <type>Date</type>
+        <length>0</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>budget-value-date</name>
+        <rename>budget-value-date</rename>
+        <type>Date</type>
+        <length>0</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1008</xloc>
       <yloc>186</yloc>
@@ -855,19 +900,7 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>country-region-percentage</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
       </field>      <field>        <name>sector-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sector-vocabulary</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sector-percentage</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -946,8 +979,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1730</xloc>
-      <yloc>188</yloc>
+      <xloc>1722</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1220,20 +1253,8 @@
           <stream_name>recipient-region-code</stream_name>
         </field>
         <field>
-          <column_name>country-region-percentage</column_name>
-          <stream_name>country-region-percentage</stream_name>
-        </field>
-        <field>
           <column_name>sector-code</column_name>
           <stream_name>sector-code</stream_name>
-        </field>
-        <field>
-          <column_name>sector-vocabulary</column_name>
-          <stream_name>sector-vocabulary</stream_name>
-        </field>
-        <field>
-          <column_name>sector-percentage</column_name>
-          <stream_name>sector-percentage</stream_name>
         </field>
         <field>
           <column_name>budget-type</column_name>
@@ -1310,8 +1331,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1888</xloc>
-      <yloc>188</yloc>
+      <xloc>1843</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
