@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;02&#x2f;04 13&#x3a;53&#x3a;05.512</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;13 16&#x3a;13&#x3a;07.487</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;29 13&#x3a;49&#x3a;11.502</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -216,75 +216,96 @@
   <hop> <from>Read activities</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Activity seq</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act sector</from><to>Sort sector rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort sector rows</from><to>Add sector sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort sector rows</from><to>Sector sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read countries</from><to>Sort country rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort country rows</from><to>Add country sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort country rows</from><to>Country sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read regions</from><to>Sort region rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort region rows</from><to>Add region sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort region rows</from><to>Region sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read locations</from><to>Sort location</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort location</from><to>Add location sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort location</from><to>Location sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read organisations</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort orgs</from><to>Add organisation sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort orgs</from><to>Organisation sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read activity dates</from><to>Sort dates</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort dates</from><to>Add dates sequence</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read budgets</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort dates</from><to>Dates sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort budgets</from><to>Add budget sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read markers</from><to>Sort markers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort markers</from><to>Add marker sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort markers</from><to>Marker sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read related activities</from><to>Sort related act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort related act</from><to>Add related act sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort related act</from><to>Related act sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read descriptions</from><to>Sort descriptions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort descriptions</from><to>Add description sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort descriptions</from><to>Description sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read results</from><to>Sort results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort results</from><to>Add result sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort results</from><to>Result sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Read documents</from><to>Sort documents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort documents</from><to>Add document sequence</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read transactions</from><to>Sort transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort documents</from><to>Document sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort transactions</from><to>Add transaction sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Activity seq</from><to>Unique activities&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique activities&#x3f;</from><to>Duplicate activities</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique activities&#x3f;</from><to>Write activity data</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique sectors&#x3f;</from><to>Duplicate sectors</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sector sequence</from><to>Unique sectors&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sector sequence</from><to>Unique sectors&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique sectors&#x3f;</from><to>Write sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique countries&#x3f;</from><to>Duplicate countries</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add country sequence</from><to>Unique countries&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Country sequence</from><to>Unique countries&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique countries&#x3f;</from><to>Write countries</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique regions&#x3f;</from><to>Duplicate regions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add region sequence</from><to>Unique regions&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Region sequence</from><to>Unique regions&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique regions&#x3f;</from><to>Write regions</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique locations&#x3f;</from><to>Duplicate locations</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add location sequence</from><to>Unique locations&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Location sequence</from><to>Unique locations&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique locations&#x3f;</from><to>Write locations</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique organisations&#x3f;</from><to>Duplicate organisations</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add organisation sequence</from><to>Unique organisations&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Organisation sequence</from><to>Unique organisations&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique organisations&#x3f;</from><to>Write organisations</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique dates&#x3f;</from><to>Duplicate dates</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add dates sequence</from><to>Unique dates&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dates sequence</from><to>Unique dates&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique dates&#x3f;</from><to>Write dates</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique budgets&#x3f;</from><to>Duplicate budgets</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add budget sequence</from><to>Unique budgets&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique budgets&#x3f;</from><to>Write budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add budget sequence</from><to>Duplicate budgets&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate budgets&#x3f;</from><to>Write budgets to src</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique markers&#x3f;</from><to>Duplicate markers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add marker sequence</from><to>Unique markers&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Marker sequence</from><to>Unique markers&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique markers&#x3f;</from><to>Write markers</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique rel act&#x3f;</from><to>Duplicate rel act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add related act sequence</from><to>Unique rel act&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Related act sequence</from><to>Unique rel act&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique rel act&#x3f;</from><to>Write rel act</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique descriptions&#x3f;</from><to>Duplicate descriptions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add description sequence</from><to>Unique descriptions&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Description sequence</from><to>Unique descriptions&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique descriptions&#x3f;</from><to>Write descriptions</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique results&#x3f;</from><to>Duplicate results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add result sequence</from><to>Unique results&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Result sequence</from><to>Unique results&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique results&#x3f;</from><to>Write results</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique documents&#x3f;</from><to>Duplicate documents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add document sequence</from><to>Unique documents&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Document sequence</from><to>Unique documents&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique documents&#x3f;</from><to>Write documents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique transactions&#x3f;</from><to>Duplicate transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique transactions&#x3f;</from><to>Write transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add transaction sequence</from><to>Unique transactions&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Duplicate transactions</from><to>Duplicate trx log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Duplicate budgets</from><to>Duplicate budget log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate transactions&#x3f;</from><to>Write transactions to src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add transaction sequence</from><to>Duplicate transactions&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique activities&#x3f;</from><to>Duplicate activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read transactions</from><to>Find duplicate act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Find duplicate act</from><to>Sort transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate activities</from><to>Find duplicate act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read budgets</from><to>Find duplicate budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Find duplicate budgets</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate activities</from><to>Find duplicate budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate transactions&#x3f;</from><to>Duplicate trx log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate budgets&#x3f;</from><to>Duplicate budget log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get jobnr &#x26; pub id</from><to>If jobnr or pub id is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>If jobnr or pub id is null</from><to>Calculate check totals</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams</from><to>Get jobnr &#x26; pub id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate check totals</from><to>Update check total log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate trx log</from><to>Add trx dup const</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate trx fields</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate budget log</from><to>Add budget dup const</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate budget fields</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add trx dup const</from><to>Append trx streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append trx streams</from><to>Duplicate trx fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add trx const</from><to>Append trx streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add transaction sequence</from><to>Add trx const</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add budget sequence</from><to>Add budget const</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add budget dup const</from><to>Append budget streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append budget streams</from><to>Duplicate budget fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add budget const</from><to>Append budget streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get jobnr &#x26; publisher</from><to>If nulls</to><enabled>Y</enabled> </hop>
+  <hop> <from>Duplicate activities</from><to>Get jobnr &#x26; publisher</to><enabled>Y</enabled> </hop>
+  <hop> <from>If nulls</from><to>Write to duplicate activity log</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Activity seq</name>
@@ -307,8 +328,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>438</xloc>
-      <yloc>20</yloc>
+      <xloc>267</xloc>
+      <yloc>254</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -317,7 +338,7 @@
     <name>Add budget sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -355,14 +376,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>441</xloc>
-      <yloc>1132</yloc>
+      <xloc>1017</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add country sequence</name>
+    <name>Country sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -385,14 +406,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>439</xloc>
-      <yloc>327</yloc>
+      <xloc>275</xloc>
+      <yloc>750</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add dates sequence</name>
+    <name>Dates sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -415,14 +436,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>442</xloc>
-      <yloc>967</yloc>
+      <xloc>248</xloc>
+      <yloc>1371</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add description sequence</name>
+    <name>Description sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -448,14 +469,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>430</xloc>
-      <yloc>1645</yloc>
+      <xloc>245</xloc>
+      <yloc>1870</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add document sequence</name>
+    <name>Document sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -490,14 +511,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>426</xloc>
-      <yloc>2002</yloc>
+      <xloc>246</xloc>
+      <yloc>2233</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add location sequence</name>
+    <name>Location sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -538,14 +559,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>436</xloc>
-      <yloc>647</yloc>
+      <xloc>269</xloc>
+      <yloc>1064</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add marker sequence</name>
+    <name>Marker sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -571,14 +592,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>437</xloc>
-      <yloc>1310</yloc>
+      <xloc>255</xloc>
+      <yloc>1535</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add organisation sequence</name>
+    <name>Organisation sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -610,14 +631,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>439</xloc>
-      <yloc>806</yloc>
+      <xloc>249</xloc>
+      <yloc>1220</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add region sequence</name>
+    <name>Region sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -640,14 +661,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>438</xloc>
-      <yloc>482</yloc>
+      <xloc>270</xloc>
+      <yloc>910</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add related act sequence</name>
+    <name>Related act sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -673,14 +694,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>429</xloc>
-      <yloc>1489</yloc>
+      <xloc>255</xloc>
+      <yloc>1714</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add result sequence</name>
+    <name>Result sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -724,14 +745,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>432</xloc>
-      <yloc>1838</yloc>
+      <xloc>247</xloc>
+      <yloc>2065</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Add sector sequence</name>
+    <name>Sector sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -757,8 +778,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>440</xloc>
-      <yloc>171</yloc>
+      <xloc>275</xloc>
+      <yloc>590</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -767,7 +788,7 @@
     <name>Add transaction sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -814,15 +835,15 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>426</xloc>
-      <yloc>2199</yloc>
+      <xloc>1011</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Duplicate activities</name>
-    <type>Dummy</type>
+    <name>Duplicate budget log</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -831,29 +852,38 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Warning&#x3a; duplicate transactions</logmessage>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>budget-type</name>
+        </field>
+      <field>
+        <name>budget-period-start</name>
+        </field>
+      <field>
+        <name>budget-period-end</name>
+        </field>
+      <field>
+        <name>budget-value</name>
+        </field>
+      <field>
+        <name>budget-value-date</name>
+        </field>
+      <field>
+        <name>budget-value-currency</name>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>595</xloc>
-      <yloc>102</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Duplicate budgets</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>601</xloc>
-      <yloc>1215</yloc>
+      <xloc>1317</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -871,8 +901,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>410</yloc>
+      <xloc>398</xloc>
+      <yloc>829</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -890,8 +920,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>1049</yloc>
+      <xloc>388</xloc>
+      <yloc>1459</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -909,8 +939,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>611</xloc>
-      <yloc>1722</yloc>
+      <xloc>387</xloc>
+      <yloc>1947</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -928,8 +958,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>604</xloc>
-      <yloc>2085</yloc>
+      <xloc>382</xloc>
+      <yloc>2325</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -947,8 +977,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>730</yloc>
+      <xloc>390</xloc>
+      <yloc>1146</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -966,8 +996,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>605</xloc>
-      <yloc>1393</yloc>
+      <xloc>388</xloc>
+      <yloc>1619</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -985,8 +1015,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>598</xloc>
-      <yloc>888</yloc>
+      <xloc>391</xloc>
+      <yloc>1301</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1004,8 +1034,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>602</xloc>
-      <yloc>565</yloc>
+      <xloc>397</xloc>
+      <yloc>994</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1023,8 +1053,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>609</xloc>
-      <yloc>1570</yloc>
+      <xloc>387</xloc>
+      <yloc>1796</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1042,8 +1072,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>606</xloc>
-      <yloc>1928</yloc>
+      <xloc>386</xloc>
+      <yloc>2144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1061,15 +1091,15 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>253</yloc>
+      <xloc>401</xloc>
+      <yloc>669</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Duplicate transactions</name>
-    <type>Dummy</type>
+    <name>Duplicate trx log</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1078,10 +1108,32 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Warning&#x3a; duplicate transactions</logmessage>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>transaction-type-code</name>
+        </field>
+      <field>
+        <name>transaction-iso-date</name>
+        </field>
+      <field>
+        <name>value</name>
+        </field>
+      <field>
+        <name>transaction-currency</name>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>598</xloc>
-      <yloc>2279</yloc>
+      <xloc>1318</xloc>
+      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1106,8 +1158,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>102</xloc>
-      <yloc>170</yloc>
+      <xloc>47</xloc>
+      <yloc>590</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1132,8 +1184,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>106</xloc>
-      <yloc>20</yloc>
+      <xloc>45</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1158,8 +1210,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>98</xloc>
-      <yloc>968</yloc>
+      <xloc>40</xloc>
+      <yloc>1372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1184,8 +1236,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>99</xloc>
-      <yloc>1132</yloc>
+      <xloc>595</xloc>
+      <yloc>430</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1210,8 +1262,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>98</xloc>
-      <yloc>330</yloc>
+      <xloc>38</xloc>
+      <yloc>753</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1236,8 +1288,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>87</xloc>
-      <yloc>1644</yloc>
+      <xloc>22</xloc>
+      <yloc>1871</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1262,8 +1314,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>87</xloc>
-      <yloc>2002</yloc>
+      <xloc>25</xloc>
+      <yloc>2235</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1288,8 +1340,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>98</xloc>
-      <yloc>648</yloc>
+      <xloc>35</xloc>
+      <yloc>1066</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1314,8 +1366,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>94</xloc>
-      <yloc>1312</yloc>
+      <xloc>33</xloc>
+      <yloc>1537</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1340,8 +1392,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>99</xloc>
-      <yloc>808</yloc>
+      <xloc>40</xloc>
+      <yloc>1222</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1366,8 +1418,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>99</xloc>
-      <yloc>482</yloc>
+      <xloc>35</xloc>
+      <yloc>911</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1392,8 +1444,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>86</xloc>
-      <yloc>1488</yloc>
+      <xloc>25</xloc>
+      <yloc>1713</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1418,8 +1470,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>90</xloc>
-      <yloc>1841</yloc>
+      <xloc>25</xloc>
+      <yloc>2068</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1444,8 +1496,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>86</xloc>
-      <yloc>2198</yloc>
+      <xloc>622</xloc>
+      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1526,8 +1578,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>274</xloc>
-      <yloc>1132</yloc>
+      <xloc>874</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1572,8 +1624,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>273</xloc>
-      <yloc>328</yloc>
+      <xloc>150</xloc>
+      <yloc>753</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1618,8 +1670,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>275</xloc>
-      <yloc>968</yloc>
+      <xloc>143</xloc>
+      <yloc>1371</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1670,8 +1722,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>264</xloc>
-      <yloc>1645</yloc>
+      <xloc>132</xloc>
+      <yloc>1870</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1740,8 +1792,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>258</xloc>
-      <yloc>2002</yloc>
+      <xloc>135</xloc>
+      <yloc>2234</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1816,8 +1868,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>272</xloc>
-      <yloc>647</yloc>
+      <xloc>146</xloc>
+      <yloc>1064</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1868,8 +1920,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>270</xloc>
-      <yloc>1312</yloc>
+      <xloc>149</xloc>
+      <yloc>1537</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1932,8 +1984,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>274</xloc>
-      <yloc>806</yloc>
+      <xloc>143</xloc>
+      <yloc>1221</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1984,8 +2036,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>274</xloc>
-      <yloc>482</yloc>
+      <xloc>147</xloc>
+      <yloc>910</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2036,8 +2088,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>262</xloc>
-      <yloc>1489</yloc>
+      <xloc>141</xloc>
+      <yloc>1714</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2124,8 +2176,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>264</xloc>
-      <yloc>1840</yloc>
+      <xloc>133</xloc>
+      <yloc>2067</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2164,8 +2216,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>273</xloc>
-      <yloc>20</yloc>
+      <xloc>153</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2216,8 +2268,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>274</xloc>
-      <yloc>170</yloc>
+      <xloc>160</xloc>
+      <yloc>590</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2316,8 +2368,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>261</xloc>
-      <yloc>2199</yloc>
+      <xloc>870</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2345,14 +2397,14 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>595</xloc>
-      <yloc>19</yloc>
+      <xloc>399</xloc>
+      <yloc>253</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Unique budgets&#x3f;</name>
+    <name>Duplicate budgets&#x3f;</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2362,20 +2414,32 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Write budgets</send_true_to>
-<send_false_to>Duplicate budgets</send_false_to>
+<send_true_to>Duplicate budget log</send_true_to>
+<send_false_to>Write budgets to src</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>sequence</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>sequence</leftvalue>
+   <function>&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>duplicate</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>601</xloc>
-      <yloc>1133</yloc>
+      <xloc>1177</xloc>
+      <yloc>433</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2403,8 +2467,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>327</yloc>
+      <xloc>399</xloc>
+      <yloc>748</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2432,8 +2496,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>967</yloc>
+      <xloc>391</xloc>
+      <yloc>1372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2461,8 +2525,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>610</xloc>
-      <yloc>1644</yloc>
+      <xloc>386</xloc>
+      <yloc>1869</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2490,8 +2554,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>604</xloc>
-      <yloc>2003</yloc>
+      <xloc>384</xloc>
+      <yloc>2233</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2519,8 +2583,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>647</yloc>
+      <xloc>395</xloc>
+      <yloc>1063</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2548,8 +2612,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>605</xloc>
-      <yloc>1311</yloc>
+      <xloc>388</xloc>
+      <yloc>1537</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2577,8 +2641,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>598</xloc>
-      <yloc>806</yloc>
+      <xloc>396</xloc>
+      <yloc>1219</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2606,8 +2670,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>602</xloc>
-      <yloc>482</yloc>
+      <xloc>397</xloc>
+      <yloc>909</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2635,8 +2699,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>609</xloc>
-      <yloc>1488</yloc>
+      <xloc>387</xloc>
+      <yloc>1714</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2664,8 +2728,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>608</xloc>
-      <yloc>1839</yloc>
+      <xloc>384</xloc>
+      <yloc>2064</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2693,14 +2757,14 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>170</yloc>
+      <xloc>401</xloc>
+      <yloc>589</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Unique transactions&#x3f;</name>
+    <name>Duplicate transactions&#x3f;</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2710,20 +2774,32 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Write transactions</send_true_to>
-<send_false_to>Duplicate transactions</send_false_to>
+<send_true_to>Duplicate trx log</send_true_to>
+<send_false_to>Write transactions to src</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>sequence</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>sequence</leftvalue>
+   <function>&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>duplicate</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>598</xloc>
-      <yloc>2197</yloc>
+      <xloc>1182</xloc>
+      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2844,14 +2920,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>753</xloc>
-      <yloc>19</yloc>
+      <xloc>397</xloc>
+      <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write budgets</name>
+    <name>Write budgets to src</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2934,8 +3010,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>746</xloc>
-      <yloc>1132</yloc>
+      <xloc>1179</xloc>
+      <yloc>318</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3004,8 +3080,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>750</xloc>
-      <yloc>329</yloc>
+      <xloc>530</xloc>
+      <yloc>746</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3078,8 +3154,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>750</xloc>
-      <yloc>968</yloc>
+      <xloc>542</xloc>
+      <yloc>1373</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3148,8 +3224,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>756</xloc>
-      <yloc>1644</yloc>
+      <xloc>532</xloc>
+      <yloc>1869</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3230,8 +3306,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>743</xloc>
-      <yloc>2004</yloc>
+      <xloc>523</xloc>
+      <yloc>2234</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3320,8 +3396,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>753</xloc>
-      <yloc>647</yloc>
+      <xloc>528</xloc>
+      <yloc>1062</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3394,8 +3470,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>745</xloc>
-      <yloc>1311</yloc>
+      <xloc>535</xloc>
+      <yloc>1537</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3472,8 +3548,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>751</xloc>
-      <yloc>807</yloc>
+      <xloc>537</xloc>
+      <yloc>1219</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3542,8 +3618,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>753</xloc>
-      <yloc>481</yloc>
+      <xloc>530</xloc>
+      <yloc>908</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3612,8 +3688,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>751</xloc>
-      <yloc>1486</yloc>
+      <xloc>529</xloc>
+      <yloc>1712</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3726,8 +3802,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>1841</yloc>
+      <xloc>525</xloc>
+      <yloc>2064</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3800,14 +3876,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>750</xloc>
-      <yloc>172</yloc>
+      <xloc>534</xloc>
+      <yloc>588</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write transactions</name>
+    <name>Write transactions to src</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3926,15 +4002,39 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>734</xloc>
-      <yloc>2199</yloc>
+      <xloc>1185</xloc>
+      <yloc>202</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Duplicate trx log</name>
-    <type>WriteToLog</type>
+    <name>Duplicate activities</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>530</xloc>
+      <yloc>253</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Find duplicate act</name>
+    <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3943,39 +4043,34 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Warning&#x3a; duplicate transactions</logmessage>
-    <fields>
-      <field>
+    <from>Duplicate activities</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
         <name>iati-identifier</name>
-        </field>
-      <field>
-        <name>transaction-type-code</name>
-        </field>
-      <field>
-        <name>transaction-iso-date</name>
-        </field>
-      <field>
-        <name>value</name>
-        </field>
-      <field>
-        <name>transaction-currency</name>
-        </field>
-      </fields>
+        <field>iati-identifier</field>
+      </key>
+      <value>
+        <name>iati-identifier</name>
+        <rename>duplicate</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>736</xloc>
-      <yloc>2279</yloc>
+      <xloc>743</xloc>
+      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Duplicate budget log</name>
-    <type>WriteToLog</type>
+    <name>Find duplicate budgets</name>
+    <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3984,38 +4079,702 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Warning&#x3a; duplicate transactions</logmessage>
-    <fields>
-      <field>
+    <from>Duplicate activities</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
         <name>iati-identifier</name>
+        <field>iati-identifier</field>
+      </key>
+      <value>
+        <name>iati-identifier</name>
+        <rename>duplicate</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>737</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calculate check totals</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>job-number</name>
         </field>
-      <field>
-        <name>budget-type</name>
+        <field>
+          <name>publisher-id</name>
         </field>
-      <field>
-        <name>budget-period-start</name>
+        <field>
+          <name>url-id</name>
         </field>
-      <field>
-        <name>budget-period-end</name>
+        <field>
+          <name>subject</name>
         </field>
-      <field>
-        <name>budget-value</name>
+        <field>
+          <name>step</name>
         </field>
-      <field>
-        <name>budget-value-date</name>
-        </field>
-      <field>
-        <name>budget-value-currency</name>
+      </group>
+      <fields>
+        <field>
+          <aggregate>check-total</aggregate>
+          <subject>value</subject>
+          <type>SUM</type>
+          <valuefield/>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>746</xloc>
-      <yloc>1215</yloc>
+      <xloc>2216</xloc>
+      <yloc>273</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get jobnr &#x26; pub id</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>publisher-id</name>
+        <variable>&#x24;&#x7b;publisher-id&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1912</xloc>
+      <yloc>271</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If jobnr or pub id is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>publisher-id</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2056</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate trx fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>value</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>subject</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>step</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1720</xloc>
+      <yloc>98</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add trx dup const</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>subject</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>transaction-total</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>step</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>xml-duplicates</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1441</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Duplicate budget fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>budget-value</name>
+        <rename>value</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>subject</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>step</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1750</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add budget dup const</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>subject</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>budget-total</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>step</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>xml-duplicates</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1450</xloc>
+      <yloc>431</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Duplicate trx fields</head_name>
+<tail_name>Duplicate budget fields</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1795</xloc>
+      <yloc>270</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Update check total log</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <commit>100</commit>
+    <update_bypassed>Y</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>log-check-totals</table>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>url-id</name>
+        <field>url-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>subject</name>
+        <field>subject</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>step</name>
+        <field>step</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>job-number</name>
+        <field>job-number</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>url-id</name>
+        <rename>url-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>check-total</name>
+        <rename>check-total</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subject</name>
+        <rename>subject</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>step</name>
+        <rename>step</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>job-number</name>
+        <rename>job-number</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2369</xloc>
+      <yloc>274</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add trx const</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>subject</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>transaction-total</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>step</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>xml</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1318</xloc>
+      <yloc>14</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append trx streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Add trx const</head_name>
+<tail_name>Add trx dup const</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1585</xloc>
+      <yloc>97</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add budget const</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>subject</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>budget-total</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>step</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>xml</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1315</xloc>
+      <yloc>526</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append budget streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Add budget const</head_name>
+<tail_name>Add budget dup const</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1591</xloc>
+      <yloc>431</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get jobnr &#x26; publisher</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>publisher-id</name>
+        <variable>&#x24;&#x7b;publisher-id&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>698</xloc>
+      <yloc>252</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If nulls</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>publisher-id</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>847</xloc>
+      <yloc>253</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to duplicate activity log</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>log-duplicates</table>
+      <key>
+        <name>job-number</name>
+        <field>job-number</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>job-number</name>
+        <rename>job-number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iati-identifier</name>
+        <rename>iati-identifier</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1018</xloc>
+      <yloc>252</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

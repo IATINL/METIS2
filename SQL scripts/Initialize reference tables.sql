@@ -295,15 +295,15 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
 DELETE FROM `ctl-publishers`;
 /*!40000 ALTER TABLE `ctl-publishers` DISABLE KEYS */;
 INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-processing`, `testfile-location`, `is-testfile`) VALUES
-	('bothends', 6, b'1', b'1', NULL, b'0'),
-	('ccc', 7, b'1', b'1', NULL, b'0'),
-	('foenl', 8, b'1', b'1', NULL, b'0'),
+	('bothends', 6, b'0', b'1', NULL, b'0'),
+	('ccc', 7, b'0', b'1', NULL, b'0'),
+	('foenl', 8, b'0', b'1', NULL, b'0'),
 	('minbuza_nl', 1, b'0', b'1', NULL, b'0'),
 	('nlrc', 5, b'0', b'1', NULL, b'0'),
 	('rvo', 3, b'0', b'1', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\26042016-RVO-IATI-adjusted.xml', b'1'),
-	('somo', 9, b'1', b'1', NULL, b'0'),
-	('tni', 10, b'1', b'1', NULL, b'0'),
-	('zoa', 2, b'0', b'1', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\zoa-activities.xml', b'1');
+	('somo', 9, b'0', b'1', NULL, b'0'),
+	('tni', 10, b'0', b'1', NULL, b'0'),
+	('zoa', 2, b'1', b'1', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\duplicate-test.xml', b'1');
 /*!40000 ALTER TABLE `ctl-publishers` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
