@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;18 10&#x3a;22&#x3a;45.617</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;03 15&#x3a;52&#x3a;46.562</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;04 17&#x3a;43&#x3a;41.693</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -377,7 +377,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;publisher&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-results&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;baseline-comment&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;publisher&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-results&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -526,12 +526,16 @@
           <stream_name>period-end</stream_name>
         </field>
         <field>
-          <column_name>baseline-year</column_name>
-          <stream_name>baseline-year</stream_name>
-        </field>
-        <field>
           <column_name>baseline-value</column_name>
           <stream_name>baseline-value</stream_name>
+        </field>
+        <field>
+          <column_name>baseline-comment</column_name>
+          <stream_name>baseline-comment</stream_name>
+        </field>
+        <field>
+          <column_name>baseline-year</column_name>
+          <stream_name>baseline-year</stream_name>
         </field>
         <field>
           <column_name>actual-value</column_name>

@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;05&#x2f;04 13&#x3a;23&#x3a;42.994</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;03 11&#x3a;42&#x3a;22.242</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;29 17&#x3a;53&#x3a;42.635</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -95,10 +95,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Add the IATI activity identifiers of the grandparents &#x28;if any&#x29;</note>
+      <note>Add the IATI activity identifiers of the grandparents.</note>
       <xloc>1276</xloc>
       <yloc>96</yloc>
-      <width>342</width>
+      <width>302</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -116,10 +116,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Add the identifier and weigth of the great grand parents &#x28;level 3&#x29;</note>
+      <note>Add the IATI activity identifier of the great grand parents.</note>
       <xloc>1800</xloc>
       <yloc>93</yloc>
-      <width>374</width>
+      <width>332</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -352,6 +352,46 @@
     </step>
 
   <step>
+    <name>Calc if buza activity&#x3f;</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>parent-is-minbuza</field_name>
+<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+       <formula><field_name>grand-parent-is-minbuza</field_name>
+<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+       <formula><field_name>great-grand-parent-is-minbuza</field_name>
+<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2437</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Find activity in parent list</name>
     <type>StreamLookup</type>
     <description/>
@@ -416,6 +456,34 @@
     </step>
 
   <step>
+    <name>Great grand parents</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort on grand parent</step1>
+<step2>Sort on child 2</step2>
+    <keys_1>
+      <key>iati-identifier-grand-parent</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier-child</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2116</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Read related parent activities</name>
     <type>TableInput</type>
     <description/>
@@ -463,6 +531,92 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>110</xloc>
       <yloc>64</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rename to great grand parent</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>iati-identifier-child</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-parent</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-grand-parent</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-parent_1</name>
+        <rename>iati-identifier-great-grand-parent</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>has-childs</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2269</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace null values&#x3f;</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>grand-parent-is-minbuza</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>parent-is-minbuza</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>great-grand-parent-is-minbuza</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2582</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -604,6 +758,65 @@
     </step>
 
   <step>
+    <name>Sibling identifier</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>sibling-activity-id</field_name>
+<formula_string>IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;1&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;2&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;3&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-child&#x5d;&#x29;&#x29;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2837</xloc>
+      <yloc>143</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sibling level</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>sibling-yn</field_name>
+<formula_string>IF&#x28;OR&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x29;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+       <formula><field_name>sibling-level</field_name>
+<formula_string>IF&#x28;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;1&#x3b;IF&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;2&#x3b;IF&#x28;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;3&#x3b;0&#x29;&#x29;&#x29;</formula_string>
+<value_type>Integer</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2712</xloc>
+      <yloc>143</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Sort on child 1</name>
     <type>SortRows</type>
     <description/>
@@ -633,6 +846,74 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1433</xloc>
       <yloc>266</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort on child 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-child</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1947</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort on grand parent</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-grand-parent</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1944</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -855,287 +1136,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>3124</xloc>
       <yloc>145</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Great grand parents</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort on grand parent</step1>
-<step2>Sort on child 2</step2>
-    <keys_1>
-      <key>iati-identifier-grand-parent</key>
-    </keys_1>
-    <keys_2>
-      <key>iati-identifier-child</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2116</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Rename to great grand parent</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier-child</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier-parent</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier-grand-parent</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier-parent_1</name>
-        <rename>iati-identifier-great-grand-parent</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>has-childs</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2269</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort on child 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier-child</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1947</xloc>
-      <yloc>255</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort on grand parent</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier-grand-parent</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1944</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Replace null values&#x3f;</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>grand-parent-is-minbuza</name>
-        <value>N</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>parent-is-minbuza</name>
-        <value>N</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>great-grand-parent-is-minbuza</name>
-        <value>N</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2582</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Calc if buza activity&#x3f;</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>parent-is-minbuza</field_name>
-<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-       <formula><field_name>grand-parent-is-minbuza</field_name>
-<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-       <formula><field_name>great-grand-parent-is-minbuza</field_name>
-<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2437</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sibling identifier</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>sibling-activity-id</field_name>
-<formula_string>IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;1&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;2&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;3&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-child&#x5d;&#x29;&#x29;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2837</xloc>
-      <yloc>143</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sibling level</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>sibling-yn</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x29;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-       <formula><field_name>sibling-level</field_name>
-<formula_string>IF&#x28;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;1&#x3b;IF&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;2&#x3b;IF&#x28;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;3&#x3b;0&#x29;&#x29;&#x29;</formula_string>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2712</xloc>
-      <yloc>143</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
