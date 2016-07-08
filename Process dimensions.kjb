@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;35&#x3a;49.798</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;18 17&#x3a;00&#x3a;43.594</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;07 14&#x3a;29&#x3a;41.312</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -311,8 +311,8 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Process sectors</from>
@@ -320,8 +320,8 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Process activity general data</from>
@@ -329,8 +329,8 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>START</from>
