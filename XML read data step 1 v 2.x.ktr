@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;08 10&#x3a;15&#x3a;10.798</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;21 13&#x3a;07&#x3a;30.806</modified_date>
+  <modified_date>2016&#x2f;04&#x2f;25 16&#x3a;55&#x3a;11.604</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -862,8 +862,8 @@
       </field>
       <field>
         <name>default-finance-type</name>
-        <xpath>default-finance-type</xpath>
-        <element_type>node</element_type>
+        <xpath>default-finance-type&#x2f;code</xpath>
+        <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
         <format/>
@@ -877,8 +877,8 @@
       </field>
       <field>
         <name>default-tied-status</name>
-        <xpath>default-tied-status</xpath>
-        <element_type>node</element_type>
+        <xpath>default-tied-status&#x2f;code</xpath>
+        <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
         <format/>
@@ -1062,6 +1062,21 @@
       <field>
         <name>location-type-code</name>
         <xpath>feature-designation&#x2f;&#x40;code</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>location-coordinates-precision</name>
+        <xpath>exactness&#x2f;code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -2964,6 +2979,10 @@
         <field>
           <column_name>location-name</column_name>
           <stream_name>location-name</stream_name>
+        </field>
+        <field>
+          <column_name>location-coordinates-precision</column_name>
+          <stream_name>location-coordinates-precision</stream_name>
         </field>
         <field>
           <column_name>location-coordinates-longitude</column_name>

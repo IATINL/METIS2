@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 15&#x3a;44&#x3a;24.554</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;19 10&#x3a;09&#x3a;11.660</modified_date>
+  <modified_date>2016&#x2f;05&#x2f;04 13&#x3a;31&#x3a;09.840</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -188,8 +188,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>63</xloc>
-      <yloc>218</yloc>
+      <xloc>65</xloc>
+      <yloc>270</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -198,8 +198,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>676</xloc>
-      <yloc>226</yloc>
+      <xloc>682</xloc>
+      <yloc>263</yloc>
       </entry>
     <entry>
       <name>Process results by country</name>
@@ -405,6 +405,40 @@
       <xloc>378</xloc>
       <yloc>418</yloc>
       </entry>
+    <entry>
+      <name>Proces related activities</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Proces related activities</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>378</xloc>
+      <yloc>518</yloc>
+      </entry>
   </entries>
   <hops>
     <hop>
@@ -508,6 +542,24 @@
     </hop>
     <hop>
       <from>Process participating organisations</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Proces related activities</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Proces related activities</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

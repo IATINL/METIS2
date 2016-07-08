@@ -1,7 +1,7 @@
 <transformation>
   <info>
     <name>Split transactions by provider</name>
-    <description/>
+    <description>Split transactions by provider activity ids</description>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;25 11&#x3a;33&#x3a;44.268</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;08 15&#x3a;23&#x3a;13.118</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;03 10&#x3a;19&#x3a;28.449</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Split incoming &#x28;IF &#x26; IC&#x29; transactions from &#xd;&#xa;outgoing transactions since the weigth &#xd;&#xa;calculations are based on IF.</note>
+      <xloc>42</xloc>
+      <yloc>29</yloc>
+      <width>252</width>
+      <heigth>55</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -213,18 +234,44 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Fill empty provider &#x25;</from><to>Calculate budget values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculate budget values</from><to>Write transactions by providers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get child parent list</from><to>Sort on child identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort on iati identifier</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get activity transactions</from><to>Sort on iati identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Fill empty provider &#x25;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort on child identifier</from><to>Group by</to><enabled>Y</enabled> </hop>
-  <hop> <from>Group by</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort outgoing</from><to>Merge outgoing</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort</from><to>Merge outgoing</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get activity transactions</from><to>Is incoming transaction&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Is incoming transaction&#x3f;</from><to>Sort outgoing</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort incoming</from><to>Merge incoming</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort</from><to>Merge incoming</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams</from><to>Select fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get trx parent child list</from><to>Sort</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge incoming</from><to>Apply weigth to incoming transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apply weigth to incoming transactions</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge outgoing</from><to>Apply weigth to outgoing transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apply weigth to outgoing transactions</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select fields</from><to>Write transactions to facts</to><enabled>Y</enabled> </hop>
+  <hop> <from>Is incoming transaction&#x3f;</from><to>Sort incoming</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Calculate budget values</name>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Apply weigth to incoming transactions</head_name>
+<tail_name>Apply weigth to outgoing transactions</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>887</xloc>
+      <yloc>178</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apply weigth to incoming transactions</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -235,14 +282,14 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>transaction-value</field_name>
-<formula_string>&#x5b;transaction-value&#x5d;&#x2a;&#x28;&#x5b;provider-percentage&#x5d;&#x2f;100&#x29;</formula_string>
+<formula_string>&#x5b;transaction-value&#x5d;&#x2a;&#x28;&#x5b;weigth-grand-parent&#x5d;&#x2a;&#x5b;weigth-great-grand-parent&#x5d;&#x2f;10000&#x29;</formula_string>
 <value_type>Number</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
 <replace_field>transaction-value</replace_field>
 </formula>
        <formula><field_name>transaction-value-eur</field_name>
-<formula_string>&#x5b;transaction-value-eur&#x5d;&#x2a;&#x28;&#x5b;provider-percentage&#x5d;&#x2f;100&#x29;</formula_string>
+<formula_string>&#x5b;transaction-value-eur&#x5d;&#x2a;&#x28;&#x5b;weigth-grand-parent&#x5d;&#x2a;&#x5b;weigth-great-grand-parent&#x5d;&#x2f;10000&#x29;</formula_string>
 <value_type>Number</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -250,15 +297,15 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>833</xloc>
-      <yloc>215</yloc>
+      <xloc>793</xloc>
+      <yloc>359</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Fill empty provider &#x25;</name>
-    <type>IfNull</type>
+    <name>Apply weigth to outgoing transactions</name>
+    <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -267,25 +314,24 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>provider-percentage</name>
-        <value>100</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
+       <formula><field_name>transaction-value</field_name>
+<formula_string>&#x5b;transaction-value&#x5d;&#x2a;&#x28;&#x5b;weigth-parent&#x5d;&#x2a;&#x5b;weigth-grand-parent&#x5d;&#x2a;&#x5b;weigth-great-grand-parent&#x5d;&#x2f;1000000&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>transaction-value</replace_field>
+</formula>
+       <formula><field_name>transaction-value-eur</field_name>
+<formula_string>&#x5b;transaction-value-eur&#x5d;&#x2a;&#x28;&#x5b;weigth-parent&#x5d;&#x2a;&#x5b;weigth-grand-parent&#x5d;&#x2a;&#x5b;weigth-great-grand-parent&#x5d;&#x2f;1000000&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>transaction-value-eur</replace_field>
+</formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>690</xloc>
-      <yloc>216</yloc>
+      <xloc>788</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -294,7 +340,7 @@
     <name>Get activity transactions</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -310,14 +356,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>115</xloc>
-      <yloc>214</yloc>
+      <xloc>70</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get child parent list</name>
+    <name>Get trx parent child list</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -327,8 +373,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier-child&#x60;&#xd;&#xa;, &#x60;iati-identifier-parent&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, &#x60;provider-percentage&#x60;&#xd;&#xa;, &#x60;transaction-value-eur&#x60;&#xd;&#xa;, &#x60;buza-descendant-yn&#x60;&#xd;&#xa;, &#x60;buza-ancestor-activity-id&#x60;&#xd;&#xa;, &#x60;buza-descendant-level&#x60;&#xd;&#xa;, &#x60;buza-descendant-without-childs&#x60;&#xd;&#xa;FROM &#x60;fct-parent-activities&#x60;&#xd;&#xa;</sql>
+    <connection>IATI_database</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier-child&#x60;&#xd;&#xa;, &#x60;iati-identifier-parent&#x60;&#xd;&#xa;, &#x60;buza-descendant-yn&#x60;&#xd;&#xa;, &#x60;buza-descendant-level&#x60;&#xd;&#xa;, &#x60;buza-ancestor-activity-id&#x60;&#xd;&#xa;, &#x60;has-childs&#x60;&#xd;&#xa;, &#x60;weigth-parent&#x60;&#xd;&#xa;, &#x60;weigth-grand-parent&#x60;&#xd;&#xa;, &#x60;weigth-great-grand-parent&#x60;&#xd;&#xa;FROM iatischema.&#x60;stg-parent-child-trx&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -336,15 +382,15 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>117</xloc>
-      <yloc>77</yloc>
+      <xloc>378</xloc>
+      <yloc>181</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Group by</name>
-    <type>GroupBy</type>
+    <name>Is incoming transaction&#x3f;</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -353,67 +399,38 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>iati-identifier-child</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>provider-percentage</aggregate>
-          <subject>provider-percentage</subject>
-          <type>SUM</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>transaction-value-eur</aggregate>
-          <subject>transaction-value-eur</subject>
-          <type>SUM</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>buza-descendant-yn</aggregate>
-          <subject>buza-descendant-yn</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>buza-ancestor-activity-id</aggregate>
-          <subject>buza-ancestor-activity-id</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>buza-descendant-level</aggregate>
-          <subject>buza-descendant-level</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>buza-descendant-without-childs</aggregate>
-          <subject>buza-descendant-without-childs</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-      </fields>
+<send_true_to>Sort incoming</send_true_to>
+<send_false_to>Sort outgoing</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>transaction-type-code</leftvalue>
+   <function>&#x3d;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>IF</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>transaction-type-code</leftvalue>
+   <function>&#x3d;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>IC</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  </conditions>
+ </condition>
+    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>409</xloc>
-      <yloc>77</yloc>
+      <xloc>221</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Merge Join</name>
+    <name>Merge incoming</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -424,8 +441,38 @@
            <schema_name/>
            </partitioning>
 <join_type>LEFT OUTER</join_type>
-<step1>Sort on iati identifier</step1>
-<step2>Group by</step2>
+<step1>Sort incoming</step1>
+<step2>Sort</step2>
+    <keys_1>
+      <key>iati-identifier</key>
+      <key>provider-org-activity-id</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier-child</key>
+      <key>iati-identifier-parent</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>598</xloc>
+      <yloc>359</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge outgoing</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort outgoing</step1>
+<step2>Sort</step2>
     <keys_1>
       <key>iati-identifier</key>
     </keys_1>
@@ -434,14 +481,14 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>408</xloc>
-      <yloc>216</yloc>
+      <xloc>587</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values</name>
+    <name>Select fields</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -460,10 +507,6 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>provider-org-activity-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-percentage</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -539,24 +582,24 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>buza-descendant-without-childs</name>
+      </field>      <field>        <name>has-childs</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>541</xloc>
-      <yloc>217</yloc>
+      <xloc>1012</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sort on child identifier</name>
+    <name>Sort</name>
     <type>SortRows</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -574,20 +617,26 @@
       <field>
         <name>iati-identifier-child</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>iati-identifier-parent</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>258</xloc>
-      <yloc>77</yloc>
+      <xloc>521</xloc>
+      <yloc>181</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sort on iati identifier</name>
+    <name>Sort incoming</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -608,20 +657,66 @@
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>271</xloc>
-      <yloc>215</yloc>
+      <xloc>367</xloc>
+      <yloc>359</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write transactions by providers</name>
+    <name>Sort outgoing</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>370</xloc>
+      <yloc>19</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write transactions to facts</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -660,26 +755,6 @@
         <field>
           <column_name>provider-org-activity-id</column_name>
           <stream_name>provider-org-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>buza-descendant-yn</column_name>
-          <stream_name>buza-descendant-yn</stream_name>
-        </field>
-        <field>
-          <column_name>buza-ancestor-activity-id</column_name>
-          <stream_name>buza-ancestor-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>buza-descendant-level</column_name>
-          <stream_name>buza-descendant-level</stream_name>
-        </field>
-        <field>
-          <column_name>buza-descendant-without-childs</column_name>
-          <stream_name>buza-descendant-without-childs</stream_name>
-        </field>
-        <field>
-          <column_name>provider-percentage</column_name>
-          <stream_name>provider-percentage</stream_name>
         </field>
         <field>
           <column_name>receiver-org-id</column_name>
@@ -741,11 +816,27 @@
           <column_name>url-id</column_name>
           <stream_name>url-id</stream_name>
         </field>
+        <field>
+          <column_name>buza-descendant-yn</column_name>
+          <stream_name>buza-descendant-yn</stream_name>
+        </field>
+        <field>
+          <column_name>buza-ancestor-activity-id</column_name>
+          <stream_name>buza-ancestor-activity-id</stream_name>
+        </field>
+        <field>
+          <column_name>buza-descendant-level</column_name>
+          <stream_name>buza-descendant-level</stream_name>
+        </field>
+        <field>
+          <column_name>has-childs</column_name>
+          <stream_name>has-childs</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1006</xloc>
-      <yloc>215</yloc>
+      <xloc>1178</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

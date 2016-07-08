@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;21 14&#x3a;56&#x3a;50.014</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;29 13&#x3a;42&#x3a;09.692</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -198,7 +198,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1499</xloc>
+      <xloc>1672</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -233,8 +233,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>779</xloc>
-      <yloc>32</yloc>
+      <xloc>777</xloc>
+      <yloc>31</yloc>
       </entry>
     <entry>
       <name>Read publisher list</name>
@@ -335,7 +335,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1395</xloc>
+      <xloc>1568</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -477,7 +477,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1237</xloc>
+      <xloc>1410</xloc>
       <yloc>197</yloc>
       </entry>
     <entry>
@@ -502,7 +502,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1231</xloc>
+      <xloc>1404</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -516,7 +516,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>134</xloc>
-      <yloc>139</yloc>
+      <yloc>121</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -526,8 +526,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>133</xloc>
-      <yloc>258</yloc>
+      <xloc>134</xloc>
+      <yloc>209</yloc>
       </entry>
     <entry>
       <name>Check totals</name>
@@ -560,7 +560,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1126</xloc>
+      <xloc>1299</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -594,7 +594,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1013</xloc>
+      <xloc>1186</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -619,8 +619,42 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1235</xloc>
+      <xloc>1408</xloc>
       <yloc>108</yloc>
+      </entry>
+    <entry>
+      <name>Check if activity is a parent</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Check if activity is a parent</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1041</xloc>
+      <yloc>32</yloc>
       </entry>
   </entries>
   <hops>
@@ -760,15 +794,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Link publishers</from>
-      <to>Calculate DM totals</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Calculate DM totals</from>
       <to>Check totals</to>
       <from_nr>0</from_nr>
@@ -793,6 +818,24 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Link publishers</from>
+      <to>Check if activity is a parent</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check if activity is a parent</from>
+      <to>Calculate DM totals</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
   </hops>

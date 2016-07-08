@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 17&#x3a;17&#x3a;53.430</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;19 09&#x3a;55&#x3a;20.121</modified_date>
+  <modified_date>2016&#x2f;05&#x2f;25 11&#x3a;15&#x3a;11.047</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -215,50 +215,23 @@
   <order>
   <hop> <from>Read sectors from DB</from><to>Select sector fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Read country region from DB</from><to>Select country &#x26; region fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fill sector &#x26; loc &#x25;</from><to>Calc trx value</to><enabled>Y</enabled> </hop>
+  <hop> <from>If null sector or loc &#x25;</from><to>Calc trx value</to><enabled>Y</enabled> </hop>
   <hop> <from>Select sector fields</from><to>Sort sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Select country &#x26; region fields</from><to>Sort country&#x26; region</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort trx</from><to>Join trx and sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort sector</from><to>Join trx and sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Join trx and sector</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort country&#x26; region</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Fill sector &#x26; loc &#x25;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>If null sector or loc &#x25;</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
   <hop> <from>Write transaction facts</from><to>Error log write trx facts</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc trx value</from><to>Calc trx eur</to><enabled>Y</enabled> </hop>
   <hop> <from>Select transactions</from><to>Sort trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Missing codes</from><to>Replace missing codes</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc trx eur</from><to>Missing codes</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace missing codes</from><to>Write transaction facts</to><enabled>Y</enabled> </hop>
   <hop> <from>Read trx from stg</from><to>Select transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc trx value</from><to>Missing codes</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Calc trx eur</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>transaction-value-eur</field_name>
-<formula_string>&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;Transaction-value-calc&#x5d;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1121</xloc>
-      <yloc>107</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Calc trx value</name>
     <type>Formula</type>
@@ -277,10 +250,17 @@
 <value_precision>-1</value_precision>
 <replace_field/>
 </formula>
+       <formula><field_name>transaction-value-eur-calc</field_name>
+<formula_string>&#x28;&#x5b;transaction-value-eur&#x5d;&#x2a;&#x5b;country-region-percentage&#x5d;&#x2a;&#x5b;sector-percentage&#x5d;&#x29;&#x2f;10000</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1016</xloc>
-      <yloc>107</yloc>
+      <xloc>1028</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -427,14 +407,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1502</xloc>
-      <yloc>6</yloc>
+      <xloc>1404</xloc>
+      <yloc>4</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Fill sector &#x26; loc &#x25;</name>
+    <name>If null sector or loc &#x25;</name>
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
@@ -467,8 +447,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>906</xloc>
-      <yloc>108</yloc>
+      <xloc>918</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -580,8 +560,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1232</xloc>
-      <yloc>108</yloc>
+      <xloc>1134</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -650,7 +630,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;transaction-value&#x60;&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, currency&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, &#x60;exchange-rate&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;receiver-org-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;stg-act-transactions&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, &#x60;transaction-value&#x60;&#xd;&#xa;, &#x60;transaction-value-eur&#x60;&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, currency&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, &#x60;exchange-rate&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;receiver-org-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;stg-act-transactions&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -719,8 +699,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1356</xloc>
-      <yloc>108</yloc>
+      <xloc>1258</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -787,8 +767,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>258</xloc>
-      <yloc>179</yloc>
+      <xloc>257</xloc>
+      <yloc>181</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -820,6 +800,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>transaction-iso-date</name>
         <rename/>
         <length>-2</length>
@@ -829,6 +813,10 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>transaction-value</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value-eur</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -900,6 +888,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-activity-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>sector-code</name>
         <rename/>
         <length>-2</length>
@@ -917,6 +909,10 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>transaction-value</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value-eur</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1162,6 +1158,10 @@
           <stream_name>receiver-org-id</stream_name>
         </field>
         <field>
+          <column_name>receiver-org-activity-id</column_name>
+          <stream_name>receiver-org-activity-id</stream_name>
+        </field>
+        <field>
           <column_name>sector-code</column_name>
           <stream_name>sector-code</stream_name>
         </field>
@@ -1187,7 +1187,7 @@
         </field>
         <field>
           <column_name>transaction-value-eur</column_name>
-          <stream_name>transaction-value-eur</stream_name>
+          <stream_name>transaction-value-eur-calc</stream_name>
         </field>
         <field>
           <column_name>publisher</column_name>
@@ -1208,8 +1208,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1504</xloc>
-      <yloc>108</yloc>
+      <xloc>1406</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

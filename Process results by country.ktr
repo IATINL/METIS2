@@ -68,32 +68,11 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;18 10&#x3a;22&#x3a;45.617</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;08 17&#x3a;02&#x3a;47.079</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;04 17&#x3a;43&#x3a;41.693</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Read results and split by location.&#xd;&#xa;&#xd;&#xa;Todo&#x3a; only split for measuretype &#x27;Unit&#x27;. Else replicate.</note>
-      <xloc>4</xloc>
-      <yloc>3</yloc>
-      <width>316</width>
-      <heigth>56</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -234,59 +213,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Read countries and regions</from><to>Select country region &#x25;</to><enabled>Y</enabled> </hop>
-  <hop> <from>If &#x25; value is null</from><to>Attribute location &#x25;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select country region &#x25;</from><to>Sort locations</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort results</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort locations</from><to>Merge Join</to><enabled>Y</enabled> </hop>
   <hop> <from>Write results</from><to>Error log write results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Missing codes</from><to>Replace missing code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Attribute location &#x25;</from><to>Missing codes</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read act results from src</from><to>Sort results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Trim titles</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim titles</from><to>If &#x25; value is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace missing code</from><to>Write results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read act results from src</from><to>Trim titles</to><enabled>Y</enabled> </hop>
+  <hop> <from>Trim titles</from><to>Write results</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Attribute location &#x25;</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>calc-target-value</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;target-value&#x5d;&#x29;&#x3b;-1&#x3b;&#x28;&#x5b;target-value&#x5d;&#x2a;&#x5b;country-region-percentage&#x5d;&#x29;&#x2f;100&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-       <formula><field_name>calc-baseline-value</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;baseline-value&#x5d;&#x29;&#x3b;-1&#x3b;&#x28;&#x5b;baseline-value&#x5d;&#x2a;&#x5b;country-region-percentage&#x5d;&#x29;&#x2f;100&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-       <formula><field_name>calc-actual-value</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;actual-value&#x5d;&#x29;&#x3b;-1&#x3b;&#x28;&#x5b;actual-value&#x5d;&#x2a;&#x5b;country-region-percentage&#x5d;&#x29;&#x2f;100&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>808</xloc>
-      <yloc>205</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Error log write results</name>
     <type>TextFileOutput</type>
@@ -429,115 +359,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1199</xloc>
-      <yloc>49</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If &#x25; value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>country-region-percentage</name>
-        <value>100</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>679</xloc>
-      <yloc>204</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Sort results</step1>
-<step2>Sort locations</step2>
-    <keys_1>
-      <key>iati-identifier</key>
-    </keys_1>
-    <keys_2>
-      <key>iati-identifier-2</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>478</xloc>
-      <yloc>203</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Missing codes</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>missing-country-code</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>missing-region-code</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>956</xloc>
-      <yloc>206</yloc>
+      <xloc>391</xloc>
+      <yloc>39</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -554,7 +377,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;publisher&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-results&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;baseline-comment&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;publisher&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-results&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -562,200 +385,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>71</xloc>
-      <yloc>132</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Read countries and regions</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;recipient-country-code&#x60;&#xd;&#xa;, &#x60;recipient-region-code&#x60;&#xd;&#xa;, &#x60;country-region-percentage&#x60;&#xd;&#xa;FROM &#x60;stg-act-country-region&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>71</xloc>
-      <yloc>292</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Replace missing code</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>recipient-country-code-calc</field_name>
-<calc_type>NVL</calc_type>
-<field_a>recipient-country-code</field_a>
-<field_b>missing-country-code</field_b>
-<field_c/>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>recipient-region-code-calc</field_name>
-<calc_type>NVL</calc_type>
-<field_a>recipient-region-code</field_a>
-<field_b>missing-region-code</field_b>
-<field_c/>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1074</xloc>
-      <yloc>206</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select country region &#x25;</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename>iati-identifier-2</rename>
-        <length>100</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>recipient-country-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>recipient-region-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>country-region-percentage</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>country-region-percentage</name>
-        <rename>country-region-percentage</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>225</xloc>
-      <yloc>291</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort locations</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier-2</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>353</xloc>
-      <yloc>292</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort results</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>349</xloc>
-      <yloc>131</yloc>
+      <xloc>83</xloc>
+      <yloc>197</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -827,8 +458,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>568</xloc>
-      <yloc>204</yloc>
+      <xloc>236</xloc>
+      <yloc>196</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -867,18 +498,6 @@
           <stream_name>iati-identifier</stream_name>
         </field>
         <field>
-          <column_name>recipient-country-code</column_name>
-          <stream_name>recipient-country-code-calc</stream_name>
-        </field>
-        <field>
-          <column_name>recipient-region-code</column_name>
-          <stream_name>recipient-region-code-calc</stream_name>
-        </field>
-        <field>
-          <column_name>country-region-percentage</column_name>
-          <stream_name>country-region-percentage</stream_name>
-        </field>
-        <field>
           <column_name>result-type-code</column_name>
           <stream_name>result-type-code</stream_name>
         </field>
@@ -907,16 +526,20 @@
           <stream_name>period-end</stream_name>
         </field>
         <field>
+          <column_name>baseline-value</column_name>
+          <stream_name>baseline-value</stream_name>
+        </field>
+        <field>
+          <column_name>baseline-comment</column_name>
+          <stream_name>baseline-comment</stream_name>
+        </field>
+        <field>
           <column_name>baseline-year</column_name>
           <stream_name>baseline-year</stream_name>
         </field>
         <field>
-          <column_name>baseline-value</column_name>
-          <stream_name>calc-baseline-value</stream_name>
-        </field>
-        <field>
           <column_name>actual-value</column_name>
-          <stream_name>calc-actual-value</stream_name>
+          <stream_name>actual-value</stream_name>
         </field>
         <field>
           <column_name>actual-comment</column_name>
@@ -924,7 +547,7 @@
         </field>
         <field>
           <column_name>target-value</column_name>
-          <stream_name>calc-target-value</stream_name>
+          <stream_name>target-value</stream_name>
         </field>
         <field>
           <column_name>target-comment</column_name>
@@ -949,8 +572,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1198</xloc>
-      <yloc>207</yloc>
+      <xloc>389</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

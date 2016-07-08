@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;20 09&#x3a;50&#x3a;47.288</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;08 17&#x3a;02&#x3a;27.458</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;22 15&#x3a;40&#x3a;19.162</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -224,8 +224,6 @@
   <hop> <from>Write budgets</from><to>Error log write budgets</to><enabled>Y</enabled> </hop>
   <hop> <from>Known rates</from><to>Unknown rates </to><enabled>Y</enabled> </hop>
   <hop> <from>Read EUR rates</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup</from><to>Known rates</to><enabled>Y</enabled> </hop>
-  <hop> <from>Known rates</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
   <hop> <from>By sector &#x26; country</from><to>Calc EUR value</to><enabled>Y</enabled> </hop>
   <hop> <from>Read sectors from DB</from><to>Select sector fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Select sector fields</from><to>Sort sector</to><enabled>Y</enabled> </hop>
@@ -238,7 +236,35 @@
   <hop> <from>Calc EUR value</from><to>Missing codes</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill budget currency</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace missing code</from><to>Write budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Known rates</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>If rate is null</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unknown rates </from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>If rate is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Stream lookup</from><to>EUR rate is 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>EUR rate is 1</from><to>Known rates</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Known rates</head_name>
+<tail_name>If rate is null</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>940</xloc>
+      <yloc>226</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>By sector &#x26; country</name>
     <type>Formula</type>
@@ -259,8 +285,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1652</xloc>
-      <yloc>305</yloc>
+      <xloc>1714</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -277,7 +303,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>value &#x28;eur&#x29;</field_name>
-<formula_string>&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;value&#x5d;</formula_string>
+<formula_string>IF&#x28;&#x5b;exchange-rate&#x5d;&#x3c;&#x3e;0&#x3b;&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;value&#x5d;&#x3b;0&#x29;</formula_string>
 <value_type>Number</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -285,8 +311,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1760</xloc>
-      <yloc>305</yloc>
+      <xloc>1822</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -318,8 +344,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>236</xloc>
-      <yloc>223</yloc>
+      <xloc>228</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -466,8 +492,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2129</xloc>
-      <yloc>163</yloc>
+      <xloc>2191</xloc>
+      <yloc>164</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -492,8 +518,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>507</xloc>
-      <yloc>224</yloc>
+      <xloc>462</xloc>
+      <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -532,8 +558,42 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1532</xloc>
-      <yloc>305</yloc>
+      <xloc>1594</xloc>
+      <yloc>306</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If rate is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>exchange-rate</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>941</xloc>
+      <yloc>315</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -572,8 +632,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>348</xloc>
-      <yloc>224</yloc>
+      <xloc>344</xloc>
+      <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -600,8 +660,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1108</xloc>
-      <yloc>305</yloc>
+      <xloc>1170</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -617,7 +677,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Sort budgets</send_true_to>
+<send_true_to>Append streams</send_true_to>
 <send_false_to>Unknown rates </send_false_to>
     <compare>
 <condition>
@@ -643,19 +703,12 @@
    <function>IS NOT NULL</function>
    <rightvalue/>
    </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>budget-value-year</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
   </conditions>
  </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>837</xloc>
+      <xloc>758</xloc>
       <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
@@ -683,8 +736,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1426</xloc>
-      <yloc>306</yloc>
+      <xloc>1488</xloc>
+      <yloc>307</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -740,8 +793,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1871</xloc>
-      <yloc>304</yloc>
+      <xloc>1933</xloc>
+      <yloc>305</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -766,8 +819,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>671</xloc>
-      <yloc>108</yloc>
+      <xloc>579</xloc>
+      <yloc>109</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -792,8 +845,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>83</xloc>
-      <yloc>223</yloc>
+      <xloc>75</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -818,8 +871,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>89</xloc>
-      <yloc>512</yloc>
+      <xloc>81</xloc>
+      <yloc>513</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -844,8 +897,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>90</xloc>
-      <yloc>373</yloc>
+      <xloc>82</xloc>
+      <yloc>374</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -905,8 +958,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1989</xloc>
-      <yloc>304</yloc>
+      <xloc>2051</xloc>
+      <yloc>305</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -956,8 +1009,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>356</xloc>
-      <yloc>512</yloc>
+      <xloc>348</xloc>
+      <yloc>513</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -992,8 +1045,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>359</xloc>
-      <yloc>375</yloc>
+      <xloc>351</xloc>
+      <yloc>376</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1099,8 +1152,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1204</xloc>
-      <yloc>306</yloc>
+      <xloc>1266</xloc>
+      <yloc>307</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1133,8 +1186,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>967</xloc>
-      <yloc>224</yloc>
+      <xloc>1030</xloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1167,8 +1220,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>973</xloc>
-      <yloc>513</yloc>
+      <xloc>1035</xloc>
+      <yloc>514</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1201,8 +1254,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1307</xloc>
-      <yloc>305</yloc>
+      <xloc>1369</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1235,8 +1288,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>965</xloc>
-      <yloc>376</yloc>
+      <xloc>1027</xloc>
+      <yloc>377</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1275,8 +1328,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>669</xloc>
-      <yloc>224</yloc>
+      <xloc>577</xloc>
+      <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1327,7 +1380,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>840</xloc>
+      <xloc>761</xloc>
       <yloc>314</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1441,8 +1494,90 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2129</xloc>
-      <yloc>303</yloc>
+      <xloc>2191</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>Y</limitRows>
+      <limitRowsNumber>10</limitRowsNumber>
+      <logmessage>Warning&#x3a; Unable to retrieve valid exchange rate. Invalid rates are set to 0.</logmessage>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        </field>
+      <field>
+        <name>budget-type</name>
+        </field>
+      <field>
+        <name>budget-period-start</name>
+        </field>
+      <field>
+        <name>budget-period-end</name>
+        </field>
+      <field>
+        <name>budget-value</name>
+        </field>
+      <field>
+        <name>budget-value-date</name>
+        </field>
+      <field>
+        <name>budget-value-currency</name>
+        </field>
+      <field>
+        <name>default-currency</name>
+        </field>
+      <field>
+        <name>publisher</name>
+        </field>
+      <field>
+        <name>exchange-rate</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>850</xloc>
+      <yloc>314</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>EUR rate is 1</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>exchange-rate</field_name>
+<formula_string>IF&#x28;&#x5b;budget-value-currency&#x5d;&#x3d;&#x22;EUR&#x22;&#x3b;1&#x3b;&#x5b;exchange-rate&#x5d;&#x29;</formula_string>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>exchange-rate</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>669</xloc>
+      <yloc>227</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
