@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;22 17&#x3a;39&#x3a;18.352</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;15 17&#x3a;18&#x3a;23.825</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -201,8 +201,8 @@
     </notepad>
     <notepad>
       <note>Generate incoming funds transaction records with zero value for &#xd;&#xa;related parent activities which have not disbursed any funds yet&#xd;&#xa;to the child activity. This makes it possible to view relations based&#xd;&#xa;on transactions, even if no funds transfer has taken place.</note>
-      <xloc>361</xloc>
-      <yloc>207</yloc>
+      <xloc>418</xloc>
+      <yloc>166</yloc>
       <width>391</width>
       <heigth>70</heigth>
       <fontname>Arial</fontname>
@@ -420,11 +420,10 @@
   <hop> <from>Write to log</from><to>Set ex rate to 0 if not found</to><enabled>Y</enabled> </hop>
   <hop> <from>Not an IF or IC trx&#x3f;</from><to>Sort activities</to><enabled>Y</enabled> </hop>
   <hop> <from>Read related parent activities</from><to>Is also incoming trx&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read act trx from DB</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Is also incoming trx&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Dummy</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read act trx from DB</from><to>Filter incoming trx</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter incoming trx</from><to>Dummy</to><enabled>Y</enabled> </hop>
   <hop> <from>Is also incoming trx&#x3f;</from><to>Select 0 trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select 0 trx</from><to>Dummy 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select 0 trx</from><to>IF or IC sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Select 0 trx</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read planned or actual start date</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
@@ -456,6 +455,7 @@
   <hop> <from>EUR rate is 1</from><to>Known rates</to><enabled>Y</enabled> </hop>
   <hop> <from>Add trx iso date</from><to>If no iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>If no iso date</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter incoming trx</from><to>Is also incoming trx&#x3f;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -569,7 +569,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>552</xloc>
-      <yloc>339</yloc>
+      <yloc>391</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -654,6 +654,42 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>4906</xloc>
       <yloc>138</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add trx iso date</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Read planned or actual start date</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+      </key>
+      <value>
+        <name>activity-iso-date</name>
+        <rename>activity-iso-date</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>656</xloc>
+      <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1040,14 +1076,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>195</xloc>
-      <yloc>293</yloc>
+      <xloc>411</xloc>
+      <yloc>269</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Dummy 2</name>
+    <name>IF or IC sink</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1059,8 +1095,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>426</xloc>
-      <yloc>450</yloc>
+      <xloc>427</xloc>
+      <yloc>513</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1092,7 +1128,7 @@
     </step>
 
   <step>
-    <name>Filter rows</name>
+    <name>Filter incoming trx</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1126,8 +1162,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>199</xloc>
-      <yloc>215</yloc>
+      <xloc>306</xloc>
+      <yloc>269</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1244,6 +1280,40 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2659</xloc>
       <yloc>136</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no iso date</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>activity-iso-date</name>
+        <value>2000-01-01</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>768</xloc>
+      <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1421,7 +1491,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <from>Filter rows</from>
+    <from>Filter incoming trx</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -1441,7 +1511,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>304</xloc>
-      <yloc>341</yloc>
+      <yloc>393</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1866,8 +1936,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>124</xloc>
-      <yloc>136</yloc>
+      <xloc>307</xloc>
+      <yloc>132</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1899,32 +1969,6 @@
     </step>
 
   <step>
-    <name>Read related parent activities</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;related-activity-ref&#x60;&#xd;&#xa;, &#x60;related-activity-type&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, sequence&#xd;&#xa;FROM iatistaging.&#x60;src-act-related&#x60;&#xd;&#xa;WHERE &#x60;related-activity-type&#x60;&#x3d;1&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>112</xloc>
-      <yloc>343</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Read planned or actual start date</name>
     <type>TableInput</type>
     <description/>
@@ -1945,7 +1989,33 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>656</xloc>
-      <yloc>460</yloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read related parent activities</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;related-activity-ref&#x60;&#xd;&#xa;, &#x60;related-activity-type&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, sequence&#xd;&#xa;FROM iatistaging.&#x60;src-act-related&#x60;&#xd;&#xa;WHERE &#x60;related-activity-type&#x60;&#x3d;1&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>112</xloc>
+      <yloc>395</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2663,7 +2733,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Add constants</send_true_to>
-<send_false_to>Dummy 2</send_false_to>
+<send_false_to>IF or IC sink</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -2675,7 +2745,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>426</xloc>
-      <yloc>339</yloc>
+      <yloc>391</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2859,7 +2929,7 @@
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>889</xloc>
-      <yloc>338</yloc>
+      <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3102,42 +3172,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2265</xloc>
       <yloc>135</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add trx iso date</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Read planned or actual start date</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <value>
-        <name>activity-iso-date</name>
-        <rename>activity-iso-date</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>656</xloc>
-      <yloc>338</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3619,8 +3653,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>890</xloc>
-      <yloc>238</yloc>
+      <xloc>891</xloc>
+      <yloc>291</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3743,40 +3777,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>5645</xloc>
       <yloc>135</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If no iso date</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>activity-iso-date</name>
-        <value>2000-01-01</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>768</xloc>
-      <yloc>338</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
