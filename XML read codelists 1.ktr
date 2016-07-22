@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;06 16&#x3a;28&#x3a;22.094</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;08 15&#x3a;02&#x3a;12.220</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;22 16&#x3a;07&#x3a;40.623</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -223,11 +223,11 @@
   <hop> <from>Append streams</from><to>Lookup category name</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup category name</from><to>Insert &#x2f; Update sector codelist</to><enabled>Y</enabled> </hop>
   <hop> <from>Get sector codelist 2.01</from><to>Replace multiple spaces</to><enabled>Y</enabled> </hop>
-  <hop> <from>Invalid org type row</from><to>Append loc typ error rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Missing org type row</from><to>Append loc typ error rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Invalid org type row</from><to>Append loc typ exception rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Missing org type row</from><to>Append loc typ exception rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Get org type codelist 2.01</from><to>Append org type error rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Append org type error rows</from><to>Write org type codelist</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append loc typ error rows</from><to>Append org type error rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append loc typ exception rows</from><to>Append org type error rows</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add 1.x date type codes</name>
@@ -270,7 +270,7 @@
     </step>
 
   <step>
-    <name>Append loc typ error rows</name>
+    <name>Append loc typ exception rows</name>
     <type>Append</type>
     <description/>
     <distribute>Y</distribute>
@@ -301,7 +301,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Append loc typ error rows</head_name>
+<head_name>Append loc typ exception rows</head_name>
 <tail_name>Get org type codelist 2.01</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
