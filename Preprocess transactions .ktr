@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;07&#x2f;28 10&#x3a;33&#x3a;06.854</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;29 09&#x3a;18&#x3a;22.210</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -429,8 +429,6 @@
   <hop> <from>Read planned or actual start date</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act trx from DB</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 0 trx</from><to>Convert date fmt</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log 2</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Reorder fields</from><to>Add trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove empty prov fields</from><to>Add trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace provider id &#x26; name</from><to>Add found prov orgs</to><enabled>Y</enabled> </hop>
@@ -456,6 +454,7 @@
   <hop> <from>Add trx iso date</from><to>If no iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>If no iso date</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter incoming trx</from><to>Rel act has inc trx&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -568,8 +567,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>591</xloc>
-      <yloc>390</yloc>
+      <xloc>608</xloc>
+      <yloc>392</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -688,7 +687,7 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>688</xloc>
+      <xloc>722</xloc>
       <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
@@ -706,7 +705,7 @@
            <schema_name/>
            </partitioning>
 <head_name>Read act trx from DB</head_name>
-<tail_name>Write to log 2</tail_name>
+<tail_name>Select values</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>888</xloc>
@@ -1312,7 +1311,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>800</xloc>
+      <xloc>885</xloc>
       <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1952,7 +1951,7 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>688</xloc>
+      <xloc>722</xloc>
       <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2722,35 +2721,6 @@
     </step>
 
   <step>
-    <name>Select act without IC&#x2f;IF trx</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Add constants</send_true_to>
-<send_false_to>IF or IC sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>trx-id</leftvalue>
- <function>IS NULL</function>
- <rightvalue/>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>460</xloc>
-      <yloc>392</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Select IF&#x2f;IC values</name>
     <type>SelectValues</type>
     <description/>
@@ -2851,6 +2821,35 @@
     </step>
 
   <step>
+    <name>Select act without IC&#x2f;IF trx</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Add constants</send_true_to>
+<send_false_to>IF or IC sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>trx-id</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>460</xloc>
+      <yloc>392</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Select values</name>
     <type>SelectValues</type>
     <description/>
@@ -2928,8 +2927,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>889</xloc>
-      <yloc>390</yloc>
+      <xloc>888</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3581,80 +3580,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1598</xloc>
       <yloc>269</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write to log 2</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Zero transactions generated&#x3a;</logmessage>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        </field>
-      <field>
-        <name>transaction-type-code</name>
-        </field>
-      <field>
-        <name>provider-org</name>
-        </field>
-      <field>
-        <name>provider-org-reference</name>
-        </field>
-      <field>
-        <name>provider-org-activity-id</name>
-        </field>
-      <field>
-        <name>receiver-org</name>
-        </field>
-      <field>
-        <name>receiver-org-reference</name>
-        </field>
-      <field>
-        <name>receiver-org-activity-id</name>
-        </field>
-      <field>
-        <name>value</name>
-        </field>
-      <field>
-        <name>transaction-iso-date</name>
-        </field>
-      <field>
-        <name>default-currency</name>
-        </field>
-      <field>
-        <name>transaction-currency</name>
-        </field>
-      <field>
-        <name>publisher</name>
-        </field>
-      <field>
-        <name>publisher-id</name>
-        </field>
-      <field>
-        <name>generated-datetime</name>
-        </field>
-      <field>
-        <name>url-id</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>891</xloc>
-      <yloc>291</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
