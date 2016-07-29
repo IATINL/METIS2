@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;15 17&#x3a;17&#x3a;00.089</modified_date>
+  <modified_date>2016&#x2f;07&#x2f;12 10&#x3a;38&#x3a;39.762</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -213,7 +213,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2210</xloc>
+      <xloc>2373</xloc>
       <yloc>231</yloc>
       </entry>
     <entry>
@@ -258,7 +258,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1430</xloc>
+      <xloc>1593</xloc>
       <yloc>225</yloc>
       </entry>
     <entry>
@@ -326,7 +326,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2092</xloc>
+      <xloc>2255</xloc>
       <yloc>230</yloc>
       </entry>
     <entry>
@@ -353,8 +353,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>663</xloc>
-      <yloc>133</yloc>
+      <xloc>676</xloc>
+      <yloc>128</yloc>
       </entry>
     <entry>
       <name>Is it a testfile&#x3f;</name>
@@ -388,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>664</xloc>
-      <yloc>25</yloc>
+      <xloc>677</xloc>
+      <yloc>20</yloc>
       </entry>
     <entry>
       <name>Get file timestamp &#x26; version</name>
@@ -422,7 +422,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>836</xloc>
+      <xloc>999</xloc>
       <yloc>226</yloc>
       </entry>
     <entry>
@@ -438,7 +438,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1229</xloc>
+      <xloc>1392</xloc>
       <yloc>225</yloc>
       </entry>
     <entry>
@@ -460,7 +460,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1427</xloc>
+      <xloc>1590</xloc>
       <yloc>346</yloc>
       </entry>
     <entry>
@@ -494,7 +494,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1228</xloc>
+      <xloc>1391</xloc>
       <yloc>347</yloc>
       </entry>
     <entry>
@@ -550,7 +550,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>699</xloc>
+      <xloc>711</xloc>
       <yloc>226</yloc>
       </entry>
     <entry>
@@ -583,7 +583,12 @@
         </field>
         <field>
           <variable_name>VERSION</variable_name>
-          <variable_value/>
+          <variable_value>Not defined</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>ARCHIVE-TIMESTAMP</variable_name>
+          <variable_value>Not defined</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
@@ -615,8 +620,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1940</xloc>
-      <yloc>582</yloc>
+      <xloc>2108</xloc>
+      <yloc>629</yloc>
       </entry>
     <entry>
       <name>Unchanged file message</name>
@@ -640,7 +645,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1942</xloc>
+      <xloc>2105</xloc>
       <yloc>348</yloc>
       </entry>
     <entry>
@@ -665,7 +670,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1945</xloc>
+      <xloc>2108</xloc>
       <yloc>230</yloc>
       </entry>
     <entry>
@@ -699,7 +704,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>978</xloc>
+      <xloc>1141</xloc>
       <yloc>226</yloc>
       </entry>
     <entry>
@@ -721,7 +726,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1098</xloc>
+      <xloc>1261</xloc>
       <yloc>226</yloc>
       </entry>
     <entry>
@@ -734,7 +739,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1098</xloc>
+      <xloc>1261</xloc>
       <yloc>423</yloc>
       </entry>
     <entry>
@@ -759,7 +764,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1945</xloc>
+      <xloc>2108</xloc>
       <yloc>424</yloc>
       </entry>
     <entry>
@@ -772,8 +777,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>969</xloc>
-      <yloc>494</yloc>
+      <xloc>1150</xloc>
+      <yloc>491</yloc>
       </entry>
     <entry>
       <name>Timestamp or version error</name>
@@ -797,7 +802,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1941</xloc>
+      <xloc>2108</xloc>
       <yloc>497</yloc>
       </entry>
     <entry>
@@ -810,8 +815,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>878</xloc>
-      <yloc>586</yloc>
+      <xloc>936</xloc>
+      <yloc>629</yloc>
       </entry>
     <entry>
       <name>Read processing flag</name>
@@ -844,7 +849,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1607</xloc>
+      <xloc>1770</xloc>
       <yloc>347</yloc>
       </entry>
     <entry>
@@ -866,8 +871,67 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1768</xloc>
+      <xloc>1931</xloc>
       <yloc>348</yloc>
+      </entry>
+    <entry>
+      <name>XML is well formed&#x3f;</name>
+      <description/>
+      <type>XML_WELL_FORMED</type>
+      <arg_from_previous>N</arg_from_previous>
+      <include_subfolders>N</include_subfolders>
+      <nr_errors_less_than>10</nr_errors_less_than>
+      <success_condition>success_if_no_errors</success_condition>
+      <resultfilenames>all_filenames</resultfilenames>
+      <fields>
+        <field>
+          <source_filefolder>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</source_filefolder>
+          <wildcard/>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>853</xloc>
+      <yloc>226</yloc>
+      </entry>
+    <entry>
+      <name>Invalid XML file message</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>Invalid &#x28;not well formed&#x29; XML file &#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Error</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2108</xloc>
+      <yloc>560</yloc>
+      </entry>
+    <entry>
+      <name>Invalid XML file</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Invalid &#x28;not well formed&#x29; XML file &#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>Invalid XML file</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1043</xloc>
+      <yloc>559</yloc>
       </entry>
   </entries>
   <hops>
@@ -917,15 +981,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Copy test file</from>
-      <to>Get file timestamp &#x26; version</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Activity file exists in archive&#x3f;</from>
       <to>Calc MD5 checksum</to>
       <from_nr>0</from_nr>
@@ -951,24 +1006,6 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Download activity</from>
-      <to>Download OK &#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Download OK &#x3f;</from>
-      <to>Get file timestamp &#x26; version</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Get url id and start url log</from>
@@ -1171,6 +1208,69 @@
     <hop>
       <from>Force processing&#x3f;</from>
       <to>Ok message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Invalid XML file</from>
+      <to>Invalid XML file message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Invalid XML file message</from>
+      <to>Log download processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Download OK &#x3f;</from>
+      <to>XML is well formed&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>XML is well formed&#x3f;</from>
+      <to>Get file timestamp &#x26; version</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Download activity</from>
+      <to>Download OK &#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>XML is well formed&#x3f;</from>
+      <to>Invalid XML file</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Copy test file</from>
+      <to>XML is well formed&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
