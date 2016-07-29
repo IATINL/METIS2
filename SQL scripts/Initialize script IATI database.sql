@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.1.0.4867
+-- HeidiSQL Version:             9.3.0.4984
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -70,7 +70,8 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -282,7 +283,8 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -317,7 +319,8 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -355,7 +358,8 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -396,7 +400,8 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -404,7 +409,7 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
 -- Dumping structure for table iatidatamart.fct-organisations
 DROP TABLE IF EXISTS `fct-organisations`;
 CREATE TABLE IF NOT EXISTS `fct-organisations` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
@@ -434,7 +439,8 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -451,8 +457,8 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `baseline-comment` text,
-  `period-start` datetime DEFAULT NULL,
-  `period-end` datetime DEFAULT NULL,
+  `period-start` date DEFAULT NULL,
+  `period-end` date DEFAULT NULL,
   `actual-value` tinytext,
   `actual-comment` text,
   `target-value` tinytext,
@@ -481,7 +487,8 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -527,7 +534,8 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -536,7 +544,7 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
 DROP TABLE IF EXISTS `log-check-totals`;
 CREATE TABLE IF NOT EXISTS `log-check-totals` (
   `job-number` int(11) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `subject` varchar(50) DEFAULT NULL,
   `step` varchar(50) DEFAULT NULL,
@@ -599,10 +607,10 @@ CREATE TABLE IF NOT EXISTS `log-publisher-job-url` (
   `publisher-job-url-start-date-time` datetime DEFAULT NULL,
   `publisher-job-url-end-date-time` datetime DEFAULT NULL,
   `generated-datetime` varchar(25) DEFAULT NULL,
-  `version` varchar(10) DEFAULT NULL,
+  `version` varchar(11) DEFAULT NULL,
   `archive-path` varchar(255) DEFAULT NULL,
   `filename` varchar(100) DEFAULT NULL,
-  `http-status` varchar(10) DEFAULT NULL,
+  `http-status` varchar(11) DEFAULT NULL,
   `log-message` varchar(255) DEFAULT NULL,
   `log-status` varchar(20) DEFAULT NULL,
   KEY `idx_log-publisher-job-url_lookup` (`job-number`,`publisher-id`,`url-id`)
@@ -625,7 +633,7 @@ DROP VIEW IF EXISTS `iati-view-check-totals`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-check-totals` (
 	`job-number` INT(11) NULL,
-	`publisher-id` VARCHAR(24) NULL COLLATE 'utf8_general_ci',
+	`publisher-id` INT(11) NULL,
 	`url-id` INT(11) NULL,
 	`subject` VARCHAR(50) NULL COLLATE 'utf8_general_ci',
 	`step-source` VARCHAR(50) NULL COLLATE 'utf8_general_ci',
@@ -639,7 +647,7 @@ CREATE TABLE `iati-view-check-totals` (
 DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-funding-organisations` (
-	`iati-identifier` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`iati-identifier` CHAR(100) NULL COLLATE 'utf8_general_ci',
 	`participating-org-id` BIGINT(20) NULL,
 	`participating-org-role-code` INT(11) NULL,
 	`participating-org-type-code` CHAR(2) NULL COLLATE 'utf8_general_ci',
@@ -654,7 +662,7 @@ CREATE TABLE `iati-view-funding-organisations` (
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-implementing-organisations` (
-	`iati-identifier` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`iati-identifier` CHAR(100) NULL COLLATE 'utf8_general_ci',
 	`participating-org-id` BIGINT(20) NULL,
 	`participating-org-role-code` INT(11) NULL,
 	`participating-org-type-code` CHAR(2) NULL COLLATE 'utf8_general_ci',
@@ -683,7 +691,7 @@ CREATE TABLE `iati-view-last-date-published` (
 DROP VIEW IF EXISTS `iati-view-organisations`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-organisations` (
-	`iati-identifier` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`iati-identifier` CHAR(100) NULL COLLATE 'utf8_general_ci',
 	`participating-org-id` BIGINT(20) NULL,
 	`participating-org-role-code` INT(11) NULL,
 	`participating-org-type-code` CHAR(2) NULL COLLATE 'utf8_general_ci',
@@ -708,49 +716,49 @@ CREATE TABLE `iati-view-total-disbursements` (
 DROP VIEW IF EXISTS `iati-view-budget-total`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-budget-total`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-budget-total` AS select `iatidatamart`.`fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`iatidatamart`.`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `iatidatamart`.`fct-budgets` group by `iatidatamart`.`fct-budgets`.`iati-identifier`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-budget-total` AS select `fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `fct-budgets` group by `fct-budgets`.`iati-identifier`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-check-totals
 DROP VIEW IF EXISTS `iati-view-check-totals`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-check-totals`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`iatidatamart`.`log-check-totals` `a` join `iatidatamart`.`log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`log-check-totals` `a` join `log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-funding-organisations
 DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-funding-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-implementing-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
 DROP VIEW IF EXISTS `iati-view-last-date-published`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-last-date-published`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(`a`.`publisher-job-url-end-date-time`) AS `end-date`,max(`a`.`generated-datetime`) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`)) group by `a`.`publisher-id`,`u`.`url`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(`a`.`publisher-job-url-end-date-time`) AS `end-date`,max(`a`.`generated-datetime`) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`)) group by `a`.`publisher-id`,`u`.`url`;
 
 
 -- Dumping structure for view iatidatamart.iati-view-organisations
 DROP VIEW IF EXISTS `iati-view-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-organisations` AS (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`) union (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-organisations` AS (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`) union (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`);
 
 
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-total-disbursements`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-total-disbursements` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`iatidatamart`.`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `iatidatamart`.`fct-transactions` where (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'D') group by `iatidatamart`.`fct-transactions`.`iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-total-disbursements` AS select `fct-transactions`.`iati-identifier` AS `iati-identifier`,`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `fct-transactions` where (`fct-transactions`.`transaction-type-code` = 'D') group by `fct-transactions`.`iati-identifier`,`fct-transactions`.`transaction-type-code`;
 
 
 -- Dumping database structure for iatilogging
@@ -855,10 +863,10 @@ CREATE TABLE IF NOT EXISTS `codelist-activity-status` (
 -- Dumping structure for table iatireference.codelist-date-type
 DROP TABLE IF EXISTS `codelist-date-type`;
 CREATE TABLE IF NOT EXISTS `codelist-date-type` (
+  `code2x` int(11) DEFAULT NULL,
   `code1x` varchar(13) DEFAULT NULL,
   `name` tinytext,
-  `description` tinytext,
-  `code2x` int(11) DEFAULT NULL
+  `description` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -921,7 +929,7 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-precision` (
 -- Dumping structure for table iatireference.codelist-geographic-vocabulary
 DROP TABLE IF EXISTS `codelist-geographic-vocabulary`;
 CREATE TABLE IF NOT EXISTS `codelist-geographic-vocabulary` (
-  `code` tinytext,
+  `code` char(2) DEFAULT NULL,
   `name` tinytext,
   `url` tinytext,
   `description` mediumtext
@@ -933,7 +941,7 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-vocabulary` (
 -- Dumping structure for table iatireference.codelist-organisation-type
 DROP TABLE IF EXISTS `codelist-organisation-type`;
 CREATE TABLE IF NOT EXISTS `codelist-organisation-type` (
-  `org-type-code` tinytext,
+  `org-type-code` int(11) DEFAULT NULL,
   `org-type-name` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -950,49 +958,18 @@ CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
 -- Data exporting was unselected.
 
 
--- Dumping structure for table iatireference.ref-country-classification
-DROP TABLE IF EXISTS `ref-country-classification`;
-CREATE TABLE IF NOT EXISTS `ref-country-classification` (
-  `ISOA2` char(2),
-  `ISOA3` char(3) DEFAULT NULL,
-  `UNCountry` tinytext,
-  `UNLDC` char(3) DEFAULT NULL,
-  `Income` varchar(25) DEFAULT NULL,
-  `Region` varchar(35) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
 -- Dumping database structure for iatischema
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatischema`;
-
-
--- Dumping structure for table iatischema.ctl-publishers
-DROP TABLE IF EXISTS `ctl-publishers`;
-CREATE TABLE IF NOT EXISTS `ctl-publishers` (
-  `publisher` char(21) NOT NULL,
-  `publisher-id` int(11) NOT NULL AUTO_INCREMENT,
-  `active` bit(1) NOT NULL DEFAULT b'0',
-  `force-processing` bit(1) NOT NULL DEFAULT b'0',
-  `testfile-location` varchar(256) DEFAULT NULL,
-  `is-testfile` bit(1) NOT NULL DEFAULT b'0',
-  PRIMARY KEY (`publisher`),
-  UNIQUE KEY `publisher_UNIQUE` (`publisher`),
-  UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
 
 
 -- Dumping structure for table iatischema.currency-rates
 DROP TABLE IF EXISTS `currency-rates`;
 CREATE TABLE IF NOT EXISTS `currency-rates` (
   `Jaar` int(11) NOT NULL DEFAULT '0',
-  `Koers` double DEFAULT NULL,
-  `Valuta` varchar(3) NOT NULL DEFAULT '',
+  `Valuta` char(3) NOT NULL DEFAULT '',
   `Bron` char(20) NOT NULL,
+  `Koers` double DEFAULT NULL,
   PRIMARY KEY (`Jaar`,`Valuta`,`Bron`),
   KEY `idx_currency-rates_lookup` (`Valuta`,`Jaar`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1007,7 +984,7 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
   `recipient-country-code` varchar(2) DEFAULT NULL,
   `recipient-region-code` char(3) DEFAULT NULL,
   `country-region-percentage` int(11) DEFAULT NULL,
-  `sector-code` varchar(5) DEFAULT NULL,
+  `sector-code` char(5) DEFAULT NULL,
   `sector-vocabulary` varchar(85) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
   `budget-type` int(11) DEFAULT NULL,
@@ -1035,7 +1012,8 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1064,7 +1042,8 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1095,7 +1074,8 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1129,7 +1109,8 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1137,7 +1118,7 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
 -- Dumping structure for table iatischema.dwh-organisations
 DROP TABLE IF EXISTS `dwh-organisations`;
 CREATE TABLE IF NOT EXISTS `dwh-organisations` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
@@ -1160,7 +1141,8 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1189,7 +1171,8 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1206,8 +1189,8 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `baseline-comment` text,
-  `period-start` datetime DEFAULT NULL,
-  `period-end` datetime DEFAULT NULL,
+  `period-start` date DEFAULT NULL,
+  `period-end` date DEFAULT NULL,
   `actual-value` tinytext,
   `actual-comment` text,
   `target-value` tinytext,
@@ -1229,7 +1212,8 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1243,7 +1227,7 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
   `receiver-org-id` bigint(20) DEFAULT NULL,
   `transaction-iso-date` date DEFAULT NULL,
   `transaction-type-code` tinytext,
-  `sector-code` varchar(5) DEFAULT NULL,
+  `sector-code` char(5) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
   `recipient-country-code` char(2) DEFAULT NULL,
   `recipient-region-code` char(3) DEFAULT NULL,
@@ -1255,7 +1239,7 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `transaction-value-eur` double DEFAULT NULL,
-  `receiver-org-activity-id` varchar(100) DEFAULT NULL,
+  `receiver-org-activity-id` char(100) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
   KEY `idx-transaction-iso-date` (`transaction-iso-date`),
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
@@ -1270,7 +1254,8 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION ccc VALUES IN (7) ENGINE = InnoDB,
  PARTITION foenl VALUES IN (8) ENGINE = InnoDB,
  PARTITION somo VALUES IN (9) ENGINE = InnoDB,
- PARTITION tni VALUES IN (10) ENGINE = InnoDB) */;
+ PARTITION tni VALUES IN (10) ENGINE = InnoDB,
+ PARTITION free_press_unlimited VALUES IN (11) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 
@@ -1278,11 +1263,11 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
 -- Dumping structure for table iatischema.stg-parent-child-other
 DROP TABLE IF EXISTS `stg-parent-child-other`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
-  `iati-identifier-child` varchar(100) DEFAULT NULL,
-  `iati-identifier-parent` varchar(100) DEFAULT NULL,
+  `iati-identifier-child` char(100) DEFAULT NULL,
+  `iati-identifier-parent` char(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1292,8 +1277,8 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
 -- Dumping structure for table iatischema.stg-parent-child-trx
 DROP TABLE IF EXISTS `stg-parent-child-trx`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
-  `iati-identifier-child` varchar(100) DEFAULT NULL,
-  `iati-identifier-parent` varchar(100) DEFAULT NULL,
+  `iati-identifier-child` char(100) DEFAULT NULL,
+  `iati-identifier-parent` char(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
   `buza-ancestor-activity-id` char(100) DEFAULT NULL,
@@ -1316,7 +1301,7 @@ USE `iatistaging`;
 -- Dumping structure for table iatistaging.src-act-budgets
 DROP TABLE IF EXISTS `src-act-budgets`;
 CREATE TABLE IF NOT EXISTS `src-act-budgets` (
-  `iati-identifier` tinytext,
+  `iati-identifier` char(100) DEFAULT NULL,
   `budget-type` int(11) DEFAULT NULL,
   `budget-period-start` datetime DEFAULT NULL,
   `budget-period-end` datetime DEFAULT NULL,
@@ -1325,9 +1310,9 @@ CREATE TABLE IF NOT EXISTS `src-act-budgets` (
   `budget-value-currency` tinytext,
   `default-currency` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1337,13 +1322,13 @@ CREATE TABLE IF NOT EXISTS `src-act-budgets` (
 -- Dumping structure for table iatistaging.src-act-countries
 DROP TABLE IF EXISTS `src-act-countries`;
 CREATE TABLE IF NOT EXISTS `src-act-countries` (
-  `iati-identifier-countries` varchar(100) DEFAULT NULL,
+  `iati-identifier-countries` char(100) DEFAULT NULL,
   `recipient-country-code` tinytext,
   `recipient-country-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1353,7 +1338,7 @@ CREATE TABLE IF NOT EXISTS `src-act-countries` (
 -- Dumping structure for table iatistaging.src-act-data
 DROP TABLE IF EXISTS `src-act-data`;
 CREATE TABLE IF NOT EXISTS `src-act-data` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `activity-title` mediumtext,
   `activity-status` tinytext,
   `contact-organisation` tinytext,
@@ -1370,9 +1355,9 @@ CREATE TABLE IF NOT EXISTS `src-act-data` (
   `contact-job-title` tinytext,
   `contact-website` mediumtext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL,
   KEY `idx_src-act-data_lookup` (`iati-identifier`,`url-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -1383,14 +1368,14 @@ CREATE TABLE IF NOT EXISTS `src-act-data` (
 -- Dumping structure for table iatistaging.src-act-dates
 DROP TABLE IF EXISTS `src-act-dates`;
 CREATE TABLE IF NOT EXISTS `src-act-dates` (
+  `iati-identifier` char(100) DEFAULT NULL,
   `activity-iso-date` tinytext,
-  `iati-identifier` varchar(100) DEFAULT NULL,
   `activity-date-type-2x` tinytext,
   `activity-date-type-1x` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1404,9 +1389,9 @@ CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
   `description` mediumtext,
   `description-type-code` int(11) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1416,12 +1401,12 @@ CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
 -- Dumping structure for table iatistaging.src-act-documents
 DROP TABLE IF EXISTS `src-act-documents`;
 CREATE TABLE IF NOT EXISTS `src-act-documents` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `document-type-code` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `document-url` varchar(512) DEFAULT NULL,
   `document-title` tinytext,
   `document-language` tinytext,
@@ -1435,7 +1420,7 @@ CREATE TABLE IF NOT EXISTS `src-act-documents` (
 -- Dumping structure for table iatistaging.src-act-locations
 DROP TABLE IF EXISTS `src-act-locations`;
 CREATE TABLE IF NOT EXISTS `src-act-locations` (
-  `iati-identifier-locations` varchar(100) DEFAULT NULL,
+  `iati-identifier-locations` char(100) DEFAULT NULL,
   `location-name` tinytext,
   `location-coordinates-latitude` double DEFAULT NULL,
   `location-coordinates-longitude` double DEFAULT NULL,
@@ -1444,9 +1429,9 @@ CREATE TABLE IF NOT EXISTS `src-act-locations` (
   `location-coordinates-precision` tinytext,
   `location-coordinates-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1456,15 +1441,15 @@ CREATE TABLE IF NOT EXISTS `src-act-locations` (
 -- Dumping structure for table iatistaging.src-act-organisations
 DROP TABLE IF EXISTS `src-act-organisations`;
 CREATE TABLE IF NOT EXISTS `src-act-organisations` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `participating-org` mediumtext,
   `participating-org-role` tinytext,
   `participating-org-ref` tinytext,
   `participating-org-type-code` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1474,14 +1459,14 @@ CREATE TABLE IF NOT EXISTS `src-act-organisations` (
 -- Dumping structure for table iatistaging.src-act-policy-markers
 DROP TABLE IF EXISTS `src-act-policy-markers`;
 CREATE TABLE IF NOT EXISTS `src-act-policy-markers` (
-  `iati-identifier` tinytext,
+  `iati-identifier` char(100) DEFAULT NULL,
   `vocabulary` tinytext,
   `code` tinytext,
   `significance` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1491,13 +1476,13 @@ CREATE TABLE IF NOT EXISTS `src-act-policy-markers` (
 -- Dumping structure for table iatistaging.src-act-regions
 DROP TABLE IF EXISTS `src-act-regions`;
 CREATE TABLE IF NOT EXISTS `src-act-regions` (
-  `iati-identifier-regions` varchar(100) DEFAULT NULL,
+  `iati-identifier-regions` char(100) DEFAULT NULL,
   `recipient-region-code` tinytext,
   `recipient-region-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1511,9 +1496,9 @@ CREATE TABLE IF NOT EXISTS `src-act-related` (
   `related-activity-ref` char(100) DEFAULT NULL,
   `related-activity-type` int(11) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1523,7 +1508,7 @@ CREATE TABLE IF NOT EXISTS `src-act-related` (
 -- Dumping structure for table iatistaging.src-act-results
 DROP TABLE IF EXISTS `src-act-results`;
 CREATE TABLE IF NOT EXISTS `src-act-results` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
@@ -1538,9 +1523,9 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
   `actual-value` tinytext,
   `target-value` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL,
   `baseline-comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -1551,14 +1536,14 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
 -- Dumping structure for table iatistaging.src-act-sectors
 DROP TABLE IF EXISTS `src-act-sectors`;
 CREATE TABLE IF NOT EXISTS `src-act-sectors` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `sector-code` varchar(5) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
   `sector-vocabulary` varchar(10) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL,
   KEY `idx_src-act-sectors_lookup` (`iati-identifier`,`sector-code`,`sector-vocabulary`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -1569,7 +1554,7 @@ CREATE TABLE IF NOT EXISTS `src-act-sectors` (
 -- Dumping structure for table iatistaging.src-act-transactions
 DROP TABLE IF EXISTS `src-act-transactions`;
 CREATE TABLE IF NOT EXISTS `src-act-transactions` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `transaction-type-code` tinytext,
   `provider-org` tinytext,
   `provider-org-reference` tinytext,
@@ -1586,9 +1571,9 @@ CREATE TABLE IF NOT EXISTS `src-act-transactions` (
   `transaction-aid-type-code` tinytext,
   `transaction-tied-status-code` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL,
   `receiver-org-activity-id` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -1599,12 +1584,12 @@ CREATE TABLE IF NOT EXISTS `src-act-transactions` (
 -- Dumping structure for table iatistaging.stg-act-country-region
 DROP TABLE IF EXISTS `stg-act-country-region`;
 CREATE TABLE IF NOT EXISTS `stg-act-country-region` (
-  `iati-identifier` tinytext,
+  `iati-identifier` char(100) DEFAULT NULL,
   `recipient-country-code` char(2) DEFAULT NULL,
   `recipient-region-code` varchar(3) DEFAULT NULL,
   `country-region-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -1615,13 +1600,13 @@ CREATE TABLE IF NOT EXISTS `stg-act-country-region` (
 -- Dumping structure for table iatistaging.stg-act-sectors
 DROP TABLE IF EXISTS `stg-act-sectors`;
 CREATE TABLE IF NOT EXISTS `stg-act-sectors` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
-  `sector-code` varchar(5) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
+  `sector-code` char(5) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
   `sector-vocabulary` tinytext,
   `sector-seqnr` bigint(20) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`)
@@ -1649,7 +1634,7 @@ CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
   `transaction-currency` char(3) DEFAULT NULL,
   `exchange-rate` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `receiver-org-activity-id` varchar(100) DEFAULT NULL,
@@ -1662,7 +1647,7 @@ CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
 -- Dumping structure for table iatistaging.xml-act-budgets
 DROP TABLE IF EXISTS `xml-act-budgets`;
 CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
-  `iati-identifier` tinytext,
+  `iati-identifier` char(100) DEFAULT NULL,
   `budget-type` int(11) DEFAULT NULL,
   `budget-period-start` date DEFAULT NULL,
   `budget-period-end` date DEFAULT NULL,
@@ -1671,9 +1656,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
   `budget-value-currency` tinytext,
   `default-currency` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1682,13 +1667,13 @@ CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
 -- Dumping structure for table iatistaging.xml-act-countries
 DROP TABLE IF EXISTS `xml-act-countries`;
 CREATE TABLE IF NOT EXISTS `xml-act-countries` (
-  `iati-identifier-countries` varchar(100) DEFAULT NULL,
+  `iati-identifier-countries` char(100) DEFAULT NULL,
   `recipient-country-code` tinytext,
   `recipient-country-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1697,7 +1682,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-countries` (
 -- Dumping structure for table iatistaging.xml-act-data
 DROP TABLE IF EXISTS `xml-act-data`;
 CREATE TABLE IF NOT EXISTS `xml-act-data` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `activity-title` mediumtext,
   `activity-status` tinytext,
   `contact-organisation` tinytext,
@@ -1714,9 +1699,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-data` (
   `contact-job-title` tinytext,
   `contact-website` mediumtext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   KEY `idx_src-act-data_lookup` (`iati-identifier`,`url-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1726,14 +1711,14 @@ CREATE TABLE IF NOT EXISTS `xml-act-data` (
 -- Dumping structure for table iatistaging.xml-act-dates
 DROP TABLE IF EXISTS `xml-act-dates`;
 CREATE TABLE IF NOT EXISTS `xml-act-dates` (
+  `iati-identifier` char(100) DEFAULT NULL,
   `activity-iso-date` tinytext,
-  `iati-identifier` varchar(100) DEFAULT NULL,
   `activity-date-type-2x` tinytext,
   `activity-date-type-1x` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1746,9 +1731,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
   `description` mediumtext,
   `description-type-code` int(11) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1757,16 +1742,16 @@ CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
 -- Dumping structure for table iatistaging.xml-act-documents
 DROP TABLE IF EXISTS `xml-act-documents`;
 CREATE TABLE IF NOT EXISTS `xml-act-documents` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `document-type-code` tinytext,
-  `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
-  `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
   `document-url` varchar(512) DEFAULT NULL,
   `document-title` tinytext,
   `document-language` tinytext,
-  `document-format` tinytext
+  `document-format` tinytext,
+  `generated-datetime` varchar(24) DEFAULT NULL,
+  `publisher` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1775,7 +1760,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-documents` (
 -- Dumping structure for table iatistaging.xml-act-locations
 DROP TABLE IF EXISTS `xml-act-locations`;
 CREATE TABLE IF NOT EXISTS `xml-act-locations` (
-  `iati-identifier-locations` varchar(100) DEFAULT NULL,
+  `iati-identifier-locations` char(100) DEFAULT NULL,
   `location-name` tinytext,
   `location-coordinates-latitude` double DEFAULT NULL,
   `location-coordinates-longitude` double DEFAULT NULL,
@@ -1784,9 +1769,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-locations` (
   `location-coordinates-precision` tinytext,
   `location-coordinates-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1795,15 +1780,15 @@ CREATE TABLE IF NOT EXISTS `xml-act-locations` (
 -- Dumping structure for table iatistaging.xml-act-organisations
 DROP TABLE IF EXISTS `xml-act-organisations`;
 CREATE TABLE IF NOT EXISTS `xml-act-organisations` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `participating-org` mediumtext,
   `participating-org-role` tinytext,
   `participating-org-ref` tinytext,
   `participating-org-type-code` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1812,14 +1797,14 @@ CREATE TABLE IF NOT EXISTS `xml-act-organisations` (
 -- Dumping structure for table iatistaging.xml-act-policy-markers
 DROP TABLE IF EXISTS `xml-act-policy-markers`;
 CREATE TABLE IF NOT EXISTS `xml-act-policy-markers` (
-  `iati-identifier` tinytext,
+  `iati-identifier` char(100) DEFAULT NULL,
   `vocabulary` tinytext,
   `code` tinytext,
   `significance` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1828,13 +1813,13 @@ CREATE TABLE IF NOT EXISTS `xml-act-policy-markers` (
 -- Dumping structure for table iatistaging.xml-act-regions
 DROP TABLE IF EXISTS `xml-act-regions`;
 CREATE TABLE IF NOT EXISTS `xml-act-regions` (
-  `iati-identifier-regions` varchar(100) DEFAULT NULL,
+  `iati-identifier-regions` char(100) DEFAULT NULL,
   `recipient-region-code` tinytext,
   `recipient-region-percentage` double DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1847,9 +1832,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-related` (
   `related-activity-ref` char(100) DEFAULT NULL,
   `related-activity-type` int(11) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1858,7 +1843,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-related` (
 -- Dumping structure for table iatistaging.xml-act-results
 DROP TABLE IF EXISTS `xml-act-results`;
 CREATE TABLE IF NOT EXISTS `xml-act-results` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
@@ -1873,9 +1858,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `actual-value` tinytext,
   `target-value` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `baseline-comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -1885,12 +1870,12 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
 -- Dumping structure for table iatistaging.xml-act-sectors
 DROP TABLE IF EXISTS `xml-act-sectors`;
 CREATE TABLE IF NOT EXISTS `xml-act-sectors` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
-  `sector-code` varchar(5) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
+  `sector-code` char(5) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
   `sector-vocabulary` varchar(10) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(24) DEFAULT NULL,
   KEY `idx_src-act-sectors_lookup` (`iati-identifier`,`sector-code`,`sector-vocabulary`)
@@ -1902,7 +1887,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-sectors` (
 -- Dumping structure for table iatistaging.xml-act-transactions
 DROP TABLE IF EXISTS `xml-act-transactions`;
 CREATE TABLE IF NOT EXISTS `xml-act-transactions` (
-  `iati-identifier` varchar(100) DEFAULT NULL,
+  `iati-identifier` char(100) DEFAULT NULL,
   `transaction-type-code` tinytext,
   `provider-org` tinytext,
   `provider-org-reference` tinytext,
@@ -1919,9 +1904,9 @@ CREATE TABLE IF NOT EXISTS `xml-act-transactions` (
   `transaction-aid-type-code` tinytext,
   `transaction-tied-status-code` tinytext,
   `publisher` varchar(24) DEFAULT NULL,
-  `publisher-id` varchar(24) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(24) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
   `receiver-org-activity-id` char(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
