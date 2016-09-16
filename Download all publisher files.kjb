@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;07&#x2f;12 10&#x3a;38&#x3a;39.762</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;02 15&#x3a;11&#x3a;09.864</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -203,8 +203,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>30</xloc>
-      <yloc>224</yloc>
+      <xloc>33</xloc>
+      <yloc>281</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -213,8 +213,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2373</xloc>
-      <yloc>231</yloc>
+      <xloc>2376</xloc>
+      <yloc>288</yloc>
       </entry>
     <entry>
       <name>Show URL</name>
@@ -226,8 +226,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>368</xloc>
-      <yloc>224</yloc>
+      <xloc>371</xloc>
+      <yloc>281</yloc>
       </entry>
     <entry>
       <name>Archive XML files</name>
@@ -258,8 +258,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1593</xloc>
-      <yloc>225</yloc>
+      <xloc>1596</xloc>
+      <yloc>282</yloc>
       </entry>
     <entry>
       <name>Get url id and start url log</name>
@@ -292,8 +292,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>141</xloc>
-      <yloc>223</yloc>
+      <xloc>144</xloc>
+      <yloc>280</yloc>
       </entry>
     <entry>
       <name>Log download processing</name>
@@ -326,8 +326,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2255</xloc>
-      <yloc>230</yloc>
+      <xloc>2258</xloc>
+      <yloc>287</yloc>
       </entry>
     <entry>
       <name>Copy test file</name>
@@ -353,8 +353,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>676</xloc>
-      <yloc>128</yloc>
+      <xloc>679</xloc>
+      <yloc>185</yloc>
       </entry>
     <entry>
       <name>Is it a testfile&#x3f;</name>
@@ -375,8 +375,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>479</xloc>
-      <yloc>224</yloc>
+      <xloc>482</xloc>
+      <yloc>281</yloc>
       </entry>
     <entry>
       <name>Write failed test file copy to log</name>
@@ -388,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>677</xloc>
-      <yloc>20</yloc>
+      <xloc>680</xloc>
+      <yloc>77</yloc>
       </entry>
     <entry>
       <name>Get file timestamp &#x26; version</name>
@@ -422,8 +422,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>999</xloc>
-      <yloc>226</yloc>
+      <xloc>1002</xloc>
+      <yloc>283</yloc>
       </entry>
     <entry>
       <name>Activity file exists in archive&#x3f;</name>
@@ -438,8 +438,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1392</xloc>
-      <yloc>225</yloc>
+      <xloc>1395</xloc>
+      <yloc>282</yloc>
       </entry>
     <entry>
       <name>File changed compared with archive&#x3f;</name>
@@ -460,8 +460,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1590</xloc>
-      <yloc>346</yloc>
+      <xloc>1593</xloc>
+      <yloc>403</yloc>
       </entry>
     <entry>
       <name>Calc MD5 checksum</name>
@@ -494,8 +494,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1391</xloc>
-      <yloc>347</yloc>
+      <xloc>1394</xloc>
+      <yloc>404</yloc>
       </entry>
     <entry>
       <name>Download activity</name>
@@ -528,8 +528,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>226</yloc>
+      <xloc>595</xloc>
+      <yloc>283</yloc>
       </entry>
     <entry>
       <name>Download OK &#x3f;</name>
@@ -550,8 +550,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>711</xloc>
-      <yloc>226</yloc>
+      <xloc>714</xloc>
+      <yloc>283</yloc>
       </entry>
     <entry>
       <name>Init variables</name>
@@ -595,8 +595,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>259</xloc>
-      <yloc>223</yloc>
+      <xloc>262</xloc>
+      <yloc>280</yloc>
       </entry>
     <entry>
       <name>Failed download message</name>
@@ -620,8 +620,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2108</xloc>
-      <yloc>629</yloc>
+      <xloc>2111</xloc>
+      <yloc>686</yloc>
       </entry>
     <entry>
       <name>Unchanged file message</name>
@@ -645,8 +645,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2105</xloc>
-      <yloc>348</yloc>
+      <xloc>2108</xloc>
+      <yloc>405</yloc>
       </entry>
     <entry>
       <name>Ok message</name>
@@ -670,8 +670,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2108</xloc>
-      <yloc>230</yloc>
+      <xloc>2111</xloc>
+      <yloc>287</yloc>
       </entry>
     <entry>
       <name>XSD validation 6.01</name>
@@ -704,8 +704,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1141</xloc>
-      <yloc>226</yloc>
+      <xloc>1144</xloc>
+      <yloc>283</yloc>
       </entry>
     <entry>
       <name>XSD valid&#x3f;</name>
@@ -726,8 +726,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1261</xloc>
-      <yloc>226</yloc>
+      <xloc>1264</xloc>
+      <yloc>283</yloc>
       </entry>
     <entry>
       <name>Write XSD error to log</name>
@@ -739,8 +739,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1261</xloc>
-      <yloc>423</yloc>
+      <xloc>1264</xloc>
+      <yloc>480</yloc>
       </entry>
     <entry>
       <name>XSD validation error</name>
@@ -764,8 +764,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2108</xloc>
-      <yloc>424</yloc>
+      <xloc>2111</xloc>
+      <yloc>481</yloc>
       </entry>
     <entry>
       <name>Write timestamp or version error to log</name>
@@ -777,8 +777,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1150</xloc>
-      <yloc>491</yloc>
+      <xloc>1153</xloc>
+      <yloc>548</yloc>
       </entry>
     <entry>
       <name>Timestamp or version error</name>
@@ -802,8 +802,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2108</xloc>
-      <yloc>497</yloc>
+      <xloc>2111</xloc>
+      <yloc>554</yloc>
       </entry>
     <entry>
       <name>Write failed download to log</name>
@@ -815,8 +815,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>936</xloc>
-      <yloc>629</yloc>
+      <xloc>939</xloc>
+      <yloc>686</yloc>
       </entry>
     <entry>
       <name>Read processing flag</name>
@@ -849,8 +849,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1770</xloc>
-      <yloc>347</yloc>
+      <xloc>1773</xloc>
+      <yloc>404</yloc>
       </entry>
     <entry>
       <name>Force processing&#x3f;</name>
@@ -871,8 +871,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1931</xloc>
-      <yloc>348</yloc>
+      <xloc>1934</xloc>
+      <yloc>405</yloc>
       </entry>
     <entry>
       <name>XML is well formed&#x3f;</name>
@@ -892,8 +892,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>853</xloc>
-      <yloc>226</yloc>
+      <xloc>856</xloc>
+      <yloc>283</yloc>
       </entry>
     <entry>
       <name>Invalid XML file message</name>
@@ -917,8 +917,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2108</xloc>
-      <yloc>560</yloc>
+      <xloc>2111</xloc>
+      <yloc>617</yloc>
       </entry>
     <entry>
       <name>Invalid XML file</name>
@@ -930,8 +930,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1043</xloc>
-      <yloc>559</yloc>
+      <xloc>1046</xloc>
+      <yloc>616</yloc>
       </entry>
   </entries>
   <hops>
@@ -1279,6 +1279,27 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Download the activity file of a publisher and if ok, archive the file. This transformation&#xd;&#xa;is run once for each URL input line. Downloading is controlled by the following parameters&#x3a;&#xd;&#xa;&#xd;&#xa;1 - the publisher is active &#x28;active &#x3d; 1&#x29; or not &#x28;active &#x3d; 0&#x29;. Only files from active publishers &#xd;&#xa;     are downloaded.&#xd;&#xa;2 - the activity file is always processed &#x28;force-processing &#x3d; 1&#x29; or only when the file is changed &#xd;&#xa;     compared to the previously downloaded file in the archive &#x28;force-processing &#x3d; 0&#x29;.&#xd;&#xa;3 - the file is retreived from internet &#x28;test &#x3d; 0&#x29; or from a test file &#x28;test &#x3d; 1&#x29;&#xd;&#xa;&#xd;&#xa;Downloaded files are tested on&#x3a;&#xd;&#xa;1 - the validity of the XML &#x28;well formed or not&#x29;.&#xd;&#xa;2 - the validity of th file against the corresponding XSD metadata definition.&#xd;&#xa;&#xd;&#xa;In case of error the download is ignored and the downloaded file is not archived</note>
+      <xloc>7</xloc>
+      <yloc>8</yloc>
+      <width>553</width>
+      <heigth>223</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>

@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 11&#x3a;39&#x3a;50.414</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;15 11&#x3a;26&#x3a;44.630</modified_date>
+  <modified_date>2016&#x2f;08&#x2f;31 16&#x3a;50&#x3a;46.848</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -214,11 +214,11 @@
   </connection>
   <order>
   <hop> <from>Trim organisation names</from><to>Replace NL-1 in identifiers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in identifiers</from><to>If organisation name or ref is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in identifiers</from><to>If fields are null</to><enabled>Y</enabled> </hop>
   <hop> <from>Get transactions from XML 1.x</from><to>Get trx vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get trx vars</from><to>Sort transactions</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort transactions</from><to>Trim organisation names</to><enabled>Y</enabled> </hop>
-  <hop> <from>If organisation name or ref is null</from><to>Replace null currencies by default</to><enabled>Y</enabled> </hop>
+  <hop> <from>If fields are null</from><to>Replace null currencies by default</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace null currencies by default</from><to>Write src transactions</to><enabled>Y</enabled> </hop>
   </order>
   <step>
@@ -526,7 +526,7 @@
     </step>
 
   <step>
-    <name>If organisation name or ref is null</name>
+    <name>If fields are null</name>
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
@@ -573,6 +573,18 @@
         <value/>
         <mask/>
         <set_empty_string>Y</set_empty_string>
+        </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        <value>Unspecified</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>receiver-org-activity-id</name>
+        <value>Unspecified</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
         </field>
       </fields>
      <cluster_schema/>
@@ -643,6 +655,32 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>746</xloc>
+      <yloc>54</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace null currencies by default</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>transaction-currency</field_name>
+<formula_string>IF&#x28;LEN&#x28;&#x5b;transaction-currency&#x5d;&#x29;&#x3d;0&#x3b;&#x5b;default-currency&#x5d;&#x3b;&#x5b;transaction-currency&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>transaction-currency</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1142</xloc>
       <yloc>54</yloc>
       <draw>Y</draw>
       </GUI>
@@ -906,32 +944,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1334</xloc>
-      <yloc>54</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Replace null currencies by default</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>transaction-currency</field_name>
-<formula_string>IF&#x28;LEN&#x28;&#x5b;transaction-currency&#x5d;&#x29;&#x3d;0&#x3b;&#x5b;default-currency&#x5d;&#x3b;&#x5b;transaction-currency&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>transaction-currency</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1142</xloc>
       <yloc>54</yloc>
       <draw>Y</draw>
       </GUI>

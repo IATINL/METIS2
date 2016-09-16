@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 15&#x3a;47&#x3a;45.026</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;15 16&#x3a;32&#x3a;33.053</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;16 10&#x3a;06&#x3a;18.644</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Read all activity URL&#x27;s from the IATI registry by submitting an API call. &#xd;&#xa;The URL are retrieved from the resulting json data. The maximum waiting&#xd;&#xa;time when trying to retrieve the url list from the IATI registry is 360 seconds.</note>
+      <xloc>518</xloc>
+      <yloc>108</yloc>
+      <width>445</width>
+      <heigth>55</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -213,23 +234,58 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Check URL</from><to>URL Ok&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>URL Ok&#x3f;</from><to>Invalid URL log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Specify publisher URL</from><to>HTTP Client</to><enabled>Y</enabled> </hop>
-  <hop> <from>Invalid URL log</from><to>Write invalid URL to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter testfiles from url</from><to>Specify publisher URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter testfiles from url</from><to>Rename test file to url</to><enabled>Y</enabled> </hop>
   <hop> <from>Get rows from result</from><to>Database lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup</from><to>Filter testfiles from url</to><enabled>Y</enabled> </hop>
-  <hop> <from>URL Ok&#x3f;</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get System Info</from><to>Insert &#x2f; Update urllist</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get URL load time</from><to>Insert &#x2f; Update urllist</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Append</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append</from><to>Get System Info</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append</from><to>Get URL load time</to><enabled>Y</enabled> </hop>
   <hop> <from>Rename test file to url</from><to>Append</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get all URLs</from><to>Check URL</to><enabled>Y</enabled> </hop>
-  <hop> <from>HTTP Client</from><to>Get all URLs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get System Info</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>API call to IATI</from><to>Get all URLs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get URL load time</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get all URLs</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter testfiles from url</from><to>Get registry root</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get registry root</from><to>Specify publisher URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Specify publisher URL</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>API call to IATI</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>API call to IATI</name>
+    <type>HTTP</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <url/>
+    <urlInField>Y</urlInField>
+    <urlField>PublisherURL</urlField>
+    <encoding>UTF-8</encoding>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <socketTimeout>360000</socketTimeout>
+    <connectionTimeout>360000</connectionTimeout>
+    <closeIdleConnectionsTime>360000</closeIdleConnectionsTime>
+    <lookup>
+    </lookup>
+    <result>
+      <name>jsonstring</name>
+      <code>httpstatus</code>
+      <response_time/>
+    </result>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>778</xloc>
+      <yloc>193</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Append</name>
     <type>Append</type>
@@ -245,31 +301,8 @@
 <tail_name>Rename test file to url</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1178</xloc>
-      <yloc>187</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Check URL</name>
-    <type>WebServiceAvailable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <urlField>jsonURL</urlField>
-    <readTimeOut>8000</readTimeOut>
-    <connectTimeOut>8000</connectTimeOut>
-    <resultfieldname>URLOk</resultfieldname>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>814</xloc>
-      <yloc>188</yloc>
+      <xloc>1072</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -287,8 +320,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1446</xloc>
-      <yloc>190</yloc>
+      <xloc>1290</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -335,8 +368,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>170</xloc>
-      <yloc>187</yloc>
+      <xloc>161</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -352,7 +385,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Specify publisher URL</send_true_to>
+<send_true_to>Get registry root</send_true_to>
 <send_false_to>Rename test file to url</send_false_to>
     <compare>
 <condition>
@@ -364,14 +397,14 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>294</xloc>
-      <yloc>187</yloc>
+      <xloc>285</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get System Info</name>
+    <name>Get URL load time</name>
     <type>SystemInfo</type>
     <description/>
     <distribute>N</distribute>
@@ -389,8 +422,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1294</xloc>
-      <yloc>189</yloc>
+      <xloc>1163</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -451,8 +484,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>699</xloc>
-      <yloc>186</yloc>
+      <xloc>874</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -474,45 +507,8 @@
         <precision>-1</precision>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>53</xloc>
-      <yloc>187</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>HTTP Client</name>
-    <type>HTTP</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <url/>
-    <urlInField>Y</urlInField>
-    <urlField>PublisherURL</urlField>
-    <encoding>US-ASCII</encoding>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <socketTimeout>15000</socketTimeout>
-    <connectionTimeout>15000</connectionTimeout>
-    <closeIdleConnectionsTime>-1</closeIdleConnectionsTime>
-    <lookup>
-    </lookup>
-    <result>
-      <name>jsonstring</name>
-      <code>httpstatus</code>
-      <response_time/>
-    </result>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>590</xloc>
-      <yloc>186</yloc>
+      <xloc>44</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -564,84 +560,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1295</xloc>
-      <yloc>17</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Invalid URL log</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>windows-1252</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;LOGPATH&#x7d;&#x5c;log - invalid URL</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>jsonURL</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>URLOk</name>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>914</xloc>
-      <yloc>89</yloc>
+      <xloc>1288</xloc>
+      <yloc>102</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -672,8 +592,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>670</xloc>
-      <yloc>334</yloc>
+      <xloc>697</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -704,8 +624,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1036</xloc>
-      <yloc>187</yloc>
+      <xloc>968</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -722,7 +642,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>PublisherURL</field_name>
-<formula_string>&#x22;http&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;3&#x2f;action&#x2f;package_search&#x3f;q&#x3d;extras_filetype&#x3a;activity&#x25;20AND&#x25;20organization&#x3a;&#x22;&#x26;&#x5b;Publisher&#x5d;&#x26;&#x22;&#x26;start&#x3d;0&#x26;rows&#x3d;1000&#x22;</formula_string>
+<formula_string>&#x5b;registry-root&#x5d;&#x26;&#x22;action&#x2f;package_search&#x3f;q&#x3d;extras_filetype&#x3a;activity&#x25;20AND&#x25;20organization&#x3a;&#x22;&#x26;&#x5b;Publisher&#x5d;&#x26;&#x22;&#x26;start&#x3d;0&#x26;rows&#x3d;1000&#x22;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -730,15 +650,15 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>469</xloc>
-      <yloc>186</yloc>
+      <xloc>570</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>URL Ok&#x3f;</name>
-    <type>SwitchCase</type>
+    <name>Get registry root</name>
+    <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -747,27 +667,30 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<fieldname>URLOk</fieldname>
-<use_contains>N</use_contains>
-<case_value_type>Boolean</case_value_type>
-<case_value_format/>
-<case_value_decimal/>
-<case_value_group/>
-<default_target_step>Invalid URL log</default_target_step>
-<cases><case><value>True</value>
-<target_step>Select values</target_step>
-</case><case><value>False</value>
-<target_step>Invalid URL log</target_step>
-</case></cases>     <cluster_schema/>
+    <fields>
+      <field>
+        <name>registry-root</name>
+        <variable>&#x24;&#x7b;IATIREGISTRY&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>915</xloc>
-      <yloc>188</yloc>
+      <xloc>452</xloc>
+      <yloc>196</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write invalid URL to log</name>
+    <name>Write to log</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -781,22 +704,16 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Invalid URL detected</logmessage>
+      <logmessage>API call to</logmessage>
     <fields>
       <field>
         <name>PublisherURL</name>
         </field>
-      <field>
-        <name>Publisher</name>
-        </field>
-      <field>
-        <name>jsonURL</name>
-        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>913</xloc>
-      <yloc>12</yloc>
+      <xloc>675</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
