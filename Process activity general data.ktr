@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 16&#x3a;03&#x3a;28.750</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;07&#x2f;19 16&#x3a;25&#x3a;51.360</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;15 15&#x3a;33&#x3a;45.604</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -216,10 +216,6 @@
   <hop> <from>Sort date rows</from><to>Denormalise dates</to><enabled>Y</enabled> </hop>
   <hop> <from>Select dates</from><to>Sort date rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Denormalise dates</from><to>Join dates</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select part. orgs.</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort orgs</from><to>Denormalise orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join dates</from><to>Join participating orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Denormalise orgs</from><to>Join participating orgs</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act dates from DB</from><to>Select dates</to><enabled>Y</enabled> </hop>
   <hop> <from>Get org type codelist</from><to>Lookup rep org type</to><enabled>Y</enabled> </hop>
   <hop> <from>Write activity data</from><to>Error log write activity data</to><enabled>Y</enabled> </hop>
@@ -229,18 +225,13 @@
   <hop> <from>Denormalise markers</from><to>Join markers</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup rep org type</from><to>String operations</to><enabled>Y</enabled> </hop>
   <hop> <from>String operations</from><to>Join markers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join participating orgs</from><to>Join related activity</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get first parent</from><to>Join related activity</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup org id</from><to>Select part. orgs.</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read act organisations from DB</from><to>If name or ref is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If name or ref is null</from><to>Lookup org id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join related activity</from><to>Write activity data</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read related act from DB</from><to>Filter parents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter parents</from><to>Get first parent</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter parents</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act data from DB</from><to>Lookup act status</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup act status</from><to>Lookup rep org type</to><enabled>Y</enabled> </hop>
   <hop> <from>Get act status codelist</from><to>Lookup act status</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get url root from parameters</from><to>Select urlroot</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select urlroot</from><to>Join urlroot</to><enabled>Y</enabled> </hop>
+  <hop> <from>Join urlroot</from><to>Write activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Join dates</from><to>Join urlroot</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Denormalise dates</name>
@@ -319,8 +310,8 @@
         </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>669</xloc>
-      <yloc>40</yloc>
+      <xloc>658</xloc>
+      <yloc>41</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -479,94 +470,6 @@
     </step>
 
   <step>
-    <name>Denormalise orgs</name>
-    <type>Denormaliser</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <key_field>participating-org-role</key_field>
-      <group>
-        <field>
-          <name>iati-identifier</name>
-          </field>
-        </group>
-      <fields>
-        <field>
-          <field_name>organisation-id</field_name>
-          <key_value>1</key_value>
-          <target_name>org-funding</target_name>
-          <target_type>String</target_type>
-          <target_format/>
-          <target_length>-1</target_length>
-          <target_precision>-1</target_precision>
-          <target_decimal_symbol/>
-          <target_grouping_symbol/>
-          <target_currency_symbol/>
-          <target_null_string/>
-          <target_aggregation_type>CONCAT_COMMA</target_aggregation_type>
-          </field>
-        <field>
-          <field_name>organisation-id</field_name>
-          <key_value>2</key_value>
-          <target_name>org-accountable</target_name>
-          <target_type>String</target_type>
-          <target_format/>
-          <target_length>-1</target_length>
-          <target_precision>-1</target_precision>
-          <target_decimal_symbol/>
-          <target_grouping_symbol/>
-          <target_currency_symbol/>
-          <target_null_string/>
-          <target_aggregation_type>CONCAT_COMMA</target_aggregation_type>
-          </field>
-        <field>
-          <field_name>organisation-id</field_name>
-          <key_value>4</key_value>
-          <target_name>org-implementing</target_name>
-          <target_type>String</target_type>
-          <target_format/>
-          <target_length>-1</target_length>
-          <target_precision>-1</target_precision>
-          <target_decimal_symbol/>
-          <target_grouping_symbol/>
-          <target_currency_symbol/>
-          <target_null_string/>
-          <target_aggregation_type>CONCAT_COMMA</target_aggregation_type>
-          </field>
-        </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>919</xloc>
-      <yloc>456</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>409</xloc>
-      <yloc>696</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Error log write activity data</name>
     <type>TextFileOutput</type>
     <description/>
@@ -708,37 +611,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1286</xloc>
-      <yloc>36</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter parents</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Get first parent</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>related-activity-type</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>412</xloc>
-      <yloc>585</yloc>
+      <xloc>1116</xloc>
+      <yloc>35</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -770,39 +644,6 @@
     </step>
 
   <step>
-    <name>Get first parent</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>iati-identifier</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>related-activity-id</aggregate>
-          <subject>related-activity-ref</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1030</xloc>
-      <yloc>585</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Get org type codelist</name>
     <type>TableInput</type>
     <description/>
@@ -824,46 +665,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>365</xloc>
       <yloc>356</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If name or ref is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>participating-org-ref</name>
-        <value>Unknown</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>participating-org</name>
-        <value>Unknown</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>370</xloc>
-      <yloc>455</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1007,90 +808,6 @@
     </step>
 
   <step>
-    <name>Join participating orgs</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Denormalise orgs</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <value>
-        <name>org-accountable</name>
-        <rename>org-accountable</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>org-implementing</name>
-        <rename>org-implementing</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>org-funding</name>
-        <rename>org-funding</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>996</xloc>
-      <yloc>248</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Join related activity</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Get first parent</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <value>
-        <name>related-activity-id</name>
-        <rename>related-activity-id</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1150</xloc>
-      <yloc>249</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Lookup act status</name>
     <type>StreamLookup</type>
     <description/>
@@ -1122,48 +839,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>221</xloc>
       <yloc>248</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup org id</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_datamart</connection>
-    <cache>Y</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>10000</cache_size>
-    <lookup>
-      <schema/>
-      <table>dim-organisation</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>participating-org</name>
-        <field>organisation-name</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>organisation-id</name>
-        <rename>organisation-id</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>499</xloc>
-      <yloc>456</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1250,34 +925,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>81</xloc>
-      <yloc>41</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Read act organisations from DB</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;participating-org&#x60;&#xd;&#xa;, &#x60;participating-org-role&#x60;&#xd;&#xa;, &#x60;participating-org-ref&#x60;&#xd;&#xa;, &#x60;participating-org-type-code&#x60;&#xd;&#xa;FROM &#x60;src-act-organisations&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>79</xloc>
-      <yloc>456</yloc>
+      <xloc>82</xloc>
+      <yloc>39</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1304,32 +953,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>80</xloc>
       <yloc>141</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Read related act from DB</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;related-activity-ref&#x60;&#xd;&#xa;, &#x60;related-activity-type&#x60;&#xd;&#xa;FROM &#x60;src-act-related&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>79</xloc>
-      <yloc>586</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1377,38 +1000,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>374</xloc>
       <yloc>40</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select part. orgs.</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>organisation-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>participating-org-role</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>639</xloc>
-      <yloc>456</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1494,52 +1085,6 @@
     </step>
 
   <step>
-    <name>Sort orgs</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>participating-org-role</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>organisation-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>776</xloc>
-      <yloc>456</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>String operations</name>
     <type>StringOperations</type>
     <description/>
@@ -1619,10 +1164,6 @@
           <stream_name>activity-status-name</stream_name>
         </field>
         <field>
-          <column_name>related-activity-id</column_name>
-          <stream_name>related-activity-id</stream_name>
-        </field>
-        <field>
           <column_name>contact-organisation</column_name>
           <stream_name>contact-organisation</stream_name>
         </field>
@@ -1661,18 +1202,6 @@
         <field>
           <column_name>reporting-org-type-name</column_name>
           <stream_name>reporting-org-type-name</stream_name>
-        </field>
-        <field>
-          <column_name>org-accountable</column_name>
-          <stream_name>org-accountable</stream_name>
-        </field>
-        <field>
-          <column_name>org-implementing</column_name>
-          <stream_name>org-implementing</stream_name>
-        </field>
-        <field>
-          <column_name>org-funding</column_name>
-          <stream_name>org-funding</stream_name>
         </field>
         <field>
           <column_name>marker-gender</column_name>
@@ -1735,6 +1264,10 @@
           <stream_name>start-planned</stream_name>
         </field>
         <field>
+          <column_name>urlroot</column_name>
+          <stream_name>urlroot</stream_name>
+        </field>
+        <field>
           <column_name>publisher</column_name>
           <stream_name>publisher</stream_name>
         </field>
@@ -1753,8 +1286,84 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1286</xloc>
-      <yloc>249</yloc>
+      <xloc>1116</xloc>
+      <yloc>248</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get url root from parameters</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_reference</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;key&#x60;&#xd;&#xa;, value&#xd;&#xa;FROM iatireference.&#x60;ref-parameters&#x60;&#xd;&#xa;WHERE &#x60;key&#x60;&#x3d;&#x27;urlroot&#x27;&#xd;&#xa;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>77</xloc>
+      <yloc>437</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Join urlroot</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Join dates</step1>
+<step2>Select urlroot</step2>
+    <keys_1>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1012</xloc>
+      <yloc>248</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select urlroot</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>value</name>
+        <rename>urlroot</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>866</xloc>
+      <yloc>433</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

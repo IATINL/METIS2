@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 17&#x3a;17&#x3a;53.430</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;25 11&#x3a;15&#x3a;11.047</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;13 13&#x3a;55&#x3a;00.360</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -788,7 +788,15 @@
         <rename>iati-identifier-1</rename>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>provider-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>provider-org-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -796,7 +804,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>receiver-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>receiver-org-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -876,7 +892,15 @@
         <rename>iati-identifier</rename>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>provider-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>provider-org-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -884,7 +908,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>receiver-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>receiver-org-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1146,16 +1178,32 @@
           <stream_name>country-region-percentage</stream_name>
         </field>
         <field>
+          <column_name>provider-org</column_name>
+          <stream_name>provider-org</stream_name>
+        </field>
+        <field>
           <column_name>provider-org-id</column_name>
           <stream_name>provider-org-id</stream_name>
+        </field>
+        <field>
+          <column_name>provider-org-reference</column_name>
+          <stream_name>provider-org-reference</stream_name>
         </field>
         <field>
           <column_name>provider-org-activity-id</column_name>
           <stream_name>provider-org-activity-id</stream_name>
         </field>
         <field>
+          <column_name>receiver-org</column_name>
+          <stream_name>receiver-org</stream_name>
+        </field>
+        <field>
           <column_name>receiver-org-id</column_name>
           <stream_name>receiver-org-id</stream_name>
+        </field>
+        <field>
+          <column_name>receiver-org-reference</column_name>
+          <stream_name>receiver-org-reference</stream_name>
         </field>
         <field>
           <column_name>receiver-org-activity-id</column_name>

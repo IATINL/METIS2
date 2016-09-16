@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;07&#x2f;11 15&#x3a;39&#x3a;41.025</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;16 11&#x3a;46&#x3a;46.487</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -198,7 +198,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1672</xloc>
+      <xloc>1698</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -335,7 +335,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1568</xloc>
+      <xloc>1594</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -477,7 +477,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1410</xloc>
+      <xloc>1436</xloc>
       <yloc>197</yloc>
       </entry>
     <entry>
@@ -502,7 +502,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1404</xloc>
+      <xloc>1430</xloc>
       <yloc>32</yloc>
       </entry>
     <entry>
@@ -619,7 +619,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1408</xloc>
+      <xloc>1434</xloc>
       <yloc>108</yloc>
       </entry>
     <entry>
@@ -653,7 +653,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1041</xloc>
+      <xloc>1028</xloc>
       <yloc>32</yloc>
       </entry>
   </entries>
@@ -840,6 +840,48 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Read the list of all active publishers. Then process each publisher one &#xd;&#xa;at a time. When all publishers are processed, calculate the linking &#xd;&#xa;between the publishers, based on the related activities and the incoming&#xd;&#xa;fund transactions.</note>
+      <xloc>649</xloc>
+      <yloc>89</yloc>
+      <width>427</width>
+      <heigth>70</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Check if the total of all financial &#xd;&#xa;amounts at the end of processing&#xd;&#xa;are  the same as what is read in&#xd;&#xa;at the start of the process.</note>
+      <xloc>1137</xloc>
+      <yloc>87</yloc>
+      <width>204</width>
+      <heigth>70</heigth>
+      <fontname/>
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>
