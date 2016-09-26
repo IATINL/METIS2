@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;01&#x2f;18 14&#x3a;25&#x3a;32.932</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;08 11&#x3a;03&#x3a;08.642</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;20 12&#x3a;03&#x3a;11.410</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -95,10 +95,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Retrieve redirection URL from HTTP response.</note>
+      <note>Retrieve first redirection URL from HTTP response.</note>
       <xloc>911</xloc>
       <yloc>284</yloc>
-      <width>275</width>
+      <width>300</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -116,11 +116,32 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Retrieve redirection URL from HTTP response.</note>
-      <xloc>1676</xloc>
-      <yloc>305</yloc>
-      <width>275</width>
+      <note>Retrieve second redirection URL from HTTP response.</note>
+      <xloc>1682</xloc>
+      <yloc>285</yloc>
+      <width>321</width>
       <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Pass HTTP status code. If no code is &#xd;&#xa;available because of an error, default to 999.</note>
+      <xloc>1972</xloc>
+      <yloc>564</yloc>
+      <width>263</width>
+      <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -276,17 +297,15 @@
     </attributes>
   </connection>
   <order>
+  <hop> <from>Write to activity XML file</from><to>Select http status field</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select http status field</from><to>Set http status variable</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter redirect req 1st attempt</from><to>Split &#x3c;</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter URL</from><to>Sink 1</to><enabled>Y</enabled> </hop>
   <hop> <from>Split &#x3c;</from><to>Split &#x3e;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to activity XML file</from><to>Select http status field</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select http status field</from><to>Set http status variable</to><enabled>Y</enabled> </hop>
   <hop> <from>Trigger download</from><to>Get json url from variable</to><enabled>Y</enabled> </hop>
-  <hop> <from>Download activity</from><to>Select http status field</to><enabled>Y</enabled> </hop>
   <hop> <from>Download activity</from><to>Filter redirect req 1st attempt</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter redirect req 1st attempt</from><to>Write to activity XML file</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Download 2nd attempt</to><enabled>Y</enabled> </hop>
-  <hop> <from>Download 2nd attempt</from><to>Select http status field</to><enabled>Y</enabled> </hop>
   <hop> <from>Split &#x3e;</from><to>Filter URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Regex</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Download 2nd attempt</from><to>Filter redirect req 2nd attempt</to><enabled>Y</enabled> </hop>
@@ -298,13 +317,16 @@
   <hop> <from>Regex 2</from><to>Select 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter redirect req 2nd attempt</from><to>Split &#x3c; 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Download 3th attempt</from><to>Write to activity XML file</to><enabled>Y</enabled> </hop>
-  <hop> <from>Download 3th attempt</from><to>Select http status field</to><enabled>Y</enabled> </hop>
   <hop> <from>Get json url from variable</from><to>User agent constant</to><enabled>Y</enabled> </hop>
   <hop> <from>User agent constant</from><to>Download activity</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter URL</from><to>Uppercase HREF</to><enabled>Y</enabled> </hop>
   <hop> <from>Uppercase HREF</from><to>Regex</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter URL 2</from><to>Uppercase HREF 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Uppercase HREF 2</from><to>Regex 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Download activity</from><to>HTTP status default 999</to><enabled>Y</enabled> </hop>
+  <hop> <from>HTTP status default 999</from><to>Select http status field</to><enabled>Y</enabled> </hop>
+  <hop> <from>Download 2nd attempt</from><to>HTTP status default 999</to><enabled>Y</enabled> </hop>
+  <hop> <from>Download 3th attempt</from><to>HTTP status default 999</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Download 2nd attempt</name>
@@ -408,7 +430,7 @@
     <name>Download activity</name>
     <type>Rest</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -805,8 +827,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2147</xloc>
-      <yloc>480</yloc>
+      <xloc>2205</xloc>
+      <yloc>489</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -865,8 +887,8 @@
     <use_formatting>Y</use_formatting>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2315</xloc>
-      <yloc>481</yloc>
+      <xloc>2367</xloc>
+      <yloc>489</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1206,8 +1228,41 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2148</xloc>
-      <yloc>48</yloc>
+      <xloc>2111</xloc>
+      <yloc>63</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>HTTP status default 999</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>httpstatus</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>999</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2039</xloc>
+      <yloc>489</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1215,7 +1270,7 @@
   <step_error_handling>
       <error>
         <source_step>Download 2nd attempt</source_step>
-        <target_step>Select http status field</target_step>
+        <target_step>HTTP status default 999</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -1227,7 +1282,7 @@
       </error>
       <error>
         <source_step>Download 3th attempt</source_step>
-        <target_step>Select http status field</target_step>
+        <target_step>HTTP status default 999</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -1239,7 +1294,7 @@
       </error>
       <error>
         <source_step>Download activity</source_step>
-        <target_step>Select http status field</target_step>
+        <target_step>HTTP status default 999</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
