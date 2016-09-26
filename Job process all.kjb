@@ -1,14 +1,14 @@
 <job>
-  <name>Job partition publisher database</name>
-    <description/>
-    <extended_description>This job partitions the database with IATI data for each publisher. &#xd;&#xa;The partioning is required to have an acceptable performance when replacing the data for a publisher.&#xd;&#xa;This job needs to be run when a new publisher is added to the &#x27;ctl-publishers&#x27; table. </extended_description>
+  <name>Job process all</name>
+    <description>This is the main job for the daily processing of all IATI data</description>
+    <extended_description/>
     <job_version/>
     <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;01&#x2f;19 09&#x3a;11&#x3a;30.381</created_date>
+  <created_date>2016&#x2f;09&#x2f;19 16&#x3a;13&#x3a;46.308</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;22 15&#x3a;36&#x3a;13.001</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;23 15&#x3a;20&#x3a;28.451</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -151,22 +151,22 @@
   </connection>
     <slaveservers>
     </slaveservers>
-<job-log-table><connection>IATI_logging</connection>
-<schema>iatilogging</schema>
-<table>log-pdi-etl</table>
-<size_limit_lines>100000</size_limit_lines>
-<interval>5</interval>
-<timeout_days>30</timeout_days>
+<job-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
 <field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
-<jobentry-log-table><connection>IATI_logging</connection>
-<schema>iatilogging</schema>
-<table>log-pdi-etl-job-entry</table>
-<timeout_days>30</timeout_days>
+<jobentry-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>JOBENTRYNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>RESULT</id><enabled>Y</enabled><name>RESULT</name></field><field><id>NR_RESULT_ROWS</id><enabled>Y</enabled><name>NR_RESULT_ROWS</name></field><field><id>NR_RESULT_FILES</id><enabled>Y</enabled><name>NR_RESULT_FILES</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field><field><id>COPY_NR</id><enabled>N</enabled><name>COPY_NR</name></field></jobentry-log-table>
-<channel-log-table><connection>IATI_logging</connection>
-<schema>iatilogging</schema>
-<table>log-pdi-etl-channel</table>
-<timeout_days>30</timeout_days>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
    <pass_batchid>N</pass_batchid>
    <shared_objects_file/>
@@ -188,8 +188,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>116</xloc>
-      <yloc>60</yloc>
+      <xloc>21</xloc>
+      <yloc>145</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -198,85 +198,17 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>957</xloc>
-      <yloc>61</yloc>
+      <xloc>736</xloc>
+      <yloc>146</yloc>
       </entry>
     <entry>
-      <name>Generate partition statement body</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Generate partition statement body</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>460</xloc>
-      <yloc>60</yloc>
-      </entry>
-    <entry>
-      <name>Read config to set variables</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Read config to set variables</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>261</xloc>
-      <yloc>60</yloc>
-      </entry>
-    <entry>
-      <name>Job get partition table list</name>
+      <name>Job partition publisher database</name>
       <description/>
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
       <job_object_id/>
       <filename/>
-      <jobname>Job get partition table list</jobname>
+      <jobname>Job partition publisher database</jobname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -294,28 +226,25 @@
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>table-names</name>
-            <stream_name>table-names</stream_name>
-            <value/>
-            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
-      <yloc>60</yloc>
+      <xloc>165</xloc>
+      <yloc>145</yloc>
       </entry>
     <entry>
-      <name>Partition one table</name>
+      <name>Job process all IATI publishers</name>
       <description/>
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
       <job_object_id/>
       <filename/>
-      <jobname>Partition one table</jobname>
+      <jobname>Job process all IATI publishers</jobname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>Y</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
@@ -329,32 +258,83 @@
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>table-names</name>
-            <stream_name>table-names</stream_name>
-            <value/>
-            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>817</xloc>
-      <yloc>60</yloc>
+      <xloc>365</xloc>
+      <yloc>146</yloc>
       </entry>
     <entry>
-      <name>Abort job</name>
+      <name>Job generate activity documentation</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>Job generate activity documentation</jobname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>566</xloc>
+      <yloc>146</yloc>
+      </entry>
+    <entry>
+      <name>Abort process publishers</name>
       <description/>
       <type>ABORT</type>
-      <message>Partition job aborted because of publisher-id conflict</message>
+      <message>Job aborted during processing of publishers</message>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>461</xloc>
-      <yloc>202</yloc>
+      <xloc>363</xloc>
+      <yloc>302</yloc>
+      </entry>
+    <entry>
+      <name>Abort partitioning</name>
+      <description/>
+      <type>ABORT</type>
+      <message>Job aborted in partitioning phase</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>163</xloc>
+      <yloc>303</yloc>
+      </entry>
+    <entry>
+      <name>Abort document generation</name>
+      <description/>
+      <type>ABORT</type>
+      <message>Job aborted in document generation phase</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>566</xloc>
+      <yloc>301</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Read config to set variables</to>
+      <to>Job partition publisher database</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -362,17 +342,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Read config to set variables</from>
-      <to>Generate partition statement body</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Generate partition statement body</from>
-      <to>Job get partition table list</to>
+      <from>Job partition publisher database</from>
+      <to>Job process all IATI publishers</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -380,26 +351,44 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Partition one table</from>
+      <from>Job process all IATI publishers</from>
+      <to>Job generate activity documentation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Job generate activity documentation</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Job get partition table list</from>
-      <to>Partition one table</to>
+      <from>Job process all IATI publishers</from>
+      <to>Abort process publishers</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Generate partition statement body</from>
-      <to>Abort job</to>
+      <from>Job partition publisher database</from>
+      <to>Abort partitioning</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Job generate activity documentation</from>
+      <to>Abort document generation</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -408,6 +397,27 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Process all IATI data of selected publishers. The processing is split into 3 steps&#x3a;&#xd;&#xa;1 - partition the database to make sure new publishers are defined as a database partition&#xd;&#xa;2 - read alle publishers files into the reporting database&#xd;&#xa;3 - generate precooked activity overviews.&#xd;&#xa;&#xd;&#xa;In case of severe errors, processing is aborted.</note>
+      <xloc>13</xloc>
+      <yloc>13</yloc>
+      <width>528</width>
+      <heigth>101</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>
