@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;05 11&#x3a;55&#x3a;01.592</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;13 13&#x3a;30&#x3a;40.870</modified_date>
+  <modified_date>2016&#x2f;10&#x2f;03 15&#x3a;27&#x3a;18.669</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -188,8 +188,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>43</xloc>
-      <yloc>161</yloc>
+      <xloc>19</xloc>
+      <yloc>261</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -198,8 +198,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1191</xloc>
-      <yloc>167</yloc>
+      <xloc>1167</xloc>
+      <yloc>267</yloc>
       </entry>
     <entry>
       <name>Make parent child list outgoing</name>
@@ -232,8 +232,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>724</xloc>
-      <yloc>161</yloc>
+      <xloc>401</xloc>
+      <yloc>262</yloc>
       </entry>
     <entry>
       <name>Split budgets by provider</name>
@@ -266,8 +266,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>932</xloc>
-      <yloc>51</yloc>
+      <xloc>904</xloc>
+      <yloc>175</yloc>
       </entry>
     <entry>
       <name>Split descriptions by provider</name>
@@ -300,8 +300,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>397</xloc>
-      <yloc>249</yloc>
+      <xloc>910</xloc>
+      <yloc>434</yloc>
       </entry>
     <entry>
       <name>Split documents by provider</name>
@@ -334,8 +334,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>566</xloc>
-      <yloc>249</yloc>
+      <xloc>906</xloc>
+      <yloc>347</yloc>
       </entry>
     <entry>
       <name>Split results by provider</name>
@@ -368,8 +368,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>729</xloc>
-      <yloc>249</yloc>
+      <xloc>903</xloc>
+      <yloc>96</yloc>
       </entry>
     <entry>
       <name>Split locations by provider</name>
@@ -402,8 +402,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>880</xloc>
-      <yloc>250</yloc>
+      <xloc>906</xloc>
+      <yloc>17</yloc>
       </entry>
     <entry>
       <name>Split organisations by provider</name>
@@ -436,8 +436,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1056</xloc>
-      <yloc>250</yloc>
+      <xloc>912</xloc>
+      <yloc>515</yloc>
       </entry>
     <entry>
       <name>Split transactions by provider</name>
@@ -470,8 +470,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>928</xloc>
-      <yloc>161</yloc>
+      <xloc>904</xloc>
+      <yloc>261</yloc>
       </entry>
     <entry>
       <name>Make parent child list other</name>
@@ -504,8 +504,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>207</xloc>
-      <yloc>247</yloc>
+      <xloc>595</xloc>
+      <yloc>262</yloc>
       </entry>
     <entry>
       <name>Make parent child list incoming</name>
@@ -538,56 +538,11 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>507</xloc>
-      <yloc>161</yloc>
+      <xloc>184</xloc>
+      <yloc>262</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Split descriptions by provider</from>
-      <to>Split documents by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Split documents by provider</from>
-      <to>Split results by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Split results by provider</from>
-      <to>Split locations by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Split locations by provider</from>
-      <to>Split organisations by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Make parent child list outgoing</from>
-      <to>Split transactions by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Split organisations by provider</from>
       <to>Success</to>
@@ -598,35 +553,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>START</from>
-      <to>Make parent child list other</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Split transactions by provider</from>
       <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Make parent child list other</from>
-      <to>Split descriptions by provider</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Make parent child list outgoing</from>
-      <to>Split budgets by provider</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -660,8 +588,137 @@
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Make parent child list outgoing</from>
+      <to>Make parent child list other</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split transactions by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split budgets by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split locations by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split results by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split documents by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split descriptions by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Make parent child list other</from>
+      <to>Split organisations by provider</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Split descriptions by provider</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Split results by provider</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Split locations by provider</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Split documents by provider</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Split all fact tables by their directly or indirectly funding activities, so that each fact can individually &#xd;&#xa;be traced back to exactly one providing activity. Financial values in tranactions and budgets are split &#xd;&#xa;by the relative weigth of their topmost providing activities. To calculate the relative weigths the sum &#xd;&#xa;of all incoming funds by provider activity is used. This calculation is recursively done for the parent &#xd;&#xa;providing activities, the grand parent providing  activities, etc.&#xd;&#xa;&#xd;&#xa;The relative weigth are calculted seperately for incoming and outgoing transactions because the incoming&#xd;&#xa;transactions on the lowest level may not need to be split.&#xd;&#xa;</note>
+      <xloc>18</xloc>
+      <yloc>12</yloc>
+      <width>617</width>
+      <heigth>147</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>

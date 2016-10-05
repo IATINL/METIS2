@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;25 11&#x3a;33&#x3a;44.268</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;15 10&#x3a;42&#x3a;28.425</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;30 10&#x3a;39&#x3a;25.259</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -116,9 +116,9 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>The providing activity of outgoing transactions is by definition &#xd;&#xa;determined by the activities which fund the outgoing transactions.&#xd;&#xa;Therefore, for outgoing transactions only, the providing activity is&#xd;&#xa;the same as the parent activity from the parent child list.</note>
-      <xloc>512</xloc>
-      <yloc>172</yloc>
+      <note>The providing activity of outgoing transactions is by definition &#xd;&#xa;determined by the activities which fund the outgoing transactions.&#xd;&#xa;Therefore, for outgoing transactions only, the providing activity is&#xd;&#xa;the same as the funding parent.</note>
+      <xloc>590</xloc>
+      <yloc>178</yloc>
       <width>387</width>
       <heigth>70</heigth>
       <fontname>Arial</fontname>
@@ -243,8 +243,8 @@
     </notepad>
     <notepad>
       <note>If there are no incoming funds for an activity, the default values &#xd;&#xa;are set for&#x3a;&#xd;&#xa;- the indicator specifying if the transaction is related to an BZ activity&#xd;&#xa;- the providing activity identifier&#xd;&#xa;- the activity identifier of the topmost ancestor</note>
-      <xloc>736</xloc>
-      <yloc>527</yloc>
+      <xloc>598</xloc>
+      <yloc>528</yloc>
       <width>405</width>
       <heigth>85</heigth>
       <fontname>Arial</fontname>
@@ -268,6 +268,27 @@
       <yloc>431</yloc>
       <width>146</width>
       <heigth>55</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Add 1 to the buza descendant level to display the incoming &#xd;&#xa;transactions on the same as the outgoang transactions.</note>
+      <xloc>139</xloc>
+      <yloc>646</yloc>
+      <width>355</width>
+      <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -480,7 +501,6 @@
   <hop> <from>Split incoming &#x26; outgoing</from><to>Sort outgoing</to><enabled>Y</enabled> </hop>
   <hop> <from>Split incoming &#x26; outgoing</from><to>Sort incoming</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort incoming</from><to>Merge incoming</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get incoming parent child list</from><to>Sort incoming parent child list</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort incoming parent child list</from><to>Merge incoming</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams</from><to>Missing BZ indicator</to><enabled>Y</enabled> </hop>
   <hop> <from>Merge incoming</from><to>Defaults for incoming</to><enabled>Y</enabled> </hop>
@@ -518,6 +538,8 @@
   <hop> <from>Only existing names</from><to>Existing names</to><enabled>Y</enabled> </hop>
   <hop> <from>Existing names</from><to>Find rec ids on name</to><enabled>Y</enabled> </hop>
   <hop> <from>Existing names</from><to>Find prov org ids on name</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get incoming parent child list</from><to>Level &#x2b; 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Level &#x2b; 1</from><to>Sort incoming parent child list</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add child indicator</name>
@@ -3484,6 +3506,32 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>6220</xloc>
       <yloc>372</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Level &#x2b; 1</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>&#x5b;buza-descendant-level&#x5d;&#x2b;1</formula_string>
+<value_type>Integer</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>buza-descendant-level</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>249</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
