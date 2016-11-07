@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;16 11&#x3a;23&#x3a;58.334</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;03 15&#x3a;08&#x3a;51.276</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;02 16&#x3a;52&#x3a;52.093</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -215,8 +215,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>421</xloc>
-      <yloc>85</yloc>
+      <xloc>439</xloc>
+      <yloc>186</yloc>
       </entry>
     <entry>
       <name>START</name>
@@ -235,8 +235,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>24</xloc>
-      <yloc>85</yloc>
+      <xloc>40</xloc>
+      <yloc>186</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -245,8 +245,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2608</xloc>
-      <yloc>83</yloc>
+      <xloc>2661</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Get publisher id and log start of publisher job</name>
@@ -279,8 +279,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>193</xloc>
-      <yloc>85</yloc>
+      <xloc>214</xloc>
+      <yloc>186</yloc>
       </entry>
     <entry>
       <name>Log end of publisher job</name>
@@ -313,8 +313,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2483</xloc>
-      <yloc>83</yloc>
+      <xloc>2536</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Remove publisher from staging</name>
@@ -347,8 +347,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1068</xloc>
-      <yloc>83</yloc>
+      <xloc>1159</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Download all publisher files</name>
@@ -388,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>629</xloc>
-      <yloc>85</yloc>
+      <xloc>623</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Check changes</name>
@@ -422,8 +422,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>786</xloc>
-      <yloc>84</yloc>
+      <xloc>776</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Changed files&#x3f;</name>
@@ -444,21 +444,21 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>920</xloc>
-      <yloc>84</yloc>
+      <xloc>1014</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
-      <name>Write skip message to log</name>
+      <name>Log skip because no changes</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because of download errors or because nothing has changed since last download.</logmessage>
+      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because nothing has changed since last download.</logmessage>
       <loglevel>Basic</loglevel>
       <logsubject>Download result</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1634</xloc>
-      <yloc>230</yloc>
+      <xloc>1648</xloc>
+      <yloc>296</yloc>
       </entry>
     <entry>
       <name>Get publishers file list</name>
@@ -491,8 +491,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1227</xloc>
-      <yloc>83</yloc>
+      <xloc>1316</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Load publisher file into staging</name>
@@ -531,7 +531,7 @@
             </parameter>            <parameter>            <name>PAR-PUBLISHER-ID</name>
             <stream_name>publisher-id</stream_name>
             <value/>
-            </parameter>            <parameter>            <name>PAR-URL-FILENAME</name>
+            </parameter>            <parameter>            <name>PAR-ARCHIVE-FILENAME</name>
             <stream_name>filename</stream_name>
             <value/>
             </parameter>            <parameter>            <name>PAR-URL-ID</name>
@@ -544,8 +544,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1394</xloc>
-      <yloc>83</yloc>
+      <xloc>1475</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Load publisher staging data in dwh</name>
@@ -576,8 +576,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2126</xloc>
-      <yloc>84</yloc>
+      <xloc>2179</xloc>
+      <yloc>188</yloc>
       </entry>
     <entry>
       <name>Remove duplicate identifiers</name>
@@ -610,8 +610,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1592</xloc>
-      <yloc>83</yloc>
+      <xloc>1645</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Remove publisher from DWH</name>
@@ -644,8 +644,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1917</xloc>
-      <yloc>84</yloc>
+      <xloc>1970</xloc>
+      <yloc>188</yloc>
       </entry>
     <entry>
       <name>Calculate staging totals</name>
@@ -678,8 +678,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1752</xloc>
-      <yloc>83</yloc>
+      <xloc>1805</xloc>
+      <yloc>187</yloc>
       </entry>
     <entry>
       <name>Calculate DWH totals</name>
@@ -712,8 +712,43 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2297</xloc>
-      <yloc>84</yloc>
+      <xloc>2350</xloc>
+      <yloc>188</yloc>
+      </entry>
+    <entry>
+      <name>No errors&#x3f;</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>field</valuetype>
+      <fieldname>error count</fieldname>
+      <variablename/>
+      <fieldtype>number</fieldtype>
+      <mask/>
+      <comparevalue>0</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>876</xloc>
+      <yloc>187</yloc>
+      </entry>
+    <entry>
+      <name>Log skip because of errors</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because of download errors.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>Download result</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1649</xloc>
+      <yloc>355</yloc>
       </entry>
   </entries>
   <hops>
@@ -760,16 +795,7 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Check changes</from>
-      <to>Changed files&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Changed files&#x3f;</from>
@@ -782,7 +808,7 @@
     </hop>
     <hop>
       <from>Changed files&#x3f;</from>
-      <to>Write skip message to log</to>
+      <to>Log skip because no changes</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -790,7 +816,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write skip message to log</from>
+      <from>Log skip because no changes</from>
       <to>Log end of publisher job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -870,8 +896,65 @@
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Check changes</from>
+      <to>No errors&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>No errors&#x3f;</from>
+      <to>Changed files&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>No errors&#x3f;</from>
+      <to>Log skip because of errors</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log skip because of errors</from>
+      <to>Log end of publisher job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>This job processes one publisher at a time&#x3a;&#xd;&#xa;- all URL&#x27;s with activity files for the publisher are retrieved from the IATI registry&#xd;&#xa;- all activity files are downloaded&#xd;&#xa;- if there are any changes in the downloaded files compared to the last archived versions, the following steps are executed&#x3a;&#xd;&#xa;	- the data in the staging area is cleared&#xd;&#xa;	- the list with downloaded activity files is retrieved from the log&#xd;&#xa;	- all the downloaded files are read into the staging area.&#xd;&#xa;	- the datawarehouse is updated with the files from the staging area&#xd;&#xa;	- check totals for all financial transactions and budgets are stored</note>
+      <xloc>39</xloc>
+      <yloc>11</yloc>
+      <width>715</width>
+      <heigth>145</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>

@@ -1,8 +1,8 @@
 <transformation>
   <info>
-    <name>Get yearly ECB rates</name>
-    <description>Get the yearly average exchange rates of the European Central Bank</description>
-    <extended_description>Get the yearly average exchange rates of the European Central Bank</extended_description>
+    <name>Check if valid BZ reference</name>
+    <description/>
+    <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
@@ -66,13 +66,34 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;02&#x2f;24 15&#x3a;50&#x3a;47.078</created_date>
+  <created_date>2016&#x2f;11&#x2f;04 13&#x3a;56&#x3a;54.990</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;24 17&#x3a;28&#x3a;25.532</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2016&#x2f;11&#x2f;04 14&#x3a;55&#x3a;50.871</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Check if the field BZ ancestor activity refers to a valid BZ activity identifier. &#xd;&#xa;If not, write the incorrect identifier to the log.</note>
+      <xloc>24</xloc>
+      <yloc>16</yloc>
+      <width>438</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -213,12 +234,20 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get ECB yearly currency rates</from><to>Add exchange rate source</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add exchange rate source</from><to>Update currencies</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read trx fact table</from><to>Is a BZ descendant&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Is a BZ descendant&#x3f;</from><to>Other sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Is a BZ descendant&#x3f;</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select all BZ activity ids</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Stream lookup</from><to>BZ identifier is invalid&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>BZ identifier is invalid&#x3f;</from><to>Valid id sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique rows</from><to>Write to invalid reference log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Unique rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>BZ identifier is invalid&#x3f;</from><to>Select table fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select table fields</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Add exchange rate source</name>
-    <type>Constant</type>
+    <name>Read trx fact table</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -227,131 +256,24 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <name>Bron</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1 - European Central Bank</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>323</xloc>
-      <yloc>71</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get ECB yearly currency rates</name>
-    <type>getXMLData</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <namespaceaware>N</namespaceaware>
-    <ignorecomments>N</ignorecomments>
-    <readurl>N</readurl>
-    <validating>N</validating>
-    <usetoken>N</usetoken>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <rownum_field/>
-    <encoding>UTF-8</encoding>
-    <file>
-      <name>http&#x3a;&#x2f;&#x2f;sdw.ecb.int&#x2f;export.do&#x3f;node&#x3d;2018794&#x26;CURRENCY&#x3d;&#x26;FREQ&#x3d;A&#x26;sfl1&#x3d;4&#x26;sfl3&#x3d;4&#x26;DATASET&#x3d;0&#x26;exportType&#x3d;sdmx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>Jaar</name>
-        <xpath>TIME_PERIOD</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Koers</name>
-        <xpath>OBS_VALUE</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Valuta</name>
-        <xpath>..&#x2f;CURRENCY</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
+    <connection>IATI_datamart</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-name&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;buza-descendant-yn&#x60;&#xd;&#xa;, &#x60;buza-ancestor-activity-id&#x60;&#xd;&#xa;FROM iatidatamart.&#x60;fct-transactions&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
-    <loopxpath>&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;MessageGroup&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;DataSet&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;Series&#x27; and &#x40;COLLECTION&#x3d;&#x22;A&#x22;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;Obs&#x27; and &#x40;OBS_STATUS&#x3d;&#x22;A&#x22;&#x5d;</loopxpath>
-    <IsInFields>N</IsInFields>
-    <IsAFile>N</IsAFile>
-    <XmlField/>
-    <prunePath/>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>135</xloc>
-      <yloc>71</yloc>
+      <xloc>44</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Update currencies</name>
-    <type>InsertUpdate</type>
+    <name>Is a BZ descendant&#x3f;</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -360,49 +282,354 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+<send_true_to>Stream lookup</send_true_to>
+<send_false_to>Other sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>buza-descendant-yn</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>194</xloc>
+      <yloc>194</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Other sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>194</xloc>
+      <yloc>330</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Select all BZ activity ids</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
     <lookup>
-      <schema/>
-      <table>currency-rates</table>
       <key>
-        <name>Jaar</name>
-        <field>Jaar</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Valuta</name>
-        <field>Valuta</field>
-        <condition>&#x3d;</condition>
-        <name2/>
+        <name>buza-ancestor-activity-id</name>
+        <field>iati-identifier</field>
       </key>
       <value>
-        <name>Jaar</name>
-        <rename>Jaar</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Valuta</name>
-        <rename>Valuta</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Koers</name>
-        <rename>Koers</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Bron</name>
-        <rename>Bron</rename>
-        <update>Y</update>
+        <name>iati-identifier</name>
+        <rename>buza-identifier</rename>
+        <default/>
+        <type>String</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>538</xloc>
-      <yloc>70</yloc>
+      <xloc>394</xloc>
+      <yloc>195</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select all BZ activity ids</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;FROM iatidatamart.&#x60;dim-activity&#x60;&#xd;&#xa;WHERE publisher&#x3d;&#x27;minbuza_nl&#x27;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>393</xloc>
+      <yloc>94</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>BZ identifier is invalid&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Select table fields</send_true_to>
+<send_false_to>Valid id sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>buza-identifier</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>578</xloc>
+      <yloc>195</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Valid id sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>580</xloc>
+      <yloc>331</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to invalid reference log</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <schema/>
+    <table>log-reference-errors</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-name</column_name>
+          <stream_name>publisher-name</stream_name>
+        </field>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+        <field>
+          <column_name>invalid-reference</column_name>
+          <stream_name>invalid-reference</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1117</xloc>
+      <yloc>194</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <count_rows>N</count_rows>
+      <count_field/>
+      <reject_duplicate_row>N</reject_duplicate_row>
+      <error_description/>
+    <fields>      <field>        <name>publisher</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      <field>        <name>publisher-name</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      <field>        <name>iati-identifier</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      <field>        <name>generated-datetime</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      <field>        <name>url-id</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      <field>        <name>invalid-reference</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>954</xloc>
+      <yloc>195</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>publisher</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>publisher-name</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>invalid-reference</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>835</xloc>
+      <yloc>194</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select table fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>buza-ancestor-activity-id</name>
+        <rename>invalid-reference</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>712</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

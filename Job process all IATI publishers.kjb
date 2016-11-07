@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;23 14&#x3a;15&#x3a;12.308</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;04 14&#x3a;17&#x3a;22.637</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -198,7 +198,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1733</xloc>
+      <xloc>1897</xloc>
       <yloc>129</yloc>
       </entry>
     <entry>
@@ -335,7 +335,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1596</xloc>
+      <xloc>1760</xloc>
       <yloc>127</yloc>
       </entry>
     <entry>
@@ -343,8 +343,8 @@
       <description/>
       <type>WEBSERVICE_AVAILABLE</type>
       <url>&#x24;&#x7b;IATIREGISTRY&#x7d;</url>
-      <connectTimeOut>5000</connectTimeOut>
-      <readTimeOut>5000</readTimeOut>
+      <connectTimeOut>30000</connectTimeOut>
+      <readTimeOut>30000</readTimeOut>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -477,7 +477,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1438</xloc>
+      <xloc>1602</xloc>
       <yloc>315</yloc>
       </entry>
     <entry>
@@ -502,7 +502,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1432</xloc>
+      <xloc>1596</xloc>
       <yloc>127</yloc>
       </entry>
     <entry>
@@ -516,7 +516,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>136</xloc>
-      <yloc>216</yloc>
+      <yloc>228</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -527,7 +527,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>136</xloc>
-      <yloc>304</yloc>
+      <yloc>316</yloc>
       </entry>
     <entry>
       <name>Check totals</name>
@@ -560,7 +560,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1301</xloc>
+      <xloc>1465</xloc>
       <yloc>127</yloc>
       </entry>
     <entry>
@@ -594,7 +594,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1188</xloc>
+      <xloc>1352</xloc>
       <yloc>127</yloc>
       </entry>
     <entry>
@@ -619,7 +619,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1435</xloc>
+      <xloc>1599</xloc>
       <yloc>194</yloc>
       </entry>
     <entry>
@@ -666,8 +666,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>778</xloc>
-      <yloc>249</yloc>
+      <xloc>737</xloc>
+      <yloc>252</yloc>
       </entry>
     <entry>
       <name>Log no publishers error</name>
@@ -691,7 +691,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1437</xloc>
+      <xloc>1601</xloc>
       <yloc>251</yloc>
       </entry>
     <entry>
@@ -725,7 +725,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1602</xloc>
+      <xloc>1766</xloc>
       <yloc>247</yloc>
       </entry>
     <entry>
@@ -736,8 +736,42 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1736</xloc>
+      <xloc>1900</xloc>
       <yloc>247</yloc>
+      </entry>
+    <entry>
+      <name>Check if valid BZ reference</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Check if valid BZ reference</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1204</xloc>
+      <yloc>127</yloc>
       </entry>
   </entries>
   <hops>
@@ -895,15 +929,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Check if activity is a parent</from>
-      <to>Calculate DM totals</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>No publishers defined</from>
       <to>Log no publishers error</to>
       <from_nr>0</from_nr>
@@ -955,6 +980,24 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check if activity is a parent</from>
+      <to>Check if valid BZ reference</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check if valid BZ reference</from>
+      <to>Calculate DM totals</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
   </hops>
