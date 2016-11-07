@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;08&#x3a;25.748</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;16 14&#x3a;49&#x3a;30.207</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;03 13&#x3a;46&#x3a;39.384</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -236,13 +236,13 @@
       <yloc>43</yloc>
       </entry>
     <entry>
-      <name>Get yearly non-ECB rates</name>
+      <name>Get rates from reference table</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Get yearly non-ECB rates</transname>
+      <transname>Get rates from reference table</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -324,7 +324,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Get yearly non-ECB rates</from>
+      <from>Get rates from reference table</from>
       <to>Extend last known exchange rates into future</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -334,7 +334,7 @@
     </hop>
     <hop>
       <from>Read config to set variables</from>
-      <to>Get yearly non-ECB rates</to>
+      <to>Get rates from reference table</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

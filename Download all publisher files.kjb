@@ -1,14 +1,14 @@
 <job>
   <name>Download all publisher files</name>
     <description>Process each IATI publishers URL one at a time</description>
-    <extended_description>This job downloads and checks publishers file one by one&#xd;&#xa;Input&#x3a; file url&#xd;&#xa;Output&#x3a; file stored in archive</extended_description>
+    <extended_description/>
     <job_version/>
     <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;10&#x2f;03 15&#x3a;35&#x3a;11.513</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;02 15&#x3a;36&#x3a;27.855</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -207,14 +207,14 @@
       <yloc>30</yloc>
       </entry>
     <entry>
-      <name>Success</name>
+      <name>Successfully processed</name>
       <description/>
       <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2532</xloc>
-      <yloc>32</yloc>
+      <xloc>2692</xloc>
+      <yloc>30</yloc>
       </entry>
     <entry>
       <name>Show URL</name>
@@ -258,7 +258,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1703</xloc>
+      <xloc>2023</xloc>
       <yloc>28</yloc>
       </entry>
     <entry>
@@ -326,8 +326,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2216</xloc>
-      <yloc>31</yloc>
+      <xloc>2361</xloc>
+      <yloc>28</yloc>
       </entry>
     <entry>
       <name>Copy test file</name>
@@ -388,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>925</xloc>
-      <yloc>542</yloc>
+      <xloc>923</xloc>
+      <yloc>612</yloc>
       </entry>
     <entry>
       <name>Get file timestamp &#x26; version</name>
@@ -422,8 +422,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1327</xloc>
-      <yloc>29</yloc>
+      <xloc>1474</xloc>
+      <yloc>28</yloc>
       </entry>
     <entry>
       <name>Activity file exists in archive&#x3f;</name>
@@ -432,36 +432,14 @@
       <filename/>
       <fields>
         <field>
-          <name>&#x24;&#x7b;ARCHIVEPATH&#x7d;&#x5c;&#x24;&#x7b;Publisher&#x7d;&#x5c;&#x24;&#x7b;ARCHIVE-TIMESTAMP&#x7d;&#x5c;&#x24;&#x7b;URL-FILENAME&#x7d;</name>
+          <name>&#x24;&#x7b;ARCHIVEPATH&#x7d;&#x5c;&#x24;&#x7b;Publisher&#x7d;&#x5c;&#x24;&#x7b;ARCHIVE-TIMESTAMP&#x7d;&#x5c;&#x24;&#x7b;ARCHIVE-FILENAME&#x7d;</name>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1502</xloc>
+      <xloc>1784</xloc>
       <yloc>28</yloc>
-      </entry>
-    <entry>
-      <name>File changed compared with archive&#x3f;</name>
-      <description/>
-      <type>SIMPLE_EVAL</type>
-      <valuetype>variable</valuetype>
-      <fieldname/>
-      <variablename>DISTINCT-NR-OF-MD5</variablename>
-      <fieldtype>number</fieldtype>
-      <mask/>
-      <comparevalue>1</comparevalue>
-      <minvalue/>
-      <maxvalue/>
-      <successcondition>equal</successcondition>
-      <successnumbercondition>different</successnumbercondition>
-      <successbooleancondition>false</successbooleancondition>
-      <successwhenvarset>N</successwhenvarset>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1700</xloc>
-      <yloc>149</yloc>
       </entry>
     <entry>
       <name>Calc MD5 checksum</name>
@@ -494,8 +472,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1501</xloc>
-      <yloc>150</yloc>
+      <xloc>1621</xloc>
+      <yloc>28</yloc>
       </entry>
     <entry>
       <name>Download activity</name>
@@ -562,11 +540,6 @@
       <file_variable_type>JVM</file_variable_type>
       <fields>
         <field>
-          <variable_name>ARCHIVE-TIMESTAMP</variable_name>
-          <variable_value/>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
           <variable_name>HTTP-STATUS</variable_name>
           <variable_value>Not defined</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
@@ -620,8 +593,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2219</xloc>
-      <yloc>486</yloc>
+      <xloc>2366</xloc>
+      <yloc>550</yloc>
       </entry>
     <entry>
       <name>Unchanged file message</name>
@@ -645,8 +618,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2215</xloc>
-      <yloc>151</yloc>
+      <xloc>2362</xloc>
+      <yloc>150</yloc>
       </entry>
     <entry>
       <name>Ok message</name>
@@ -670,8 +643,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2042</xloc>
-      <yloc>30</yloc>
+      <xloc>2182</xloc>
+      <yloc>28</yloc>
       </entry>
     <entry>
       <name>XSD valid&#x3f;</name>
@@ -699,14 +672,14 @@
       <name>Write XSD error to log</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file &#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml does not validate for IATI version &#x24;&#x7b;VERSION&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file downloaded from &#x24;&#x7b;jsonURL&#x7d; does not validate for IATI version &#x24;&#x7b;VERSION&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
       <loglevel>Minimal</loglevel>
       <logsubject>XSD validation</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1336</xloc>
-      <yloc>287</yloc>
+      <xloc>1317</xloc>
+      <yloc>358</yloc>
       </entry>
     <entry>
       <name>XSD validation error</name>
@@ -730,20 +703,20 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2219</xloc>
-      <yloc>289</yloc>
+      <xloc>2364</xloc>
+      <yloc>353</yloc>
       </entry>
     <entry>
       <name>Write timestamp or version error to log</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------&#xd;&#xa;Unable to retrieve timestamp or version&#xd;&#xa;---------------------------------------</logmessage>
+      <logmessage>----------------------------------------------------------------------------&#xd;&#xa;Unable to retrieve timestamp or version for &#x24;&#x7b;jsonURL&#x7d;. This file is skipped.&#xd;&#xa;----------------------------------------------------------------------------</logmessage>
       <loglevel>Minimal</loglevel>
       <logsubject>Unable to retrieve timestamp or version</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1431</xloc>
+      <xloc>1551</xloc>
       <yloc>221</yloc>
       </entry>
     <entry>
@@ -768,8 +741,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2216</xloc>
-      <yloc>223</yloc>
+      <xloc>2363</xloc>
+      <yloc>222</yloc>
       </entry>
     <entry>
       <name>Write failed download to log</name>
@@ -781,8 +754,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1047</xloc>
-      <yloc>486</yloc>
+      <xloc>1045</xloc>
+      <yloc>551</yloc>
       </entry>
     <entry>
       <name>Read processing flag</name>
@@ -815,8 +788,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1880</xloc>
-      <yloc>150</yloc>
+      <xloc>1869</xloc>
+      <yloc>149</yloc>
       </entry>
     <entry>
       <name>Force processing&#x3f;</name>
@@ -837,8 +810,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2041</xloc>
-      <yloc>151</yloc>
+      <xloc>2025</xloc>
+      <yloc>150</yloc>
       </entry>
     <entry>
       <name>XML is well formed&#x3f;</name>
@@ -883,21 +856,21 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2219</xloc>
-      <yloc>417</yloc>
+      <xloc>2364</xloc>
+      <yloc>481</yloc>
       </entry>
     <entry>
       <name>Invalid XML file</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Invalid &#x28;not well formed&#x29; XML file &#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Invalid &#x28;not well formed&#x29; XML file downloaded from &#x24;&#x7b;jsonURL&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
       <loglevel>Basic</loglevel>
       <logsubject>Invalid XML file</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1154</xloc>
-      <yloc>416</yloc>
+      <xloc>1152</xloc>
+      <yloc>481</yloc>
       </entry>
     <entry>
       <name>Delete activity file</name>
@@ -949,14 +922,14 @@
       <name>Unexpected XSD validator error</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Unexpected IATI public XSD validator error. Site may be down or XML file too big.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Unexpected IATI public XSD validator error for &#x24;&#x7b;jsonURL&#x7d;. Site may be down or XML file too big.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
       <loglevel>Basic</loglevel>
       <logsubject>Unexpected IATI XSD validator error</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1242</xloc>
-      <yloc>351</yloc>
+      <xloc>1240</xloc>
+      <yloc>416</yloc>
       </entry>
     <entry>
       <name>Unexpected IATI XSD validator error</name>
@@ -980,11 +953,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2220</xloc>
-      <yloc>353</yloc>
+      <xloc>2365</xloc>
+      <yloc>417</yloc>
       </entry>
     <entry>
-      <name>Log fatal error</name>
+      <name>Log download processing</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
@@ -1014,19 +987,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2394</xloc>
-      <yloc>378</yloc>
-      </entry>
-    <entry>
-      <name>Abort job</name>
-      <description/>
-      <type>ABORT</type>
-      <message>Fatal download error</message>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>2522</xloc>
-      <yloc>378</yloc>
+      <xloc>2538</xloc>
+      <yloc>418</yloc>
       </entry>
     <entry>
       <name>Failed testfile copy</name>
@@ -1050,14 +1012,96 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2223</xloc>
-      <yloc>542</yloc>
+      <xloc>2369</xloc>
+      <yloc>611</yloc>
+      </entry>
+    <entry>
+      <name>Processed with errors</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2701</xloc>
+      <yloc>420</yloc>
+      </entry>
+    <entry>
+      <name>Check if activity file</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Check if activity file</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1322</xloc>
+      <yloc>29</yloc>
+      </entry>
+    <entry>
+      <name>Write IATI filetype error to log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file downloaded from &#x24;&#x7b;jsonURL&#x7d; does not seem to be a real activity file.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>IATI filetype error</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1427</xloc>
+      <yloc>288</yloc>
+      </entry>
+    <entry>
+      <name>IATI filetype error</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>LOG-MESSAGE</variable_name>
+          <variable_value>IATI filetype error detected for &#x24;&#x7b;jsonURL&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>LOG-STATUS</variable_name>
+          <variable_value>Error</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2365</xloc>
+      <yloc>286</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>Log succesfull processing</from>
-      <to>Success</to>
+      <to>Successfully processed</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1099,24 +1143,6 @@
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Activity file exists in archive&#x3f;</from>
-      <to>Calc MD5 checksum</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Calc MD5 checksum</from>
-      <to>File changed compared with archive&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Get url id and start url log</from>
@@ -1204,17 +1230,8 @@
       <to>Failed download message</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Archive XML files</from>
-      <to>Ok message</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
@@ -1225,24 +1242,6 @@
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>File changed compared with archive&#x3f;</from>
-      <to>Archive XML files</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>File changed compared with archive&#x3f;</from>
-      <to>Read processing flag</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Read processing flag</from>
@@ -1260,15 +1259,6 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Force processing&#x3f;</from>
-      <to>Ok message</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
@@ -1344,24 +1334,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>XSD valid&#x3f;</from>
-      <to>Get file timestamp &#x26; version</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get file timestamp &#x26; version</from>
-      <to>Activity file exists in archive&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>XML is well formed&#x3f;</from>
       <to>IATI public validator</to>
       <from_nr>0</from_nr>
@@ -1390,7 +1362,7 @@
     </hop>
     <hop>
       <from>Timestamp or version error</from>
-      <to>Log fatal error</to>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1399,7 +1371,7 @@
     </hop>
     <hop>
       <from>XSD validation error</from>
-      <to>Log fatal error</to>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1408,7 +1380,7 @@
     </hop>
     <hop>
       <from>Unexpected IATI XSD validator error</from>
-      <to>Log fatal error</to>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1417,7 +1389,7 @@
     </hop>
     <hop>
       <from>Invalid XML file message</from>
-      <to>Log fatal error</to>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1426,16 +1398,7 @@
     </hop>
     <hop>
       <from>Failed download message</from>
-      <to>Log fatal error</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Log fatal error</from>
-      <to>Abort job</to>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1453,17 +1416,116 @@
     </hop>
     <hop>
       <from>Failed testfile copy</from>
-      <to>Log fatal error</to>
+      <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Get file timestamp &#x26; version</from>
+      <to>Calc MD5 checksum</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Activity file exists in archive&#x3f;</from>
+      <to>Read processing flag</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Calc MD5 checksum</from>
+      <to>Activity file exists in archive&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Archive XML files</from>
+      <to>Ok message</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Log download processing</from>
+      <to>Processed with errors</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>XSD valid&#x3f;</from>
+      <to>Check if activity file</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check if activity file</from>
+      <to>Get file timestamp &#x26; version</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check if activity file</from>
+      <to>Write IATI filetype error to log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write IATI filetype error to log</from>
+      <to>IATI filetype error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>IATI filetype error</from>
+      <to>Log download processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Force processing&#x3f;</from>
+      <to>Archive XML files</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
-      <note>Download the activity file of a publisher and if ok, archive the file. This transformation&#xd;&#xa;is run once for each URL input line. Downloading is controlled by the following parameters&#x3a;&#xd;&#xa;&#xd;&#xa;1 - the publisher is active &#x28;active &#x3d; 1&#x29; or not &#x28;active &#x3d; 0&#x29;. Only files from active publishers &#xd;&#xa;     are downloaded.&#xd;&#xa;2 - the activity file is always processed &#x28;force-processing &#x3d; 1&#x29; or only when the file is changed &#xd;&#xa;     compared to the previously downloaded file in the archive &#x28;force-processing &#x3d; 0&#x29;.&#xd;&#xa;3 - the file is retreived from internet &#x28;test &#x3d; 0&#x29; or from a test file &#x28;test &#x3d; 1&#x29;&#xd;&#xa;&#xd;&#xa;Downloaded files are tested on&#x3a;&#xd;&#xa;1 - the validity of the XML &#x28;well formed or not&#x29;.&#xd;&#xa;2 - the validity of th file against the corresponding XSD metadata definition.&#xd;&#xa;&#xd;&#xa;In case of error the download is ignored and the downloaded file is not archived.</note>
+      <note>Download the activity file of a publisher and if ok, archive the file. This transformation&#xd;&#xa;is run once for each URL input line. Downloading is controlled by the following parameters&#x3a;&#xd;&#xa;&#xd;&#xa;1 - the publisher is active &#x28;active &#x3d; 1&#x29; or not &#x28;active &#x3d; 0&#x29;. Only files from active publishers &#xd;&#xa;     are downloaded.&#xd;&#xa;2 - the activity file is always processed &#x28;force-processing &#x3d; 1&#x29; or only when the file is changed &#xd;&#xa;     compared to the previously downloaded file in the archive &#x28;force-processing &#x3d; 0&#x29;.&#xd;&#xa;3 - the file is retreived from internet &#x28;test &#x3d; 0&#x29; or from a test file &#x28;test &#x3d; 1&#x29;&#xd;&#xa;&#xd;&#xa;Downloaded files are tested on&#x3a;&#xd;&#xa;1 - the validity of the XML &#x28;well formed or not&#x29;.&#xd;&#xa;2 - the validity of th file against the corresponding XSD metadata definition.&#xd;&#xa;&#xd;&#xa;In case of errors the download is further processed and the downloaded file is not archived.</note>
       <xloc>20</xloc>
       <yloc>117</yloc>
       <width>553</width>

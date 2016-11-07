@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;05 11&#x3a;55&#x3a;01.592</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;10&#x2f;03 15&#x3a;27&#x3a;18.669</modified_date>
+  <modified_date>2016&#x2f;10&#x2f;14 17&#x3a;25&#x3a;36.983</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -699,11 +699,11 @@
   </hops>
   <notepads>
     <notepad>
-      <note>Split all fact tables by their directly or indirectly funding activities, so that each fact can individually &#xd;&#xa;be traced back to exactly one providing activity. Financial values in tranactions and budgets are split &#xd;&#xa;by the relative weigth of their topmost providing activities. To calculate the relative weigths the sum &#xd;&#xa;of all incoming funds by provider activity is used. This calculation is recursively done for the parent &#xd;&#xa;providing activities, the grand parent providing  activities, etc.&#xd;&#xa;&#xd;&#xa;The relative weigth are calculted seperately for incoming and outgoing transactions because the incoming&#xd;&#xa;transactions on the lowest level may not need to be split.&#xd;&#xa;</note>
+      <note>Split all fact tables by the weigth of their incoming fund transactions, aggregated by providing activity.&#xd;&#xa;The purpose is to make sure that each transaction can be attributed to exactly one providing activity.&#xd;&#xa;Financial values in transactions and budgets are split by the weigth of the aggregated incoming &#xd;&#xa;transactions &#x28;both incoming funds and incoming commitments&#x29;. The calculation is recursively done &#xd;&#xa;for the parent providing activities, the grand parent providing  activities, etc.&#xd;&#xa;&#xd;&#xa;The relative weigths are calculated seperately for incoming and outgoing transactions because the incoming&#xd;&#xa;transactions on the lowest level are not to be split, since thay are alreadyb used for the weight calculations&#xd;&#xa;themselves.&#xd;&#xa;</note>
       <xloc>18</xloc>
       <yloc>12</yloc>
-      <width>617</width>
-      <heigth>147</heigth>
+      <width>631</width>
+      <heigth>162</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>

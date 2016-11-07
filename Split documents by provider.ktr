@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;23 15&#x3a;11&#x3a;42.559</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;04 14&#x3a;45&#x3a;33.062</modified_date>
+  <modified_date>2016&#x2f;10&#x2f;10 15&#x3a;23&#x3a;44.945</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Calculate if an activity has childs &#x28;Y&#x29; or not &#x28;N&#x29;. An activity has childs when it is used as an providing activity. &#xd;&#xa;So when an activity occurs at least one time as a providing activity it has childs.</note>
+      <xloc>564</xloc>
+      <yloc>30</yloc>
+      <width>640</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -215,9 +236,19 @@
   <order>
   <hop> <from>Get activity document links</from><to>Sort on iati identifier</to><enabled>Y</enabled> </hop>
   <hop> <from>Get child parent list</from><to>Sort on child identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Write document links by providers</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort on child identifier</from><to>Merge Join</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort on iati identifier</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add child indicator</from><to>Calc has childs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Missing ancestor id</from><to>Add child indicator</to><enabled>Y</enabled> </hop>
+  <hop> <from>Missing link fields</from><to>Missing ancestor id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read all provider act</from><to>Remove unspecified prov</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove unspecified prov</from><to>Sort prov act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove unspecified prov</from><to>Unspecified sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename</from><to>Add child indicator</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort prov act</from><to>Unique prov act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique prov act</from><to>Rename</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc has childs</from><to>Write document links by providers</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Missing link fields</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Get activity document links</name>
@@ -239,8 +270,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>206</xloc>
-      <yloc>250</yloc>
+      <xloc>59</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -257,7 +288,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier-child&#x60;&#xd;&#xa;, &#x60;iati-identifier-parent&#x60;&#xd;&#xa;, &#x60;buza-descendant-yn&#x60;&#xd;&#xa;, &#x60;buza-descendant-level&#x60;&#xd;&#xa;, &#x60;buza-ancestor-activity-id&#x60;&#xd;&#xa;, &#x60;has-childs&#x60;&#xd;&#xa;FROM iatischema.&#x60;stg-parent-child-other&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier-child&#x60;&#xd;&#xa;, &#x60;iati-identifier-parent&#x60;&#xd;&#xa;, &#x60;buza-descendant-yn&#x60;&#xd;&#xa;, &#x60;buza-descendant-level&#x60;&#xd;&#xa;, &#x60;buza-ancestor-activity-id&#x60;&#xd;&#xa;FROM iatischema.&#x60;stg-parent-child-other&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -265,8 +296,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>208</xloc>
-      <yloc>113</yloc>
+      <xloc>62</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,8 +324,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>594</xloc>
-      <yloc>251</yloc>
+      <xloc>447</xloc>
+      <yloc>267</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -327,8 +358,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>593</xloc>
-      <yloc>113</yloc>
+      <xloc>447</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -361,8 +392,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>422</xloc>
-      <yloc>250</yloc>
+      <xloc>275</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -459,8 +490,293 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>762</xloc>
-      <yloc>252</yloc>
+      <xloc>1337</xloc>
+      <yloc>265</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add child indicator</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Rename</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>iati-identifier</name>
+        <field>parent-activity</field>
+      </key>
+      <value>
+        <name>parent-activity</name>
+        <rename>has-childs</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1058</xloc>
+      <yloc>266</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Calc has childs</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;has-childs&#x5d;&#x29;&#x3b;&#x22;N&#x22;&#x3b;&#x22;Y&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>has-childs</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1184</xloc>
+      <yloc>266</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Missing ancestor id</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;buza-ancestor-activity-id&#x5d;&#x29;&#x3b;&#x5b;iati-identifier-child&#x5d;&#x3b;&#x5b;buza-ancestor-activity-id&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>buza-ancestor-activity-id</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>890</xloc>
+      <yloc>267</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Missing link fields</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp1</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;buza-descendant-yn&#x5d;&#x29;&#x3b;&#x22;N&#x22;&#x3b;&#x5b;buza-descendant-yn&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>buza-descendant-yn</replace_field>
+</formula>
+       <formula><field_name>tmp2</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier-parent&#x5d;&#x29;&#x3b;&#x22;Unspecified&#x22;&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>iati-identifier-parent</replace_field>
+</formula>
+       <formula><field_name>tmp3</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;buza-descendant-level&#x5d;&#x29;&#x3b;0&#x3b;&#x5b;buza-descendant-level&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>buza-descendant-level</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>727</xloc>
+      <yloc>267</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read all provider act</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <sql>SELECT&#xd;&#xa;   &#x60;provider-org-activity-id&#x60;&#xd;&#xa;FROM &#x60;dwh-transactions&#x60;&#x3b;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>590</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove unspecified prov</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Sort prov act</send_true_to>
+<send_false_to>Unspecified sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>provider-org-activity-id</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>Unspecified</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>730</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rename</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>provider-org-activity-id</name>
+        <rename>parent-activity</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1058</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort prov act</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>provider-org-activity-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>860</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique prov act</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <count_rows>N</count_rows>
+      <count_field/>
+      <reject_duplicate_row>N</reject_duplicate_row>
+      <error_description/>
+    <fields>      <field>        <name>provider-org-activity-id</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>961</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unspecified sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>730</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

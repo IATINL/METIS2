@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;01&#x2f;28 11&#x3a;39&#x3a;44.117</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;10&#x2f;03 15&#x3a;44&#x3a;32.974</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;02 12&#x3a;13&#x3a;37.788</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Check if there are any changes in the the downloaded activity files, &#xd;&#xa;compared to the files archived.  Only in that case the processing of &#xd;&#xa;the publisher is continued and the datbase is updated with the changed&#xd;&#xa;data&#x3a; the action flag will be set to &#x27;continue&#x27;.&#xd;&#xa;&#xd;&#xa;In case there are no changes, or there are errors in the downloaded activity &#xd;&#xa;files, the futher processing of the publisher will be skipped&#x3a; the action &#xd;&#xa;flag will be set to &#x27;skip&#x27;.</note>
+      <xloc>43</xloc>
+      <yloc>7</yloc>
+      <width>445</width>
+      <heigth>131</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -240,8 +261,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1427</xloc>
-      <yloc>61</yloc>
+      <xloc>1448</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -279,8 +300,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>490</xloc>
-      <yloc>59</yloc>
+      <xloc>511</xloc>
+      <yloc>161</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -305,8 +326,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>993</xloc>
-      <yloc>61</yloc>
+      <xloc>1014</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -324,8 +345,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>346</xloc>
-      <yloc>202</yloc>
+      <xloc>367</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -365,8 +386,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>345</xloc>
-      <yloc>59</yloc>
+      <xloc>366</xloc>
+      <yloc>161</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -391,8 +412,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>31</xloc>
-      <yloc>60</yloc>
+      <xloc>52</xloc>
+      <yloc>162</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -436,8 +457,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>180</xloc>
-      <yloc>59</yloc>
+      <xloc>201</xloc>
+      <yloc>161</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -482,8 +503,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>810</xloc>
-      <yloc>60</yloc>
+      <xloc>831</xloc>
+      <yloc>162</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -554,8 +575,8 @@
         </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>694</xloc>
-      <yloc>60</yloc>
+      <xloc>715</xloc>
+      <yloc>162</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -582,8 +603,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1286</xloc>
-      <yloc>62</yloc>
+      <xloc>1307</xloc>
+      <yloc>164</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -628,8 +649,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>600</xloc>
-      <yloc>60</yloc>
+      <xloc>621</xloc>
+      <yloc>162</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -654,8 +675,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>898</xloc>
-      <yloc>60</yloc>
+      <xloc>919</xloc>
+      <yloc>162</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -697,8 +718,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1180</xloc>
-      <yloc>63</yloc>
+      <xloc>1201</xloc>
+      <yloc>165</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -738,8 +759,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1090</xloc>
-      <yloc>61</yloc>
+      <xloc>1111</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
