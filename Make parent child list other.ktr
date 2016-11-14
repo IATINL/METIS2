@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;05&#x2f;04 13&#x3a;23&#x3a;42.994</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;10&#x2f;12 11&#x3a;16&#x3a;10.331</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;10 13&#x3a;23&#x3a;59.085</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -96,8 +96,8 @@
     </notepad>
     <notepad>
       <note>Add the IATI activity identifier of the great grand parents.</note>
-      <xloc>1476</xloc>
-      <yloc>68</yloc>
+      <xloc>1568</xloc>
+      <yloc>69</yloc>
       <width>332</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
@@ -283,12 +283,10 @@
   <hop> <from>Select related activity fields</from><to>Append streams</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort on child 1</from><to>Grand parents</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort parents 2</from><to>Grand parents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Grand parents</from><to>Select fields 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Great grand parents</from><to>Rename to great grand parent</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort on child 2</from><to>Great grand parents</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort on grand parent</from><to>Great grand parents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select fields 1</from><to>Sort on grand parent</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select fields 1</from><to>Sort on child 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename to grand parent</from><to>Sort on grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename to grand parent</from><to>Sort on child 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc if buza activity&#x3f;</from><to>Replace null values&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Rename to great grand parent</from><to>Calc if buza activity&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Sibling level</from><to>Sibling identifier</to><enabled>Y</enabled> </hop>
@@ -296,11 +294,15 @@
   <hop> <from>Append streams</from><to>Sort childs and parents</to><enabled>Y</enabled> </hop>
   <hop> <from>Continue</from><to>Sort parents 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Continue</from><to>Sort on child 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sibling identifier</from><to>Select fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select fields</from><to>Write to parent child other table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sibling identifier</from><to>Select table fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select table fields</from><to>Write to parent child other table</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique rows</from><to>Remove self ref</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove self ref</from><to>Continue</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove self ref</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Grand parents</from><to>If no grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>If no grand parent</from><to>Rename to grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>Great grand parents</from><to>If no great grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>If no great grand parent</from><to>Rename to great grand parent</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Append streams</name>
@@ -357,8 +359,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2103</xloc>
-      <yloc>122</yloc>
+      <xloc>2336</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -451,8 +453,60 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1782</xloc>
-      <yloc>122</yloc>
+      <xloc>1874</xloc>
+      <yloc>123</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no grand parent</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier-parent_1&#x5d;&#x29;&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;&#x5b;iati-identifier-parent_1&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>iati-identifier-parent_1</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1434</xloc>
+      <yloc>123</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no great grand parent</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier-grand-parent_1&#x5d;&#x29;&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-grand-parent_1&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>iati-identifier-grand-parent_1</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2001</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -561,15 +615,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier-parent_1</name>
+      </field>      <field>        <name>iati-identifier-grand-parent_1</name>
         <rename>iati-identifier-great-grand-parent</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1935</xloc>
-      <yloc>122</yloc>
+      <xloc>2168</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -614,14 +668,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2248</xloc>
-      <yloc>122</yloc>
+      <xloc>2481</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select fields</name>
+    <name>Select table fields</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -654,14 +708,14 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2627</xloc>
-      <yloc>120</yloc>
+      <xloc>2860</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select fields 1</name>
+    <name>Rename to grand parent</name>
     <type>SelectValues</type>
     <description/>
     <distribute>N</distribute>
@@ -686,8 +740,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1468</xloc>
-      <yloc>121</yloc>
+      <xloc>1560</xloc>
+      <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -760,7 +814,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>sibling-activity-id</field_name>
-<formula_string>IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;1&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;2&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;3&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-child&#x5d;&#x29;&#x29;&#x29;</formula_string>
+<formula_string>IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;1&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;2&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;3&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x29;&#x29;&#x29;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -768,8 +822,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2503</xloc>
-      <yloc>121</yloc>
+      <xloc>2736</xloc>
+      <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -801,8 +855,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2378</xloc>
-      <yloc>121</yloc>
+      <xloc>2611</xloc>
+      <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -909,8 +963,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1615</xloc>
-      <yloc>242</yloc>
+      <xloc>1707</xloc>
+      <yloc>243</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -943,8 +997,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1610</xloc>
-      <yloc>122</yloc>
+      <xloc>1702</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1062,8 +1116,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2801</xloc>
-      <yloc>120</yloc>
+      <xloc>3034</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
