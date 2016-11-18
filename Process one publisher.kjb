@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;16 11&#x3a;23&#x3a;58.334</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;02 16&#x3a;52&#x3a;52.093</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;16 09&#x3a;18&#x3a;32.989</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -245,7 +245,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2661</xloc>
+      <xloc>2530</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -313,7 +313,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2536</xloc>
+      <xloc>2405</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -347,7 +347,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1159</xloc>
+      <xloc>1028</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -422,7 +422,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>776</xloc>
+      <xloc>767</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -444,7 +444,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1014</xloc>
+      <xloc>883</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -452,7 +452,7 @@
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because nothing has changed since last download.</logmessage>
-      <loglevel>Basic</loglevel>
+      <loglevel>Minimal</loglevel>
       <logsubject>Download result</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -491,7 +491,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1316</xloc>
+      <xloc>1185</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -544,7 +544,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1475</xloc>
+      <xloc>1344</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -576,7 +576,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2179</xloc>
+      <xloc>2048</xloc>
       <yloc>188</yloc>
       </entry>
     <entry>
@@ -610,7 +610,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1645</xloc>
+      <xloc>1514</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -644,7 +644,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1970</xloc>
+      <xloc>1839</xloc>
       <yloc>188</yloc>
       </entry>
     <entry>
@@ -678,7 +678,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1805</xloc>
+      <xloc>1674</xloc>
       <yloc>187</yloc>
       </entry>
     <entry>
@@ -712,43 +712,21 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2350</xloc>
+      <xloc>2219</xloc>
       <yloc>188</yloc>
       </entry>
     <entry>
-      <name>No errors&#x3f;</name>
-      <description/>
-      <type>SIMPLE_EVAL</type>
-      <valuetype>field</valuetype>
-      <fieldname>error count</fieldname>
-      <variablename/>
-      <fieldtype>number</fieldtype>
-      <mask/>
-      <comparevalue>0</comparevalue>
-      <minvalue/>
-      <maxvalue/>
-      <successcondition>equal</successcondition>
-      <successnumbercondition>equal</successnumbercondition>
-      <successbooleancondition>false</successbooleancondition>
-      <successwhenvarset>N</successwhenvarset>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>876</xloc>
-      <yloc>187</yloc>
-      </entry>
-    <entry>
-      <name>Log skip because of errors</name>
+      <name>Log skip of download errors</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because of download errors.</logmessage>
-      <loglevel>Basic</loglevel>
+      <loglevel>Minimal</loglevel>
       <logsubject>Download result</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1649</xloc>
-      <yloc>355</yloc>
+      <xloc>1654</xloc>
+      <yloc>356</yloc>
       </entry>
   </entries>
   <hops>
@@ -897,26 +875,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Check changes</from>
-      <to>No errors&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>No errors&#x3f;</from>
-      <to>Changed files&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>No errors&#x3f;</from>
-      <to>Log skip because of errors</to>
+      <from>Download all publisher files</from>
+      <to>Log skip of download errors</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -924,8 +884,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Log skip because of errors</from>
+      <from>Log skip of download errors</from>
       <to>Log end of publisher job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check changes</from>
+      <to>Changed files&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -936,8 +905,8 @@
   <notepads>
     <notepad>
       <note>This job processes one publisher at a time&#x3a;&#xd;&#xa;- all URL&#x27;s with activity files for the publisher are retrieved from the IATI registry&#xd;&#xa;- all activity files are downloaded&#xd;&#xa;- if there are any changes in the downloaded files compared to the last archived versions, the following steps are executed&#x3a;&#xd;&#xa;	- the data in the staging area is cleared&#xd;&#xa;	- the list with downloaded activity files is retrieved from the log&#xd;&#xa;	- all the downloaded files are read into the staging area.&#xd;&#xa;	- the datawarehouse is updated with the files from the staging area&#xd;&#xa;	- check totals for all financial transactions and budgets are stored</note>
-      <xloc>39</xloc>
-      <yloc>11</yloc>
+      <xloc>36</xloc>
+      <yloc>10</yloc>
       <width>715</width>
       <heigth>145</heigth>
       <fontname>Arial</fontname>

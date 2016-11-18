@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;07 16&#x3a;17&#x3a;56.255</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;16 09&#x3a;43&#x3a;59.386</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -379,7 +379,7 @@
       <yloc>30</yloc>
       </entry>
     <entry>
-      <name>Write failed file copy to log</name>
+      <name>Log failed file copy</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>------------------------------------------------------------------------------------&#xd;&#xa;Failed to copy testfile for file &#x24;&#x7b;jsonURL&#x7d;&#xd;&#xa;------------------------------------------------------------------------------------&#xd;&#xa;</logmessage>
@@ -564,6 +564,11 @@
           <variable_value>Not defined</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
+        <field>
+          <variable_name>ARCHIVE-FILENAME</variable_name>
+          <variable_value>Not defined</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -669,7 +674,7 @@
       <yloc>29</yloc>
       </entry>
     <entry>
-      <name>Write XSD error to log</name>
+      <name>Log XSD error</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file downloaded from &#x24;&#x7b;jsonURL&#x7d; does not validate for IATI version &#x24;&#x7b;VERSION&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
@@ -691,7 +696,7 @@
       <fields>
         <field>
           <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>XSD validation error</variable_value>
+          <variable_value>XSD validation error in file &#x24;&#x7b;jsonURL&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -707,7 +712,7 @@
       <yloc>353</yloc>
       </entry>
     <entry>
-      <name>Write timestamp or version error to log</name>
+      <name>Log timestamp and&#x2f;or version error</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>----------------------------------------------------------------------------&#xd;&#xa;Unable to retrieve timestamp or version for &#x24;&#x7b;jsonURL&#x7d;. This file is skipped.&#xd;&#xa;----------------------------------------------------------------------------</logmessage>
@@ -745,11 +750,11 @@
       <yloc>222</yloc>
       </entry>
     <entry>
-      <name>Write failed download to log</name>
+      <name>Log failed download</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Download of &#x24;&#x7b;jsonURL&#x7d; failed.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
-      <loglevel>Basic</loglevel>
+      <loglevel>Minimal</loglevel>
       <logsubject>Download failed</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -844,7 +849,7 @@
       <fields>
         <field>
           <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>Invalid &#x28;not well formed&#x29; XML file &#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</variable_value>
+          <variable_value>Invalid &#x28;not well formed&#x29; XML file &#x24;&#x7b;jsonURL&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -860,11 +865,11 @@
       <yloc>481</yloc>
       </entry>
     <entry>
-      <name>Invalid XML file</name>
+      <name>Log invalid XML file</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Invalid &#x28;not well formed&#x29; XML file downloaded from &#x24;&#x7b;jsonURL&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
-      <loglevel>Basic</loglevel>
+      <loglevel>Minimal</loglevel>
       <logsubject>Invalid XML file</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -919,11 +924,11 @@
       <yloc>29</yloc>
       </entry>
     <entry>
-      <name>Unexpected XSD validator error</name>
+      <name>Log unexpected XSD validator error</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Unexpected IATI public XSD validator error for &#x24;&#x7b;jsonURL&#x7d;. Site may be down or XML file too big.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
-      <loglevel>Basic</loglevel>
+      <loglevel>Minimal</loglevel>
       <logsubject>Unexpected IATI XSD validator error</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -941,7 +946,7 @@
       <fields>
         <field>
           <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>Unexpected IATI XSD validator error</variable_value>
+          <variable_value>Unexpected IATI XSD validator error in file &#x24;&#x7b;jsonURL&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -1016,16 +1021,6 @@
       <yloc>611</yloc>
       </entry>
     <entry>
-      <name>Processed with errors</name>
-      <description/>
-      <type>SUCCESS</type>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>2701</xloc>
-      <yloc>420</yloc>
-      </entry>
-    <entry>
       <name>Check if activity file</name>
       <description/>
       <type>TRANS</type>
@@ -1060,7 +1055,7 @@
       <yloc>29</yloc>
       </entry>
     <entry>
-      <name>Write IATI filetype error to log</name>
+      <name>Log IATI filetype error</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file downloaded from &#x24;&#x7b;jsonURL&#x7d; does not seem to be a real activity file.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
@@ -1096,6 +1091,17 @@
       <nr>0</nr>
       <xloc>2365</xloc>
       <yloc>286</yloc>
+      </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <message>Abort processing of publisher &#x24;&#x7b;Publisher&#x7d; because of download errors</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2696</xloc>
+      <yloc>418</yloc>
       </entry>
   </entries>
   <hops>
@@ -1137,7 +1143,7 @@
     </hop>
     <hop>
       <from>Copy test file</from>
-      <to>Write failed file copy to log</to>
+      <to>Log failed file copy</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1182,7 +1188,7 @@
     </hop>
     <hop>
       <from>XSD valid&#x3f;</from>
-      <to>Write XSD error to log</to>
+      <to>Log XSD error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1190,7 +1196,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write XSD error to log</from>
+      <from>Log XSD error</from>
       <to>XSD validation error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1200,7 +1206,7 @@
     </hop>
     <hop>
       <from>Get file timestamp &#x26; version</from>
-      <to>Write timestamp or version error to log</to>
+      <to>Log timestamp and&#x2f;or version error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1208,7 +1214,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write timestamp or version error to log</from>
+      <from>Log timestamp and&#x2f;or version error</from>
       <to>Timestamp or version error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1218,7 +1224,7 @@
     </hop>
     <hop>
       <from>Download OK &#x3f;</from>
-      <to>Write failed download to log</to>
+      <to>Log failed download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1226,7 +1232,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write failed download to log</from>
+      <from>Log failed download</from>
       <to>Failed download message</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1262,7 +1268,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Invalid XML file</from>
+      <from>Log invalid XML file</from>
       <to>Invalid XML file message</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1290,7 +1296,7 @@
     </hop>
     <hop>
       <from>XML is well formed&#x3f;</from>
-      <to>Invalid XML file</to>
+      <to>Log invalid XML file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1344,7 +1350,7 @@
     </hop>
     <hop>
       <from>IATI public validator</from>
-      <to>Unexpected XSD validator error</to>
+      <to>Log unexpected XSD validator error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1352,7 +1358,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Unexpected XSD validator error</from>
+      <from>Log unexpected XSD validator error</from>
       <to>Unexpected IATI XSD validator error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1406,7 +1412,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Write failed file copy to log</from>
+      <from>Log failed file copy</from>
       <to>Failed testfile copy</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1460,15 +1466,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Log download processing</from>
-      <to>Processed with errors</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>XSD valid&#x3f;</from>
       <to>Check if activity file</to>
       <from_nr>0</from_nr>
@@ -1488,7 +1485,7 @@
     </hop>
     <hop>
       <from>Check if activity file</from>
-      <to>Write IATI filetype error to log</to>
+      <to>Log IATI filetype error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1496,7 +1493,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write IATI filetype error to log</from>
+      <from>Log IATI filetype error</from>
       <to>IATI filetype error</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1521,6 +1518,15 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log download processing</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>

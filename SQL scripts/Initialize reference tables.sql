@@ -2,18 +2,19 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.3.0.4984
+-- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
 
 -- Dumping database structure for iatireference
 CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatireference`;
-
 
 -- Dumping structure for table iatireference.ref-country-classification
 DROP TABLE IF EXISTS `ref-country-classification`;
@@ -270,7 +271,6 @@ INSERT INTO `ref-country-classification` (`ISOA2`, `ISOA3`, `UNCountry`, `UNLDC`
 	('ZM', 'ZMB', 'Zambia', 'LDC', 'Lower middle income', 'Sub-Saharan Africa'),
 	('ZW', 'ZWE', 'Zimbabwe', '', 'Low income', 'Sub-Saharan Africa');
 /*!40000 ALTER TABLE `ref-country-classification` ENABLE KEYS */;
-
 
 -- Dumping structure for table iatireference.ref-currency-rates
 DROP TABLE IF EXISTS `ref-currency-rates`;
@@ -2549,7 +2549,6 @@ INSERT INTO `ref-currency-rates` (`Jaar`, `Valuta`, `Bron`, `Koers`) VALUES
 	(2016, 'ZMW', 'Corporate rate BZ', 9.615384615);
 /*!40000 ALTER TABLE `ref-currency-rates` ENABLE KEYS */;
 
-
 -- Dumping structure for table iatireference.ref-menu-lines
 DROP TABLE IF EXISTS `ref-menu-lines`;
 CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
@@ -2587,7 +2586,6 @@ INSERT INTO `ref-menu-lines` (`Id`) VALUES
 	(25);
 /*!40000 ALTER TABLE `ref-menu-lines` ENABLE KEYS */;
 
-
 -- Dumping structure for table iatireference.ref-parameters
 DROP TABLE IF EXISTS `ref-parameters`;
 CREATE TABLE IF NOT EXISTS `ref-parameters` (
@@ -2608,7 +2606,6 @@ INSERT INTO `ref-parameters` (`key`, `value`) VALUES
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatischema`;
 
-
 -- Dumping structure for table iatischema.ctl-publishers
 DROP TABLE IF EXISTS `ctl-publishers`;
 CREATE TABLE IF NOT EXISTS `ctl-publishers` (
@@ -2628,30 +2625,31 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
 DELETE FROM `ctl-publishers`;
 /*!40000 ALTER TABLE `ctl-publishers` DISABLE KEYS */;
 INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-processing`, `testfile-location`, `is-testfile`, `publisher-name`) VALUES
-	('aa', 24, b'0', b'1', NULL, b'0', 'International HIV/AIDS Alliance'),
-	('achest', 26, b'0', b'1', NULL, b'0', 'African Centre for Global Health and Social Transformation'),
-	('amrefnl', 18, b'0', b'1', NULL, b'0', 'Amref Flying Doctors'),
-	('awepa', 12, b'0', b'1', NULL, b'0', 'AWEPA'),
-	('bothends', 6, b'0', b'1', NULL, b'0', 'Both ENDS'),
-	('ccc', 7, b'0', b'1', NULL, b'0', 'Clean Clothes Campaign'),
-	('ejc', 21, b'0', b'1', NULL, b'0', 'European Journalism Centre'),
-	('foenl', 8, b'0', b'1', NULL, b'0', 'Milieudefensie'),
-	('free_press_unlimited', 11, b'0', b'1', NULL, b'0', 'Free Press Unlimited'),
-	('irc', 25, b'0', b'1', NULL, b'0', 'IRC'),
-	('minbuza_nl', 1, b'0', b'1', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
-	('nimd-hq', 16, b'0', b'1', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
-	('nl-kvk-41207989', 17, b'0', b'1', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
-	('nlrc', 5, b'0', b'1', 'D:\\Users\\User.Open\\My Documents\\IATI Publishers\\nlrc-activities.xml', b'0', 'Netherlands Red Cross'),
-	('onl', 22, b'0', b'1', NULL, b'0', 'Oxfam Novib Nederland'),
-	('plannlno', 19, b'0', b'1', NULL, b'0', 'Plan Nederland'),
-	('rvo', 3, b'0', b'1', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\26042016-RVO-IATI-adjusted.xml', b'0', 'Netherlands Enterprise Agency'),
-	('simavi', 20, b'0', b'1', NULL, b'0', 'Simavi'),
-	('somo', 9, b'0', b'1', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
-	('tni', 10, b'0', b'1', NULL, b'0', 'Transnational Institute'),
-	('wemos', 27, b'0', b'1', NULL, b'0', 'Wemos Foundation'),
-	('wi', 23, b'0', b'1', NULL, b'0', 'Wetlands International'),
-	('zoa', 2, b'1', b'1', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\duplicate-test.xml', b'0', 'ZOA');
+	('aa', 24, b'0', b'0', NULL, b'0', 'International HIV/AIDS Alliance'),
+	('achest', 26, b'0', b'0', NULL, b'0', 'African Centre for Global Health and Social Transformation'),
+	('amrefnl', 18, b'0', b'0', NULL, b'0', 'Amref Flying Doctors'),
+	('awepa', 12, b'0', b'0', NULL, b'0', 'AWEPA'),
+	('bothends', 6, b'0', b'0', NULL, b'0', 'Both ENDS'),
+	('ccc', 7, b'0', b'0', NULL, b'0', 'Clean Clothes Campaign'),
+	('ejc', 21, b'0', b'0', NULL, b'0', 'European Journalism Centre'),
+	('foenl', 8, b'0', b'0', NULL, b'0', 'Milieudefensie'),
+	('free_press_unlimited', 11, b'0', b'0', NULL, b'0', 'Free Press Unlimited'),
+	('irc', 25, b'0', b'0', NULL, b'0', 'IRC'),
+	('minbuza_nl', 1, b'1', b'1', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
+	('nimd-hq', 16, b'0', b'0', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
+	('nl-kvk-41207989', 17, b'0', b'0', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
+	('nlrc', 5, b'0', b'0', 'D:\\Users\\User.Open\\My Documents\\IATI Publishers\\nlrc-activities.xml', b'0', 'Netherlands Red Cross'),
+	('onl', 22, b'0', b'0', NULL, b'0', 'Oxfam Novib Nederland'),
+	('plannlno', 19, b'0', b'0', NULL, b'0', 'Plan Nederland'),
+	('rvo', 3, b'0', b'0', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\26042016-RVO-IATI-adjusted.xml', b'0', 'Netherlands Enterprise Agency'),
+	('simavi', 20, b'0', b'0', NULL, b'0', 'Simavi'),
+	('somo', 9, b'0', b'0', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
+	('tni', 10, b'0', b'0', NULL, b'0', 'Transnational Institute'),
+	('wemos', 27, b'0', b'0', NULL, b'0', 'Wemos Foundation'),
+	('wi', 23, b'0', b'0', NULL, b'0', 'Wetlands International'),
+	('zoa', 2, b'0', b'0', 'D:\\Users\\User.Open\\My Documents\\IATI test data NRK\\duplicate-test.xml', b'0', 'ZOA');
 /*!40000 ALTER TABLE `ctl-publishers` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
