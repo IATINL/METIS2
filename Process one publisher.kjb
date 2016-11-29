@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;16 11&#x3a;23&#x3a;58.334</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;16 09&#x3a;18&#x3a;32.989</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;23 11&#x3a;47&#x3a;48.237</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -448,10 +448,10 @@
       <yloc>187</yloc>
       </entry>
     <entry>
-      <name>Log skip because no changes</name>
+      <name>Unchanged log</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because nothing has changed since last download.</logmessage>
+      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because no activity files are changed.</logmessage>
       <loglevel>Minimal</loglevel>
       <logsubject>Download result</logsubject>
       <parallel>N</parallel>
@@ -716,7 +716,7 @@
       <yloc>188</yloc>
       </entry>
     <entry>
-      <name>Log skip of download errors</name>
+      <name>Download error log</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because of download errors.</logmessage>
@@ -725,8 +725,21 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1654</xloc>
+      <xloc>1650</xloc>
       <yloc>356</yloc>
+      </entry>
+    <entry>
+      <name>Registry error log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Processing of publisher &#x24;&#x7b;Publisher&#x7d; skipped because of IATI registry errors.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>Download result</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1650</xloc>
+      <yloc>417</yloc>
       </entry>
   </entries>
   <hops>
@@ -764,7 +777,7 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Download all publisher files</from>
@@ -786,7 +799,7 @@
     </hop>
     <hop>
       <from>Changed files&#x3f;</from>
-      <to>Log skip because no changes</to>
+      <to>Unchanged log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -794,7 +807,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Log skip because no changes</from>
+      <from>Unchanged log</from>
       <to>Log end of publisher job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -876,7 +889,7 @@
     </hop>
     <hop>
       <from>Download all publisher files</from>
-      <to>Log skip of download errors</to>
+      <to>Download error log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -884,7 +897,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Log skip of download errors</from>
+      <from>Download error log</from>
       <to>Log end of publisher job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -895,6 +908,24 @@
     <hop>
       <from>Check changes</from>
       <to>Changed files&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Get all URLs for one publisher</from>
+      <to>Registry error log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Registry error log</from>
+      <to>Log end of publisher job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

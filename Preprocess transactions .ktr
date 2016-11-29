@@ -68,15 +68,15 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;09 15&#x3a;29&#x3a;01.098</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;28 15&#x3a;58&#x3a;02.580</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Calculate EUR amounts  so that transactions &#xd;&#xa;with different currencies are weighted correctly.</note>
-      <xloc>1982</xloc>
-      <yloc>69</yloc>
+      <xloc>2067</xloc>
+      <yloc>80</yloc>
       <width>280</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
@@ -96,8 +96,8 @@
     </notepad>
     <notepad>
       <note>Log unknown exchange rates&#xd;&#xa;and set those rates to zero.</note>
-      <xloc>1710</xloc>
-      <yloc>206</yloc>
+      <xloc>1795</xloc>
+      <yloc>217</yloc>
       <width>179</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
@@ -117,8 +117,8 @@
     </notepad>
     <notepad>
       <note>Generate IF transactions with zero value for all activities &#xd;&#xa;which have NO incoming funds. The IF transaction&#xd;&#xa;uses the related parent activity as the providing activity id.&#xd;&#xa;This makes it possible to view relations based on transactions, &#xd;&#xa;even if no fund transfers have taken place.</note>
-      <xloc>610</xloc>
-      <yloc>184</yloc>
+      <xloc>512</xloc>
+      <yloc>233</yloc>
       <width>376</width>
       <heigth>85</heigth>
       <fontname>Arial</fontname>
@@ -286,9 +286,9 @@
   <hop> <from>If prov. org act. is null</from><to>Calc euro trx amount</to><enabled>Y</enabled> </hop>
   <hop> <from>Unknown trx rate log</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log</from><to>Set ex rate to 0 if not found</to><enabled>Y</enabled> </hop>
-  <hop> <from>Act has inc trx&#x3f;</from><to>Select act without transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select act without transactions</from><to>IF or IC sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select act without transactions</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Act has inc trx&#x3f;</from><to>Act without transactions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Act without transactions</from><to>IF or IC sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Act without transactions</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act start dates</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act trx from DB</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
@@ -296,18 +296,21 @@
   <hop> <from>If org name or ref is null</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
   <hop> <from>Get exchange rate</from><to>EUR rate is 1</to><enabled>Y</enabled> </hop>
   <hop> <from>EUR rate is 1</from><to>Known rates</to><enabled>Y</enabled> </hop>
-  <hop> <from>If no iso date</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>If not found</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Read all act ids</from><to>Act has inc trx&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add trx iso date</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read related parent act</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup</from><to>If rel act is found</to><enabled>Y</enabled> </hop>
-  <hop> <from>If rel act is found</from><to>If no iso date</to><enabled>Y</enabled> </hop>
-  <hop> <from>If rel act is found</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>If rel act is found</from><to>If not found</to><enabled>Y</enabled> </hop>
+  <hop> <from>If rel act is found</from><to>No rel act sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act trx from DB</from><to>Pass incoming trx only</to><enabled>Y</enabled> </hop>
   <hop> <from>Pass incoming trx only</from><to>Act has inc trx&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Pass incoming trx only</from><to>Outgoing sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc euro trx amount</from><to>If org name or ref is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add trx iso date</from><to>Sort trx</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort trx</from><to>Merge rel act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge rel act</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>If rel act is found</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read related parent act</from><to>Sort rel act</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rel act</from><to>Merge rel act</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Act has inc trx&#x3f;</name>
@@ -339,8 +342,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>216</xloc>
-      <yloc>403</yloc>
+      <xloc>197</xloc>
+      <yloc>414</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -456,8 +459,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>520</xloc>
-      <yloc>402</yloc>
+      <xloc>477</xloc>
+      <yloc>414</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -492,8 +495,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>634</xloc>
-      <yloc>400</yloc>
+      <xloc>594</xloc>
+      <yloc>414</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -513,8 +516,8 @@
 <tail_name>Select values</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1034</xloc>
-      <yloc>143</yloc>
+      <xloc>1119</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -534,8 +537,8 @@
 <tail_name>Set ex rate to 0 if not found</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1908</xloc>
-      <yloc>144</yloc>
+      <xloc>1993</xloc>
+      <yloc>155</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -560,8 +563,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2153</xloc>
-      <yloc>145</yloc>
+      <xloc>2238</xloc>
+      <yloc>156</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -674,8 +677,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1172</xloc>
-      <yloc>143</yloc>
+      <xloc>1257</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -721,14 +724,14 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1307</xloc>
-      <yloc>142</yloc>
+      <xloc>1392</xloc>
+      <yloc>153</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
+    <name>No rel act sink</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -740,8 +743,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>906</xloc>
-      <yloc>519</yloc>
+      <xloc>1015</xloc>
+      <yloc>603</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -766,8 +769,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1565</xloc>
-      <yloc>143</yloc>
+      <xloc>1650</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -806,8 +809,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1447</xloc>
-      <yloc>143</yloc>
+      <xloc>1532</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -825,14 +828,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>369</xloc>
-      <yloc>533</yloc>
+      <xloc>327</xloc>
+      <yloc>600</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>If no iso date</name>
+    <name>If not found</name>
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
@@ -865,8 +868,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1031</xloc>
-      <yloc>399</yloc>
+      <xloc>1119</xloc>
+      <yloc>412</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -917,8 +920,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2314</xloc>
-      <yloc>146</yloc>
+      <xloc>2399</xloc>
+      <yloc>157</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -951,8 +954,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2022</xloc>
-      <yloc>143</yloc>
+      <xloc>2107</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -968,8 +971,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>If no iso date</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
+<send_true_to>If not found</send_true_to>
+<send_false_to>No rel act sink</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -980,8 +983,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>908</xloc>
-      <yloc>399</yloc>
+      <xloc>1018</xloc>
+      <yloc>413</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1028,8 +1031,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1673</xloc>
-      <yloc>145</yloc>
+      <xloc>1758</xloc>
+      <yloc>156</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1047,8 +1050,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>369</xloc>
-      <yloc>273</yloc>
+      <xloc>350</xloc>
+      <yloc>284</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1088,8 +1091,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>218</xloc>
-      <yloc>273</yloc>
+      <xloc>199</xloc>
+      <yloc>284</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1114,8 +1117,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1447</xloc>
-      <yloc>40</yloc>
+      <xloc>1532</xloc>
+      <yloc>51</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1140,8 +1143,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>634</xloc>
-      <yloc>522</yloc>
+      <xloc>593</xloc>
+      <yloc>605</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1166,8 +1169,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>219</xloc>
-      <yloc>142</yloc>
+      <xloc>200</xloc>
+      <yloc>153</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1192,8 +1195,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>56</xloc>
-      <yloc>404</yloc>
+      <xloc>37</xloc>
+      <yloc>415</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1218,14 +1221,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>772</xloc>
-      <yloc>521</yloc>
+      <xloc>806</xloc>
+      <yloc>609</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select act without transactions</name>
+    <name>Act without transactions</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1247,8 +1250,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>372</xloc>
-      <yloc>402</yloc>
+      <xloc>328</xloc>
+      <yloc>414</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1331,8 +1334,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1034</xloc>
-      <yloc>275</yloc>
+      <xloc>1119</xloc>
+      <yloc>286</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1365,44 +1368,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1905</xloc>
-      <yloc>277</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Read related parent act</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <value>
-        <name>related-activity-ref</name>
-        <rename>related-activity-ref</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>773</xloc>
-      <yloc>399</yloc>
+      <xloc>1990</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1681,8 +1648,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1672</xloc>
-      <yloc>278</yloc>
+      <xloc>1757</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1734,8 +1701,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1780</xloc>
-      <yloc>278</yloc>
+      <xloc>1865</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1848,8 +1815,188 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2495</xloc>
-      <yloc>147</yloc>
+      <xloc>2580</xloc>
+      <yloc>158</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge rel act</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>INNER</join_type>
+<step1>Sort trx</step1>
+<step2>Sort rel act</step2>
+    <keys_1>
+      <key>iati-identifier</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>808</xloc>
+      <yloc>411</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort trx</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>700</xloc>
+      <yloc>413</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>has-trx</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-type-code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>provider-org-reference</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>receiver-org-reference</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>value</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>default-currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>activity-iso-date</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>related-activity-ref</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>905</xloc>
+      <yloc>412</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rel act</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>807</xloc>
+      <yloc>516</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

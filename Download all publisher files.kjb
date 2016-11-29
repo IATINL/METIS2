@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;16 09&#x3a;43&#x3a;59.386</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;24 10&#x3a;35&#x3a;27.441</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -203,8 +203,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>26</xloc>
-      <yloc>30</yloc>
+      <xloc>25</xloc>
+      <yloc>112</yloc>
       </entry>
     <entry>
       <name>Successfully processed</name>
@@ -213,8 +213,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2692</xloc>
-      <yloc>30</yloc>
+      <xloc>2697</xloc>
+      <yloc>113</yloc>
       </entry>
     <entry>
       <name>Show URL</name>
@@ -226,8 +226,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>364</xloc>
-      <yloc>30</yloc>
+      <xloc>363</xloc>
+      <yloc>112</yloc>
       </entry>
     <entry>
       <name>Archive XML files</name>
@@ -258,8 +258,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2023</xloc>
-      <yloc>28</yloc>
+      <xloc>2022</xloc>
+      <yloc>110</yloc>
       </entry>
     <entry>
       <name>Get url id and start url log</name>
@@ -292,8 +292,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>137</xloc>
-      <yloc>29</yloc>
+      <xloc>136</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Log succesfull processing</name>
@@ -326,8 +326,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2361</xloc>
-      <yloc>28</yloc>
+      <xloc>2525</xloc>
+      <yloc>112</yloc>
       </entry>
     <entry>
       <name>Copy test file</name>
@@ -353,8 +353,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>703</xloc>
-      <yloc>119</yloc>
+      <xloc>702</xloc>
+      <yloc>201</yloc>
       </entry>
     <entry>
       <name>Is it a testfile&#x3f;</name>
@@ -375,8 +375,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>475</xloc>
-      <yloc>30</yloc>
+      <xloc>474</xloc>
+      <yloc>112</yloc>
       </entry>
     <entry>
       <name>Log failed file copy</name>
@@ -388,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>923</xloc>
-      <yloc>612</yloc>
+      <xloc>922</xloc>
+      <yloc>629</yloc>
       </entry>
     <entry>
       <name>Get file timestamp &#x26; version</name>
@@ -422,8 +422,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1474</xloc>
-      <yloc>28</yloc>
+      <xloc>1473</xloc>
+      <yloc>110</yloc>
       </entry>
     <entry>
       <name>Activity file exists in archive&#x3f;</name>
@@ -438,8 +438,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1784</xloc>
-      <yloc>28</yloc>
+      <xloc>1783</xloc>
+      <yloc>110</yloc>
       </entry>
     <entry>
       <name>Calc MD5 checksum</name>
@@ -472,8 +472,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1621</xloc>
-      <yloc>28</yloc>
+      <xloc>1620</xloc>
+      <yloc>110</yloc>
       </entry>
     <entry>
       <name>Download activity</name>
@@ -506,30 +506,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>702</xloc>
-      <yloc>29</yloc>
-      </entry>
-    <entry>
-      <name>Download OK &#x3f;</name>
-      <description/>
-      <type>SIMPLE_EVAL</type>
-      <valuetype>variable</valuetype>
-      <fieldname>httpstatus</fieldname>
-      <variablename>&#x24;&#x7b;HTTP-STATUS&#x7d;</variablename>
-      <fieldtype>string</fieldtype>
-      <mask/>
-      <comparevalue>200</comparevalue>
-      <minvalue/>
-      <maxvalue/>
-      <successcondition>equal</successcondition>
-      <successnumbercondition>equal</successnumbercondition>
-      <successbooleancondition>false</successbooleancondition>
-      <successwhenvarset>N</successwhenvarset>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>821</xloc>
-      <yloc>29</yloc>
+      <xloc>802</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Init variables</name>
@@ -573,8 +551,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>255</xloc>
-      <yloc>29</yloc>
+      <xloc>254</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Failed download message</name>
@@ -586,7 +564,7 @@
       <fields>
         <field>
           <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>Download of &#x24;&#x7b;jsonURL&#x7d; failed</variable_value>
+          <variable_value>Download of &#x24;&#x7b;jsonURL&#x7d; failed with HTTP status &#x24;&#x7b;HTTP-STATUS&#x7d;.</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -598,8 +576,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2366</xloc>
-      <yloc>550</yloc>
+      <xloc>2365</xloc>
+      <yloc>567</yloc>
       </entry>
     <entry>
       <name>Unchanged file message</name>
@@ -624,7 +602,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>2362</xloc>
-      <yloc>150</yloc>
+      <yloc>233</yloc>
       </entry>
     <entry>
       <name>Ok message</name>
@@ -648,8 +626,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2182</xloc>
-      <yloc>28</yloc>
+      <xloc>2181</xloc>
+      <yloc>110</yloc>
       </entry>
     <entry>
       <name>XSD valid&#x3f;</name>
@@ -670,8 +648,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1199</xloc>
-      <yloc>29</yloc>
+      <xloc>1198</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Log XSD error</name>
@@ -683,8 +661,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1317</xloc>
-      <yloc>358</yloc>
+      <xloc>1316</xloc>
+      <yloc>375</yloc>
       </entry>
     <entry>
       <name>XSD validation error</name>
@@ -708,8 +686,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2364</xloc>
-      <yloc>353</yloc>
+      <xloc>2363</xloc>
+      <yloc>370</yloc>
       </entry>
     <entry>
       <name>Log timestamp and&#x2f;or version error</name>
@@ -721,8 +699,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1551</xloc>
-      <yloc>221</yloc>
+      <xloc>1550</xloc>
+      <yloc>303</yloc>
       </entry>
     <entry>
       <name>Timestamp or version error</name>
@@ -746,21 +724,21 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2363</xloc>
-      <yloc>222</yloc>
+      <xloc>2362</xloc>
+      <yloc>304</yloc>
       </entry>
     <entry>
       <name>Log failed download</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Download of &#x24;&#x7b;jsonURL&#x7d; failed.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Download of &#x24;&#x7b;jsonURL&#x7d; failed with HTTP status &#x24;&#x7b;HTTP-STATUS&#x7d;.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
       <loglevel>Minimal</loglevel>
       <logsubject>Download failed</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1045</xloc>
-      <yloc>551</yloc>
+      <xloc>1044</xloc>
+      <yloc>568</yloc>
       </entry>
     <entry>
       <name>Read processing flag</name>
@@ -793,8 +771,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1869</xloc>
-      <yloc>149</yloc>
+      <xloc>1868</xloc>
+      <yloc>231</yloc>
       </entry>
     <entry>
       <name>Force processing&#x3f;</name>
@@ -815,8 +793,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2025</xloc>
-      <yloc>150</yloc>
+      <xloc>2024</xloc>
+      <yloc>232</yloc>
       </entry>
     <entry>
       <name>XML is well formed&#x3f;</name>
@@ -836,8 +814,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>963</xloc>
-      <yloc>29</yloc>
+      <xloc>962</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Invalid XML file message</name>
@@ -861,8 +839,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2364</xloc>
-      <yloc>481</yloc>
+      <xloc>2363</xloc>
+      <yloc>498</yloc>
       </entry>
     <entry>
       <name>Log invalid XML file</name>
@@ -874,8 +852,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1152</xloc>
-      <yloc>481</yloc>
+      <xloc>1151</xloc>
+      <yloc>498</yloc>
       </entry>
     <entry>
       <name>Delete activity file</name>
@@ -886,8 +864,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>590</xloc>
-      <yloc>29</yloc>
+      <xloc>640</xloc>
+      <yloc>113</yloc>
       </entry>
     <entry>
       <name>IATI public validator</name>
@@ -920,8 +898,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1083</xloc>
-      <yloc>29</yloc>
+      <xloc>1082</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Log unexpected XSD validator error</name>
@@ -933,8 +911,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1240</xloc>
-      <yloc>416</yloc>
+      <xloc>1239</xloc>
+      <yloc>433</yloc>
       </entry>
     <entry>
       <name>Unexpected IATI XSD validator error</name>
@@ -958,8 +936,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2365</xloc>
-      <yloc>417</yloc>
+      <xloc>2364</xloc>
+      <yloc>434</yloc>
       </entry>
     <entry>
       <name>Log download processing</name>
@@ -992,8 +970,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2538</xloc>
-      <yloc>418</yloc>
+      <xloc>2537</xloc>
+      <yloc>435</yloc>
       </entry>
     <entry>
       <name>Failed testfile copy</name>
@@ -1017,8 +995,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2369</xloc>
-      <yloc>611</yloc>
+      <xloc>2368</xloc>
+      <yloc>628</yloc>
       </entry>
     <entry>
       <name>Check if activity file</name>
@@ -1051,8 +1029,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1322</xloc>
-      <yloc>29</yloc>
+      <xloc>1321</xloc>
+      <yloc>111</yloc>
       </entry>
     <entry>
       <name>Log IATI filetype error</name>
@@ -1064,8 +1042,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1427</xloc>
-      <yloc>288</yloc>
+      <xloc>1469</xloc>
+      <yloc>9</yloc>
       </entry>
     <entry>
       <name>IATI filetype error</name>
@@ -1082,15 +1060,15 @@
         </field>
         <field>
           <variable_name>LOG-STATUS</variable_name>
-          <variable_value>Error</variable_value>
+          <variable_value>Ignore</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2365</xloc>
-      <yloc>286</yloc>
+      <xloc>2359</xloc>
+      <yloc>10</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -1100,8 +1078,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2696</xloc>
-      <yloc>418</yloc>
+      <xloc>2695</xloc>
+      <yloc>435</yloc>
       </entry>
   </entries>
   <hops>
@@ -1223,15 +1201,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Download OK &#x3f;</from>
-      <to>Log failed download</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Log failed download</from>
       <to>Failed download message</to>
       <from_nr>0</from_nr>
@@ -1270,24 +1239,6 @@
     <hop>
       <from>Log invalid XML file</from>
       <to>Invalid XML file message</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Download OK &#x3f;</from>
-      <to>XML is well formed&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Download activity</from>
-      <to>Download OK &#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1502,15 +1453,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>IATI filetype error</from>
-      <to>Log download processing</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Force processing&#x3f;</from>
       <to>Archive XML files</to>
       <from_nr>0</from_nr>
@@ -1528,12 +1470,39 @@
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Download activity</from>
+      <to>XML is well formed&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Download activity</from>
+      <to>Log failed download</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>IATI filetype error</from>
+      <to>Log succesfull processing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
       <note>Download the activity file of a publisher and if ok, archive the file. This transformation&#xd;&#xa;is run once for each URL input line. Downloading is controlled by the following parameters&#x3a;&#xd;&#xa;&#xd;&#xa;1 - the publisher is active &#x28;active &#x3d; 1&#x29; or not &#x28;active &#x3d; 0&#x29;. Only files from active publishers &#xd;&#xa;     are downloaded.&#xd;&#xa;2 - the activity file is always processed &#x28;force-processing &#x3d; 1&#x29; or only when the file is changed &#xd;&#xa;     compared to the previously downloaded file in the archive &#x28;force-processing &#x3d; 0&#x29;.&#xd;&#xa;3 - the file is retreived from internet &#x28;test &#x3d; 0&#x29; or from a test file &#x28;test &#x3d; 1&#x29;&#xd;&#xa;&#xd;&#xa;Downloaded files are tested on&#x3a;&#xd;&#xa;1 - the validity of the XML &#x28;well formed or not&#x29;.&#xd;&#xa;2 - the validity of th file against the corresponding XSD metadata definition.&#xd;&#xa;&#xd;&#xa;In case of errors the download is further processed and the downloaded file is not archived.</note>
-      <xloc>20</xloc>
-      <yloc>117</yloc>
+      <xloc>19</xloc>
+      <yloc>199</yloc>
       <width>553</width>
       <heigth>223</heigth>
       <fontname>Arial</fontname>
