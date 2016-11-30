@@ -2,18 +2,19 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.3.0.4984
+-- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
 
 -- Dumping database structure for iatidatamart
 CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatidatamart`;
-
 
 -- Dumping structure for table iatidatamart.dim-activity
 DROP TABLE IF EXISTS `dim-activity`;
@@ -84,8 +85,6 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-budget-type
 DROP TABLE IF EXISTS `dim-budget-type`;
 CREATE TABLE IF NOT EXISTS `dim-budget-type` (
@@ -95,8 +94,6 @@ CREATE TABLE IF NOT EXISTS `dim-budget-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-country
 DROP TABLE IF EXISTS `dim-country`;
 CREATE TABLE IF NOT EXISTS `dim-country` (
@@ -109,8 +106,6 @@ CREATE TABLE IF NOT EXISTS `dim-country` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-description-type
 DROP TABLE IF EXISTS `dim-description-type`;
 CREATE TABLE IF NOT EXISTS `dim-description-type` (
@@ -120,8 +115,6 @@ CREATE TABLE IF NOT EXISTS `dim-description-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-document-type
 DROP TABLE IF EXISTS `dim-document-type`;
 CREATE TABLE IF NOT EXISTS `dim-document-type` (
@@ -135,8 +128,6 @@ CREATE TABLE IF NOT EXISTS `dim-document-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-indicator-measure
 DROP TABLE IF EXISTS `dim-indicator-measure`;
 CREATE TABLE IF NOT EXISTS `dim-indicator-measure` (
@@ -145,8 +136,6 @@ CREATE TABLE IF NOT EXISTS `dim-indicator-measure` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-location-type
 DROP TABLE IF EXISTS `dim-location-type`;
 CREATE TABLE IF NOT EXISTS `dim-location-type` (
@@ -159,8 +148,6 @@ CREATE TABLE IF NOT EXISTS `dim-location-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-organisation
 DROP TABLE IF EXISTS `dim-organisation`;
 CREATE TABLE IF NOT EXISTS `dim-organisation` (
@@ -176,11 +163,9 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=5256 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-organisation-role
 DROP TABLE IF EXISTS `dim-organisation-role`;
 CREATE TABLE IF NOT EXISTS `dim-organisation-role` (
@@ -191,8 +176,6 @@ CREATE TABLE IF NOT EXISTS `dim-organisation-role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-region
 DROP TABLE IF EXISTS `dim-region`;
 CREATE TABLE IF NOT EXISTS `dim-region` (
@@ -203,8 +186,6 @@ CREATE TABLE IF NOT EXISTS `dim-region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-result-type
 DROP TABLE IF EXISTS `dim-result-type`;
 CREATE TABLE IF NOT EXISTS `dim-result-type` (
@@ -213,8 +194,6 @@ CREATE TABLE IF NOT EXISTS `dim-result-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-sector
 DROP TABLE IF EXISTS `dim-sector`;
 CREATE TABLE IF NOT EXISTS `dim-sector` (
@@ -228,8 +207,6 @@ CREATE TABLE IF NOT EXISTS `dim-sector` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-transaction-type
 DROP TABLE IF EXISTS `dim-transaction-type`;
 CREATE TABLE IF NOT EXISTS `dim-transaction-type` (
@@ -239,8 +216,6 @@ CREATE TABLE IF NOT EXISTS `dim-transaction-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-url
 DROP TABLE IF EXISTS `dim-url`;
 CREATE TABLE IF NOT EXISTS `dim-url` (
@@ -250,11 +225,9 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-budgets
 DROP TABLE IF EXISTS `fct-budgets`;
 CREATE TABLE IF NOT EXISTS `fct-budgets` (
@@ -310,8 +283,6 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-descriptions
 DROP TABLE IF EXISTS `fct-descriptions`;
 CREATE TABLE IF NOT EXISTS `fct-descriptions` (
@@ -359,8 +330,6 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-documents
 DROP TABLE IF EXISTS `fct-documents`;
 CREATE TABLE IF NOT EXISTS `fct-documents` (
@@ -411,8 +380,6 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-locations
 DROP TABLE IF EXISTS `fct-locations`;
 CREATE TABLE IF NOT EXISTS `fct-locations` (
@@ -466,8 +433,6 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-organisations
 DROP TABLE IF EXISTS `fct-organisations`;
 CREATE TABLE IF NOT EXISTS `fct-organisations` (
@@ -518,8 +483,6 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-results
 DROP TABLE IF EXISTS `fct-results`;
 CREATE TABLE IF NOT EXISTS `fct-results` (
@@ -579,8 +542,6 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-transactions
 DROP TABLE IF EXISTS `fct-transactions`;
 CREATE TABLE IF NOT EXISTS `fct-transactions` (
@@ -642,8 +603,6 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-archive
 DROP TABLE IF EXISTS `log-archive`;
 CREATE TABLE IF NOT EXISTS `log-archive` (
@@ -657,8 +616,6 @@ CREATE TABLE IF NOT EXISTS `log-archive` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-check-totals
 DROP TABLE IF EXISTS `log-check-totals`;
 CREATE TABLE IF NOT EXISTS `log-check-totals` (
@@ -673,8 +630,6 @@ CREATE TABLE IF NOT EXISTS `log-check-totals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-duplicates
 DROP TABLE IF EXISTS `log-duplicates`;
 CREATE TABLE IF NOT EXISTS `log-duplicates` (
@@ -685,8 +640,6 @@ CREATE TABLE IF NOT EXISTS `log-duplicates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-iati-job
 DROP TABLE IF EXISTS `log-iati-job`;
 CREATE TABLE IF NOT EXISTS `log-iati-job` (
@@ -700,8 +653,6 @@ CREATE TABLE IF NOT EXISTS `log-iati-job` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-publisher-job
 DROP TABLE IF EXISTS `log-publisher-job`;
 CREATE TABLE IF NOT EXISTS `log-publisher-job` (
@@ -715,8 +666,6 @@ CREATE TABLE IF NOT EXISTS `log-publisher-job` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-publisher-job-url
 DROP TABLE IF EXISTS `log-publisher-job-url`;
 CREATE TABLE IF NOT EXISTS `log-publisher-job-url` (
@@ -736,8 +685,6 @@ CREATE TABLE IF NOT EXISTS `log-publisher-job-url` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-reference-errors
 DROP TABLE IF EXISTS `log-reference-errors`;
 CREATE TABLE IF NOT EXISTS `log-reference-errors` (
@@ -750,8 +697,6 @@ CREATE TABLE IF NOT EXISTS `log-reference-errors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for view iatidatamart.iati-view-budget-total
 DROP VIEW IF EXISTS `iati-view-budget-total`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -759,7 +704,6 @@ CREATE TABLE `iati-view-budget-total` (
 	`iati-identifier` CHAR(100) NULL COLLATE 'utf8_general_ci',
 	`budget-value (EUR)` DOUBLE NULL
 ) ENGINE=MyISAM;
-
 
 -- Dumping structure for view iatidatamart.iati-view-check-totals
 DROP VIEW IF EXISTS `iati-view-check-totals`;
@@ -775,7 +719,6 @@ CREATE TABLE `iati-view-check-totals` (
 	`check-total-target` DOUBLE NULL
 ) ENGINE=MyISAM;
 
-
 -- Dumping structure for view iatidatamart.iati-view-funding-organisations
 DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -789,7 +732,6 @@ CREATE TABLE `iati-view-funding-organisations` (
 	`transaction-value` DOUBLE NULL,
 	`transaction-value-eur` DOUBLE NULL
 ) ENGINE=MyISAM;
-
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
@@ -805,7 +747,6 @@ CREATE TABLE `iati-view-implementing-organisations` (
 	`transaction-value-eur` DOUBLE NULL
 ) ENGINE=MyISAM;
 
-
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
 DROP VIEW IF EXISTS `iati-view-last-date-published`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -818,7 +759,6 @@ CREATE TABLE `iati-view-last-date-published` (
 	`start-date` DATETIME NULL,
 	`generated-datetime` DATETIME NULL
 ) ENGINE=MyISAM;
-
 
 -- Dumping structure for view iatidatamart.iati-view-organisations
 DROP VIEW IF EXISTS `iati-view-organisations`;
@@ -834,7 +774,6 @@ CREATE TABLE `iati-view-organisations` (
 	`transaction-value-eur` DOUBLE NULL
 ) ENGINE=MyISAM;
 
-
 -- Dumping structure for view iatidatamart.iati-view-timeliness
 DROP VIEW IF EXISTS `iati-view-timeliness`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -846,7 +785,6 @@ CREATE TABLE `iati-view-timeliness` (
 	`generated-datetime` DATE NULL
 ) ENGINE=MyISAM;
 
-
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -856,13 +794,11 @@ CREATE TABLE `iati-view-total-disbursements` (
 	`total-disbursement-value` DOUBLE NULL
 ) ENGINE=MyISAM;
 
-
 -- Dumping structure for view iatidatamart.iati-view-budget-total
 DROP VIEW IF EXISTS `iati-view-budget-total`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-budget-total`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-budget-total` AS select `fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `fct-budgets` group by `fct-budgets`.`iati-identifier`;
-
 
 -- Dumping structure for view iatidatamart.iati-view-check-totals
 DROP VIEW IF EXISTS `iati-view-check-totals`;
@@ -870,13 +806,11 @@ DROP VIEW IF EXISTS `iati-view-check-totals`;
 DROP TABLE IF EXISTS `iati-view-check-totals`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`log-check-totals` `a` join `log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
 
-
 -- Dumping structure for view iatidatamart.iati-view-funding-organisations
 DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-funding-organisations`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
-
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
@@ -884,13 +818,11 @@ DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 DROP TABLE IF EXISTS `iati-view-implementing-organisations`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
 
-
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
 DROP VIEW IF EXISTS `iati-view-last-date-published`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-last-date-published`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(cast(`a`.`generated-datetime` as datetime)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined')) group by `a`.`publisher-id`,`u`.`url`;
-
 
 -- Dumping structure for view iatidatamart.iati-view-organisations
 DROP VIEW IF EXISTS `iati-view-organisations`;
@@ -898,13 +830,11 @@ DROP VIEW IF EXISTS `iati-view-organisations`;
 DROP TABLE IF EXISTS `iati-view-organisations`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-organisations` AS (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`) union (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`);
 
-
 -- Dumping structure for view iatidatamart.iati-view-timeliness
 DROP VIEW IF EXISTS `iati-view-timeliness`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-timeliness`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-timeliness` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined')) group by `a`.`publisher-id`;
-
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-timeliness` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined') and (`a`.`log-status` = 'Ok')) group by `a`.`publisher-id`;
 
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
@@ -916,7 +846,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Dumping database structure for iatilogging
 CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatilogging`;
-
 
 -- Dumping structure for table iatilogging.log-pdi-etl
 DROP TABLE IF EXISTS `log-pdi-etl`;
@@ -947,8 +876,6 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatilogging.log-pdi-etl-channel
 DROP TABLE IF EXISTS `log-pdi-etl-channel`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl-channel` (
@@ -967,8 +894,6 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-channel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatilogging.log-pdi-etl-job-entry
 DROP TABLE IF EXISTS `log-pdi-etl-job-entry`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
@@ -994,11 +919,9 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 
 -- Data exporting was unselected.
 
-
 -- Dumping database structure for iatireference
 CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatireference`;
-
 
 -- Dumping structure for table iatireference.codelist-activity-status
 DROP TABLE IF EXISTS `codelist-activity-status`;
@@ -1010,8 +933,6 @@ CREATE TABLE IF NOT EXISTS `codelist-activity-status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-date-type
 DROP TABLE IF EXISTS `codelist-date-type`;
 CREATE TABLE IF NOT EXISTS `codelist-date-type` (
@@ -1022,8 +943,6 @@ CREATE TABLE IF NOT EXISTS `codelist-date-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-gazetteer-agency
 DROP TABLE IF EXISTS `codelist-gazetteer-agency`;
 CREATE TABLE IF NOT EXISTS `codelist-gazetteer-agency` (
@@ -1032,8 +951,6 @@ CREATE TABLE IF NOT EXISTS `codelist-gazetteer-agency` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-geographic-exactness
 DROP TABLE IF EXISTS `codelist-geographic-exactness`;
 CREATE TABLE IF NOT EXISTS `codelist-geographic-exactness` (
@@ -1043,8 +960,6 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-exactness` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-geographic-location-class
 DROP TABLE IF EXISTS `codelist-geographic-location-class`;
 CREATE TABLE IF NOT EXISTS `codelist-geographic-location-class` (
@@ -1054,8 +969,6 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-location-class` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-geographic-location-reach
 DROP TABLE IF EXISTS `codelist-geographic-location-reach`;
 CREATE TABLE IF NOT EXISTS `codelist-geographic-location-reach` (
@@ -1065,8 +978,6 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-location-reach` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-geographic-precision
 DROP TABLE IF EXISTS `codelist-geographic-precision`;
 CREATE TABLE IF NOT EXISTS `codelist-geographic-precision` (
@@ -1076,8 +987,6 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-precision` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-geographic-vocabulary
 DROP TABLE IF EXISTS `codelist-geographic-vocabulary`;
 CREATE TABLE IF NOT EXISTS `codelist-geographic-vocabulary` (
@@ -1088,8 +997,6 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-vocabulary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-organisation-type
 DROP TABLE IF EXISTS `codelist-organisation-type`;
 CREATE TABLE IF NOT EXISTS `codelist-organisation-type` (
@@ -1098,8 +1005,6 @@ CREATE TABLE IF NOT EXISTS `codelist-organisation-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.codelist-policy-marker
 DROP TABLE IF EXISTS `codelist-policy-marker`;
 CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
@@ -1108,8 +1013,6 @@ CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.ref-country-classification
 DROP TABLE IF EXISTS `ref-country-classification`;
 CREATE TABLE IF NOT EXISTS `ref-country-classification` (
@@ -1122,8 +1025,6 @@ CREATE TABLE IF NOT EXISTS `ref-country-classification` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.ref-currency-rates
 DROP TABLE IF EXISTS `ref-currency-rates`;
 CREATE TABLE IF NOT EXISTS `ref-currency-rates` (
@@ -1136,8 +1037,6 @@ CREATE TABLE IF NOT EXISTS `ref-currency-rates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.ref-menu-lines
 DROP TABLE IF EXISTS `ref-menu-lines`;
 CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
@@ -1145,8 +1044,6 @@ CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatireference.ref-parameters
 DROP TABLE IF EXISTS `ref-parameters`;
 CREATE TABLE IF NOT EXISTS `ref-parameters` (
@@ -1157,11 +1054,9 @@ CREATE TABLE IF NOT EXISTS `ref-parameters` (
 
 -- Data exporting was unselected.
 
-
 -- Dumping database structure for iatischema
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatischema`;
-
 
 -- Dumping structure for table iatischema.ctl-publishers
 DROP TABLE IF EXISTS `ctl-publishers`;
@@ -1176,11 +1071,9 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.currency-rates
 DROP TABLE IF EXISTS `currency-rates`;
 CREATE TABLE IF NOT EXISTS `currency-rates` (
@@ -1193,8 +1086,6 @@ CREATE TABLE IF NOT EXISTS `currency-rates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-budgets
 DROP TABLE IF EXISTS `dwh-budgets`;
 CREATE TABLE IF NOT EXISTS `dwh-budgets` (
@@ -1247,8 +1138,6 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-descriptions
 DROP TABLE IF EXISTS `dwh-descriptions`;
 CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
@@ -1290,8 +1179,6 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-documents
 DROP TABLE IF EXISTS `dwh-documents`;
 CREATE TABLE IF NOT EXISTS `dwh-documents` (
@@ -1335,8 +1222,6 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-locations
 DROP TABLE IF EXISTS `dwh-locations`;
 CREATE TABLE IF NOT EXISTS `dwh-locations` (
@@ -1383,8 +1268,6 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-organisations
 DROP TABLE IF EXISTS `dwh-organisations`;
 CREATE TABLE IF NOT EXISTS `dwh-organisations` (
@@ -1428,8 +1311,6 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-related
 DROP TABLE IF EXISTS `dwh-related`;
 CREATE TABLE IF NOT EXISTS `dwh-related` (
@@ -1471,8 +1352,6 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-results
 DROP TABLE IF EXISTS `dwh-results`;
 CREATE TABLE IF NOT EXISTS `dwh-results` (
@@ -1525,8 +1404,6 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-transactions
 DROP TABLE IF EXISTS `dwh-transactions`;
 CREATE TABLE IF NOT EXISTS `dwh-transactions` (
@@ -1584,8 +1461,6 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.stg-parent-child-other
 DROP TABLE IF EXISTS `stg-parent-child-other`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
@@ -1597,8 +1472,6 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.stg-parent-child-trx
 DROP TABLE IF EXISTS `stg-parent-child-trx`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
@@ -1613,8 +1486,6 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.stg-parent-child-trx-in
 DROP TABLE IF EXISTS `stg-parent-child-trx-in`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
@@ -1628,11 +1499,9 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
 
 -- Data exporting was unselected.
 
-
 -- Dumping database structure for iatistaging
 CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iatistaging`;
-
 
 -- Dumping structure for table iatistaging.src-act-budgets
 DROP TABLE IF EXISTS `src-act-budgets`;
@@ -1653,8 +1522,6 @@ CREATE TABLE IF NOT EXISTS `src-act-budgets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-countries
 DROP TABLE IF EXISTS `src-act-countries`;
 CREATE TABLE IF NOT EXISTS `src-act-countries` (
@@ -1669,8 +1536,6 @@ CREATE TABLE IF NOT EXISTS `src-act-countries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-data
 DROP TABLE IF EXISTS `src-act-data`;
 CREATE TABLE IF NOT EXISTS `src-act-data` (
@@ -1699,8 +1564,6 @@ CREATE TABLE IF NOT EXISTS `src-act-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-dates
 DROP TABLE IF EXISTS `src-act-dates`;
 CREATE TABLE IF NOT EXISTS `src-act-dates` (
@@ -1716,8 +1579,6 @@ CREATE TABLE IF NOT EXISTS `src-act-dates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-descriptions
 DROP TABLE IF EXISTS `src-act-descriptions`;
 CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
@@ -1732,8 +1593,6 @@ CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-documents
 DROP TABLE IF EXISTS `src-act-documents`;
 CREATE TABLE IF NOT EXISTS `src-act-documents` (
@@ -1751,8 +1610,6 @@ CREATE TABLE IF NOT EXISTS `src-act-documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-locations
 DROP TABLE IF EXISTS `src-act-locations`;
 CREATE TABLE IF NOT EXISTS `src-act-locations` (
@@ -1772,8 +1629,6 @@ CREATE TABLE IF NOT EXISTS `src-act-locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-organisations
 DROP TABLE IF EXISTS `src-act-organisations`;
 CREATE TABLE IF NOT EXISTS `src-act-organisations` (
@@ -1790,8 +1645,6 @@ CREATE TABLE IF NOT EXISTS `src-act-organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-policy-markers
 DROP TABLE IF EXISTS `src-act-policy-markers`;
 CREATE TABLE IF NOT EXISTS `src-act-policy-markers` (
@@ -1807,8 +1660,6 @@ CREATE TABLE IF NOT EXISTS `src-act-policy-markers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-regions
 DROP TABLE IF EXISTS `src-act-regions`;
 CREATE TABLE IF NOT EXISTS `src-act-regions` (
@@ -1823,8 +1674,6 @@ CREATE TABLE IF NOT EXISTS `src-act-regions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-related
 DROP TABLE IF EXISTS `src-act-related`;
 CREATE TABLE IF NOT EXISTS `src-act-related` (
@@ -1839,8 +1688,6 @@ CREATE TABLE IF NOT EXISTS `src-act-related` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-results
 DROP TABLE IF EXISTS `src-act-results`;
 CREATE TABLE IF NOT EXISTS `src-act-results` (
@@ -1867,8 +1714,6 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-sectors
 DROP TABLE IF EXISTS `src-act-sectors`;
 CREATE TABLE IF NOT EXISTS `src-act-sectors` (
@@ -1885,8 +1730,6 @@ CREATE TABLE IF NOT EXISTS `src-act-sectors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-transactions
 DROP TABLE IF EXISTS `src-act-transactions`;
 CREATE TABLE IF NOT EXISTS `src-act-transactions` (
@@ -1915,8 +1758,6 @@ CREATE TABLE IF NOT EXISTS `src-act-transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.stg-act-country-region
 DROP TABLE IF EXISTS `stg-act-country-region`;
 CREATE TABLE IF NOT EXISTS `stg-act-country-region` (
@@ -1931,8 +1772,6 @@ CREATE TABLE IF NOT EXISTS `stg-act-country-region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.stg-act-sectors
 DROP TABLE IF EXISTS `stg-act-sectors`;
 CREATE TABLE IF NOT EXISTS `stg-act-sectors` (
@@ -1949,8 +1788,6 @@ CREATE TABLE IF NOT EXISTS `stg-act-sectors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.stg-act-transactions
 DROP TABLE IF EXISTS `stg-act-transactions`;
 CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
@@ -1978,8 +1815,6 @@ CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-budgets
 DROP TABLE IF EXISTS `xml-act-budgets`;
 CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
@@ -1998,8 +1833,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-countries
 DROP TABLE IF EXISTS `xml-act-countries`;
 CREATE TABLE IF NOT EXISTS `xml-act-countries` (
@@ -2013,8 +1846,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-countries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-data
 DROP TABLE IF EXISTS `xml-act-data`;
 CREATE TABLE IF NOT EXISTS `xml-act-data` (
@@ -2042,8 +1873,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-dates
 DROP TABLE IF EXISTS `xml-act-dates`;
 CREATE TABLE IF NOT EXISTS `xml-act-dates` (
@@ -2058,8 +1887,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-dates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-descriptions
 DROP TABLE IF EXISTS `xml-act-descriptions`;
 CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
@@ -2073,8 +1900,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-documents
 DROP TABLE IF EXISTS `xml-act-documents`;
 CREATE TABLE IF NOT EXISTS `xml-act-documents` (
@@ -2091,8 +1916,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-locations
 DROP TABLE IF EXISTS `xml-act-locations`;
 CREATE TABLE IF NOT EXISTS `xml-act-locations` (
@@ -2111,8 +1934,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-organisations
 DROP TABLE IF EXISTS `xml-act-organisations`;
 CREATE TABLE IF NOT EXISTS `xml-act-organisations` (
@@ -2128,8 +1949,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-policy-markers
 DROP TABLE IF EXISTS `xml-act-policy-markers`;
 CREATE TABLE IF NOT EXISTS `xml-act-policy-markers` (
@@ -2144,8 +1963,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-policy-markers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-regions
 DROP TABLE IF EXISTS `xml-act-regions`;
 CREATE TABLE IF NOT EXISTS `xml-act-regions` (
@@ -2159,8 +1976,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-regions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-related
 DROP TABLE IF EXISTS `xml-act-related`;
 CREATE TABLE IF NOT EXISTS `xml-act-related` (
@@ -2174,8 +1989,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-related` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-results
 DROP TABLE IF EXISTS `xml-act-results`;
 CREATE TABLE IF NOT EXISTS `xml-act-results` (
@@ -2201,8 +2014,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-sectors
 DROP TABLE IF EXISTS `xml-act-sectors`;
 CREATE TABLE IF NOT EXISTS `xml-act-sectors` (
@@ -2218,8 +2029,6 @@ CREATE TABLE IF NOT EXISTS `xml-act-sectors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-transactions
 DROP TABLE IF EXISTS `xml-act-transactions`;
 CREATE TABLE IF NOT EXISTS `xml-act-transactions` (

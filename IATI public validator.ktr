@@ -68,17 +68,17 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;10&#x2f;01 12&#x3a;35&#x3a;03.854</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;01 15&#x3a;15&#x3a;19.364</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;30 08&#x3a;42&#x3a;48.787</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Ignore IATI XSD public validator &#xd;&#xa;test if downloaded file is too big&#xd;&#xa;&#x28;more than 11Mb&#x29;.</note>
-      <xloc>805</xloc>
-      <yloc>61</yloc>
-      <width>192</width>
-      <heigth>55</heigth>
+      <note>Ignore IATI XSD public validator test if downloaded &#xd;&#xa;file is too big &#x28;more than 11Mb&#x29;.</note>
+      <xloc>803</xloc>
+      <yloc>121</yloc>
+      <width>300</width>
+      <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -240,22 +240,33 @@
   <hop> <from>HTTP return code ok&#x3f;</from><to>Select HTTP error fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Select HTTP error fields</from><to>Invalid validator return code</to><enabled>Y</enabled> </hop>
   <hop> <from>XSD test passed&#x3f;</from><to>Select status fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Not to big&#x3f;</from><to>URL&#x27;s for api calls</to><enabled>Y</enabled> </hop>
   <hop> <from>Not to big&#x3f;</from><to>Default XSD results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select status fields</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get XML file size</from><to>Get json url from variable</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get json url from variable</from><to>Rename</to><enabled>Y</enabled> </hop>
-  <hop> <from>Rename</from><to>Not to big&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Default XSD results</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select status fields</from><to>Append 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Append 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get XML file size</from><to>Get url and publisher</to><enabled>Y</enabled> </hop>
+  <hop> <from>Default XSD results</from><to>Write skip of XSD check to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write skip of XSD check to log 2</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>HTTP return code ok&#x3f;</from><to>XSD test passed&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>URL&#x27;s for api calls</from><to>Log api call</to><enabled>Y</enabled> </hop>
   <hop> <from>Log api call</from><to>XSD test</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not to big&#x3f;</from><to>Set url param</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get url and publisher</from><to>Lookup test flag</to><enabled>Y</enabled> </hop>
+  <hop> <from>Lookup test flag</from><to>Rename</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read publishers test flags</from><to>Lookup test flag</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename</from><to>Not a test file&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not a test file&#x3f;</from><to>Not to big&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Default XSD results for test file</from><to>Write skip of XSD check to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write skip of XSD check to log</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not a test file&#x3f;</from><to>Default XSD results for test file</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append 1</from><to>Append 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append 2</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Append 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set url param</from><to>URL encode</to><enabled>Y</enabled> </hop>
+  <hop> <from>URL encode</from><to>Log api call</to><enabled>Y</enabled> </hop>
+  <hop> <from>URL encode</from><to>Select URL encode error fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select URL encode error fields</from><to>Error URL encoding</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Append streams</name>
+    <name>Append 1</name>
     <type>Append</type>
     <description/>
     <distribute>Y</distribute>
@@ -269,8 +280,29 @@
 <tail_name>Select values</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1281</xloc>
-      <yloc>128</yloc>
+      <xloc>1592</xloc>
+      <yloc>188</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append 2</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Append 1</head_name>
+<tail_name>Select values 2</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1699</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -288,8 +320,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1399</xloc>
-      <yloc>129</yloc>
+      <xloc>1799</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -333,8 +365,53 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>539</xloc>
-      <yloc>35</yloc>
+      <xloc>716</xloc>
+      <yloc>94</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Default XSD results for test file</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>xsd-http-status</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>200</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>xsd-test-passed</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Y</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>674</xloc>
+      <yloc>24</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -355,8 +432,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>747</xloc>
-      <yloc>350</yloc>
+      <xloc>997</xloc>
+      <yloc>411</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -394,14 +471,14 @@
     </file>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>42</xloc>
-      <yloc>128</yloc>
+      <xloc>37</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get json url from variable</name>
+    <name>Get url and publisher</name>
     <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
@@ -420,15 +497,27 @@
         <currency/>
         <decimal/>
         <group/>
-        <length>512</length>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>publisher</name>
+        <variable>&#x24;&#x7b;Publisher&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>179</xloc>
-      <yloc>129</yloc>
+      <xloc>174</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -456,8 +545,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>902</xloc>
-      <yloc>128</yloc>
+      <xloc>1159</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -478,8 +567,108 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>904</xloc>
-      <yloc>351</yloc>
+      <xloc>1161</xloc>
+      <yloc>411</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Log api call</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage/>
+    <fields>
+      <field>
+        <name>api-call-host</name>
+        </field>
+      <field>
+        <name>api-call-par-test</name>
+        </field>
+      <field>
+        <name>jsonURL</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>914</xloc>
+      <yloc>190</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Lookup test flag</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Read publishers test flags</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>publisher</name>
+        <field>publisher</field>
+      </key>
+      <value>
+        <name>is-testfile</name>
+        <rename>is-testfile</rename>
+        <default/>
+        <type>Boolean</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>296</xloc>
+      <yloc>188</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Not a test file&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Not to big&#x3f;</send_true_to>
+<send_false_to>Default XSD results for test file</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>is-testfile</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Boolean</type><text>N</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>488</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -495,7 +684,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>URL&#x27;s for api calls</send_true_to>
+<send_true_to>Set url param</send_true_to>
 <send_false_to>Default XSD results</send_false_to>
     <compare>
 <condition>
@@ -507,8 +696,66 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>423</xloc>
-      <yloc>129</yloc>
+      <xloc>600</xloc>
+      <yloc>188</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read publishers test flags</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;is-testfile&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>297</xloc>
+      <yloc>76</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rename</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>jsonURL</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>size</name>
+        <rename>xml-file-size</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>is-testfile</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>398</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -528,7 +775,7 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>api-call-xsd-test</name>
+      </field>      <field>        <name>api-call-host</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -539,8 +786,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>904</xloc>
-      <yloc>251</yloc>
+      <xloc>1161</xloc>
+      <yloc>311</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -567,8 +814,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1166</xloc>
-      <yloc>128</yloc>
+      <xloc>1472</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -588,43 +835,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>api-call-xsd-test</name>
+      </field>      <field>        <name>api-call-host</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>747</xloc>
-      <yloc>250</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Rename</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>jsonURL</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>size</name>
-        <rename>xml-file-size</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>307</xloc>
-      <yloc>129</yloc>
+      <xloc>997</xloc>
+      <yloc>311</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -651,14 +870,42 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1158</xloc>
-      <yloc>34</yloc>
+      <xloc>1499</xloc>
+      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>URL&#x27;s for api calls</name>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>xsd-http-status</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>xsd-test-passed</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1527</xloc>
+      <yloc>24</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set url param</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -668,8 +915,15 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-       <formula><field_name>api-call-xsd-test</field_name>
-<formula_string>&#x22;http&#x3a;&#x2f;&#x2f;validator.iatistandard.org&#x2f;&#x3f;test&#x3d;xsd&#x26;url&#x3d;&#x22;&#x26;&#x5b;jsonURL&#x5d;</formula_string>
+       <formula><field_name>api-call-par-test</field_name>
+<formula_string>&#x22;xsd&#x22;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+       <formula><field_name>api-call-host</field_name>
+<formula_string>&#x22;http&#x3a;&#x2f;&#x2f;validator.iatistandard.org&#x22;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -677,14 +931,49 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>539</xloc>
-      <yloc>129</yloc>
+      <xloc>711</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write to log</name>
+    <name>Write skip of XSD check to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_minimal</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>File &#x24;&#x7b;jsonURL&#x7d; is a testfile and therefore not tested with the IATI public validator</logmessage>
+    <fields>
+      <field>
+        <name>xml-file-size</name>
+        </field>
+      <field>
+        <name>xsd-http-status</name>
+        </field>
+      <field>
+        <name>xsd-test-passed</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1269</xloc>
+      <yloc>24</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write skip of XSD check to log 2</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -703,11 +992,17 @@
       <field>
         <name>xml-file-size</name>
         </field>
+      <field>
+        <name>xsd-http-status</name>
+        </field>
+      <field>
+        <name>xsd-test-passed</name>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1038</xloc>
-      <yloc>34</yloc>
+      <xloc>1273</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -725,8 +1020,8 @@
            </partitioning>
     <url/>
     <urlInField>Y</urlInField>
-    <urlField>api-call-xsd-test</urlField>
-    <encoding>UTF-8</encoding>
+    <urlField>api-call-host</urlField>
+    <encoding>utf-8</encoding>
     <httpLogin/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
@@ -735,6 +1030,14 @@
     <connectionTimeout>30000</connectionTimeout>
     <closeIdleConnectionsTime>-1</closeIdleConnectionsTime>
     <lookup>
+      <arg>
+        <name>api-call-par-test</name>
+        <parameter>test</parameter>
+      </arg>
+      <arg>
+        <name>jsonURL</name>
+        <parameter>url</parameter>
+      </arg>
     </lookup>
     <result>
       <name>result-xsd</name>
@@ -743,8 +1046,8 @@
     </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>747</xloc>
-      <yloc>129</yloc>
+      <xloc>997</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -776,15 +1079,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1038</xloc>
-      <yloc>128</yloc>
+      <xloc>1320</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Log api call</name>
-    <type>WriteToLog</type>
+    <name>URL encode</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -793,20 +1096,71 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage/>
-    <fields>
-      <field>
-        <name>api-call-xsd-test</name>
-        </field>
-      </fields>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#x2f;&#x2f;Script here&#xd;&#xa;java&#xd;&#xa;var url &#x3d; new org.apache.commons.httpclient.URI&#x28;jsonURL&#x29;.toString&#x28;&#x29;&#x3b;&#xd;&#xa;if&#x28;new org.apache.commons.httpclient.URI&#x28;jsonURL&#x29;.getScheme&#x28;&#x29; &#x3d;&#x3d; null&#x29; &#x7b;&#xd;&#xa; url &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;&#x27;&#x2b;url&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>url</name>
+        <rename>jsonURL</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>809</xloc>
+      <yloc>188</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Error URL encoding</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>Error URL encoding &#x24;&#x7b;jsonURL&#x7d;</message>
+      <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>648</xloc>
-      <yloc>130</yloc>
+      <xloc>807</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select URL encode error fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>jsonURL</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>api-call-host</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>806</xloc>
+      <yloc>310</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -815,6 +1169,18 @@
       <error>
         <source_step>XSD test</source_step>
         <target_step>Select validator error fields</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>URL encode</source_step>
+        <target_step>Select URL encode error fields</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

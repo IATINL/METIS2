@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;01&#x2f;28 11&#x3a;39&#x3a;44.117</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;02 12&#x3a;13&#x3a;37.788</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;24 10&#x3a;41&#x3a;18.912</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -234,10 +234,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Filter on job and publisher</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get current job and publisher</from><to>Non current sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Get download log</from><to>Get jobnumber and publisher</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get jobnumber and publisher</from><to>Filter on job and publisher</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter on job and publisher</from><to>Count per status</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get jobnumber and publisher</from><to>Get current job and publisher</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get current job and publisher</from><to>Count per status</to><enabled>Y</enabled> </hop>
   <hop> <from>Count per status</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Row denormaliser</to><enabled>Y</enabled> </hop>
   <hop> <from>If count is null</from><to>Total count</to><enabled>Y</enabled> </hop>
@@ -318,7 +318,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>Action</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;Unchanged count&#x5d;&#x3d;&#x5b;Total count&#x5d;&#x3b;&#x5b;Error count&#x5d;&#x3e;0&#x29;&#x3b;&#x22;Skip&#x22;&#x3b;&#x22;Continue&#x22;&#x29;</formula_string>
+<formula_string>IF&#x28;OR&#x28;&#x5b;Unchanged count&#x5d;&#x3d;&#x28;&#x5b;Total count&#x5d;-&#x5b;Ignore count&#x5d;&#x29;&#x3b;&#x5b;Error count&#x5d;&#x3e;0&#x29;&#x3b;&#x22;Skip&#x22;&#x3b;&#x22;Continue&#x22;&#x29;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -333,26 +333,7 @@
     </step>
 
   <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>367</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter on job and publisher</name>
+    <name>Get current job and publisher</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -363,7 +344,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Count per status</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
+<send_false_to>Non current sink</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -412,8 +393,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>52</xloc>
-      <yloc>162</yloc>
+      <xloc>36</xloc>
+      <yloc>161</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -457,7 +438,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>201</xloc>
+      <xloc>185</xloc>
       <yloc>161</yloc>
       <draw>Y</draw>
       </GUI>
@@ -500,11 +481,36 @@
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
+      <field>
+        <name>Ignore count</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>831</xloc>
       <yloc>162</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Non current sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>367</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -536,7 +542,7 @@
           <target_name>Ok count</target_name>
           <target_type>Integer</target_type>
           <target_format/>
-          <target_length>15</target_length>
+          <target_length>10</target_length>
           <target_precision>0</target_precision>
           <target_decimal_symbol/>
           <target_grouping_symbol/>
@@ -550,7 +556,7 @@
           <target_name>Unchanged count</target_name>
           <target_type>Integer</target_type>
           <target_format/>
-          <target_length>15</target_length>
+          <target_length>10</target_length>
           <target_precision>0</target_precision>
           <target_decimal_symbol/>
           <target_grouping_symbol/>
@@ -566,6 +572,20 @@
           <target_format/>
           <target_length>10</target_length>
           <target_precision>0</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>-</target_aggregation_type>
+          </field>
+        <field>
+          <field_name>count-log-status</field_name>
+          <key_value>Ignore</key_value>
+          <target_name>Ignore count</target_name>
+          <target_type>Integer</target_type>
+          <target_format/>
+          <target_length>10</target_length>
+          <target_precision>-1</target_precision>
           <target_decimal_symbol/>
           <target_grouping_symbol/>
           <target_currency_symbol/>
@@ -667,7 +687,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>Total count</field_name>
-<formula_string>&#x5b;Ok count&#x5d;&#x2b;&#x5b;Unchanged count&#x5d;&#x2b;&#x5b;Error count&#x5d;</formula_string>
+<formula_string>&#x5b;Ok count&#x5d;&#x2b;&#x5b;Unchanged count&#x5d;&#x2b;&#x5b;Error count&#x5d;&#x2b;&#x5b;Ignore count&#x5d;</formula_string>
 <value_type>Integer</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -749,6 +769,9 @@
         </field>
       <field>
         <name>Error count</name>
+        </field>
+      <field>
+        <name>Ignore count</name>
         </field>
       <field>
         <name>Total count</name>
