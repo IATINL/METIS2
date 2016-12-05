@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 14&#x3a;10&#x3a;38.027</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;07&#x2f;04 16&#x3a;54&#x3a;36.739</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;30 15&#x3a;02&#x3a;02.761</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -757,6 +757,21 @@
         <repeat>N</repeat>
       </field>
       <field>
+        <name>result-description</name>
+        <xpath>..&#x2f;..&#x2f;description&#x2f;narrative</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
         <name>indicator-measure-code</name>
         <xpath>..&#x2f;..&#x2f;indicator&#x2f;&#x40;measure</xpath>
         <element_type>attribut</element_type>
@@ -1373,6 +1388,10 @@
         <field>
           <column_name>result-title</column_name>
           <stream_name>result-title</stream_name>
+        </field>
+        <field>
+          <column_name>result-description</column_name>
+          <stream_name>result-description</stream_name>
         </field>
         <field>
           <column_name>indicator-measure-code</column_name>

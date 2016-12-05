@@ -13,7 +13,7 @@
 
 
 -- Dumping database structure for iatidatamart
-CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatidatamart`;
 
 -- Dumping structure for table iatidatamart.dim-activity
@@ -82,7 +82,15 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-budget-type
@@ -163,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=5256 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=5423 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -225,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-budgets
@@ -280,7 +288,15 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-descriptions
@@ -327,7 +343,15 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-documents
@@ -337,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
   `document-title` mediumtext,
   `document-language` varchar(10) DEFAULT NULL,
   `document-url` mediumtext,
-  `document-format` varchar(25) DEFAULT NULL,
+  `document-format` varchar(50) DEFAULT NULL,
   `document-type-code` char(3) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -377,7 +401,15 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-locations
@@ -430,7 +462,15 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-organisations
@@ -480,7 +520,15 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-results
@@ -510,6 +558,7 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `buza-descendant-level` int(11) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
+  `result-description` mediumtext,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
@@ -539,7 +588,15 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-transactions
@@ -600,7 +657,15 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-archive
@@ -733,6 +798,24 @@ CREATE TABLE `iati-view-funding-organisations` (
 	`transaction-value-eur` DOUBLE NULL
 ) ENGINE=MyISAM;
 
+-- Dumping structure for view iatidatamart.iati-view-gephi-edges
+DROP VIEW IF EXISTS `iati-view-gephi-edges`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `iati-view-gephi-edges` (
+	`Source` CHAR(100) NULL COLLATE 'utf8_general_ci',
+	`Target` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`Label` VARCHAR(64) NULL COLLATE 'utf8_general_ci',
+	`Weigth` DOUBLE NULL
+) ENGINE=MyISAM;
+
+-- Dumping structure for view iatidatamart.iati-view-gephi-nodes
+DROP VIEW IF EXISTS `iati-view-gephi-nodes`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `iati-view-gephi-nodes` (
+	`Id` CHAR(100) NULL COLLATE 'utf8_general_ci',
+	`Label` VARCHAR(64) NULL COLLATE 'utf8_general_ci'
+) ENGINE=MyISAM;
+
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -798,53 +881,65 @@ CREATE TABLE `iati-view-total-disbursements` (
 DROP VIEW IF EXISTS `iati-view-budget-total`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-budget-total`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-budget-total` AS select `fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `fct-budgets` group by `fct-budgets`.`iati-identifier`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-budget-total` AS select `iatidatamart`.`fct-budgets`.`iati-identifier` AS `iati-identifier`,sum(`iatidatamart`.`fct-budgets`.`budget-value-eur`) AS `budget-value (EUR)` from `iatidatamart`.`fct-budgets` group by `iatidatamart`.`fct-budgets`.`iati-identifier`;
 
 -- Dumping structure for view iatidatamart.iati-view-check-totals
 DROP VIEW IF EXISTS `iati-view-check-totals`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-check-totals`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`log-check-totals` `a` join `log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-check-totals` AS select `a`.`job-number` AS `job-number`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,`a`.`subject` AS `subject`,`a`.`step` AS `step-source`,`b`.`step` AS `step-target`,`a`.`check-total` AS `check-total-source`,`b`.`check-total` AS `check-total-target` from (`iatidatamart`.`log-check-totals` `a` join `iatidatamart`.`log-check-totals` `b`) where ((`a`.`job-number` = `b`.`job-number`) and (`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `b`.`url-id`) and (`a`.`subject` = `b`.`subject`) and (`a`.`step` <> `b`.`step`)) group by `a`.`job-number`,`a`.`publisher-id`,`a`.`url-id`,`a`.`subject`;
 
 -- Dumping structure for view iatidatamart.iati-view-funding-organisations
 DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-funding-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+
+-- Dumping structure for view iatidatamart.iati-view-gephi-edges
+DROP VIEW IF EXISTS `iati-view-gephi-edges`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `iati-view-gephi-edges`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-gephi-edges` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `Source`,`iatidatamart`.`fct-transactions`.`provider-org-activity-id` AS `Target`,`iatidatamart`.`fct-transactions`.`publisher-name` AS `Label`,sum(`iatidatamart`.`fct-transactions`.`transaction-value-eur`) AS `Weigth` from `iatidatamart`.`fct-transactions` where ((`iatidatamart`.`fct-transactions`.`provider-org-activity-id` <> 'Unspecified') and (`iatidatamart`.`fct-transactions`.`buza-descendant-yn` = 'Y') and ((`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IF') or (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IC'))) group by `iatidatamart`.`fct-transactions`.`iati-identifier`,`iatidatamart`.`fct-transactions`.`provider-org-activity-id`;
+
+-- Dumping structure for view iatidatamart.iati-view-gephi-nodes
+DROP VIEW IF EXISTS `iati-view-gephi-nodes`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `iati-view-gephi-nodes`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-gephi-nodes` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `Id`,`iatidatamart`.`fct-transactions`.`publisher-name` AS `Label` from `iatidatamart`.`fct-transactions` where ((`iatidatamart`.`fct-transactions`.`provider-org-activity-id` <> 'Unspecified') and (`iatidatamart`.`fct-transactions`.`buza-descendant-yn` = 'Y') and ((`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IF') or (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IC'))) group by `iatidatamart`.`fct-transactions`.`iati-identifier`;
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-implementing-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-implementing-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
 
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
 DROP VIEW IF EXISTS `iati-view-last-date-published`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-last-date-published`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(cast(`a`.`generated-datetime` as datetime)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined')) group by `a`.`publisher-id`,`u`.`url`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-last-date-published` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`u`.`url` AS `url`,`a`.`publisher-id` AS `publisher-id`,`a`.`url-id` AS `url-id`,max(`a`.`publisher-job-url-start-date-time`) AS `start-date`,max(cast(`a`.`generated-datetime` as datetime)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined')) group by `a`.`publisher-id`,`u`.`url`;
 
 -- Dumping structure for view iatidatamart.iati-view-organisations
 DROP VIEW IF EXISTS `iati-view-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-organisations`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-organisations` AS (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`) union (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`fct-organisations` `a` join `fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-organisations` AS (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`receiver-org-id`)))) where ((`a`.`participating-org-role-code` = '4') and ((`t`.`transaction-type-code` = 'D') or (`t`.`transaction-type-code` = 'E'))) group by `a`.`iati-identifier`,`a`.`participating-org-id`) union (select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`);
 
 -- Dumping structure for view iatidatamart.iati-view-timeliness
 DROP VIEW IF EXISTS `iati-view-timeliness`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-timeliness`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-timeliness` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined') and (`a`.`log-status` = 'Ok')) group by `a`.`publisher-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-timeliness` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined') and (`a`.`log-status` = 'Ok')) group by `a`.`publisher-id`;
 
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-total-disbursements`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iati-view-total-disbursements` AS select `fct-transactions`.`iati-identifier` AS `iati-identifier`,`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `fct-transactions` where (`fct-transactions`.`transaction-type-code` = 'D') group by `fct-transactions`.`iati-identifier`,`fct-transactions`.`transaction-type-code`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-total-disbursements` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`iatidatamart`.`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `iatidatamart`.`fct-transactions` where (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'D') group by `iatidatamart`.`fct-transactions`.`iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code`;
 
 
 -- Dumping database structure for iatilogging
-CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatilogging`;
 
 -- Dumping structure for table iatilogging.log-pdi-etl
@@ -873,7 +968,7 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl` (
   `CLIENT` varchar(255) DEFAULT NULL,
   KEY `IDX_log-pdi-etl_1` (`ID_JOB`),
   KEY `IDX_log-pdi-etl_2` (`ERRORS`,`STATUS`,`JOBNAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatilogging.log-pdi-etl-channel
@@ -891,7 +986,7 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-channel` (
   `OBJECT_REVISION` varchar(255) DEFAULT NULL,
   `PARENT_CHANNEL_ID` varchar(255) DEFAULT NULL,
   `ROOT_CHANNEL_ID` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatilogging.log-pdi-etl-job-entry
@@ -915,12 +1010,12 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
   `LOG_FIELD` mediumtext,
   `COPY_NR` int(11) DEFAULT NULL,
   KEY `IDX_log-pdi-etl-job-entry_1` (`ID_BATCH`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatireference
-CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatireference`;
 
 -- Dumping structure for table iatireference.codelist-activity-status
@@ -1055,7 +1150,7 @@ CREATE TABLE IF NOT EXISTS `ref-parameters` (
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatischema
-CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatischema`;
 
 -- Dumping structure for table iatischema.ctl-publishers
@@ -1071,7 +1166,7 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.currency-rates
@@ -1135,7 +1230,15 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-descriptions
@@ -1176,7 +1279,15 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-documents
@@ -1186,7 +1297,7 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
   `document-title` mediumtext,
   `document-language` varchar(10) DEFAULT NULL,
   `document-url` mediumtext,
-  `document-format` varchar(25) DEFAULT NULL,
+  `document-format` varchar(50) DEFAULT NULL,
   `document-type-code` char(3) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -1219,7 +1330,15 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-locations
@@ -1265,7 +1384,15 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-organisations
@@ -1308,7 +1435,15 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-related
@@ -1349,7 +1484,15 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-results
@@ -1374,6 +1517,7 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
+  `result-description` mediumtext,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`)
@@ -1401,7 +1545,15 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-transactions
@@ -1458,7 +1610,15 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
- PARTITION wemos VALUES IN (27) ENGINE = InnoDB) */;
+ PARTITION wemos VALUES IN (27) ENGINE = InnoDB,
+ PARTITION aanl VALUES IN (28) ENGINE = InnoDB,
+ PARTITION cfyas VALUES IN (29) ENGINE = InnoDB,
+ PARTITION dance4life VALUES IN (30) ENGINE = InnoDB,
+ PARTITION stichting_hivos VALUES IN (31) ENGINE = InnoDB,
+ PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
+ PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
+ PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.stg-parent-child-other
@@ -1500,7 +1660,7 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatistaging
-CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatistaging`;
 
 -- Dumping structure for table iatistaging.src-act-budgets
@@ -1710,7 +1870,8 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL,
-  `baseline-comment` text
+  `baseline-comment` text,
+  `result-description` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -2010,7 +2171,8 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
-  `baseline-comment` text
+  `baseline-comment` text,
+  `result-description` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.

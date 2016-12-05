@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;25 11&#x3a;33&#x3a;44.268</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;28 10&#x3a;08&#x3a;37.726</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;05 14&#x3a;03&#x3a;57.019</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -95,7 +95,7 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Calculate for each incoming transaction if it is cofinancing an &#xd;&#xa;activity which is directly or indirectly financed by the Netherlands &#xd;&#xa;Ministry of Foreign Affairs. Do for each IATI activity&#x3a;&#xd;&#xa;- select all incoming fund transactions which are directly or indirectly funded by a BZ ancestor&#xd;&#xa;- select the first BZ ancestor activity if more than one BZ ancestor activity is selected&#xd;&#xa;- update the IF transactions which are NOT directly or indirectly funded to BZ with the BZ ancestor &#xd;&#xa;	activity id. Set the confinance flag for the updated activities to Y&#x28;es&#x29; </note>
+      <note>Calculate for each incoming transaction if it is cofinancing an &#xd;&#xa;activity which is directly or indirectly financed by the Netherlands &#xd;&#xa;Ministry of Foreign Affairs. Do for each IATI activity&#x3a;&#xd;&#xa;- select all incoming fund transactions which are directly or indirectly funded by a BZ ancestor&#xd;&#xa;- select the first BZ ancestor activity if more than one BZ ancestor activity is selected&#xd;&#xa;- update the IF transactions which are NOT directly or indirectly funded to BZ with the BZ ancestor &#xd;&#xa;  activity id. Set the confinance flag  and BZ ancestor flag for the updated activities to Y&#x28;es&#x29; </note>
       <xloc>4561</xloc>
       <yloc>370</yloc>
       <width>579</width>
@@ -468,7 +468,7 @@
   <hop> <from>Sort outgoing</from><to>Merge outgoing</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort outgoing pc list</from><to>Merge outgoing</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove outgoing 0 trx</from><to>Outging zero sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add cofin descendants</from><to>Update buza ancestor act id</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add cofin descendants</from><to>Update link fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Is BZ descendant&#x3f;</from><to>Get first BZ descendant by activity</to><enabled>Y</enabled> </hop>
   <hop> <from>Is BZ descendant&#x3f;</from><to>Other sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Is incoming&#x3f;</from><to>Outgoing sink</to><enabled>Y</enabled> </hop>
@@ -481,7 +481,7 @@
   <hop> <from>Is incoming&#x3f;</from><to>Is BZ descendant&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Get first BZ descendant by activity</from><to>Set merge keys</to><enabled>Y</enabled> </hop>
   <hop> <from>Set merge keys</from><to>Sort cofin rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Update buza ancestor act id</from><to>Lookup publisher name</to><enabled>Y</enabled> </hop>
+  <hop> <from>Update link fields</from><to>Lookup publisher name</to><enabled>Y</enabled> </hop>
   <hop> <from>Missing ancestor id</from><to>Weigh outgoing trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort prov act</from><to>Unique prov act</to><enabled>Y</enabled> </hop>
   <hop> <from>Select table fields</from><to>Write transactions to facts</to><enabled>Y</enabled> </hop>
@@ -1294,7 +1294,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-id&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;sector-code&#x60;&#xd;&#xa;, &#x60;sector-percentage&#x60;&#xd;&#xa;, &#x60;recipient-country-code&#x60;&#xd;&#xa;, &#x60;recipient-region-code&#x60;&#xd;&#xa;, &#x60;country-region-percentage&#x60;&#xd;&#xa;, currency&#xd;&#xa;, &#x60;transaction-value&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;transaction-value-eur&#x60;&#xd;&#xa;FROM iatischema.&#x60;dwh-transactions&#x60;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-id&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;sector-code&#x60;&#xd;&#xa;, &#x60;sector-percentage&#x60;&#xd;&#xa;, &#x60;recipient-country-code&#x60;&#xd;&#xa;, &#x60;recipient-region-code&#x60;&#xd;&#xa;, &#x60;country-region-percentage&#x60;&#xd;&#xa;, currency&#xd;&#xa;, &#x60;transaction-value&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;transaction-value-eur&#x60;&#xd;&#xa;FROM iatischema.&#x60;dwh-transactions&#x60;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1639,8 +1639,8 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
@@ -1887,6 +1887,25 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1065</xloc>
       <yloc>346</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>No level change</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>526</xloc>
+      <yloc>280</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3653,7 +3672,7 @@
     </step>
 
   <step>
-    <name>Update buza ancestor act id</name>
+    <name>Update link fields</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -3671,11 +3690,18 @@
 <replace_field>buza-ancestor-activity-id</replace_field>
 </formula>
        <formula><field_name>tmp2</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;cofinance-level&#x5d;&#x29;&#x3b;&#x5b;buza-descendant-level&#x5d;&#x3b;&#x5b;cofinance-level&#x5d;&#x29;</formula_string>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;cofinance-id&#x5d;&#x29;&#x3b;&#x5b;buza-descendant-level&#x5d;&#x3b;&#x5b;cofinance-level&#x5d;&#x29;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
 <replace_field>buza-descendant-level</replace_field>
+</formula>
+       <formula><field_name>tmp3</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;cofinance-id&#x5d;&#x29;&#x3b;&#x5b;buza-descendant-yn&#x5d;&#x3b;&#x22;Y&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>buza-descendant-yn</replace_field>
 </formula>
        <formula><field_name>cofinance-yn</field_name>
 <formula_string>IF&#x28;ISBLANK&#x28;&#x5b;cofinance-id&#x5d;&#x29;&#x3b;&#x22;N&#x22;&#x3b;&#x22;Y&#x22;&#x29;</formula_string>
@@ -3859,25 +3885,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>7068</xloc>
       <yloc>338</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>No level change</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>526</xloc>
-      <yloc>280</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
