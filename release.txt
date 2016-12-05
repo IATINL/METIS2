@@ -14,3 +14,4 @@ Version 2.01 Process all job added, improved partition handling of new and delet
 Version 2.02 Add the generation of PDF activity and result summaries. This replaces the HTLM pages
 Version 2.46 Redesigned archive handling, added IATI filetype check, adjusted DB fields lengths. minor bug fixes
 Version 2.71 Simplified the attribution model, several minor bug fixes, enabled URL encoding for API calls
+Version 2.77 Added publisher-name to fact-results, increased publisher-name field width
