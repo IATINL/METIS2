@@ -11,11 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Dumping database structure for iatidatamart
-CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatidatamart`;
-
 -- Dumping structure for table iatidatamart.dim-activity
 DROP TABLE IF EXISTS `dim-activity`;
 CREATE TABLE IF NOT EXISTS `dim-activity` (
@@ -90,7 +85,9 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-budget-type
@@ -171,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=5423 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=5549 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -233,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-budgets
@@ -296,7 +293,9 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-descriptions
@@ -351,7 +350,9 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-documents
@@ -409,7 +410,9 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-locations
@@ -470,7 +473,9 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-organisations
@@ -528,7 +533,9 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-results
@@ -536,18 +543,25 @@ DROP TABLE IF EXISTS `fct-results`;
 CREATE TABLE IF NOT EXISTS `fct-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
+  `result-aggregation-status` bit(1) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` mediumtext,
   `indicator-description` mediumtext,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
+  `baseline-is-number` bit(1) DEFAULT NULL,
+  `baseline-total` double DEFAULT NULL,
   `baseline-comment` text,
   `period-start` date DEFAULT NULL,
   `period-end` date DEFAULT NULL,
   `actual-value` tinytext,
+  `actual-is-number` bit(1) DEFAULT NULL,
+  `actual-total` double DEFAULT NULL,
   `actual-comment` text,
   `target-value` tinytext,
+  `target-is-number` bit(1) DEFAULT NULL,
+  `target-total` double DEFAULT NULL,
   `target-comment` text,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -559,6 +573,7 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   `result-description` mediumtext,
+  `publisher-name` varchar(128) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
@@ -596,7 +611,9 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-transactions
@@ -618,7 +635,7 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
   `transaction-value-eur` double DEFAULT NULL,
   `currency` tinytext,
   `publisher` char(21) DEFAULT NULL,
-  `publisher-name` varchar(64) DEFAULT NULL,
+  `publisher-name` varchar(128) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
@@ -665,7 +682,9 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-archive
@@ -804,7 +823,7 @@ DROP VIEW IF EXISTS `iati-view-gephi-edges`;
 CREATE TABLE `iati-view-gephi-edges` (
 	`Source` CHAR(100) NULL COLLATE 'utf8_general_ci',
 	`Target` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
-	`Label` VARCHAR(64) NULL COLLATE 'utf8_general_ci',
+	`Label` VARCHAR(128) NULL COLLATE 'utf8_general_ci',
 	`Weigth` DOUBLE NULL
 ) ENGINE=MyISAM;
 
@@ -813,7 +832,7 @@ DROP VIEW IF EXISTS `iati-view-gephi-nodes`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-gephi-nodes` (
 	`Id` CHAR(100) NULL COLLATE 'utf8_general_ci',
-	`Label` VARCHAR(64) NULL COLLATE 'utf8_general_ci'
+	`Label` VARCHAR(128) NULL COLLATE 'utf8_general_ci'
 ) ENGINE=MyISAM;
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
@@ -835,7 +854,7 @@ DROP VIEW IF EXISTS `iati-view-last-date-published`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-last-date-published` (
 	`publisher` CHAR(21) NOT NULL COLLATE 'utf8_general_ci',
-	`publisher-name` VARCHAR(64) NULL COLLATE 'utf8_general_ci',
+	`publisher-name` VARCHAR(128) NULL COLLATE 'utf8_general_ci',
 	`url` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
 	`publisher-id` BIGINT(20) NULL,
 	`url-id` BIGINT(20) NULL,
@@ -862,7 +881,36 @@ DROP VIEW IF EXISTS `iati-view-timeliness`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-timeliness` (
 	`publisher` CHAR(21) NOT NULL COLLATE 'utf8_general_ci',
-	`publisher-name` VARCHAR(64) NULL COLLATE 'utf8_general_ci',
+	`publisher-name` VARCHAR(128) NULL COLLATE 'utf8_general_ci',
+	`publisher-id` BIGINT(20) NULL,
+	`start-date` DATE NULL,
+	`generated-datetime` DATE NULL
+) ENGINE=MyISAM;
+
+-- Dumping structure for view iatidatamart.iati-view-timeliness-body
+DROP VIEW IF EXISTS `iati-view-timeliness-body`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `iati-view-timeliness-body` (
+	`publisher` CHAR(21) NOT NULL COLLATE 'utf8_general_ci',
+	`publisher-name` VARCHAR(128) NULL COLLATE 'utf8_general_ci',
+	`publisher-id` BIGINT(20) NULL,
+	`generated-datetime` DATE NULL
+) ENGINE=MyISAM;
+
+-- Dumping structure for view iatidatamart.iati-view-timeliness-max-start-date
+DROP VIEW IF EXISTS `iati-view-timeliness-max-start-date`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `iati-view-timeliness-max-start-date` (
+	`publisher-id` BIGINT(20) NULL,
+	`start-date` DATE NULL
+) ENGINE=MyISAM;
+
+-- Dumping structure for view iatidatamart.iati-view-timeliness-old
+DROP VIEW IF EXISTS `iati-view-timeliness-old`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `iati-view-timeliness-old` (
+	`publisher` CHAR(21) NOT NULL COLLATE 'utf8_general_ci',
+	`publisher-name` VARCHAR(128) NULL COLLATE 'utf8_general_ci',
 	`publisher-id` BIGINT(20) NULL,
 	`start-date` DATE NULL,
 	`generated-datetime` DATE NULL
@@ -929,18 +977,31 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP VIEW IF EXISTS `iati-view-timeliness`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-timeliness`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-timeliness` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined') and (`a`.`log-status` = 'Ok')) group by `a`.`publisher-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-timeliness` AS select `a`.`publisher` AS `publisher`,`a`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,`b`.`start-date` AS `start-date`,`a`.`generated-datetime` AS `generated-datetime` from (`iatidatamart`.`iati-view-timeliness-body` `a` join `iatidatamart`.`iati-view-timeliness-max-start-date` `b` on((`a`.`publisher-id` = `b`.`publisher-id`)));
+
+-- Dumping structure for view iatidatamart.iati-view-timeliness-body
+DROP VIEW IF EXISTS `iati-view-timeliness-body`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `iati-view-timeliness-body`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-timeliness-body` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined') and (`a`.`log-status` = 'Ok')) group by `a`.`publisher-id`;
+
+-- Dumping structure for view iatidatamart.iati-view-timeliness-max-start-date
+DROP VIEW IF EXISTS `iati-view-timeliness-max-start-date`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `iati-view-timeliness-max-start-date`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-timeliness-max-start-date` AS select `a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date` from `iatidatamart`.`log-publisher-job-url` `a` group by `a`.`publisher-id`;
+
+-- Dumping structure for view iatidatamart.iati-view-timeliness-old
+DROP VIEW IF EXISTS `iati-view-timeliness-old`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `iati-view-timeliness-old`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-timeliness-old` AS select `b`.`publisher` AS `publisher`,`b`.`publisher-name` AS `publisher-name`,`a`.`publisher-id` AS `publisher-id`,max(cast(`a`.`publisher-job-url-start-date-time` as date)) AS `start-date`,max(cast(`a`.`generated-datetime` as date)) AS `generated-datetime` from ((`iatidatamart`.`log-publisher-job-url` `a` join `iatischema`.`ctl-publishers` `b`) join `iatidatamart`.`dim-url` `u`) where ((`a`.`publisher-id` = `b`.`publisher-id`) and (`a`.`url-id` = `u`.`url-id`) and (`a`.`generated-datetime` <> 'Not defined') and (`a`.`log-status` = 'Ok')) group by `a`.`publisher-id`;
 
 -- Dumping structure for view iatidatamart.iati-view-total-disbursements
 DROP VIEW IF EXISTS `iati-view-total-disbursements`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-total-disbursements`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-total-disbursements` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code` AS `transaction-type-code`,sum(`iatidatamart`.`fct-transactions`.`transaction-value-eur`) AS `total-disbursement-value` from `iatidatamart`.`fct-transactions` where (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'D') group by `iatidatamart`.`fct-transactions`.`iati-identifier`,`iatidatamart`.`fct-transactions`.`transaction-type-code`;
-
-
--- Dumping database structure for iatilogging
-CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatilogging`;
 
 -- Dumping structure for table iatilogging.log-pdi-etl
 DROP TABLE IF EXISTS `log-pdi-etl`;
@@ -1013,11 +1074,6 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
--- Dumping database structure for iatireference
-CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatireference`;
-
 -- Dumping structure for table iatireference.codelist-activity-status
 DROP TABLE IF EXISTS `codelist-activity-status`;
 CREATE TABLE IF NOT EXISTS `codelist-activity-status` (
@@ -1148,11 +1204,6 @@ CREATE TABLE IF NOT EXISTS `ref-parameters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
--- Dumping database structure for iatischema
-CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatischema`;
-
 -- Dumping structure for table iatischema.ctl-publishers
 DROP TABLE IF EXISTS `ctl-publishers`;
 CREATE TABLE IF NOT EXISTS `ctl-publishers` (
@@ -1162,11 +1213,11 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   `force-processing` bit(1) NOT NULL DEFAULT b'0',
   `testfile-location` varchar(256) DEFAULT NULL,
   `is-testfile` bit(1) NOT NULL DEFAULT b'0',
-  `publisher-name` varchar(64) DEFAULT NULL,
+  `publisher-name` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.currency-rates
@@ -1238,7 +1289,9 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-descriptions
@@ -1287,7 +1340,9 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-documents
@@ -1338,7 +1393,9 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-locations
@@ -1392,7 +1449,9 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-organisations
@@ -1443,7 +1502,9 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-related
@@ -1492,7 +1553,9 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-results
@@ -1500,6 +1563,7 @@ DROP TABLE IF EXISTS `dwh-results`;
 CREATE TABLE IF NOT EXISTS `dwh-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
+  `result-aggregation-status` bit(1) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` mediumtext,
@@ -1553,7 +1617,9 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-transactions
@@ -1618,7 +1684,9 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION rutgers VALUES IN (32) ENGINE = InnoDB,
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
- PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB) */;
+ PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION test VALUES IN (38) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.stg-parent-child-other
@@ -1658,11 +1726,6 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
--- Dumping database structure for iatistaging
-CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatistaging`;
-
 -- Dumping structure for table iatistaging.src-act-budgets
 DROP TABLE IF EXISTS `src-act-budgets`;
 CREATE TABLE IF NOT EXISTS `src-act-budgets` (
@@ -1853,6 +1916,7 @@ DROP TABLE IF EXISTS `src-act-results`;
 CREATE TABLE IF NOT EXISTS `src-act-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
+  `result-aggregation-status` bit(1) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` mediumtext,
@@ -2155,6 +2219,7 @@ DROP TABLE IF EXISTS `xml-act-results`;
 CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
+  `result-aggregation-status` bit(1) DEFAULT NULL,
   `result-title` tinytext,
   `indicator-measure-code` tinytext,
   `indicator-title` mediumtext,

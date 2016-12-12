@@ -3089,7 +3089,7 @@
         </drill-path>
       </drill-paths>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-transactions.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:26:28 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-transactions.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:31:12 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0530914143723690]' value='[Extract].[Calculation_0530914143723690]' />
@@ -3245,7 +3245,7 @@
             <calculation column='[Transaction-Type-Code (Dim-Transaction-Type) (group)]' formula='CASE [transaction-type-code (dim-transaction-type)]&#10;  WHEN &quot;C&quot; THEN &quot;C&quot;&#10;  WHEN &quot;CG&quot; THEN &quot;CG&quot;&#10;  WHEN &quot;D&quot; THEN &quot;D&quot;&#10;  WHEN &quot;E&quot; THEN &quot;D&quot;&#10;  WHEN &quot;IC&quot; THEN &quot;IC&quot;&#10;  WHEN &quot;IF&quot; THEN &quot;IF&quot;&#10;  ELSE [transaction-type-code (dim-transaction-type)]&#10;END' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='88214' timestamp-start='2016-12-09 08:26:28.006' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='88216' timestamp-start='2016-12-12 08:31:11.979' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -3287,7 +3287,7 @@
               <ordinal>1</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>3427</approx-count>
+              <approx-count>3428</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-2127240.6000000001</statistic>
@@ -3948,7 +3948,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4096</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>71</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>70</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -4131,7 +4131,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>72</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>71</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -4387,7 +4387,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4450,7 +4450,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5074,7 +5074,7 @@
               <family>dim-receiver-org</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>3327</approx-count>
+              <approx-count>3326</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
@@ -5124,7 +5124,7 @@
               <family>dim-receiver-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>3327</approx-count>
+              <approx-count>3326</approx-count>
               <scale>1</scale>
               <width>1024</width>
               <contains-null>false</contains-null>
@@ -5186,7 +5186,7 @@
               <family>dim-receiver-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>320</approx-count>
+              <approx-count>327</approx-count>
               <scale>1</scale>
               <width>100</width>
               <contains-null>false</contains-null>
@@ -5217,13 +5217,13 @@
               <family>dim-provider-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>25</approx-count>
+              <approx-count>28</approx-count>
               <scale>1</scale>
               <width>100</width>
               <contains-null>false</contains-null>
               <collation flag='0' name='binary' />
               <statistics>
-                <statistic aggregation='Min' datatype='string'>&quot;504222&quot;</statistic>
+                <statistic aggregation='Min' datatype='string'>&quot;0020000287&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7&quot;</statistic>
               </statistics>
               <attributes>
@@ -5232,7 +5232,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>400</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>70</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>72</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -5279,7 +5279,7 @@
               <family>dim-provider-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>6</approx-count>
+              <approx-count>7</approx-count>
               <scale>1</scale>
               <width>2</width>
               <contains-null>true</contains-null>
@@ -5294,7 +5294,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>57</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>60</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -5341,14 +5341,14 @@
               <family>dim-provider-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>6</approx-count>
+              <approx-count>7</approx-count>
               <scale>1</scale>
               <width>85</width>
               <contains-null>true</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Government&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;Private Sector&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Public Private Partnership&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5356,7 +5356,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>340</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>58</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>61</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -5466,7 +5466,7 @@
               <family>dim-provider-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>21</approx-count>
+              <approx-count>22</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
@@ -5497,13 +5497,13 @@
               <family>dim-receiver-org</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>30</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
-                <statistic aggregation='Min' datatype='string'>&quot;aa&quot;</statistic>
+                <statistic aggregation='Min' datatype='string'>&quot;aanl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
               </statistics>
               <attributes>
@@ -6461,7 +6461,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>59</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>57</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -6492,7 +6492,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>60</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>58</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -6523,7 +6523,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>61</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>59</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -6539,7 +6539,7 @@
               <family>fct-transactions</family>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>47363</approx-count>
+              <approx-count>47364</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-737410000.0</statistic>
@@ -6722,7 +6722,7 @@
               <remote-alias>Calculation_0810913163601761</remote-alias>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>3329</approx-count>
+              <approx-count>3328</approx-count>
               <scale>1</scale>
               <width>1024</width>
               <contains-null>false</contains-null>
@@ -6987,7 +6987,7 @@
           <groupfilter function='member' level='[Calculation_3661117150018702]' member='&quot;Y&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
         </filter>
       </extract>
-      <layout dim-ordering='alphabetic' dim-percentage='0.406417' group-percentage='0.0475138' measure-ordering='alphabetic' measure-percentage='0.190374' rowDisplayCount='10000' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.433149' group-percentage='0.0475138' measure-ordering='alphabetic' measure-percentage='0.159116' rowDisplayCount='10000' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:transaction-type-name:nk]' type='palette'>
@@ -7351,8 +7351,12 @@
           <map key='[activity-title]' value='[dim-activity].[activity-title]' />
           <map key='[activity-website]' value='[dim-activity].[activity-website]' />
           <map key='[actual-comment]' value='[fct-results].[actual-comment]' />
+          <map key='[actual-is-number]' value='[fct-results].[actual-is-number]' />
+          <map key='[actual-total]' value='[fct-results].[actual-total]' />
           <map key='[actual-value]' value='[fct-results].[actual-value]' />
           <map key='[baseline-comment]' value='[fct-results].[baseline-comment]' />
+          <map key='[baseline-is-number]' value='[fct-results].[baseline-is-number]' />
+          <map key='[baseline-total]' value='[fct-results].[baseline-total]' />
           <map key='[baseline-value]' value='[fct-results].[baseline-value]' />
           <map key='[baseline-year]' value='[fct-results].[baseline-year]' />
           <map key='[buza-ancestor-activity-id]' value='[fct-results].[buza-ancestor-activity-id]' />
@@ -7407,6 +7411,8 @@
           <map key='[start-actual]' value='[dim-activity].[start-actual]' />
           <map key='[start-planned]' value='[dim-activity].[start-planned]' />
           <map key='[target-comment]' value='[fct-results].[target-comment]' />
+          <map key='[target-is-number]' value='[fct-results].[target-is-number]' />
+          <map key='[target-total]' value='[fct-results].[target-total]' />
           <map key='[target-value]' value='[fct-results].[target-value]' />
           <map key='[url-id (dim-activity)]' value='[dim-activity].[url-id]' />
           <map key='[url-id]' value='[fct-results].[url-id]' />
@@ -7883,12 +7889,108 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>baseline-is-number</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[baseline-is-number]</local-name>
+            <parent-name>[fct-results]</parent-name>
+            <remote-alias>baseline-is-number</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>baseline-total</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[baseline-total]</local-name>
+            <parent-name>[fct-results]</parent-name>
+            <remote-alias>baseline-total</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>actual-is-number</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[actual-is-number]</local-name>
+            <parent-name>[fct-results]</parent-name>
+            <remote-alias>actual-is-number</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>actual-total</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[actual-total]</local-name>
+            <parent-name>[fct-results]</parent-name>
+            <remote-alias>actual-total</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>target-is-number</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[target-is-number]</local-name>
+            <parent-name>[fct-results]</parent-name>
+            <remote-alias>target-is-number</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>target-total</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[target-total]</local-name>
+            <parent-name>[fct-results]</parent-name>
+            <remote-alias>target-total</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>result-type-code</remote-name>
             <remote-type>3</remote-type>
             <local-name>[result-type-code (dim-result-type)]</local-name>
             <parent-name>[dim-result-type]</parent-name>
             <remote-alias>result-type-code</remote-alias>
-            <ordinal>28</ordinal>
+            <ordinal>34</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -7904,7 +8006,7 @@
             <local-name>[result-type-name]</local-name>
             <parent-name>[dim-result-type]</parent-name>
             <remote-alias>result-type-name</remote-alias>
-            <ordinal>29</ordinal>
+            <ordinal>35</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -7922,7 +8024,7 @@
             <local-name>[indicator-measure-code (dim-indicator-measure)]</local-name>
             <parent-name>[dim-indicator-measure]</parent-name>
             <remote-alias>indicator-measure-code</remote-alias>
-            <ordinal>30</ordinal>
+            <ordinal>36</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -7938,7 +8040,7 @@
             <local-name>[indicator-measure-name]</local-name>
             <parent-name>[dim-indicator-measure]</parent-name>
             <remote-alias>indicator-measure-name</remote-alias>
-            <ordinal>31</ordinal>
+            <ordinal>37</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -7956,7 +8058,7 @@
             <local-name>[iati-identifier (dim-activity)]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>iati-identifier</remote-alias>
-            <ordinal>32</ordinal>
+            <ordinal>38</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>100</width>
@@ -7974,7 +8076,7 @@
             <local-name>[activity-status]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>activity-status</remote-alias>
-            <ordinal>33</ordinal>
+            <ordinal>39</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -7992,7 +8094,7 @@
             <local-name>[activity-status-name]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>activity-status-name</remote-alias>
-            <ordinal>34</ordinal>
+            <ordinal>40</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>50</width>
@@ -8010,7 +8112,7 @@
             <local-name>[contact-organisation]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>contact-organisation</remote-alias>
-            <ordinal>35</ordinal>
+            <ordinal>41</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8028,7 +8130,7 @@
             <local-name>[contact-person-name]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>contact-person-name</remote-alias>
-            <ordinal>36</ordinal>
+            <ordinal>42</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8046,7 +8148,7 @@
             <local-name>[contact-telephone]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>contact-telephone</remote-alias>
-            <ordinal>37</ordinal>
+            <ordinal>43</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8064,7 +8166,7 @@
             <local-name>[contact-email]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>contact-email</remote-alias>
-            <ordinal>38</ordinal>
+            <ordinal>44</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8082,7 +8184,7 @@
             <local-name>[contact-mailing-address]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>contact-mailing-address</remote-alias>
-            <ordinal>39</ordinal>
+            <ordinal>45</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>5592405</width>
@@ -8100,7 +8202,7 @@
             <local-name>[activity-website]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>activity-website</remote-alias>
-            <ordinal>40</ordinal>
+            <ordinal>46</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8118,7 +8220,7 @@
             <local-name>[default-finance-type]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>default-finance-type</remote-alias>
-            <ordinal>41</ordinal>
+            <ordinal>47</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8136,7 +8238,7 @@
             <local-name>[default-tied-status]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>default-tied-status</remote-alias>
-            <ordinal>42</ordinal>
+            <ordinal>48</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8154,7 +8256,7 @@
             <local-name>[reporting-org-name]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>reporting-org-name</remote-alias>
-            <ordinal>43</ordinal>
+            <ordinal>49</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8172,7 +8274,7 @@
             <local-name>[activity-title]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>activity-title</remote-alias>
-            <ordinal>44</ordinal>
+            <ordinal>50</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>5592405</width>
@@ -8190,7 +8292,7 @@
             <local-name>[reporting-org-ref]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>reporting-org-ref</remote-alias>
-            <ordinal>45</ordinal>
+            <ordinal>51</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8208,7 +8310,7 @@
             <local-name>[reporting-org-type]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>reporting-org-type</remote-alias>
-            <ordinal>46</ordinal>
+            <ordinal>52</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8226,7 +8328,7 @@
             <local-name>[reporting-org-type-name]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>reporting-org-type-name</remote-alias>
-            <ordinal>47</ordinal>
+            <ordinal>53</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>85</width>
@@ -8244,7 +8346,7 @@
             <local-name>[end-actual]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>end-actual</remote-alias>
-            <ordinal>48</ordinal>
+            <ordinal>54</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -8259,7 +8361,7 @@
             <local-name>[end-planned]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>end-planned</remote-alias>
-            <ordinal>49</ordinal>
+            <ordinal>55</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -8274,7 +8376,7 @@
             <local-name>[start-actual]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>start-actual</remote-alias>
-            <ordinal>50</ordinal>
+            <ordinal>56</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -8289,7 +8391,7 @@
             <local-name>[start-planned]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>start-planned</remote-alias>
-            <ordinal>51</ordinal>
+            <ordinal>57</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -8304,7 +8406,7 @@
             <local-name>[marker-gender]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-gender</remote-alias>
-            <ordinal>52</ordinal>
+            <ordinal>58</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8320,7 +8422,7 @@
             <local-name>[marker-environment]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-environment</remote-alias>
-            <ordinal>53</ordinal>
+            <ordinal>59</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8336,7 +8438,7 @@
             <local-name>[marker-pdgg]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-pdgg</remote-alias>
-            <ordinal>54</ordinal>
+            <ordinal>60</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8352,7 +8454,7 @@
             <local-name>[marker-trade]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-trade</remote-alias>
-            <ordinal>55</ordinal>
+            <ordinal>61</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8368,7 +8470,7 @@
             <local-name>[marker-biodiv]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-biodiv</remote-alias>
-            <ordinal>56</ordinal>
+            <ordinal>62</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8384,7 +8486,7 @@
             <local-name>[marker-climate-mitigation]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-climate-mitigation</remote-alias>
-            <ordinal>57</ordinal>
+            <ordinal>63</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8400,7 +8502,7 @@
             <local-name>[marker-climate-adaptation]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-climate-adaptation</remote-alias>
-            <ordinal>58</ordinal>
+            <ordinal>64</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8416,7 +8518,7 @@
             <local-name>[marker-desertification]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-desertification</remote-alias>
-            <ordinal>59</ordinal>
+            <ordinal>65</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8432,7 +8534,7 @@
             <local-name>[marker-rmnch]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>marker-rmnch</remote-alias>
-            <ordinal>60</ordinal>
+            <ordinal>66</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8448,7 +8550,7 @@
             <local-name>[publisher (dim-activity)]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>publisher</remote-alias>
-            <ordinal>61</ordinal>
+            <ordinal>67</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>21</width>
@@ -8466,7 +8568,7 @@
             <local-name>[publisher-id (dim-activity)]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>publisher-id</remote-alias>
-            <ordinal>62</ordinal>
+            <ordinal>68</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8482,7 +8584,7 @@
             <local-name>[url-id (dim-activity)]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>url-id</remote-alias>
-            <ordinal>63</ordinal>
+            <ordinal>69</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -8498,7 +8600,7 @@
             <local-name>[generated-datetime (dim-activity)]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>generated-datetime</remote-alias>
-            <ordinal>64</ordinal>
+            <ordinal>70</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>50</width>
@@ -8516,7 +8618,7 @@
             <local-name>[Is-parent]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>Is-parent</remote-alias>
-            <ordinal>65</ordinal>
+            <ordinal>71</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>1</width>
@@ -8534,7 +8636,7 @@
             <local-name>[urlroot]</local-name>
             <parent-name>[dim-activity]</parent-name>
             <remote-alias>urlroot</remote-alias>
-            <ordinal>66</ordinal>
+            <ordinal>72</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -8597,6 +8699,8 @@
           <alias key='%null%' value=' ' />
         </aliases>
       </column>
+      <column aggregation='Sum' datatype='integer' name='[actual-is-number]' role='dimension' type='ordinal'>
+      </column>
       <column caption='Actual' datatype='string' datatype-customized='true' name='[actual-value]' role='dimension' type='nominal'>
         <aliases>
           <alias key='%null%' value=' ' />
@@ -8606,6 +8710,8 @@
         <aliases>
           <alias key='%null%' value=' ' />
         </aliases>
+      </column>
+      <column aggregation='Sum' datatype='integer' name='[baseline-is-number]' role='dimension' type='ordinal'>
       </column>
       <column caption='Baseline' datatype='string' datatype-customized='true' name='[baseline-value]' role='dimension' type='nominal'>
         <aliases>
@@ -8717,6 +8823,8 @@
           <alias key='%null%' value=' ' />
         </aliases>
       </column>
+      <column aggregation='Sum' datatype='integer' name='[target-is-number]' role='dimension' type='ordinal'>
+      </column>
       <column caption='Target' datatype='string' datatype-customized='true' name='[target-value]' role='dimension' type='nominal'>
         <aliases>
           <alias key='%null%' value=' ' />
@@ -8773,7 +8881,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-results.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:27:12 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-results.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:31:56 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0240704132423842]' value='[Extract].[Calculation_0240704132423842]' />
@@ -8789,8 +8897,12 @@
             <map key='[activity-title]' value='[Extract].[activity-title]' />
             <map key='[activity-website]' value='[Extract].[activity-website]' />
             <map key='[actual-comment]' value='[Extract].[actual-comment]' />
+            <map key='[actual-is-number]' value='[Extract].[actual-is-number]' />
+            <map key='[actual-total]' value='[Extract].[actual-total]' />
             <map key='[actual-value]' value='[Extract].[actual-value]' />
             <map key='[baseline-comment]' value='[Extract].[baseline-comment]' />
+            <map key='[baseline-is-number]' value='[Extract].[baseline-is-number]' />
+            <map key='[baseline-total]' value='[Extract].[baseline-total]' />
             <map key='[baseline-value]' value='[Extract].[baseline-value]' />
             <map key='[baseline-year]' value='[Extract].[baseline-year]' />
             <map key='[buza-ancestor-activity-id]' value='[Extract].[buza-ancestor-activity-id]' />
@@ -8844,6 +8956,8 @@
             <map key='[start-actual]' value='[Extract].[start-actual]' />
             <map key='[start-planned]' value='[Extract].[start-planned]' />
             <map key='[target-comment]' value='[Extract].[target-comment]' />
+            <map key='[target-is-number]' value='[Extract].[target-is-number]' />
+            <map key='[target-total]' value='[Extract].[target-total]' />
             <map key='[target-value]' value='[Extract].[target-value]' />
             <map key='[url-id (dim-activity)]' value='[Extract].[url-id]' />
             <map key='[url-id]' value='[Extract].[url-id1]' />
@@ -8859,7 +8973,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='5883' timestamp-start='2016-12-09 08:27:12.118' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='5883' timestamp-start='2016-12-12 08:31:56.713' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -8882,8 +8996,6 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>62</attribute>
-                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
               </attributes>
@@ -9091,12 +9203,60 @@
               </attributes>
             </metadata-record>
             <metadata-record class='column'>
+              <remote-name>actual-is-number</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[actual-is-number]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>actual-is-number</remote-alias>
+              <ordinal>8</ordinal>
+              <family>fct-results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>0</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>62</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>actual-total</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[actual-total]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>actual-total</remote-alias>
+              <ordinal>9</ordinal>
+              <family>fct-results</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>179</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='real'>0.0</statistic>
+                <statistic aggregation='Max' datatype='real'>1310333.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
               <remote-name>actual-value</remote-name>
               <remote-type>129</remote-type>
               <local-name>[actual-value]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>actual-value</remote-alias>
-              <ordinal>8</ordinal>
+              <ordinal>10</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9127,7 +9287,7 @@
               <local-name>[baseline-comment]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>baseline-comment</remote-alias>
-              <ordinal>9</ordinal>
+              <ordinal>11</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9153,12 +9313,58 @@
               </attributes>
             </metadata-record>
             <metadata-record class='column'>
+              <remote-name>baseline-is-number</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[baseline-is-number]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>baseline-is-number</remote-alias>
+              <ordinal>12</ordinal>
+              <family>fct-results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>0</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>baseline-total</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[baseline-total]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>baseline-total</remote-alias>
+              <ordinal>13</ordinal>
+              <family>fct-results</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>83</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='real'>0.0</statistic>
+                <statistic aggregation='Max' datatype='real'>9973.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
               <remote-name>baseline-value</remote-name>
               <remote-type>129</remote-type>
               <local-name>[baseline-value]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>baseline-value</remote-alias>
-              <ordinal>10</ordinal>
+              <ordinal>14</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9189,7 +9395,7 @@
               <local-name>[baseline-year]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>baseline-year</remote-alias>
-              <ordinal>11</ordinal>
+              <ordinal>15</ordinal>
               <family>fct-results</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9216,7 +9422,7 @@
               <local-name>[buza-ancestor-activity-id]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>buza-ancestor-activity-id</remote-alias>
-              <ordinal>12</ordinal>
+              <ordinal>16</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9247,7 +9453,7 @@
               <local-name>[buza-descendant-level]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>buza-descendant-level</remote-alias>
-              <ordinal>13</ordinal>
+              <ordinal>17</ordinal>
               <family>fct-results</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9270,7 +9476,7 @@
               <local-name>[buza-descendant-yn]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>buza-descendant-yn</remote-alias>
-              <ordinal>14</ordinal>
+              <ordinal>18</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9300,7 +9506,7 @@
               <local-name>[contact-email]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>contact-email</remote-alias>
-              <ordinal>15</ordinal>
+              <ordinal>19</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9331,7 +9537,7 @@
               <local-name>[contact-mailing-address]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>contact-mailing-address</remote-alias>
-              <ordinal>16</ordinal>
+              <ordinal>20</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9362,7 +9568,7 @@
               <local-name>[contact-organisation]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>contact-organisation</remote-alias>
-              <ordinal>17</ordinal>
+              <ordinal>21</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9393,7 +9599,7 @@
               <local-name>[contact-person-name]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>contact-person-name</remote-alias>
-              <ordinal>18</ordinal>
+              <ordinal>22</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9424,7 +9630,7 @@
               <local-name>[contact-telephone]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>contact-telephone</remote-alias>
-              <ordinal>19</ordinal>
+              <ordinal>23</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9455,7 +9661,7 @@
               <local-name>[default-finance-type]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>default-finance-type</remote-alias>
-              <ordinal>20</ordinal>
+              <ordinal>24</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9486,7 +9692,7 @@
               <local-name>[default-tied-status]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>default-tied-status</remote-alias>
-              <ordinal>21</ordinal>
+              <ordinal>25</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9517,7 +9723,7 @@
               <local-name>[end-actual]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>end-actual</remote-alias>
-              <ordinal>22</ordinal>
+              <ordinal>26</ordinal>
               <family>dim-activity</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
@@ -9544,7 +9750,7 @@
               <local-name>[end-planned]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>end-planned</remote-alias>
-              <ordinal>23</ordinal>
+              <ordinal>27</ordinal>
               <family>dim-activity</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
@@ -9571,7 +9777,7 @@
               <local-name>[generated-datetime (dim-activity)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>generated-datetime</remote-alias>
-              <ordinal>24</ordinal>
+              <ordinal>28</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9582,7 +9788,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -9602,7 +9808,7 @@
               <local-name>[generated-datetime]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>generated-datetime1</remote-alias>
-              <ordinal>25</ordinal>
+              <ordinal>29</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9613,7 +9819,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -9633,7 +9839,7 @@
               <local-name>[has-childs]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>has-childs</remote-alias>
-              <ordinal>26</ordinal>
+              <ordinal>30</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9664,7 +9870,7 @@
               <local-name>[iati-identifier (dim-activity)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>iati-identifier</remote-alias>
-              <ordinal>27</ordinal>
+              <ordinal>31</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9695,7 +9901,7 @@
               <local-name>[iati-identifier]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>iati-identifier1</remote-alias>
-              <ordinal>28</ordinal>
+              <ordinal>32</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9726,7 +9932,7 @@
               <local-name>[indicator-description]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>indicator-description</remote-alias>
-              <ordinal>29</ordinal>
+              <ordinal>33</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9757,7 +9963,7 @@
               <local-name>[indicator-measure-code (dim-indicator-measure)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>indicator-measure-code</remote-alias>
-              <ordinal>30</ordinal>
+              <ordinal>34</ordinal>
               <family>dim-indicator-measure</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9780,7 +9986,7 @@
               <local-name>[indicator-measure-code]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>indicator-measure-code1</remote-alias>
-              <ordinal>31</ordinal>
+              <ordinal>35</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9811,7 +10017,7 @@
               <local-name>[indicator-measure-name]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>indicator-measure-name</remote-alias>
-              <ordinal>32</ordinal>
+              <ordinal>36</ordinal>
               <family>dim-indicator-measure</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9842,7 +10048,7 @@
               <local-name>[indicator-title]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>indicator-title</remote-alias>
-              <ordinal>33</ordinal>
+              <ordinal>37</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -9873,7 +10079,7 @@
               <local-name>[marker-biodiv]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-biodiv</remote-alias>
-              <ordinal>34</ordinal>
+              <ordinal>38</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9896,7 +10102,7 @@
               <local-name>[marker-climate-adaptation]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-climate-adaptation</remote-alias>
-              <ordinal>35</ordinal>
+              <ordinal>39</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9919,7 +10125,7 @@
               <local-name>[marker-climate-mitigation]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-climate-mitigation</remote-alias>
-              <ordinal>36</ordinal>
+              <ordinal>40</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9942,7 +10148,7 @@
               <local-name>[marker-desertification]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-desertification</remote-alias>
-              <ordinal>37</ordinal>
+              <ordinal>41</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9965,7 +10171,7 @@
               <local-name>[marker-environment]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-environment</remote-alias>
-              <ordinal>38</ordinal>
+              <ordinal>42</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -9988,7 +10194,7 @@
               <local-name>[marker-gender]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-gender</remote-alias>
-              <ordinal>39</ordinal>
+              <ordinal>43</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10011,7 +10217,7 @@
               <local-name>[marker-pdgg]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-pdgg</remote-alias>
-              <ordinal>40</ordinal>
+              <ordinal>44</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10034,7 +10240,7 @@
               <local-name>[marker-rmnch]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-rmnch</remote-alias>
-              <ordinal>41</ordinal>
+              <ordinal>45</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10057,7 +10263,7 @@
               <local-name>[marker-trade]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>marker-trade</remote-alias>
-              <ordinal>42</ordinal>
+              <ordinal>46</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10080,7 +10286,7 @@
               <local-name>[period-end]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>period-end</remote-alias>
-              <ordinal>43</ordinal>
+              <ordinal>47</ordinal>
               <family>fct-results</family>
               <local-type>date</local-type>
               <aggregation>Year</aggregation>
@@ -10107,7 +10313,7 @@
               <local-name>[period-start]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>period-start</remote-alias>
-              <ordinal>44</ordinal>
+              <ordinal>48</ordinal>
               <family>fct-results</family>
               <local-type>date</local-type>
               <aggregation>Year</aggregation>
@@ -10134,7 +10340,7 @@
               <local-name>[provider-org-activity-id]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>provider-org-activity-id</remote-alias>
-              <ordinal>45</ordinal>
+              <ordinal>49</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10165,7 +10371,7 @@
               <local-name>[publisher (dim-activity)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>publisher</remote-alias>
-              <ordinal>46</ordinal>
+              <ordinal>50</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10196,7 +10402,7 @@
               <local-name>[publisher-id (dim-activity)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>publisher-id</remote-alias>
-              <ordinal>47</ordinal>
+              <ordinal>51</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10219,7 +10425,7 @@
               <local-name>[publisher-id]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>publisher-id1</remote-alias>
-              <ordinal>48</ordinal>
+              <ordinal>52</ordinal>
               <family>fct-results</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10242,7 +10448,7 @@
               <local-name>[publisher-name]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>publisher-name</remote-alias>
-              <ordinal>49</ordinal>
+              <ordinal>53</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10273,7 +10479,7 @@
               <local-name>[publisher]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>publisher1</remote-alias>
-              <ordinal>50</ordinal>
+              <ordinal>54</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10304,7 +10510,7 @@
               <local-name>[reporting-org-name]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>reporting-org-name</remote-alias>
-              <ordinal>51</ordinal>
+              <ordinal>55</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10335,7 +10541,7 @@
               <local-name>[reporting-org-ref]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>reporting-org-ref</remote-alias>
-              <ordinal>52</ordinal>
+              <ordinal>56</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10366,7 +10572,7 @@
               <local-name>[reporting-org-type-name]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>reporting-org-type-name</remote-alias>
-              <ordinal>53</ordinal>
+              <ordinal>57</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10397,7 +10603,7 @@
               <local-name>[reporting-org-type]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>reporting-org-type</remote-alias>
-              <ordinal>54</ordinal>
+              <ordinal>58</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10428,7 +10634,7 @@
               <local-name>[result-aggregation-status]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>result-aggregation-status</remote-alias>
-              <ordinal>55</ordinal>
+              <ordinal>59</ordinal>
               <family>fct-results</family>
               <local-type>boolean</local-type>
               <aggregation>Count</aggregation>
@@ -10451,7 +10657,7 @@
               <local-name>[result-description]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>result-description</remote-alias>
-              <ordinal>56</ordinal>
+              <ordinal>60</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10482,7 +10688,7 @@
               <local-name>[result-title]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>result-title</remote-alias>
-              <ordinal>57</ordinal>
+              <ordinal>61</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10513,7 +10719,7 @@
               <local-name>[result-type-code (dim-result-type)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>result-type-code</remote-alias>
-              <ordinal>58</ordinal>
+              <ordinal>62</ordinal>
               <family>dim-result-type</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10536,7 +10742,7 @@
               <local-name>[result-type-name]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>result-type-name</remote-alias>
-              <ordinal>59</ordinal>
+              <ordinal>63</ordinal>
               <family>dim-result-type</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10567,7 +10773,7 @@
               <local-name>[start-actual]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>start-actual</remote-alias>
-              <ordinal>60</ordinal>
+              <ordinal>64</ordinal>
               <family>dim-activity</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
@@ -10594,7 +10800,7 @@
               <local-name>[start-planned]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>start-planned</remote-alias>
-              <ordinal>61</ordinal>
+              <ordinal>65</ordinal>
               <family>dim-activity</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
@@ -10622,7 +10828,7 @@
               <local-name>[target-comment]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>target-comment</remote-alias>
-              <ordinal>62</ordinal>
+              <ordinal>66</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10648,12 +10854,58 @@
               </attributes>
             </metadata-record>
             <metadata-record class='column'>
+              <remote-name>target-is-number</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[target-is-number]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>target-is-number</remote-alias>
+              <ordinal>67</ordinal>
+              <family>fct-results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>0</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>target-total</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[target-total]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>target-total</remote-alias>
+              <ordinal>68</ordinal>
+              <family>fct-results</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>281</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='real'>0.0</statistic>
+                <statistic aggregation='Max' datatype='real'>10000000.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
               <remote-name>target-value</remote-name>
               <remote-type>129</remote-type>
               <local-name>[target-value]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>target-value</remote-alias>
-              <ordinal>63</ordinal>
+              <ordinal>69</ordinal>
               <family>fct-results</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10684,7 +10936,7 @@
               <local-name>[url-id (dim-activity)]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>url-id</remote-alias>
-              <ordinal>64</ordinal>
+              <ordinal>70</ordinal>
               <family>dim-activity</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10707,7 +10959,7 @@
               <local-name>[url-id]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>url-id1</remote-alias>
-              <ordinal>65</ordinal>
+              <ordinal>71</ordinal>
               <family>fct-results</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
@@ -10730,7 +10982,7 @@
               <local-name>[urlroot]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>urlroot</remote-alias>
-              <ordinal>66</ordinal>
+              <ordinal>72</ordinal>
               <family>dim-activity</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
@@ -10889,7 +11141,7 @@
           <groupfilter function='member' level='[Calculation_8751117160955114]' member='&quot;Y&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
         </filter>
       </extract>
-      <layout dim-ordering='ordinal' dim-percentage='0.422099' measure-ordering='ordinal' measure-percentage='0.175691' show-structure='true' />
+      <layout dim-ordering='ordinal' dim-percentage='0.427624' measure-ordering='ordinal' measure-percentage='0.165746' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -13018,7 +13270,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-locations.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:27:31 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-locations.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:32:14 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_429249367817564161]' value='[Extract].[Calculation_429249367817564161]' />
@@ -13129,7 +13381,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='4486' timestamp-start='2016-12-09 08:27:31.762' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='4486' timestamp-start='2016-12-12 08:32:14.656' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -14103,7 +14355,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -14166,7 +14418,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -17351,7 +17603,7 @@
       <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal'>
       </column>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-organisations-participating.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:27:48 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-organisations-participating.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:32:28 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0401117163058816]' value='[Extract].[Calculation_0401117163058816]' />
@@ -17425,7 +17677,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='30398' timestamp-start='2016-12-09 08:27:48.075' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='30398' timestamp-start='2016-12-12 08:32:28.656' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -17771,7 +18023,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>39</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>40</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -17972,7 +18224,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -18003,7 +18255,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -18124,7 +18376,7 @@
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-15 12:16:01#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:50#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:18#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -18403,7 +18655,7 @@
               <family>dim-organisation</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>352</approx-count>
+              <approx-count>359</approx-count>
               <scale>1</scale>
               <width>100</width>
               <contains-null>false</contains-null>
@@ -18720,7 +18972,7 @@
               <family>dim-organisation</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>30</approx-count>
+              <approx-count>29</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
@@ -18735,7 +18987,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>84</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>40</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>35</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -18766,7 +19018,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>84</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>35</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>36</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -18790,7 +19042,7 @@
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>36</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>37</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
               </attributes>
@@ -18813,7 +19065,7 @@
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>37</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>38</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
               </attributes>
@@ -18843,7 +19095,7 @@
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>84</attribute>
-                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>38</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>39</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -20539,7 +20791,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-documents.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:02 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-documents.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:32:42 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0851014104620228]' value='[Extract].[Calculation_0851014104620228]' />
@@ -20615,7 +20867,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='7894' timestamp-start='2016-12-09 08:28:02.608' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='7894' timestamp-start='2016-12-12 08:32:42.391' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -21521,7 +21773,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -21552,7 +21804,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -21642,7 +21894,7 @@
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-15 12:16:01#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:10#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:07#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -23597,7 +23849,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-descriptions.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:14 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-descriptions.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:32:54 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_1321117162302852]' value='[Extract].[Calculation_1321117162302852]' />
@@ -23663,7 +23915,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='8797' timestamp-start='2016-12-09 08:28:14.027' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='8797' timestamp-start='2016-12-12 08:32:54.128' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -24326,7 +24578,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -24357,7 +24609,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -24478,7 +24730,7 @@
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-15 12:16:01#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:50#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:18#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -25840,7 +26092,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\log-publisher-job-url.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:24 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\log-publisher-job-url.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:33:05 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Action]' value='[Extract].[Action]' />
@@ -25877,7 +26129,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='1924' timestamp-start='2016-12-09 08:28:24.613' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='2027' timestamp-start='2016-12-12 08:33:05.477' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -25971,7 +26223,7 @@
               <family>log-publisher-job-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>141</approx-count>
+              <approx-count>143</approx-count>
               <scale>1</scale>
               <width>100</width>
               <contains-null>true</contains-null>
@@ -26000,11 +26252,11 @@
               <family>log-publisher-job-url</family>
               <local-type>date</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>40</approx-count>
+              <approx-count>42</approx-count>
               <contains-null>true</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='date'>#2016-04-15#</statistic>
-                <statistic aggregation='Max' datatype='date'>#2016-12-07#</statistic>
+                <statistic aggregation='Min' datatype='date'>#2015-10-22#</statistic>
+                <statistic aggregation='Max' datatype='date'>#2016-12-08#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -26057,11 +26309,11 @@
               <family>log-iati-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>65</approx-count>
+              <approx-count>67</approx-count>
               <contains-null>true</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:50:09#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:22:37#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:17:41#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -26084,11 +26336,11 @@
               <family>log-iati-job</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>76</approx-count>
+              <approx-count>81</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>92</statistic>
+                <statistic aggregation='Max' datatype='integer'>99</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26105,11 +26357,11 @@
               <family>log-publisher-job</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>76</approx-count>
+              <approx-count>81</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>92</statistic>
+                <statistic aggregation='Max' datatype='integer'>99</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26126,11 +26378,11 @@
               <family>log-publisher-job-url</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>76</approx-count>
+              <approx-count>81</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>92</statistic>
+                <statistic aggregation='Max' datatype='integer'>99</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26147,11 +26399,11 @@
               <family>log-iati-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>76</approx-count>
+              <approx-count>81</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:30:22#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 15:34:49#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 10:45:12#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -26174,11 +26426,11 @@
               <family>dim-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>41</approx-count>
+              <approx-count>42</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:45:13#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:50#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:29#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -26230,13 +26482,13 @@
               <family>log-publisher-job-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>196</approx-count>
+              <approx-count>217</approx-count>
               <scale>1</scale>
               <width>255</width>
               <contains-null>true</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
-                <statistic aggregation='Min' datatype='string'>&quot;Activity file http://data.aidsalliance.org/iati/aidsalliance01.xml is succesfully processed. &quot;</statistic>
+                <statistic aggregation='Min' datatype='string'>&quot;Activity file D:\\Users\\User.Open\\My Documents\\IATI Publishers/abt-activities.xml is succesfully processed. &quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XSD validation error in file https://www.aidstream.org/files/xml/Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland-activities.&quot;</statistic>
               </statistics>
               <attributes>
@@ -26317,11 +26569,11 @@
               <family>log-publisher-job</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>37</statistic>
+                <statistic aggregation='Max' datatype='integer'>38</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26338,11 +26590,11 @@
               <family>log-publisher-job-url</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>37</statistic>
+                <statistic aggregation='Max' datatype='integer'>38</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26359,11 +26611,11 @@
               <family>log-publisher-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>637</approx-count>
+              <approx-count>676</approx-count>
               <contains-null>true</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:33:59#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:17:24#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:12:25#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -26386,11 +26638,11 @@
               <family>log-publisher-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>645</approx-count>
+              <approx-count>684</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:30:22#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:48#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:29#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -26413,11 +26665,11 @@
               <family>log-publisher-job-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>1899</approx-count>
+              <approx-count>2002</approx-count>
               <contains-null>true</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:31:20#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:17:04#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:12:01#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -26436,11 +26688,11 @@
               <family>log-publisher-job-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>1924</approx-count>
+              <approx-count>2027</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:30:25#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:51#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:30#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -26460,7 +26712,7 @@
               <family>dim-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
@@ -26489,11 +26741,11 @@
               <family>dim-url</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>105</approx-count>
+              <approx-count>106</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>106</statistic>
+                <statistic aggregation='Max' datatype='integer'>107</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26510,11 +26762,11 @@
               <family>log-publisher-job-url</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>105</approx-count>
+              <approx-count>106</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>106</statistic>
+                <statistic aggregation='Max' datatype='integer'>107</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -26531,13 +26783,13 @@
               <family>dim-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>105</approx-count>
+              <approx-count>106</approx-count>
               <scale>1</scale>
               <width>255</width>
               <contains-null>false</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
-                <statistic aggregation='Min' datatype='string'>&quot;http://data.aidsalliance.org/iati/aidsalliance01.xml&quot;</statistic>
+                <statistic aggregation='Min' datatype='string'>&quot;D:\\Users\\User.Open\\My Documents\\IATI Publishers/abt-activities.xml&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;https://www.somo.nl/download/16691/&quot;</statistic>
               </statistics>
               <attributes>
@@ -26922,7 +27174,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\publisher-last-date-published.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:29 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\publisher-last-date-published.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:33:10 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_7611007172308549]' value='[Extract].[Calculation_7611007172308549]' />
@@ -26948,7 +27200,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='101' timestamp-start='2016-12-09 08:28:29.927' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='102' timestamp-start='2016-12-12 08:33:10.081' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -26960,11 +27212,11 @@
               <ordinal>0</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>93</approx-count>
+              <approx-count>94</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='real'>1.198</statistic>
-                <statistic aggregation='Max' datatype='real'>237.495</statistic>
+                <statistic aggregation='Min' datatype='real'>0.99050000000000005</statistic>
+                <statistic aggregation='Max' datatype='real'>414.19319999999999</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -27002,11 +27254,11 @@
               <family>iati-view-last-date-published</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>91</approx-count>
+              <approx-count>92</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='datetime'>#2016-04-15 01:45:11#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-07 11:15:00#</statistic>
+                <statistic aggregation='Min' datatype='datetime'>#2015-10-22 06:33:13#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 11:15:01#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -27025,11 +27277,11 @@
               <family>dim-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>39</approx-count>
+              <approx-count>40</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:45:13#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:50#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:29#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -27053,11 +27305,11 @@
               <family>dim-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>39</approx-count>
+              <approx-count>40</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:45:13#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:50#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:29#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -27081,7 +27333,7 @@
               <family>dim-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
@@ -27112,11 +27364,11 @@
               <family>iati-view-last-date-published</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>37</statistic>
+                <statistic aggregation='Max' datatype='integer'>38</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -27133,10 +27385,10 @@
               <family>iati-view-last-date-published</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <scale>1</scale>
               <width>128</width>
-              <contains-null>false</contains-null>
+              <contains-null>true</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Action Aid Nederland&quot;</statistic>
@@ -27162,7 +27414,7 @@
               <family>iati-view-last-date-published</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
@@ -27191,11 +27443,11 @@
               <family>iati-view-last-date-published</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>101</approx-count>
+              <approx-count>102</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2016-11-07 09:45:15#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:51#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:30#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -27215,13 +27467,13 @@
               <family>dim-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>101</approx-count>
+              <approx-count>102</approx-count>
               <scale>1</scale>
               <width>255</width>
               <contains-null>false</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
-                <statistic aggregation='Min' datatype='string'>&quot;http://data.aidsalliance.org/iati/aidsalliance01.xml&quot;</statistic>
+                <statistic aggregation='Min' datatype='string'>&quot;D:\\Users\\User.Open\\My Documents\\IATI Publishers/abt-activities.xml&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;https://www.somo.nl/download/16691/&quot;</statistic>
               </statistics>
               <attributes>
@@ -27245,11 +27497,11 @@
               <family>dim-url</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>101</approx-count>
+              <approx-count>102</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>106</statistic>
+                <statistic aggregation='Max' datatype='integer'>107</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -27267,11 +27519,11 @@
               <family>iati-view-last-date-published</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>101</approx-count>
+              <approx-count>102</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>106</statistic>
+                <statistic aggregation='Max' datatype='integer'>107</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -27289,13 +27541,13 @@
               <family>iati-view-last-date-published</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>101</approx-count>
+              <approx-count>102</approx-count>
               <scale>1</scale>
               <width>255</width>
               <contains-null>false</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
-                <statistic aggregation='Min' datatype='string'>&quot;http://data.aidsalliance.org/iati/aidsalliance01.xml&quot;</statistic>
+                <statistic aggregation='Min' datatype='string'>&quot;D:\\Users\\User.Open\\My Documents\\IATI Publishers/abt-activities.xml&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;https://www.somo.nl/download/16691/&quot;</statistic>
               </statistics>
               <attributes>
@@ -29687,7 +29939,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-budgets.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:35 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\fct-budgets.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:33:17 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_1430615170003025]' value='[Extract].[Calculation_1430615170003025]' />
@@ -29812,7 +30064,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='20819' timestamp-start='2016-12-09 08:28:35.548' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='20819' timestamp-start='2016-12-12 08:33:17.181' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -29848,7 +30100,7 @@
               <ordinal>1</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>3335</approx-count>
+              <approx-count>3336</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-19500000.0</statistic>
@@ -31153,7 +31405,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -31216,7 +31468,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160415T014511&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20161207T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20161208T111501&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -33110,14 +33362,14 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\ref-menu-lines (iatireference).tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:54 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\ref-menu-lines (iatireference).tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:33:41 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <calculations>
             <calculation column='[Calculation_1620713104224991]' formula='IF [Id] &gt;= 10 THEN 1 ELSE [Id] + 1 END' />
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='25' timestamp-start='2016-12-09 08:28:54.454' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='25' timestamp-start='2016-12-12 08:33:40.973' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -33331,7 +33583,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\publisher-timeliness.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:28:57 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\publisher-timeliness.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:33:44 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <calculations>
             <calculation column='[Calculation_2281025173321602]' formula='[start-date]-[generated-datetime]' />
@@ -33339,7 +33591,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='32' timestamp-start='2016-12-09 08:28:57.219' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='33' timestamp-start='2016-12-12 08:33:44.006' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -33351,11 +33603,11 @@
               <ordinal>0</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>22</approx-count>
+              <approx-count>23</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='real'>1.0</statistic>
-                <statistic aggregation='Max' datatype='real'>222.0</statistic>
+                <statistic aggregation='Max' datatype='real'>414.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -33397,11 +33649,11 @@
               <family>iati-view-timeliness</family>
               <local-type>date</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>22</approx-count>
+              <approx-count>23</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='date'>#2016-04-30#</statistic>
-                <statistic aggregation='Max' datatype='date'>#2016-12-07#</statistic>
+                <statistic aggregation='Min' datatype='date'>#2015-10-22#</statistic>
+                <statistic aggregation='Max' datatype='date'>#2016-12-08#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -33425,11 +33677,11 @@
               <family>iati-view-timeliness</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>37</statistic>
+                <statistic aggregation='Max' datatype='integer'>38</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -33449,10 +33701,10 @@
               <family>iati-view-timeliness</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <scale>1</scale>
               <width>128</width>
-              <contains-null>false</contains-null>
+              <contains-null>true</contains-null>
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Action Aid Nederland&quot;</statistic>
@@ -33481,7 +33733,7 @@
               <family>iati-view-timeliness</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>33</approx-count>
               <scale>1</scale>
               <width>21</width>
               <contains-null>false</contains-null>
@@ -33514,8 +33766,8 @@
               <approx-count>1</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='date'>#2016-12-08#</statistic>
-                <statistic aggregation='Max' datatype='date'>#2016-12-08#</statistic>
+                <statistic aggregation='Min' datatype='date'>#2016-12-09#</statistic>
+                <statistic aggregation='Max' datatype='date'>#2016-12-09#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -34536,7 +34788,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\log-reference-errors.tde' schema='Extract' tablename='Extract' update-time='12/09/2016 08:29:01 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\My Tableau Repository\Datasources\Develop\log-reference-errors.tde' schema='Extract' tablename='Extract' update-time='12/12/2016 08:33:48 AM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0381104150535936]' value='[Extract].[Calculation_0381104150535936]' />
@@ -34592,7 +34844,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='33' timestamp-start='2016-12-09 08:29:01.155' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='33' timestamp-start='2016-12-12 08:33:48.450' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -35221,8 +35473,8 @@
               <approx-count>9</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='datetime'>#2016-12-08 15:55:44#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2016-12-08 16:16:50#</statistic>
+                <statistic aggregation='Min' datatype='datetime'>#2016-12-09 10:59:11#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2016-12-09 11:11:18#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -36403,6 +36655,91 @@
     </datasource-dependencies>
   </actions>
   <worksheets>
+    <worksheet name='Agg results'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fct-results' name='mysql.42240.683258935183' />
+          </datasources>
+          <datasource-dependencies datasource='mysql.42240.683258935183'>
+            <column datatype='real' name='[actual-total]' role='measure' type='quantitative'>
+            </column>
+            <column aggregation='Sum' datatype='integer' name='[baseline-is-number]' role='dimension' type='ordinal'>
+            </column>
+            <column datatype='real' name='[baseline-total]' role='measure' type='quantitative'>
+            </column>
+            <column datatype='string' name='[buza-ancestor-activity-id]' role='dimension' type='nominal'>
+            </column>
+            <column caption='Indicator title' datatype='string' name='[indicator-title]' role='dimension' type='nominal'>
+            </column>
+            <column-instance column='[baseline-is-number]' derivation='None' name='[none:baseline-is-number:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[buza-ancestor-activity-id]' derivation='None' name='[none:buza-ancestor-activity-id:nk]' pivot='key' type='nominal' />
+            <column-instance column='[indicator-title]' derivation='None' name='[none:indicator-title:nk]' pivot='key' type='nominal' />
+            <column-instance column='[result-aggregation-status]' derivation='None' name='[none:result-aggregation-status:nk]' pivot='key' type='nominal' />
+            <column-instance column='[result-title]' derivation='None' name='[none:result-title:nk]' pivot='key' type='nominal' />
+            <column datatype='boolean' name='[result-aggregation-status]' role='dimension' type='nominal'>
+            </column>
+            <column caption='Result title' datatype='string' name='[result-title]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='%null%' value='No title specified' />
+              </aliases>
+            </column>
+            <column-instance column='[actual-total]' derivation='Sum' name='[sum:actual-total:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[baseline-total]' derivation='Sum' name='[sum:baseline-total:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[target-total]' derivation='Sum' name='[sum:target-total:qk]' pivot='key' type='quantitative' />
+            <column datatype='real' name='[target-total]' role='measure' type='quantitative'>
+            </column>
+          </datasource-dependencies>
+          <filter class='categorical' column='[mysql.42240.683258935183].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[mysql.42240.683258935183].[sum:actual-total:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[mysql.42240.683258935183].[sum:baseline-total:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[mysql.42240.683258935183].[sum:target-total:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[mysql.42240.683258935183].[none:baseline-is-number:ok]'>
+            <groupfilter function='member' level='[none:baseline-is-number:ok]' member='1' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[mysql.42240.683258935183].[none:result-aggregation-status:nk]'>
+            <groupfilter function='member' level='[none:result-aggregation-status:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[mysql.42240.683258935183].[:Measure Names]</column>
+            <column>[mysql.42240.683258935183].[none:result-aggregation-status:nk]</column>
+            <column>[mysql.42240.683258935183].[none:baseline-is-number:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[mysql.42240.683258935183].[none:indicator-title:nk]' value='368' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[mysql.42240.683258935183].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([mysql.42240.683258935183].[none:buza-ancestor-activity-id:nk] / ([mysql.42240.683258935183].[none:result-title:nk] / [mysql.42240.683258935183].[none:indicator-title:nk]))</rows>
+        <cols>[mysql.42240.683258935183].[:Measure Names]</cols>
+        <subtotals>
+          <column>[mysql.42240.683258935183].[none:buza-ancestor-activity-id:nk]</column>
+          <column>[mysql.42240.683258935183].[none:result-title:nk]</column>
+        </subtotals>
+      </table>
+    </worksheet>
     <worksheet name='BZ activity'>
       <layout-options>
         <title>
@@ -42875,7 +43212,7 @@
           </zone>
           <zone h='35387' id='10' param='horz' type='layout-flow' w='49750' x='0' y='11200'>
             <zone fixed-size='703' h='34945' id='7' is-fixed='true' name='Result selection' show-title='true' w='49217' x='400' y='11421'>
-              <layout-cache fixed-size-h='8476' has-max-size-w='true' maxwidth='778' minwidth='778' type-h='fixed' type-w='scalable' />
+              <layout-cache fixed-size-h='17716' has-max-size-w='true' maxwidth='778' minwidth='778' type-h='fixed' type-w='scalable' />
             </zone>
           </zone>
           <zone h='35387' id='11' param='vert' type='layout-flow' w='50250' x='49750' y='11200'>
@@ -42949,7 +43286,7 @@
   </dashboards>
   <windows>
     <window class='schema' source-height='-1' />
-    <window auto-hidden='0' class='dashboard' maximized='1' name='Menu'>
+    <window auto-hidden='0' class='dashboard' maximized='0' name='Menu'>
       <active id='3' />
       <zones>
         <zone is-scaled='1' name='' type='bitmap' />
@@ -43347,6 +43684,8 @@
         <zone forceUpdate='true' h='6501' id='3' name='' type='text' w='100000' x='0' y='0' />
         <zone is-scaled='1' name='' type='bitmap' />
         <zone h='7800' id='6' name='Back' w='4000' x='0' y='0'>
+          <viewpoint>
+          </viewpoint>
           <selection-collection>
             <tuple-selection>
               <tuple-reference>
@@ -43521,6 +43860,37 @@
           </selection-collection>
         </zone>
       </zones>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Agg results'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[mysql.42240.683258935183].[:Measure Names]</field>
+          <field>[mysql.42240.683258935183].[none:baseline-is-number:ok]</field>
+          <field>[mysql.42240.683258935183].[none:buza-ancestor-activity-id:nk]</field>
+          <field>[mysql.42240.683258935183].[none:iati-identifier:nk]</field>
+          <field>[mysql.42240.683258935183].[none:indicator-title:nk]</field>
+          <field>[mysql.42240.683258935183].[none:result-aggregation-status:nk]</field>
+          <field>[mysql.42240.683258935183].[none:result-title:nk]</field>
+        </color-one-way>
+      </highlight>
     </window>
     <window class='hidden-worksheet' name='BZ activity'>
       <cards>
@@ -47639,317 +48009,298 @@
     </thumbnail>
     <thumbnail height='192' name='Result overview' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAACXBIWXMAAA7EAAAOxAGVKw4b
-      AAAgAElEQVR4nOy9d5Asx33nmZnlfbXvnh4/82bePO/gCEPCUCRXNKJErkzIb1ysdBeKu727
-      CO2d9iTFSietVqG90MUepTsyRJkVRYoUSREkQYKEIYAH4Hk/3veY9rZ8pbk/ABEkCBIP7wEP
-      ANGfv6arsquzqr6T+a1f/jILMsZAnz43Cv9mV6DPW5pXbV++T0CMsVKncqG6klWs44VpkRfe
-      yLr1eRvwyS+d/MNPff0Ht2NCvvPJ/2VyKPOSgCij/+dzf/+fFr/sQQwZuF0d/exD/340WbiF
-      te3zloNQGoTRD27HhFDGIITohc+MsX+4/O3fu/LZIAz/aOLj+Ug51Vn5hUf+OMLxra1wn7cZ
-      6Lt/ferS15FH/uzAL09oudgJki5/ujx/cXvxTaxcn7c+Lwmo0WqOM/vj+95d0FP//vDHfnv/
-      T8Nu1HDab2Ll+rz1eUlAd2Wml6qb7/3EbwHK/ujxv/ntx/5SjblDhck3sXJ93lJQxn7woexF
-      AUEI//f3/toQSsxV1n/5r3/X6TnIxf/hnl8cSGRveT37vCVh7P6jk0Np6/u3sZdaoJHMwDP/
-      7pO/ceRDKdF4z+Chz/3CH/yvH/hVCOEtr2mftxaUsaGMbUjCB999+Gd/4gRkLJ80XtjFGPu+
-      ONBwZuAvfv3/eDMq2ectCmMspUqf/L1f/sxXn2v1fEUSfvUn77jj8OS/+9PPvVAA/ejv93nH
-      AycHM7MrO0MpAwI2UkwborBWqr7QCCGE+gLq86OAACCRX9soxwyMFVKbOw1e4A1NrnbcFwr0
-      BdTnRwJBveXU2i5DaHZlp+cGvTAqlZthhF/Y3x9M7fMqrJebESbR+aXtegcAsGc46/mhH/cF
-      1Of6IJSVqm0AAM9zAIC1nQYA4LtP530B9flRDOeSD96+9we3E8o0RWSMwX5CWZ+boW+i+9wU
-      fQG9M2B0Z2eXvfSJYhzVas0XPtbrNRxjcn19kd9r9fwoxuSFj30P9I6gub34D18++d//218D
-      YXd5fVeK68s9aU/Whjwv0Kjeap994tvpfUf3T0257UYqnWk1a62Oa8jIwfxIPnF1bmlqZp/T
-      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
+      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
+      hQaI6uU3gdEweAB1AtgAAAAASUVORK5CYII=
     </thumbnail>
     <thumbnail height='192' name='Results details' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAACXBIWXMAAA7EAAAOxAGVKw4b
@@ -49314,6 +49665,90 @@
       ICAQCAQEAoGAQCAQEAgEAgKBQEAgEAgIBAIBgUAgIBAIBAQCgYBAIBAQCAQCAoFAQCAQCAgE
       AgGBQCAgEAgEBAKBgEAgEBAIBAICgUBAIBAICAQCAYFAICAQCAQEAoGAQCAQEAgEAgKBQEAg
       EAgIBAIBgUD+EcIp2Nv5XerMAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Agg results' width='192'>
+      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
+      ncQfXVlLbgAAAABJRU5ErkJggg==
     </thumbnail>
   </thumbnails>
   <external>
