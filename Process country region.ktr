@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Get partition table list</name>
+    <name>Process country region</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;09&#x2f;21 18&#x3a;31&#x3a;48.376</created_date>
+  <created_date>2016&#x2f;12&#x2f;14 13&#x3a;03&#x3a;41.754</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;12&#x2f;14 12&#x3a;30&#x3a;52.224</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;14 13&#x3a;13&#x3a;15.238</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -213,11 +213,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>List of tables to partition</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write country region</from><to>Error log write country region</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read act  country region from source</from><to>Write country region</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Copy rows to result</name>
-    <type>RowsToResult</type>
+    <name>Error log write country region</name>
+    <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -226,66 +227,252 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>545</xloc>
-      <yloc>162</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>List of tables to partition</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>windows-1252</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;LOGPATH&#x7d;&#x5c;log - duplicate IATI identifiers</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>Y</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
     <fields>
       <field>
-        <name>table-names</name>
+        <name>iati-identifier</name>
         <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>100</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>publisher</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>25</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>url-id</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>25</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>25</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>nr of errors</name>
+        <type>Integer</type>
+        <format>&#x23;&#x3b;-&#x23;</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>error descriptions</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>error fields</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>error codes</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
     </fields>
-    <data>
-      <line> <item>iatischema.&#x60;dwh-transactions&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-results&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-locations&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-documents&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-budgets&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-descriptions&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-related&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-organisations&#x60;</item> </line>
-      <line> <item>iatischema.&#x60;dwh-country-region&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;dim-activity&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-budgets&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-descriptions&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-documents&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-locations&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-organisations&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-results&#x60;</item> </line>
-      <line> <item>iatidatamart.&#x60;fct-transactions&#x60;</item> </line>
-    </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>346</xloc>
-      <yloc>162</yloc>
+      <xloc>643</xloc>
+      <yloc>200</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read act  country region from source</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;recipient-country-code&#x60;&#xd;&#xa;, &#x60;recipient-region-code&#x60;&#xd;&#xa;, &#x60;country-region-percentage&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;stg-act-country-region&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>336</xloc>
+      <yloc>356</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write country region</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <schema>iatischema</schema>
+    <table>dwh-country-region</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>recipient-country-code</column_name>
+          <stream_name>recipient-country-code</stream_name>
+        </field>
+        <field>
+          <column_name>recipient-region-code</column_name>
+          <stream_name>recipient-region-code</stream_name>
+        </field>
+        <field>
+          <column_name>country-region-percentage</column_name>
+          <stream_name>country-region-percentage</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>641</xloc>
+      <yloc>356</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>Write country region</source_step>
+        <target_step>Error log write country region</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename>nr of errors</nr_valuename>
+        <descriptions_valuename>error descriptions</descriptions_valuename>
+        <fields_valuename>error fields</fields_valuename>
+        <codes_valuename>error codes</codes_valuename>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
