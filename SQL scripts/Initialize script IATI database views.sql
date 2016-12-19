@@ -61,24 +61,6 @@ CREATE TABLE `iati-view-funding-organisations` (
 	`transaction-value-eur` DOUBLE NULL
 ) ENGINE=MyISAM;
 
--- Dumping structure for view iatidatamart.iati-view-gephi-edges
-DROP VIEW IF EXISTS `iati-view-gephi-edges`;
--- Creating temporary table to overcome VIEW dependency errors
-CREATE TABLE `iati-view-gephi-edges` (
-	`Source` CHAR(100) NULL COLLATE 'utf8_general_ci',
-	`Target` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
-	`Label` VARCHAR(128) NULL COLLATE 'utf8_general_ci',
-	`Weigth` DOUBLE NULL
-) ENGINE=MyISAM;
-
--- Dumping structure for view iatidatamart.iati-view-gephi-nodes
-DROP VIEW IF EXISTS `iati-view-gephi-nodes`;
--- Creating temporary table to overcome VIEW dependency errors
-CREATE TABLE `iati-view-gephi-nodes` (
-	`Id` CHAR(100) NULL COLLATE 'utf8_general_ci',
-	`Label` VARCHAR(128) NULL COLLATE 'utf8_general_ci'
-) ENGINE=MyISAM;
-
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;
 -- Creating temporary table to overcome VIEW dependency errors
@@ -181,18 +163,6 @@ DROP VIEW IF EXISTS `iati-view-funding-organisations`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-funding-organisations`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-funding-organisations` AS select `a`.`iati-identifier` AS `iati-identifier`,`a`.`participating-org-id` AS `participating-org-id`,`a`.`participating-org-role-code` AS `participating-org-role-code`,`a`.`participating-org-type-code` AS `participating-org-type-code`,`t`.`transaction-type-code` AS `transaction-type-code`,`t`.`publisher` AS `publisher`,sum(`t`.`transaction-value`) AS `transaction-value`,sum(`t`.`transaction-value-eur`) AS `transaction-value-eur` from (`iatidatamart`.`fct-organisations` `a` join `iatidatamart`.`fct-transactions` `t` on(((`a`.`iati-identifier` = `t`.`iati-identifier`) and (`a`.`participating-org-id` = `t`.`provider-org-id`)))) where ((`a`.`participating-org-role-code` = 1) and (`t`.`transaction-type-code` = 'IF')) group by `a`.`iati-identifier`,`a`.`participating-org-id`;
-
--- Dumping structure for view iatidatamart.iati-view-gephi-edges
-DROP VIEW IF EXISTS `iati-view-gephi-edges`;
--- Removing temporary table and create final VIEW structure
-DROP TABLE IF EXISTS `iati-view-gephi-edges`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-gephi-edges` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `Source`,`iatidatamart`.`fct-transactions`.`provider-org-activity-id` AS `Target`,`iatidatamart`.`fct-transactions`.`publisher-name` AS `Label`,sum(`iatidatamart`.`fct-transactions`.`transaction-value-eur`) AS `Weigth` from `iatidatamart`.`fct-transactions` where ((`iatidatamart`.`fct-transactions`.`provider-org-activity-id` <> 'Unspecified') and (`iatidatamart`.`fct-transactions`.`buza-descendant-yn` = 'Y') and ((`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IF') or (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IC'))) group by `iatidatamart`.`fct-transactions`.`iati-identifier`,`iatidatamart`.`fct-transactions`.`provider-org-activity-id`;
-
--- Dumping structure for view iatidatamart.iati-view-gephi-nodes
-DROP VIEW IF EXISTS `iati-view-gephi-nodes`;
--- Removing temporary table and create final VIEW structure
-DROP TABLE IF EXISTS `iati-view-gephi-nodes`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-gephi-nodes` AS select `iatidatamart`.`fct-transactions`.`iati-identifier` AS `Id`,`iatidatamart`.`fct-transactions`.`publisher-name` AS `Label` from `iatidatamart`.`fct-transactions` where ((`iatidatamart`.`fct-transactions`.`provider-org-activity-id` <> 'Unspecified') and (`iatidatamart`.`fct-transactions`.`buza-descendant-yn` = 'Y') and ((`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IF') or (`iatidatamart`.`fct-transactions`.`transaction-type-code` = 'IC'))) group by `iatidatamart`.`fct-transactions`.`iati-identifier`;
 
 -- Dumping structure for view iatidatamart.iati-view-implementing-organisations
 DROP VIEW IF EXISTS `iati-view-implementing-organisations`;

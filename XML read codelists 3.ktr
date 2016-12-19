@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;09 09&#x3a;30&#x3a;07.519</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;18 09&#x3a;47&#x3a;24.871</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;19 16&#x3a;48&#x3a;29.125</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -234,7 +234,8 @@
   <hop> <from>Append error rows</from><to>Lookup country attributes</to><enabled>Y</enabled> </hop>
   <hop> <from>Read country attributes</from><to>Lookup country attributes</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup country attributes</from><to>If field value is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If field value is null</from><to>Insert &#x2f; Update country</to><enabled>Y</enabled> </hop>
+  <hop> <from>If field value is null</from><to>Default fragile state</to><enabled>Y</enabled> </hop>
+  <hop> <from>Default fragile state</from><to>Insert &#x2f; Update country</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add missing region row</name>
@@ -918,6 +919,52 @@
     </step>
 
   <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>ldc</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+        </field>
+      <field>
+        <name>income-category</name>
+        <value>Unspecified</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>is-fragile-state</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>534</xloc>
+      <yloc>169</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Insert &#x2f; Update</name>
     <type>InsertUpdate</type>
     <description/>
@@ -1017,11 +1064,16 @@
         <rename>income-category</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>is-fragile-state</name>
+        <rename>is-fragile-state</rename>
+        <update>Y</update>
+      </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>670</xloc>
-      <yloc>168</yloc>
+      <xloc>800</xloc>
+      <yloc>169</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1275,6 +1327,12 @@
         <default/>
         <type>String</type>
       </value>
+      <value>
+        <name>FragileState</name>
+        <rename>is-fragile-state</rename>
+        <default/>
+        <type>String</type>
+      </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -1470,7 +1528,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_reference</connection>
-    <sql>SELECT&#xd;&#xa;  ISOA2&#xd;&#xa;, UNLDC&#xd;&#xa;, Income&#xd;&#xa;FROM iatireference.&#x60;ref-country-classification&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  ISOA2&#xd;&#xa;, UNLDC&#xd;&#xa;, Income&#xd;&#xa;, FragileState&#xd;&#xa;FROM iatireference.&#x60;ref-country-classification&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1617,8 +1675,8 @@
     </step>
 
   <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
+    <name>Default fragile state</name>
+    <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1627,30 +1685,16 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>ldc</name>
-        <value/>
-        <mask/>
-        <set_empty_string>Y</set_empty_string>
-        </field>
-      <field>
-        <name>income-category</name>
-        <value>Unspecified</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;OR&#x28;&#x5b;is-fragile-state&#x5d;&#x3c;&#x3e;&#x22;Y&#x22;&#x3b;ISBLANK&#x28;&#x5b;is-fragile-state&#x5d;&#x29;&#x29;&#x3b;&#x22;N&#x22;&#x3b;&#x22;Y&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>is-fragile-state</replace_field>
+</formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>534</xloc>
+      <xloc>657</xloc>
       <yloc>169</yloc>
       <draw>Y</draw>
       </GUI>

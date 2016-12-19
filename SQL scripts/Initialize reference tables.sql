@@ -2586,21 +2586,6 @@ INSERT INTO `ref-menu-lines` (`Id`) VALUES
 	(25);
 /*!40000 ALTER TABLE `ref-menu-lines` ENABLE KEYS */;
 
--- Dumping structure for table iatireference.ref-parameters
-DROP TABLE IF EXISTS `ref-parameters`;
-CREATE TABLE IF NOT EXISTS `ref-parameters` (
-  `key` char(10) NOT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Dumping data for table iatireference.ref-parameters: ~1 rows (approximately)
-DELETE FROM `ref-parameters`;
-/*!40000 ALTER TABLE `ref-parameters` DISABLE KEYS */;
-INSERT INTO `ref-parameters` (`key`, `value`) VALUES
-	('urlroot', 'http://localhost/iati/');
-/*!40000 ALTER TABLE `ref-parameters` ENABLE KEYS */;
-
 
 -- Dumping database structure for iatischema
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
@@ -2619,43 +2604,43 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
--- Dumping data for table iatischema.ctl-publishers: ~31 rows (approximately)
+-- Dumping data for table iatischema.ctl-publishers: ~32 rows (approximately)
 DELETE FROM `ctl-publishers`;
 /*!40000 ALTER TABLE `ctl-publishers` DISABLE KEYS */;
 INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-processing`, `testfile-location`, `is-testfile`, `publisher-name`) VALUES
-	('aa', 24, b'0', b'1', NULL, b'0', 'International HIV/AIDS Alliance'),
-	('aanl', 28, b'0', b'1', NULL, b'0', 'Action Aid Nederland'),
-	('achest', 26, b'0', b'1', NULL, b'0', 'African Centre for Global Health and Social Transformation'),
-	('amrefnl', 18, b'0', b'1', NULL, b'0', 'Amref Flying Doctors'),
-	('awepa', 12, b'0', b'1', NULL, b'0', 'AWEPA'),
-	('bothends', 6, b'0', b'1', NULL, b'0', 'Both ENDS'),
-	('ccc', 7, b'0', b'1', NULL, b'0', 'Clean Clothes Campaign'),
-	('cfyas', 29, b'0', b'1', NULL, b'0', 'CHOICE for Youth and Sexuality'),
-	('dance4life', 30, b'0', b'1', NULL, b'0', 'dance4life'),
-	('dciecpatnl', 34, b'0', b'1', NULL, b'0', 'Defence for Children International Netherlands - ECPAT Netherlands'),
-	('ejc', 21, b'0', b'1', NULL, b'0', 'European Journalism Centre'),
-	('foenl', 8, b'0', b'1', NULL, b'0', 'Milieudefensie'),
-	('free_press_unlimited', 11, b'0', b'1', NULL, b'0', 'Free Press Unlimited'),
-	('ieu', 37, b'0', b'1', NULL, b'0', 'Internews Europe'),
-	('irc', 25, b'0', b'1', NULL, b'0', 'IRC'),
-	('minbuza_nl', 1, b'0', b'1', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
-	('nimd-hq', 16, b'0', b'1', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
-	('nl-kvk-41207989', 17, b'0', b'1', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
-	('nlrc', 5, b'0', b'1', '', b'0', 'Netherlands Red Cross'),
-	('onl', 22, b'0', b'1', NULL, b'0', 'Oxfam Novib Nederland'),
-	('plannlno', 19, b'0', b'1', NULL, b'0', 'Plan Nederland'),
-	('rutgers', 32, b'0', b'1', NULL, b'0', 'Rutgers'),
-	('rvo', 3, b'0', b'1', '', b'0', 'Netherlands Enterprise Agency'),
-	('simavi', 20, b'0', b'1', NULL, b'0', 'Simavi'),
-	('somo', 9, b'0', b'1', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
-	('stichting_hivos', 31, b'0', b'1', NULL, b'0', 'Hivos'),
-	('tdh_nl', 33, b'0', b'1', NULL, b'0', 'Terre des Hommes Netherlands'),
-	('tni', 10, b'0', b'1', NULL, b'0', 'Transnational Institute'),
-	('wemos', 27, b'0', b'1', NULL, b'0', 'Wemos Foundation'),
-	('wfwiuk', 36, b'0', b'1', NULL, b'0', 'Women for Women International (UK)'),
-	('wi', 23, b'0', b'1', NULL, b'0', 'Wetlands International'),
+	('aa', 24, b'1', b'1', NULL, b'0', 'International HIV/AIDS Alliance'),
+	('aanl', 28, b'1', b'1', NULL, b'0', 'Action Aid Nederland'),
+	('achest', 26, b'1', b'1', NULL, b'0', 'African Centre for Global Health and Social Transformation'),
+	('amrefnl', 18, b'1', b'1', NULL, b'0', 'Amref Flying Doctors'),
+	('awepa', 12, b'1', b'1', NULL, b'0', 'AWEPA'),
+	('bothends', 6, b'1', b'1', NULL, b'0', 'Both ENDS'),
+	('ccc', 7, b'1', b'1', NULL, b'0', 'Clean Clothes Campaign'),
+	('cfyas', 29, b'1', b'1', NULL, b'0', 'CHOICE for Youth and Sexuality'),
+	('dance4life', 30, b'1', b'1', NULL, b'0', 'dance4life'),
+	('dciecpatnl', 34, b'1', b'1', NULL, b'0', 'Defence for Children International Netherlands - ECPAT Netherlands'),
+	('ejc', 21, b'1', b'1', NULL, b'0', 'European Journalism Centre'),
+	('foenl', 8, b'1', b'1', NULL, b'0', 'Milieudefensie'),
+	('free_press_unlimited', 11, b'1', b'1', NULL, b'0', 'Free Press Unlimited'),
+	('ieu', 37, b'1', b'1', NULL, b'0', 'Internews Europe'),
+	('irc', 25, b'1', b'1', NULL, b'0', 'IRC'),
+	('minbuza_nl', 1, b'1', b'1', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
+	('nimd-hq', 16, b'1', b'1', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
+	('nl-kvk-41207989', 17, b'1', b'1', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
+	('nlrc', 5, b'1', b'1', '', b'0', 'Netherlands Red Cross'),
+	('onl', 22, b'1', b'1', NULL, b'0', 'Oxfam Novib Nederland'),
+	('plannlno', 19, b'1', b'1', NULL, b'0', 'Plan Nederland'),
+	('rutgers', 32, b'1', b'1', NULL, b'0', 'Rutgers'),
+	('rvo', 3, b'1', b'1', '', b'0', 'Netherlands Enterprise Agency'),
+	('simavi', 20, b'1', b'1', NULL, b'0', 'Simavi'),
+	('somo', 9, b'1', b'1', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
+	('stichting_hivos', 31, b'1', b'1', NULL, b'0', 'Hivos'),
+	('tdh_nl', 33, b'1', b'1', NULL, b'0', 'Terre des Hommes Netherlands'),
+	('tni', 10, b'1', b'1', NULL, b'0', 'Transnational Institute'),
+	('wemos', 27, b'1', b'1', NULL, b'0', 'Wemos Foundation'),
+	('wfwiuk', 36, b'1', b'1', NULL, b'0', 'Women for Women International (UK)'),
+	('wi', 23, b'1', b'1', NULL, b'0', 'Wetlands International'),
 	('zoa', 2, b'1', b'1', '', b'0', 'ZOA');
 /*!40000 ALTER TABLE `ctl-publishers` ENABLE KEYS */;
 

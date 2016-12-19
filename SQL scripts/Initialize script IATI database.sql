@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=5549 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=5550 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -315,7 +315,11 @@ CREATE TABLE IF NOT EXISTS `fct-country-region` (
   `buza-descendant-yn` char(1) COLLATE utf8mb4_bin DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
   `buza-ancestor-activity-id` char(100) COLLATE utf8mb4_bin DEFAULT NULL,
-  `has-childs` char(1) COLLATE utf8mb4_bin DEFAULT NULL
+  `has-childs` char(1) COLLATE utf8mb4_bin DEFAULT NULL,
+  KEY `idx-iati-identifier` (`iati-identifier`),
+  KEY `idx-country-code` (`recipient-country-code`),
+  KEY `idx-region-code` (`recipient-region-code`),
+  KEY `idx-buza-ancestor` (`buza-ancestor-activity-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Data exporting was unselected.
@@ -323,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `fct-country-region` (
 DROP TABLE IF EXISTS `fct-descriptions`;
 CREATE TABLE IF NOT EXISTS `fct-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `description` longtext,
+  `description` varchar(16384) DEFAULT NULL,
   `description-type-code` int(11) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -561,25 +565,25 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-aggregation-status` bit(1) DEFAULT NULL,
-  `result-title` tinytext,
+  `result-title` varchar(512) DEFAULT NULL,
   `indicator-measure-code` tinytext,
-  `indicator-title` mediumtext,
-  `indicator-description` mediumtext,
+  `indicator-title` varchar(512) DEFAULT NULL,
+  `indicator-description` varchar(4000) DEFAULT NULL,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `baseline-is-number` bit(1) DEFAULT NULL,
   `baseline-total` double DEFAULT NULL,
-  `baseline-comment` text,
+  `baseline-comment` varchar(5500) DEFAULT NULL,
   `period-start` date DEFAULT NULL,
   `period-end` date DEFAULT NULL,
   `actual-value` tinytext,
   `actual-is-number` bit(1) DEFAULT NULL,
   `actual-total` double DEFAULT NULL,
-  `actual-comment` text,
+  `actual-comment` varchar(2000) DEFAULT NULL,
   `target-value` tinytext,
   `target-is-number` bit(1) DEFAULT NULL,
   `target-total` double DEFAULT NULL,
-  `target-comment` text,
+  `target-comment` varchar(2000) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
@@ -589,7 +593,7 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `buza-descendant-level` int(11) DEFAULT NULL,
   `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
-  `result-description` mediumtext,
+  `result-description` varchar(5000) DEFAULT NULL,
   `publisher-name` varchar(128) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
@@ -1025,7 +1029,7 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.currency-rates
@@ -1111,7 +1115,10 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(11) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL,
+  KEY `idx-iati-identifier` (`iati-identifier`),
+  KEY `idx-country-code` (`recipient-country-code`),
+  KEY `idx-region-code` (`recipient-region-code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
@@ -1152,7 +1159,7 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
 DROP TABLE IF EXISTS `dwh-descriptions`;
 CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `description` longtext,
+  `description` varchar(16384) DEFAULT NULL,
   `description-type-code` int(11) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -1413,24 +1420,24 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-aggregation-status` bit(1) DEFAULT NULL,
-  `result-title` tinytext,
+  `result-title` varchar(512) DEFAULT NULL,
   `indicator-measure-code` tinytext,
-  `indicator-title` mediumtext,
-  `indicator-description` mediumtext,
+  `indicator-title` varchar(512) DEFAULT NULL,
+  `indicator-description` varchar(4000) DEFAULT NULL,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
-  `baseline-comment` text,
+  `baseline-comment` varchar(5500) DEFAULT NULL,
   `period-start` date DEFAULT NULL,
   `period-end` date DEFAULT NULL,
   `actual-value` tinytext,
-  `actual-comment` text,
+  `actual-comment` varchar(2000) DEFAULT NULL,
   `target-value` tinytext,
-  `target-comment` text,
+  `target-comment` varchar(2000) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
-  `result-description` mediumtext,
+  `result-description` varchar(5000) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
   KEY `idx-url-id` (`url-id`)
@@ -1658,7 +1665,7 @@ CREATE TABLE IF NOT EXISTS `src-act-dates` (
 DROP TABLE IF EXISTS `src-act-descriptions`;
 CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `description` mediumtext,
+  `description` varchar(16384) DEFAULT NULL,
   `description-type-code` int(11) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -1769,14 +1776,14 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-aggregation-status` bit(1) DEFAULT NULL,
-  `result-title` tinytext,
+  `result-title` varchar(512) DEFAULT NULL,
   `indicator-measure-code` tinytext,
-  `indicator-title` mediumtext,
-  `indicator-description` mediumtext,
+  `indicator-title` varchar(512) DEFAULT NULL,
+  `indicator-description` varchar(4000) DEFAULT NULL,
   `period-start` datetime DEFAULT NULL,
   `period-end` datetime DEFAULT NULL,
-  `actual-comment` text,
-  `target-comment` text,
+  `actual-comment` varchar(2000) DEFAULT NULL,
+  `target-comment` varchar(2000) DEFAULT NULL,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `actual-value` tinytext,
@@ -1786,8 +1793,8 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL,
-  `baseline-comment` text,
-  `result-description` mediumtext
+  `baseline-comment` varchar(5500) DEFAULT NULL,
+  `result-description` varchar(5000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
@@ -1968,7 +1975,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-dates` (
 DROP TABLE IF EXISTS `xml-act-descriptions`;
 CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `description` mediumtext,
+  `description` varchar(16384) DEFAULT NULL,
   `description-type-code` int(11) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -2072,14 +2079,14 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
   `result-aggregation-status` bit(1) DEFAULT NULL,
-  `result-title` tinytext,
+  `result-title` varchar(512) DEFAULT NULL,
   `indicator-measure-code` tinytext,
-  `indicator-title` mediumtext,
-  `indicator-description` mediumtext,
+  `indicator-title` varchar(512) DEFAULT NULL,
+  `indicator-description` varchar(4000) DEFAULT NULL,
   `period-start` datetime DEFAULT NULL,
   `period-end` datetime DEFAULT NULL,
-  `actual-comment` text,
-  `target-comment` text,
+  `actual-comment` varchar(2000) DEFAULT NULL,
+  `target-comment` varchar(2000) DEFAULT NULL,
   `baseline-year` int(11) DEFAULT NULL,
   `baseline-value` tinytext,
   `actual-value` tinytext,
@@ -2088,8 +2095,8 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
-  `baseline-comment` text,
-  `result-description` mediumtext
+  `baseline-comment` varchar(5500) DEFAULT NULL,
+  `result-description` varchar(5000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
