@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;02 11&#x3a;25&#x3a;41.075</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;10&#x2f;19 11&#x3a;18&#x3a;06.051</modified_date>
+  <modified_date>2017&#x2f;01&#x2f;17 17&#x3a;41&#x3a;23.198</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -353,13 +353,13 @@
   </hops>
   <notepads>
     <notepad>
-      <note>This job produces the precooked PDF reports with result and activity summaries.&#xd;&#xa;- The resultsumaaries are produced for each BZ activity with childs.&#xd;&#xa;- The activity summaries are produced for each activity.</note>
+      <note>This job produces the precooked PDF reports with result and activity summaries.&#xd;&#xa;- The result summaries are produced for each BZ activity with related activities.&#xd;&#xa;- The activity summaries are produced for each activity.</note>
       <xloc>12</xloc>
       <yloc>10</yloc>
       <width>476</width>
       <heigth>55</heigth>
-      <fontname/>
-      <fontsize>-1</fontsize>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>

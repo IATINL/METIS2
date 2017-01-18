@@ -32,7 +32,7 @@ DELETE FROM `ref-country-classification`;
 /*!40000 ALTER TABLE `ref-country-classification` DISABLE KEYS */;
 INSERT INTO `ref-country-classification` (`ISOA2`, `ISOA3`, `UNCountry`, `UNLDC`, `Income`, `Region`) VALUES
 	('AF', 'AFG', 'Afghanistan', 'LDC', 'Low income', 'South Asia'),
-	('AX', 'ALA', '?land Islands', '', '', ''),
+	('AX', 'ALA', 'Aland Islands', '', '', ''),
 	('AL', 'ALB', 'Albania', '', 'Upper middle income', 'Europe & Central Asia'),
 	('DZ', 'DZA', 'Algeria', '', 'Upper middle income', 'Middle East & North Africa'),
 	('AS', 'ASM', 'American Samoa', '', 'Upper middle income', 'East Asia & Pacific'),
@@ -82,14 +82,14 @@ INSERT INTO `ref-country-classification` (`ISOA2`, `ISOA3`, `UNCountry`, `UNLDC`
 	('CG', 'COG', 'Congo', '', 'Lower middle income', 'Sub-Saharan Africa'),
 	('CK', 'COK', 'Cook Islands', '', '', ''),
 	('CR', 'CRI', 'Costa Rica', '', 'Upper middle income', 'Latin America & Caribbean'),
-	('CI', 'CIV', 'C?te d\'Ivoire', '', 'Lower middle income', 'Sub-Saharan Africa'),
+	('CI', 'CIV', 'Cote d\'Ivoire', '', 'Lower middle income', 'Sub-Saharan Africa'),
 	('HR', 'HRV', 'Croatia', '', 'High income', 'Europe & Central Asia'),
 	('CU', 'CUB', 'Cuba', '', 'Upper middle income', 'Latin America & Caribbean'),
-	('CW', 'CUW', 'Cura?ao', '', 'High income', 'Latin America & Caribbean'),
+	('CW', 'CUW', 'Curacao', '', 'High income', 'Latin America & Caribbean'),
 	('CY', 'CYP', 'Cyprus', '', 'High income', 'Europe & Central Asia'),
 	('CZ', 'CZE', 'Czech Republic', '', 'High income', 'Europe & Central Asia'),
 	('KP', 'PRK', 'Democratic People\'s Republic of Korea', '', 'Low income', 'East Asia & Pacific'),
-	('CD', 'COD', 'Democratic Republic of the Congo', 'LDC', '', ''),
+	('CD', 'COD', 'Democratic Republic of the Congo', 'LDC', 'Low income', 'Sub-Saharan Africa'),
 	('DK', 'DNK', 'Denmark', '', 'High income', 'Europe & Central Asia'),
 	('DJ', 'DJI', 'Djibouti', 'LDC', 'Lower middle income', 'Middle East & North Africa'),
 	('DM', 'DMA', 'Dominica', '', 'Upper middle income', 'Latin America & Caribbean'),
@@ -208,7 +208,7 @@ INSERT INTO `ref-country-classification` (`ISOA2`, `ISOA3`, `UNCountry`, `UNLDC`
 	('RO', 'ROU', 'Romania', '', '', ''),
 	('RU', 'RUS', 'Russian Federation', '', 'High income', 'Europe & Central Asia'),
 	('RW', 'RWA', 'Rwanda', 'LDC', 'Low income', 'Sub-Saharan Africa'),
-	('BL', 'BLM', 'Saint-Barth?lemy', '', '', ''),
+	('BL', 'BLM', 'Saint-Bartholemy', '', '', ''),
 	('SH', 'SHN', 'Saint Helena', '', '', ''),
 	('KN', 'KNA', 'Saint Kitts and Nevis', '', 'High income', 'Latin America & Caribbean'),
 	('LC', 'LCA', 'Saint Lucia', '', 'Upper middle income', 'Latin America & Caribbean'),
@@ -2586,21 +2586,6 @@ INSERT INTO `ref-menu-lines` (`Id`) VALUES
 	(25);
 /*!40000 ALTER TABLE `ref-menu-lines` ENABLE KEYS */;
 
--- Dumping structure for table iatireference.ref-parameters
-DROP TABLE IF EXISTS `ref-parameters`;
-CREATE TABLE IF NOT EXISTS `ref-parameters` (
-  `key` char(10) NOT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Dumping data for table iatireference.ref-parameters: ~1 rows (approximately)
-DELETE FROM `ref-parameters`;
-/*!40000 ALTER TABLE `ref-parameters` DISABLE KEYS */;
-INSERT INTO `ref-parameters` (`key`, `value`) VALUES
-	('urlroot', 'http://localhost/iati/');
-/*!40000 ALTER TABLE `ref-parameters` ENABLE KEYS */;
-
 
 -- Dumping database structure for iatischema
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
@@ -2615,47 +2600,48 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   `force-processing` bit(1) NOT NULL DEFAULT b'0',
   `testfile-location` varchar(256) DEFAULT NULL,
   `is-testfile` bit(1) NOT NULL DEFAULT b'0',
-  `publisher-name` varchar(64) DEFAULT NULL,
+  `publisher-name` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
--- Dumping data for table iatischema.ctl-publishers: ~31 rows (approximately)
+-- Dumping data for table iatischema.ctl-publishers: ~32 rows (approximately)
 DELETE FROM `ctl-publishers`;
 /*!40000 ALTER TABLE `ctl-publishers` DISABLE KEYS */;
 INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-processing`, `testfile-location`, `is-testfile`, `publisher-name`) VALUES
-	('aa', 24, b'0', b'1', NULL, b'0', 'International HIV/AIDS Alliance'),
-	('aanl', 28, b'0', b'1', NULL, b'0', 'Action Aid Nederland'),
+	('aa', 24, b'1', b'1', NULL, b'0', 'International HIV/AIDS Alliance'),
+	('aanl', 28, b'1', b'1', NULL, b'0', 'Action Aid Nederland'),
 	('achest', 26, b'1', b'1', NULL, b'0', 'African Centre for Global Health and Social Transformation'),
-	('amrefnl', 18, b'0', b'1', NULL, b'0', 'Amref Flying Doctors'),
-	('awepa', 12, b'0', b'1', NULL, b'0', 'AWEPA'),
-	('bothends', 6, b'0', b'1', NULL, b'0', 'Both ENDS'),
-	('ccc', 7, b'0', b'1', NULL, b'0', 'Clean Clothes Campaign'),
-	('cfyas', 29, b'0', b'1', NULL, b'0', 'CHOICE for Youth and Sexuality'),
-	('dance4life', 30, b'0', b'1', NULL, b'0', 'dance4life'),
-	('dciecpatnl', 34, b'0', b'1', NULL, b'0', 'Defence for Children International Netherlands - ECPAT Netherlan'),
-	('ejc', 21, b'0', b'1', NULL, b'0', 'European Journalism Centre'),
-	('foenl', 8, b'0', b'1', NULL, b'0', 'Milieudefensie'),
-	('free_press_unlimited', 11, b'0', b'1', NULL, b'0', 'Free Press Unlimited'),
-	('irc', 25, b'0', b'1', NULL, b'0', 'IRC'),
-	('minbuza_nl', 1, b'0', b'1', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
-	('nimd-hq', 16, b'0', b'1', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
-	('nl-kvk-41207989', 17, b'0', b'1', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
-	('nlrc', 5, b'0', b'1', '', b'0', 'Netherlands Red Cross'),
-	('onl', 22, b'0', b'1', NULL, b'0', 'Oxfam Novib Nederland'),
-	('plannlno', 19, b'0', b'1', NULL, b'0', 'Plan Nederland'),
-	('rutgers', 32, b'0', b'1', NULL, b'0', 'Rutgers'),
-	('rvo', 3, b'0', b'1', '', b'0', 'Netherlands Enterprise Agency'),
-	('simavi', 20, b'0', b'1', NULL, b'0', 'Simavi'),
-	('somo', 9, b'0', b'1', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
-	('stichting_hivos', 31, b'0', b'1', NULL, b'0', 'Hivos'),
-	('tdh_nl', 33, b'0', b'1', NULL, b'0', 'Terre des Hommes Netherlands'),
-	('tni', 10, b'0', b'1', NULL, b'0', 'Transnational Institute'),
-	('wemos', 27, b'0', b'1', NULL, b'0', 'Wemos Foundation'),
-	('wfwiuk', 36, b'0', b'1', NULL, b'0', 'Women for Women International (UK)'),
-	('wi', 23, b'0', b'1', NULL, b'0', 'Wetlands International'),
-	('zoa', 2, b'0', b'1', '', b'0', 'ZOA');
+	('amrefnl', 18, b'1', b'1', NULL, b'0', 'Amref Flying Doctors'),
+	('awepa', 12, b'1', b'1', NULL, b'0', 'AWEPA'),
+	('bothends', 6, b'1', b'1', NULL, b'0', 'Both ENDS'),
+	('ccc', 7, b'1', b'1', NULL, b'0', 'Clean Clothes Campaign'),
+	('cfyas', 29, b'1', b'1', NULL, b'0', 'CHOICE for Youth and Sexuality'),
+	('dance4life', 30, b'1', b'1', NULL, b'0', 'dance4life'),
+	('dciecpatnl', 34, b'1', b'1', NULL, b'0', 'Defence for Children International Netherlands - ECPAT Netherlands'),
+	('ejc', 21, b'1', b'1', NULL, b'0', 'European Journalism Centre'),
+	('foenl', 8, b'1', b'1', NULL, b'0', 'Milieudefensie'),
+	('free_press_unlimited', 11, b'1', b'1', NULL, b'0', 'Free Press Unlimited'),
+	('ieu', 37, b'1', b'1', NULL, b'0', 'Internews Europe'),
+	('irc', 25, b'1', b'1', NULL, b'0', 'IRC'),
+	('minbuza_nl', 1, b'1', b'1', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
+	('nimd-hq', 16, b'1', b'1', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
+	('nl-kvk-41207989', 17, b'1', b'1', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
+	('nlrc', 5, b'1', b'1', '', b'0', 'Netherlands Red Cross'),
+	('onl', 22, b'1', b'1', NULL, b'0', 'Oxfam Novib Nederland'),
+	('plannlno', 19, b'1', b'1', NULL, b'0', 'Plan Nederland'),
+	('rutgers', 32, b'1', b'1', NULL, b'0', 'Rutgers'),
+	('rvo', 3, b'1', b'1', '', b'0', 'Netherlands Enterprise Agency'),
+	('simavi', 20, b'1', b'1', NULL, b'0', 'Simavi'),
+	('somo', 9, b'1', b'1', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
+	('stichting_hivos', 31, b'1', b'1', NULL, b'0', 'Hivos'),
+	('tdh_nl', 33, b'1', b'1', NULL, b'0', 'Terre des Hommes Netherlands'),
+	('tni', 10, b'1', b'1', NULL, b'0', 'Transnational Institute'),
+	('wemos', 27, b'1', b'1', NULL, b'0', 'Wemos Foundation'),
+	('wfwiuk', 36, b'1', b'1', NULL, b'0', 'Women for Women International (UK)'),
+	('wi', 23, b'1', b'1', NULL, b'0', 'Wetlands International'),
+	('zoa', 2, b'1', b'1', '', b'0', 'ZOA');
 /*!40000 ALTER TABLE `ctl-publishers` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
