@@ -68,14 +68,14 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;23 15&#x3a;38&#x3a;28.911</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;12&#x2f;14 14&#x3a;17&#x3a;00.281</modified_date>
+  <modified_date>2017&#x2f;01&#x2f;20 10&#x3a;00&#x3a;12.127</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Calculate if an activity has childs &#x28;Y&#x29; or not &#x28;N&#x29;. An activity has childs when it is used as an providing activity. &#xd;&#xa;So when an activity occurs at least one time as a providing activity it has childs.</note>
-      <xloc>779</xloc>
+      <xloc>904</xloc>
       <yloc>56</yloc>
       <width>640</width>
       <heigth>40</heigth>
@@ -249,11 +249,12 @@
   <hop> <from>Missing ancestor id</from><to>Add child indicator</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc has childs</from><to>Lookup publisher name</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup publisher name</from><to>Write results by providers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Baseline number</to><enabled>Y</enabled> </hop>
   <hop> <from>Baseline number</from><to>Actual number</to><enabled>Y</enabled> </hop>
   <hop> <from>Actual number</from><to>Target number</to><enabled>Y</enabled> </hop>
   <hop> <from>Target number</from><to>If agg status is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If agg status is null</from><to>Missing link fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Trim spaces from values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Trim spaces from values</from><to>Baseline number</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Actual number</name>
@@ -294,7 +295,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>587</xloc>
+      <xloc>729</xloc>
       <yloc>282</yloc>
       <draw>Y</draw>
       </GUI>
@@ -330,7 +331,7 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1265</xloc>
+      <xloc>1390</xloc>
       <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
@@ -375,7 +376,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>478</xloc>
+      <xloc>620</xloc>
       <yloc>282</yloc>
       <draw>Y</draw>
       </GUI>
@@ -401,7 +402,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1391</xloc>
+      <xloc>1516</xloc>
       <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
@@ -419,7 +420,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-aggregation-status&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;result-description&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;baseline-comment&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;FROM iatischema.&#x60;dwh-results&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-aggregation-status&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;result-description&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;baseline-comment&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;FROM iatischema.&#x60;dwh-results&#x60;&#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -487,7 +488,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>805</xloc>
+      <xloc>930</xloc>
       <yloc>282</yloc>
       <draw>Y</draw>
       </GUI>
@@ -529,7 +530,7 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1522</xloc>
+      <xloc>1647</xloc>
       <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
@@ -583,7 +584,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1097</xloc>
+      <xloc>1222</xloc>
       <yloc>279</yloc>
       <draw>Y</draw>
       </GUI>
@@ -623,7 +624,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>934</xloc>
+      <xloc>1059</xloc>
       <yloc>279</yloc>
       <draw>Y</draw>
       </GUI>
@@ -649,7 +650,7 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>780</xloc>
+      <xloc>905</xloc>
       <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
@@ -678,7 +679,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>937</xloc>
+      <xloc>1062</xloc>
       <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
@@ -702,7 +703,7 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1265</xloc>
+      <xloc>1390</xloc>
       <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
@@ -804,7 +805,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1067</xloc>
+      <xloc>1192</xloc>
       <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
@@ -849,7 +850,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>692</xloc>
+      <xloc>834</xloc>
       <yloc>282</yloc>
       <draw>Y</draw>
       </GUI>
@@ -874,7 +875,7 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1168</xloc>
+      <xloc>1293</xloc>
       <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
@@ -893,7 +894,7 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>937</xloc>
+      <xloc>1062</xloc>
       <yloc>216</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1063,8 +1064,68 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1678</xloc>
+      <xloc>1803</xloc>
       <yloc>278</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Trim spaces from values</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>baseline-value</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>actual-value</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>target-value</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>485</xloc>
+      <yloc>281</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

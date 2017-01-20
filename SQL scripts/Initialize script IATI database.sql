@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win32
+-- Host:                         172.16.101.20
+-- Server version:               10.1.18-MariaDB - MariaDB Server
+-- Server OS:                    Linux
 -- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
@@ -13,7 +13,7 @@
 
 
 -- Dumping database structure for iatidatamart
-CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
+CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `iatidatamart`;
 
 -- Dumping structure for table iatidatamart.dim-activity
@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `dim-country` (
   `recipient-country-name` tinytext,
   `ldc` varchar(3) DEFAULT NULL,
   `income-category` varchar(25) DEFAULT NULL,
+  `is-fragile-state` char(1) DEFAULT NULL,
   PRIMARY KEY (`recipient-country-code`),
   KEY `idx_dim-country_lookup` (`recipient-country-code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -172,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=5550 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=11114 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -234,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-budgets
@@ -316,10 +317,10 @@ CREATE TABLE IF NOT EXISTS `fct-country-region` (
   `buza-descendant-level` int(11) DEFAULT NULL,
   `buza-ancestor-activity-id` char(100) COLLATE utf8mb4_bin DEFAULT NULL,
   `has-childs` char(1) COLLATE utf8mb4_bin DEFAULT NULL,
-  KEY `idx-iati-identifier` (`iati-identifier`),
-  KEY `idx-country-code` (`recipient-country-code`),
+  KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
+  KEY `idx-country-code` (`recipient-country-code`) USING BTREE,
   KEY `idx-region-code` (`recipient-region-code`),
-  KEY `idx-buza-ancestor` (`buza-ancestor-activity-id`)
+  KEY `idx-bz-ancestor-id` (`buza-ancestor-activity-id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Data exporting was unselected.
@@ -976,10 +977,11 @@ DROP TABLE IF EXISTS `ref-country-classification`;
 CREATE TABLE IF NOT EXISTS `ref-country-classification` (
   `ISOA2` char(2) DEFAULT NULL,
   `ISOA3` char(3) DEFAULT NULL,
-  `UNCountry` tinytext,
+  `UNCountry` varchar(50) DEFAULT NULL,
   `UNLDC` char(3) DEFAULT NULL,
   `Income` varchar(25) DEFAULT NULL,
-  `Region` varchar(35) DEFAULT NULL
+  `Region` varchar(35) DEFAULT NULL,
+  `FragileState` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -1002,36 +1004,11 @@ CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
--- Dumping structure for table iatireference.ref-parameters
-DROP TABLE IF EXISTS `ref-parameters`;
-CREATE TABLE IF NOT EXISTS `ref-parameters` (
-  `key` char(10) NOT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
 
 -- Dumping database structure for iatischema
-CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
+CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `iatischema`;
 
--- Dumping structure for table iatischema.ctl-publishers
-DROP TABLE IF EXISTS `ctl-publishers`;
-CREATE TABLE IF NOT EXISTS `ctl-publishers` (
-  `publisher` char(21) NOT NULL,
-  `publisher-id` int(11) NOT NULL AUTO_INCREMENT,
-  `active` bit(1) NOT NULL DEFAULT b'0',
-  `force-processing` bit(1) NOT NULL DEFAULT b'0',
-  `testfile-location` varchar(256) DEFAULT NULL,
-  `is-testfile` bit(1) NOT NULL DEFAULT b'0',
-  `publisher-name` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`publisher`),
-  UNIQUE KEY `publisher_UNIQUE` (`publisher`),
-  UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
 -- Dumping structure for table iatischema.currency-rates
 DROP TABLE IF EXISTS `currency-rates`;
 CREATE TABLE IF NOT EXISTS `currency-rates` (
@@ -1115,10 +1092,7 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(11) DEFAULT NULL,
-  KEY `idx-iati-identifier` (`iati-identifier`),
-  KEY `idx-country-code` (`recipient-country-code`),
-  KEY `idx-region-code` (`recipient-region-code`)
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
