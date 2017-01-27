@@ -18,3 +18,4 @@ Version 2.77 Added publisher-name to fact-results, increased publisher-name fiel
 Version 3.01 Added aggregated results, increased DB text fields for results and updated activity summary PDF report
 Version 3.02 Debugged RPD activity summary
 Version 3.04 Added trimming of result values in order to have more robust processing of aggregated results
+Version 3.06 Changed 'has-childs' calculation for transactions to exclude incoming transactions, modified result summary PDF
