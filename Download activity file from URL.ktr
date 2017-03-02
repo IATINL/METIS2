@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;01&#x2f;18 14&#x3a;25&#x3a;32.932</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;24 12&#x3a;02&#x3a;42.443</modified_date>
+  <modified_date>2017&#x2f;03&#x2f;02 14&#x3a;29&#x3a;51.870</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -299,9 +299,6 @@
   <order>
   <hop> <from>Write to activity XML file</from><to>Select http status field</to><enabled>Y</enabled> </hop>
   <hop> <from>User agent constant</from><to>Select URL &#x26; agent</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select URL &#x26; agent</from><to>Download 1st time</to><enabled>Y</enabled> </hop>
-  <hop> <from>Download 1st time</from><to>Abort failed HTTP request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Download 1st time</from><to>Switch on HTTP status</to><enabled>Y</enabled> </hop>
   <hop> <from>Switch on HTTP status</from><to>Redirect 1st time</to><enabled>Y</enabled> </hop>
   <hop> <from>Switch on HTTP status</from><to>Write to activity XML file</to><enabled>Y</enabled> </hop>
   <hop> <from>Log initial download error</from><to>Failed download attempt 1</to><enabled>Y</enabled> </hop>
@@ -323,6 +320,9 @@
   <hop> <from>Encode URL</from><to>Abort because of badly formed URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Encode URL</from><to>User agent constant</to><enabled>Y</enabled> </hop>
   <hop> <from>Get json url from variable</from><to>Encode URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select URL &#x26; agent</from><to>HTTP Client</to><enabled>Y</enabled> </hop>
+  <hop> <from>HTTP Client</from><to>Switch on HTTP status</to><enabled>Y</enabled> </hop>
+  <hop> <from>HTTP Client</from><to>Abort failed HTTP request</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort because of badly formed URL</name>
@@ -362,57 +362,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>747</xloc>
-      <yloc>783</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Download 1st time</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <applicationType>TEXT PLAIN</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>jsonURL</urlField>
-    <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      <header>
-        <field>user-agent</field>
-        <name>User-Agent</name>
-        </header>
-      </headers>
-    <parameters>
-      </parameters>
-    <matrixParameters>
-      </matrixParameters>
-    <result>
-      <name>result</name>
-      <code>httpstatus</code>
-      <response_time/>
-      </result>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>751</xloc>
-      <yloc>484</yloc>
+      <xloc>752</xloc>
+      <yloc>787</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1143,10 +1094,51 @@
       </GUI>
     </step>
 
+  <step>
+    <name>HTTP Client</name>
+    <type>HTTP</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <url/>
+    <urlInField>Y</urlInField>
+    <urlField>jsonURL</urlField>
+    <encoding>UTF-8</encoding>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <socketTimeout>60000</socketTimeout>
+    <connectionTimeout>60000</connectionTimeout>
+    <closeIdleConnectionsTime>-1</closeIdleConnectionsTime>
+    <lookup>
+      <header>
+        <name>user-agent</name>
+        <parameter>User-Agent</parameter>
+      </header>
+    </lookup>
+    <result>
+      <name>result</name>
+      <code>httpstatus</code>
+      <response_time/>
+    </result>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>757</xloc>
+      <yloc>485</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
       <error>
-        <source_step>Download 1st time</source_step>
-        <target_step>Abort failed HTTP request</target_step>
+        <source_step>Encode URL</source_step>
+        <target_step>Abort because of badly formed URL</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -1157,8 +1149,8 @@
         <min_pct_rows/>
       </error>
       <error>
-        <source_step>Encode URL</source_step>
-        <target_step>Abort because of badly formed URL</target_step>
+        <source_step>HTTP Client</source_step>
+        <target_step>Abort failed HTTP request</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
