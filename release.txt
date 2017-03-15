@@ -19,3 +19,4 @@ Version 3.01 Added aggregated results, increased DB text fields for results and 
 Version 3.02 Debugged RPD activity summary
 Version 3.04 Added trimming of result values in order to have more robust processing of aggregated results
 Version 3.06 Changed 'has-childs' calculation for transactions to exclude incoming transactions, modified result summary PDF
+Version 3.11 Added Rest client failover in download code when HTTP Client call fails
