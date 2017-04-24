@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;08 10&#x3a;15&#x3a;10.798</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;28 09&#x3a;52&#x3a;43.751</modified_date>
+  <modified_date>2017&#x2f;04&#x2f;24 14&#x3a;46&#x3a;55.470</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -247,7 +247,6 @@
   <hop> <from>Sort location</from><to>Fill empty location type code</to><enabled>Y</enabled> </hop>
   <hop> <from>Get org vars</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort orgs</from><to>If org type is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in act src</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
   <hop> <from>Get sectors from XML 2.x</from><to>Get sector vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in sector src</from><to>Change &#x25; to number</to><enabled>Y</enabled> </hop>
   <hop> <from>Change &#x25; to number</from><to>Fill empty vocabulary code</to><enabled>Y</enabled> </hop>
@@ -255,6 +254,8 @@
   <hop> <from>Is DAC sector&#x3f;</from><to>Non DAC sector sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill empty vocabulary code</from><to>Is DAC sector&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Is DAC sector&#x3f;</from><to>Limit code to 5 chars</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in act src</from><to>Limit contact-org to 254</to><enabled>Y</enabled> </hop>
+  <hop> <from>Limit contact-org to 254</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Change &#x25; to number</name>
@@ -1778,6 +1779,35 @@
     </step>
 
   <step>
+    <name>Is DAC sector&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Limit code to 5 chars</send_true_to>
+<send_false_to>Non DAC sector sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sector-vocabulary</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>1</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1006</xloc>
+      <yloc>27</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Lattitude clean&#x3f;</name>
     <type>RegexEval</type>
     <description/>
@@ -1806,6 +1836,33 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>991</xloc>
       <yloc>326</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Limit code to 5 chars</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>sector-code</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>5</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1134</xloc>
+      <yloc>26</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2151,6 +2208,25 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>554</xloc>
       <yloc>239</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Non DAC sector sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1005</xloc>
+      <yloc>113</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2910,8 +2986,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>866</xloc>
-      <yloc>239</yloc>
+      <xloc>992</xloc>
+      <yloc>241</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3271,7 +3347,7 @@
     </step>
 
   <step>
-    <name>Limit code to 5 chars</name>
+    <name>Limit contact-org to 254</name>
     <type>StringCut</type>
     <description/>
     <distribute>Y</distribute>
@@ -3283,64 +3359,16 @@
            </partitioning>
     <fields>
       <field>
-        <in_stream_name>sector-code</in_stream_name>
+        <in_stream_name>contact-organisation</in_stream_name>
         <out_stream_name/>
         <cut_from>0</cut_from>
-        <cut_to>5</cut_to>
+        <cut_to>254</cut_to>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1134</xloc>
-      <yloc>26</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Is DAC sector&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Limit code to 5 chars</send_true_to>
-<send_false_to>Non DAC sector sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>sector-vocabulary</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>1</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1006</xloc>
-      <yloc>27</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Non DAC sector sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1005</xloc>
-      <yloc>113</yloc>
+      <xloc>847</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
