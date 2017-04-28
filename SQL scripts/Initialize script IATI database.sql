@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
--- Host:                         172.16.101.20
--- Server version:               10.1.18-MariaDB - MariaDB Server
--- Server OS:                    Linux
+-- Host:                         127.0.0.1
+-- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win32
 -- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
@@ -10,11 +10,6 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
-
--- Dumping database structure for iatidatamart
-CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `iatidatamart`;
 
 -- Dumping structure for table iatidatamart.dim-activity
 DROP TABLE IF EXISTS `dim-activity`;
@@ -78,7 +73,6 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -91,7 +85,24 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-budget-type
@@ -173,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=11114 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=7129 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -235,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-budgets
@@ -286,7 +297,6 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -299,7 +309,24 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-country-region
@@ -317,10 +344,10 @@ CREATE TABLE IF NOT EXISTS `fct-country-region` (
   `buza-descendant-level` int(11) DEFAULT NULL,
   `buza-ancestor-activity-id` char(100) COLLATE utf8mb4_bin DEFAULT NULL,
   `has-childs` char(1) COLLATE utf8mb4_bin DEFAULT NULL,
-  KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
-  KEY `idx-country-code` (`recipient-country-code`) USING BTREE,
+  KEY `idx-iati-identifier` (`iati-identifier`),
+  KEY `idx-country-code` (`recipient-country-code`),
   KEY `idx-region-code` (`recipient-region-code`),
-  KEY `idx-bz-ancestor-id` (`buza-ancestor-activity-id`) USING BTREE
+  KEY `idx-buza-ancestor` (`buza-ancestor-activity-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Data exporting was unselected.
@@ -364,7 +391,6 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -377,7 +403,24 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-documents
@@ -423,7 +466,6 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -436,7 +478,24 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-locations
@@ -485,7 +544,6 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -498,7 +556,24 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-organisations
@@ -544,7 +619,6 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -557,7 +631,24 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-results
@@ -621,7 +712,6 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -634,7 +724,24 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-transactions
@@ -691,7 +798,6 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -704,7 +810,24 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-archive
@@ -801,11 +924,6 @@ CREATE TABLE IF NOT EXISTS `log-reference-errors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
--- Dumping database structure for iatilogging
-CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatilogging`;
-
 -- Dumping structure for table iatilogging.log-pdi-etl
 DROP TABLE IF EXISTS `log-pdi-etl`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl` (
@@ -877,11 +995,6 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
--- Dumping database structure for iatireference
-CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatireference`;
-
 -- Dumping structure for table iatireference.codelist-activity-status
 DROP TABLE IF EXISTS `codelist-activity-status`;
 CREATE TABLE IF NOT EXISTS `codelist-activity-status` (
@@ -956,6 +1069,16 @@ CREATE TABLE IF NOT EXISTS `codelist-geographic-vocabulary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
+-- Dumping structure for table iatireference.codelist-iati-organisations
+DROP TABLE IF EXISTS `codelist-iati-organisations`;
+CREATE TABLE IF NOT EXISTS `codelist-iati-organisations` (
+  `org-iati-id` char(100) COLLATE utf8mb4_bin NOT NULL,
+  `org-title` varchar(256) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`org-iati-id`),
+  KEY `idx_codelist-iati-organisations_lookup` (`org-iati-id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Data exporting was unselected.
 -- Dumping structure for table iatireference.codelist-organisation-type
 DROP TABLE IF EXISTS `codelist-organisation-type`;
 CREATE TABLE IF NOT EXISTS `codelist-organisation-type` (
@@ -972,43 +1095,6 @@ CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
--- Dumping structure for table iatireference.ref-country-classification
-DROP TABLE IF EXISTS `ref-country-classification`;
-CREATE TABLE IF NOT EXISTS `ref-country-classification` (
-  `ISOA2` char(2) DEFAULT NULL,
-  `ISOA3` char(3) DEFAULT NULL,
-  `UNCountry` varchar(50) DEFAULT NULL,
-  `UNLDC` char(3) DEFAULT NULL,
-  `Income` varchar(25) DEFAULT NULL,
-  `Region` varchar(35) DEFAULT NULL,
-  `FragileState` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table iatireference.ref-currency-rates
-DROP TABLE IF EXISTS `ref-currency-rates`;
-CREATE TABLE IF NOT EXISTS `ref-currency-rates` (
-  `Jaar` int(11) NOT NULL DEFAULT '0',
-  `Valuta` char(3) NOT NULL DEFAULT '',
-  `Bron` char(20) NOT NULL,
-  `Koers` double DEFAULT NULL,
-  PRIMARY KEY (`Jaar`,`Valuta`,`Bron`),
-  KEY `idx_currency-rates_lookup` (`Valuta`,`Jaar`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
--- Dumping structure for table iatireference.ref-menu-lines
-DROP TABLE IF EXISTS `ref-menu-lines`;
-CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
-  `Id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
--- Dumping database structure for iatischema
-CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `iatischema`;
-
 -- Dumping structure for table iatischema.currency-rates
 DROP TABLE IF EXISTS `currency-rates`;
 CREATE TABLE IF NOT EXISTS `currency-rates` (
@@ -1066,7 +1152,6 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1079,7 +1164,24 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-country-region
@@ -1092,7 +1194,10 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(11) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL,
+  KEY `idx-iati-identifier` (`iati-identifier`),
+  KEY `idx-country-code` (`recipient-country-code`),
+  KEY `idx-region-code` (`recipient-region-code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY LIST (`publisher-id`)
 (PARTITION minbuza_nl VALUES IN (1) ENGINE = InnoDB,
@@ -1113,7 +1218,6 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1126,7 +1230,24 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-descriptions
@@ -1163,7 +1284,6 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1176,7 +1296,24 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-documents
@@ -1215,7 +1352,6 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1228,7 +1364,24 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-locations
@@ -1270,7 +1423,6 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1283,7 +1435,24 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-organisations
@@ -1322,7 +1491,6 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1335,7 +1503,24 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-related
@@ -1372,7 +1557,6 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1385,7 +1569,24 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-results
@@ -1435,7 +1636,6 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1448,7 +1648,24 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-transactions
@@ -1501,7 +1718,6 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION simavi VALUES IN (20) ENGINE = InnoDB,
  PARTITION ejc VALUES IN (21) ENGINE = InnoDB,
  PARTITION onl VALUES IN (22) ENGINE = InnoDB,
- PARTITION aa VALUES IN (24) ENGINE = InnoDB,
  PARTITION irc VALUES IN (25) ENGINE = InnoDB,
  PARTITION wi VALUES IN (23) ENGINE = InnoDB,
  PARTITION achest VALUES IN (26) ENGINE = InnoDB,
@@ -1514,7 +1730,24 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION dciecpatnl VALUES IN (34) ENGINE = InnoDB,
  PARTITION tdh_nl VALUES IN (33) ENGINE = InnoDB,
  PARTITION wfwiuk VALUES IN (36) ENGINE = InnoDB,
- PARTITION ieu VALUES IN (37) ENGINE = InnoDB) */;
+ PARTITION ieu VALUES IN (37) ENGINE = InnoDB,
+ PARTITION ihaa VALUES IN (40) ENGINE = InnoDB,
+ PARTITION snv VALUES IN (39) ENGINE = InnoDB,
+ PARTITION tear VALUES IN (38) ENGINE = InnoDB,
+ PARTITION scnl VALUES IN (41) ENGINE = InnoDB,
+ PARTITION akvo VALUES IN (42) ENGINE = InnoDB,
+ PARTITION oneacrefund VALUES IN (43) ENGINE = InnoDB,
+ PARTITION dai VALUES IN (46) ENGINE = InnoDB,
+ PARTITION fcam VALUES IN (47) ENGINE = InnoDB,
+ PARTITION st_vluchteling VALUES IN (45) ENGINE = InnoDB,
+ PARTITION wvnld VALUES IN (44) ENGINE = InnoDB,
+ PARTITION cordaid VALUES IN (49) ENGINE = InnoDB,
+ PARTITION dca VALUES IN (48) ENGINE = InnoDB,
+ PARTITION cocnl_publisher VALUES IN (52) ENGINE = InnoDB,
+ PARTITION fwf VALUES IN (50) ENGINE = InnoDB,
+ PARTITION tbi VALUES IN (51) ENGINE = InnoDB,
+ PARTITION carenederland VALUES IN (53) ENGINE = InnoDB,
+ PARTITION utz VALUES IN (54) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.stg-parent-child-other
@@ -1554,11 +1787,6 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
--- Dumping database structure for iatistaging
-CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatistaging`;
-
 -- Dumping structure for table iatistaging.src-act-budgets
 DROP TABLE IF EXISTS `src-act-budgets`;
 CREATE TABLE IF NOT EXISTS `src-act-budgets` (
