@@ -22,3 +22,4 @@ Version 3.06 Changed 'has-childs' calculation for transactions to exclude incomi
 Version 3.11 Added Rest client failover in download code when HTTP Client call fails
 Version 3.12 Truncated to long activity descriptions and mapped 1.x activity status codes to 2.x
 Version 3.13 Extended handling of org name by building an artificial org repository en some minor bug fixes
+Version 3.36 Debugged exchange rate lookup. Replaced stream lookup by database lookup.
