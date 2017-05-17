@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;13 12&#x3a;41&#x3a;07.463</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;25 09&#x3a;41&#x3a;56.875</modified_date>
+  <modified_date>2017&#x2f;05&#x2f;17 11&#x3a;18&#x3a;58.847</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -229,6 +229,27 @@
   <hop> <from>Time window</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Select future values</head_name>
+<tail_name>Select past values</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1045</xloc>
+      <yloc>159</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Calculate future year number</name>
     <type>Calculator</type>
     <description/>
@@ -290,6 +311,25 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>768</xloc>
       <yloc>212</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1160</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -462,7 +502,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  Jaar&#xd;&#xa;, Koers&#xd;&#xa;, Valuta&#xd;&#xa;, Bron&#xd;&#xa;FROM &#x60;currency-rates&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  Jaar&#xd;&#xa;, Koers&#xd;&#xa;, Valuta&#xd;&#xa;, Bron&#xd;&#xa;FROM &#x60;currency-rates&#x60;&#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -589,6 +629,47 @@
     </step>
 
   <step>
+    <name>Time window</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Update exchange rates</send_true_to>
+<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>Jaar</leftvalue>
+   <function>&#x3e;&#x3d;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Integer</type><text>1975</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>Jaar</leftvalue>
+   <function>&#x3c;&#x3d;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Integer</type><text>2040</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1158</xloc>
+      <yloc>161</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Update exchange rates</name>
     <type>InsertUpdate</type>
     <description/>
@@ -642,87 +723,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1293</xloc>
       <yloc>161</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Select future values</head_name>
-<tail_name>Select past values</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1045</xloc>
-      <yloc>159</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Time window</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Update exchange rates</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>Jaar</leftvalue>
-   <function>&#x3e;&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>1975</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>Jaar</leftvalue>
-   <function>&#x3c;&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>2040</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1158</xloc>
-      <yloc>161</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1160</xloc>
-      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
