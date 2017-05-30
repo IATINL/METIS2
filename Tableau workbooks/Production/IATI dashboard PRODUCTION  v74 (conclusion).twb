@@ -495,7 +495,7 @@
       <column caption='Recipient region' datatype='string' name='[recipient-region-name]' role='dimension' type='nominal' />
       <column caption='Url-Id' datatype='integer' name='[url-id]' role='dimension' type='ordinal' />
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-country-region.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:10:57 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-country-region.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:59:39 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <calculations>
             <calculation column='[Calculation_0481214172258105]' formula='IF LEFT([iati-identifier],8)=&quot;XM-DAC-7&quot; THEN &quot;Y&quot; ELSE &quot;N&quot; END' />
@@ -503,7 +503,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='9705' timestamp-start='2017-05-29 08:10:56.966' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='9705' timestamp-start='2017-05-30 13:59:39.821' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -671,7 +671,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>9705</statistic>
               </statistics>
               <attributes>
@@ -4109,7 +4109,7 @@
         </drill-path>
       </drill-paths>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-transactions.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 07:54:39 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-transactions.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:51:32 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[BZ funding EUR (copy)]' value='[Extract].[BZ funding EUR (copy)]' />
@@ -4272,7 +4272,7 @@
             <calculation column='[Transaction-Type-Code (Dim-Transaction-Type) (group)]' formula='CASE [transaction-type-code (dim-transaction-type)]&#10;  WHEN &quot;C&quot; THEN &quot;C&quot;&#10;  WHEN &quot;CG&quot; THEN &quot;CG&quot;&#10;  WHEN &quot;D&quot; THEN &quot;D&quot;&#10;  WHEN &quot;E&quot; THEN &quot;D&quot;&#10;  WHEN &quot;IC&quot; THEN &quot;IC&quot;&#10;  WHEN &quot;IF&quot; THEN &quot;IF&quot;&#10;  ELSE [transaction-type-code (dim-transaction-type)]&#10;END' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='104980' timestamp-start='2017-05-29 07:54:39.718' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='105000' timestamp-start='2017-05-30 13:51:32.141' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -4289,7 +4289,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-737410000.0</statistic>
                 <statistic aggregation='Max' datatype='real'>1457204507.0</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -4319,7 +4319,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;AFGHANISTAN&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZIMBABWE&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4342,12 +4342,12 @@
               <ordinal>2</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>5006</approx-count>
+              <approx-count>5016</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-2127240.6000000001</statistic>
                 <statistic aggregation='Max' datatype='real'>110000000.0</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -4369,12 +4369,12 @@
               <ordinal>3</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>32635</approx-count>
+              <approx-count>32642</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-42000000.0</statistic>
                 <statistic aggregation='Max' datatype='real'>165423140.0</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -4396,19 +4396,19 @@
               <ordinal>4</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>37377</approx-count>
+              <approx-count>37394</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Sum' datatype='real'>-34176770623.947281</statistic>
-                <statistic aggregation='Avg' datatype='real'>-325555.06404979312</statistic>
+                <statistic aggregation='Avg' datatype='real'>-325493.05356140266</statistic>
                 <statistic aggregation='Min' datatype='real'>-165423140.0</statistic>
                 <statistic aggregation='Max' datatype='real'>110000000.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>2743706.1128400741</statistic>
-                <statistic aggregation='StdevP' datatype='real'>2743693.0450526536</statistic>
-                <statistic aggregation='Var' datatype='real'>7527923233635.9893</statistic>
-                <statistic aggregation='VarP' datatype='real'>7527851525470.3037</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>8.0140027389336678e+17</statistic>
+                <statistic aggregation='Stdev' datatype='real'>2743448.4930280098</statistic>
+                <statistic aggregation='StdevP' datatype='real'>2743435.4289564616</statistic>
+                <statistic aggregation='Var' datatype='real'>7526509633897.6582</statistic>
+                <statistic aggregation='VarP' datatype='real'>7526437952853.5254</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>8.0140028648087654e+17</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -4435,7 +4435,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='real'>-42000000.0</statistic>
                 <statistic aggregation='Max' datatype='real'>165423140.0</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -4465,7 +4465,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;AFGHANISTAN&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZIMBABWE&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4497,7 +4497,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4529,7 +4529,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4561,7 +4561,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;2&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;4&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4593,7 +4593,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Implementation&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Post-completion&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4625,7 +4625,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Cancelled&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Suspended&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4657,7 +4657,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;1&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;6&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4689,7 +4689,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;\#COCREATE FUND&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZNAN  HIV/AIDS 2008 - 2010&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4721,7 +4721,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;: Pilot Post Harvest Losses Project&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZTA participation to Vakantiebeurs 2015 in Utrecht, the Netherlands&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4814,7 +4814,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;XM-DAC-7-27555&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-PPR-999&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4843,7 +4843,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>4</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -4870,7 +4870,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;N&quot;</statistic>
               </statistics>
               <attributes>
@@ -4903,7 +4903,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -4935,7 +4935,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;fez-opendata@minbuza.nl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;fez-opendata@minbuza.nl&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;fez-opendata@minbuza.nl&quot;</statistic>
               </statistics>
               <attributes>
@@ -4969,7 +4969,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&#10;              info@oxfamnovib.nl&#10;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ynsd2003@yahoo.com&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>89594</statistic>
+                <statistic aggregation='Count' datatype='integer'>89614</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5001,7 +5001,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Ministerie van Buitenlandse Zaken, Postbus 20061, 2500 EB Den Haag&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Ministerie van Buitenlandse Zaken, Postbus 20061, 2500 EB Den Haag&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;Ministerie van Buitenlandse Zaken, Postbus 20061, 2500 EB Den Haag&quot;</statistic>
               </statistics>
               <attributes>
@@ -5035,7 +5035,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&#10;                PO box 30919, 2500 GX The Hague, The Netherlands&#10;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Zonnehof 38, 3811 ND Amersfoort, The Netherlands&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>78605</statistic>
+                <statistic aggregation='Count' datatype='integer'>78625</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5067,7 +5067,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Netherlands Ministry of Foreign Affairs&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Netherlands Ministry of Foreign Affairs&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;Netherlands Ministry of Foreign Affairs&quot;</statistic>
               </statistics>
               <attributes>
@@ -5101,7 +5101,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&#10;                Oxfam Novib&#10;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Youth Network Sustainable Development&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>83410</statistic>
+                <statistic aggregation='Count' datatype='integer'>83430</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5194,7 +5194,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;+31 (0)70 348 64 86&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;+31 (0)70 348 64 86&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;+31 (0)70 348 64 86&quot;</statistic>
               </statistics>
               <attributes>
@@ -5260,7 +5260,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;110&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;618&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5292,7 +5292,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;110&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Aid grant excluding debt reorganisation&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>103796</statistic>
+                <statistic aggregation='Count' datatype='integer'>103816</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5324,7 +5324,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;5&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5356,7 +5356,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Untied&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>103780</statistic>
+                <statistic aggregation='Count' datatype='integer'>103800</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5413,7 +5413,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2010-01-01 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#2020-12-31 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>53406</statistic>
+                <statistic aggregation='Count' datatype='integer'>53426</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -5441,7 +5441,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2010-01-31 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#9999-12-31 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='datetime'>#2017-12-31 00:00:00#</statistic>
               </statistics>
               <attributes>
@@ -5471,7 +5471,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2010-01-31 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#9999-12-31 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>102334</statistic>
+                <statistic aggregation='Count' datatype='integer'>102354</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -5501,8 +5501,8 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5534,7 +5534,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20170502T122341&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;20170502T122341&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;20170502T122341&quot;</statistic>
               </statistics>
               <attributes>
@@ -5567,8 +5567,8 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5600,7 +5600,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5632,7 +5632,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;40530156-040Headquarters&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-PPR-999&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5664,7 +5664,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;XM-DAC-7-PPR-100&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-PPR-999&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5696,7 +5696,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;40530156-040Headquarters&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-PPR-999&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5728,7 +5728,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;High income&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Upper middle income&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5760,7 +5760,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5792,7 +5792,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;LDC&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;LDC&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>29444</statistic>
+                <statistic aggregation='Count' datatype='integer'>29446</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -5821,7 +5821,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -5869,7 +5869,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -5917,7 +5917,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -5965,7 +5965,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6013,7 +6013,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6061,7 +6061,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6109,7 +6109,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6133,7 +6133,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>4</statistic>
-                <statistic aggregation='Count' datatype='integer'>72628</statistic>
+                <statistic aggregation='Count' datatype='integer'>72648</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6157,7 +6157,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>4</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6181,7 +6181,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>4</statistic>
-                <statistic aggregation='Count' datatype='integer'>65300</statistic>
+                <statistic aggregation='Count' datatype='integer'>65302</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6205,7 +6205,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>0</statistic>
                 <statistic aggregation='Max' datatype='integer'>2</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6253,7 +6253,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>11120</statistic>
                 <statistic aggregation='Max' datatype='integer'>18891</statistic>
-                <statistic aggregation='Count' datatype='integer'>93242</statistic>
+                <statistic aggregation='Count' datatype='integer'>93252</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
@@ -6277,7 +6277,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>11120</statistic>
                 <statistic aggregation='Max' datatype='integer'>18296</statistic>
-                <statistic aggregation='Count' datatype='integer'>104716</statistic>
+                <statistic aggregation='Count' datatype='integer'>104736</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -6308,7 +6308,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;\&quot;ZAPORIZHZHIA REGIONAL CHARITABLE FOUNDATION \&quot;\&quot;GENDER Z\&quot;\&quot;\&quot;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;uMgungunlovu District Municipality, South Africa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>93242</statistic>
+                <statistic aggregation='Count' datatype='integer'>93252</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -6340,7 +6340,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;AWEPA&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;tdh_nl&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104716</statistic>
+                <statistic aggregation='Count' datatype='integer'>104736</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -6372,7 +6372,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;0020000000&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-OCHA-CERF&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>93242</statistic>
+                <statistic aggregation='Count' datatype='integer'>93252</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -6404,7 +6404,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;0020000238&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104716</statistic>
+                <statistic aggregation='Count' datatype='integer'>104736</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -6436,7 +6436,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;00&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;80&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>87759</statistic>
+                <statistic aggregation='Count' datatype='integer'>87769</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6468,7 +6468,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;00&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;80&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104713</statistic>
+                <statistic aggregation='Count' datatype='integer'>104733</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6500,7 +6500,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Academic, Training and Research&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Regional NGO&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>87759</statistic>
+                <statistic aggregation='Count' datatype='integer'>87769</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6532,7 +6532,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Academic, Training and Research&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Public Private Partnership&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104713</statistic>
+                <statistic aggregation='Count' datatype='integer'>104733</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6564,7 +6564,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;AD7200PP&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-PPR-4000000118&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6596,7 +6596,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;aanl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6628,7 +6628,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;minbuza_nl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;minbuza_nl&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;minbuza_nl&quot;</statistic>
               </statistics>
               <attributes>
@@ -6662,7 +6662,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;amrefnl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104716</statistic>
+                <statistic aggregation='Count' datatype='integer'>104736</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6694,7 +6694,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;akvo&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>93242</statistic>
+                <statistic aggregation='Count' datatype='integer'>93252</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6724,7 +6724,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;aanl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6753,7 +6753,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
                 <statistic aggregation='Max' datatype='integer'>61</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6777,7 +6777,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
                 <statistic aggregation='Max' datatype='integer'>1</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6801,7 +6801,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
                 <statistic aggregation='Max' datatype='integer'>61</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -6828,7 +6828,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Action Aid Nederland&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZOA&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6860,7 +6860,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;aanl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6892,7 +6892,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;077-BTGAfrica&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZA-PBO-064-502-1607&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6924,7 +6924,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;00&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZW&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6956,7 +6956,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;00&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZW&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -6988,7 +6988,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;AFGHANISTAN&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZIMBABWE&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7020,7 +7020,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;0&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;998&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7052,7 +7052,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;0&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;998&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7084,7 +7084,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Africa, regional&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;South of Sahara, regional&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7116,7 +7116,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Netherlands - Ministry of Foreign Affairs&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Netherlands - Ministry of Foreign Affairs&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;Netherlands - Ministry of Foreign Affairs&quot;</statistic>
               </statistics>
               <attributes>
@@ -7150,7 +7150,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;African Center for Global Health and Social Transformation&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZOA&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7182,7 +7182,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;XM-DAC-7&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;XM-DAC-7&quot;</statistic>
               </statistics>
               <attributes>
@@ -7216,7 +7216,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;40530156&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7248,7 +7248,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;10&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;10&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;10&quot;</statistic>
               </statistics>
               <attributes>
@@ -7282,7 +7282,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Government&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Government&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;Government&quot;</statistic>
               </statistics>
               <attributes>
@@ -7316,7 +7316,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Academic, Training and Research&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;National NGO&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7348,7 +7348,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;10&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;80&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7380,7 +7380,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;111&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;930&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>101743</statistic>
+                <statistic aggregation='Count' datatype='integer'>101763</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;311&quot;</statistic>
               </statistics>
               <attributes>
@@ -7411,7 +7411,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;111&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;998&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>102670</statistic>
+                <statistic aggregation='Count' datatype='integer'>102690</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7443,7 +7443,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;ACTION RELATING TO DEBT&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;WATER AND SANITATION&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>102670</statistic>
+                <statistic aggregation='Count' datatype='integer'>102690</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7475,7 +7475,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;00000&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;99820&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104112</statistic>
+                <statistic aggregation='Count' datatype='integer'>104132</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7507,7 +7507,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Administrative costs&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Women’s equality organisations and institutions&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104112</statistic>
+                <statistic aggregation='Count' datatype='integer'>104132</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7536,7 +7536,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#1997-09-15 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#2017-04-27 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7564,7 +7564,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#1997-09-15 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#2018-05-01 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>96688</statistic>
+                <statistic aggregation='Count' datatype='integer'>96708</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7592,7 +7592,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#1997-08-01 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#2017-05-01 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7620,7 +7620,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#1997-08-01 00:00:00#</statistic>
                 <statistic aggregation='Max' datatype='datetime'>#2018-05-01 00:00:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>88726</statistic>
+                <statistic aggregation='Count' datatype='integer'>88746</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7648,7 +7648,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='date'>#1997-09-15#</statistic>
                 <statistic aggregation='Max' datatype='date'>#2021-01-01#</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7679,7 +7679,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;C&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;R&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7711,7 +7711,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;C&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;R&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7743,7 +7743,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Commitment&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Reimbursement&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7767,19 +7767,19 @@
               <family>fct-transactions</family>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>50429</approx-count>
+              <approx-count>50436</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>86341546265.911499</statistic>
-                <statistic aggregation='Avg' datatype='real'>822457.09912279958</statistic>
+                <statistic aggregation='Sum' datatype='real'>86341837281.911499</statistic>
+                <statistic aggregation='Avg' datatype='real'>822303.21220868092</statistic>
                 <statistic aggregation='Min' datatype='real'>-737410000.0</statistic>
                 <statistic aggregation='Max' datatype='real'>1457204507.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>10806528.788059799</statistic>
-                <statistic aggregation='StdevP' datatype='real'>10806477.318472624</statistic>
-                <statistic aggregation='Var' datatype='real'>116781064447165.17</statistic>
-                <statistic aggregation='VarP' datatype='real'>116779952034663.28</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>1.2330571582274589e+19</statistic>
+                <statistic aggregation='Stdev' datatype='real'>10805505.291577194</statistic>
+                <statistic aggregation='StdevP' datatype='real'>10805453.836667581</statistic>
+                <statistic aggregation='Var' datatype='real'>116758944606302.75</statistic>
+                <statistic aggregation='VarP' datatype='real'>116757832616354.12</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>1.2330571594862096e+19</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7807,7 +7807,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>206</statistic>
                 <statistic aggregation='Max' datatype='integer'>384</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7835,7 +7835,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>206</statistic>
                 <statistic aggregation='Max' datatype='integer'>211</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7863,7 +7863,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>206</statistic>
                 <statistic aggregation='Max' datatype='integer'>384</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -7894,7 +7894,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;http://82.94.175.19/&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;http://82.94.175.19/&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104711</statistic>
+                <statistic aggregation='Count' datatype='integer'>104731</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;http://82.94.175.19/&quot;</statistic>
               </statistics>
               <attributes>
@@ -7928,7 +7928,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;http://82.94.175.19/&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;http://82.94.175.19/&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;http://82.94.175.19/&quot;</statistic>
               </statistics>
               <attributes>
@@ -7958,7 +7958,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZA-PBO-064-502-1607&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -7986,7 +7986,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;uMgungunlovu District Municipality, South Africa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>103134</statistic>
+                <statistic aggregation='Count' datatype='integer'>103154</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -8014,7 +8014,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -8042,7 +8042,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot; &quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Non fragile state&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -8070,7 +8070,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;BZ activity&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Project&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -8098,7 +8098,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -8126,7 +8126,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;Y&quot;</statistic>
               </statistics>
               <attributes>
@@ -8156,7 +8156,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Country&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Region&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -8184,7 +8184,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-PPR-999&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -8207,17 +8207,17 @@
               <approx-count>22</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>211352840.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>2013.2676700323871</statistic>
+                <statistic aggregation='Sum' datatype='real'>211393180.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>2013.268380952381</statistic>
                 <statistic aggregation='Min' datatype='integer'>1997</statistic>
                 <statistic aggregation='Max' datatype='integer'>2021</statistic>
-                <statistic aggregation='Stdev' datatype='real'>3.2221384466567566</statistic>
-                <statistic aggregation='StdevP' datatype='real'>3.2221231001806663</statistic>
-                <statistic aggregation='Var' datatype='real'>10.382176169423618</statistic>
-                <statistic aggregation='VarP' datatype='real'>10.382077272717869</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Stdev' datatype='real'>3.2222432405205006</statistic>
+                <statistic aggregation='StdevP' datatype='real'>3.222227896468536</statistic>
+                <statistic aggregation='Var' datatype='real'>10.382851501080056</statistic>
+                <statistic aggregation='VarP' datatype='real'>10.382752616780046</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
                 <statistic aggregation='Median' datatype='integer'>2010</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>425510929652.0</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>425592295432.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -8244,7 +8244,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;0&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;ZW&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -8272,7 +8272,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Academic, Training and Research&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Regional NGO&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>83634</statistic>
+                <statistic aggregation='Count' datatype='integer'>83638</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -8300,7 +8300,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;C&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;R&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>104980</statistic>
+                <statistic aggregation='Count' datatype='integer'>105000</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;D&quot;</statistic>
               </statistics>
               <attributes>
@@ -10937,7 +10937,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-results.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:03:46 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-results.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:55:02 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_3170610171334862]' value='[Extract].[Calculation_3170610171334862]' />
@@ -11064,7 +11064,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='17312' timestamp-start='2017-05-29 08:03:46.002' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='17312' timestamp-start='2017-05-30 13:55:02.873' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -12340,7 +12340,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20161014T012135&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>17312</statistic>
               </statistics>
               <attributes>
@@ -12404,7 +12404,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20161014T012135&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>17312</statistic>
               </statistics>
               <attributes>
@@ -16359,7 +16359,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-locations.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:05:35 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-locations.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:56:03 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_429249367817564161]' value='[Extract].[Calculation_429249367817564161]' />
@@ -16471,7 +16471,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='4883' timestamp-start='2017-05-29 08:05:35.501' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='4883' timestamp-start='2017-05-30 13:56:03.393' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -17503,7 +17503,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20161014T012135&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>4883</statistic>
               </statistics>
               <attributes>
@@ -17569,7 +17569,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20161014T012135&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>4883</statistic>
               </statistics>
               <attributes>
@@ -20971,7 +20971,7 @@
       <column caption='Url-Id' datatype='integer' name='[url-id]' role='dimension' type='ordinal' />
       <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-organisations-participating.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:06:12 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-organisations-participating.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:56:26 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0401117163058816]' value='[Extract].[Calculation_0401117163058816]' />
@@ -21045,7 +21045,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='34988' timestamp-start='2017-05-29 08:06:12.886' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='34988' timestamp-start='2017-05-30 13:56:26.369' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -21618,7 +21618,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>34988</statistic>
               </statistics>
               <attributes>
@@ -21650,7 +21650,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>34988</statistic>
               </statistics>
               <attributes>
@@ -21774,10 +21774,10 @@
               <approx-count>54</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='datetime'>#2017-05-29 01:32:16#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:44:56#</statistic>
+                <statistic aggregation='Min' datatype='datetime'>#2017-05-30 01:30:16#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:41#</statistic>
                 <statistic aggregation='Count' datatype='integer'>34988</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-05-29 01:32:16#</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-05-30 01:30:16#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -24201,7 +24201,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-documents.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:07:34 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-documents.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:57:08 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0851014104620228]' value='[Extract].[Calculation_0851014104620228]' />
@@ -24275,7 +24275,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='10745' timestamp-start='2017-05-29 08:07:34.145' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='10745' timestamp-start='2017-05-30 13:57:08.191' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -25201,7 +25201,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>10745</statistic>
               </statistics>
               <attributes>
@@ -25233,7 +25233,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>10745</statistic>
               </statistics>
               <attributes>
@@ -25325,10 +25325,10 @@
               <approx-count>33</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='datetime'>#2017-05-29 01:32:16#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:44:56#</statistic>
+                <statistic aggregation='Min' datatype='datetime'>#2017-05-30 01:30:16#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:41#</statistic>
                 <statistic aggregation='Count' datatype='integer'>10745</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-05-29 01:32:16#</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-05-30 01:30:16#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -27373,7 +27373,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-descriptions.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:08:06 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-descriptions.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:57:45 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_1321117162302852]' value='[Extract].[Calculation_1321117162302852]' />
@@ -27439,7 +27439,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='10775' timestamp-start='2017-05-29 08:08:06.408' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='10775' timestamp-start='2017-05-30 13:57:45.801' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -28147,7 +28147,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>10775</statistic>
               </statistics>
               <attributes>
@@ -28179,7 +28179,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>10775</statistic>
               </statistics>
               <attributes>
@@ -28303,10 +28303,10 @@
               <approx-count>54</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='datetime'>#2017-05-29 01:32:16#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:44:56#</statistic>
+                <statistic aggregation='Min' datatype='datetime'>#2017-05-30 01:30:16#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:41#</statistic>
                 <statistic aggregation='Count' datatype='integer'>10775</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-05-29 01:32:16#</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-05-30 01:30:16#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -29780,7 +29780,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\log-publisher-job-url.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:08:57 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\log-publisher-job-url.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:58:14 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Action]' value='[Extract].[Action]' />
@@ -29817,7 +29817,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='15064' timestamp-start='2017-05-29 08:08:56.974' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='15195' timestamp-start='2017-05-30 13:58:14.061' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -29838,7 +29838,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Continue&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Skip&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>14360</statistic>
+                <statistic aggregation='Count' datatype='integer'>14491</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -29864,7 +29864,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
                 <statistic aggregation='Max' datatype='integer'>1</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
                 <statistic aggregation='Median' datatype='integer'>1</statistic>
               </statistics>
               <attributes>
@@ -29891,7 +29891,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;/var/local/pentaho/IATI archive&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;/var/local/pentaho/IATI archive&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
                 <statistic aggregation='Median' datatype='string'>&quot;/var/local/pentaho/IATI archive&quot;</statistic>
               </statistics>
               <attributes>
@@ -29915,7 +29915,7 @@
               <family>log-publisher-job-url</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>573</approx-count>
+              <approx-count>576</approx-count>
               <scale>1</scale>
               <width>100</width>
               <contains-null>false</contains-null>
@@ -29923,7 +29923,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;activities-00218dcc0be40cc784b7fb3e7d555275.xml&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Not defined&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -29945,12 +29945,12 @@
               <family>log-publisher-job-url</family>
               <local-type>date</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>164</approx-count>
+              <approx-count>165</approx-count>
               <contains-null>true</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='date'>#2013-10-31#</statistic>
-                <statistic aggregation='Max' datatype='date'>#2017-05-28#</statistic>
-                <statistic aggregation='Count' datatype='integer'>14099</statistic>
+                <statistic aggregation='Max' datatype='date'>#2017-05-29#</statistic>
+                <statistic aggregation='Count' datatype='integer'>14225</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -29981,7 +29981,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;200&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Not defined&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30005,12 +30005,12 @@
               <family>log-iati-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>142</approx-count>
+              <approx-count>143</approx-count>
               <contains-null>true</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-19 14:18:31#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:47:08#</statistic>
-                <statistic aggregation='Count' datatype='integer'>14921</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:45:54#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15052</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30033,13 +30033,13 @@
               <family>log-iati-job</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>144</approx-count>
+              <approx-count>145</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>144</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='Median' datatype='integer'>77</statistic>
+                <statistic aggregation='Max' datatype='integer'>145</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='Median' datatype='integer'>78</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30060,20 +30060,20 @@
               <family>log-publisher-job</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>144</approx-count>
+              <approx-count>145</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>1155201.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>76.686205523101435</statistic>
+                <statistic aggregation='Sum' datatype='real'>1174196.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>77.275156301414938</statistic>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>144</statistic>
-                <statistic aggregation='Stdev' datatype='real'>41.911104044194062</statistic>
-                <statistic aggregation='StdevP' datatype='real'>41.909712919671421</statistic>
-                <statistic aggregation='Var' datatype='real'>1756.5406422032597</statistic>
-                <statistic aggregation='VarP' datatype='real'>1756.4240370092739</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='Median' datatype='integer'>77</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>115046753.0</statistic>
+                <statistic aggregation='Max' datatype='integer'>145</statistic>
+                <statistic aggregation='Stdev' datatype='real'>42.205275520829304</statistic>
+                <statistic aggregation='StdevP' datatype='real'>42.203886709709266</statistic>
+                <statistic aggregation='Var' datatype='real'>1781.285281789113</statistic>
+                <statistic aggregation='VarP' datatype='real'>1781.1680534059747</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='Median' datatype='integer'>78</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>117801028.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30094,13 +30094,13 @@
               <family>log-publisher-job-url</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>144</approx-count>
+              <approx-count>145</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
-                <statistic aggregation='Max' datatype='integer'>144</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='Median' datatype='integer'>77</statistic>
+                <statistic aggregation='Max' datatype='integer'>145</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='Median' datatype='integer'>78</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30121,13 +30121,13 @@
               <family>log-iati-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>144</approx-count>
+              <approx-count>145</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-19 14:12:03#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:32:15#</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-04-03 01:32:17#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:30:14#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-04-04 01:30:19#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30154,9 +30154,9 @@
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-27 01:33:30#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:44:56#</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-05-29 01:38:55#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:41#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-05-30 01:37:40#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30188,7 +30188,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Check totals do not match&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Job processed succesfully&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>14921</statistic>
+                <statistic aggregation='Count' datatype='integer'>15052</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30218,7 +30218,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Activity file http://data.aidsalliance.org/iati/aidsalliance01.xml is succesfully processed.&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;XSD validation error in file https://www.somo.nl/download/17847/&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30248,7 +30248,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Ok&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Warning&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>14921</statistic>
+                <statistic aggregation='Count' datatype='integer'>15052</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30278,7 +30278,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Error&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Unchanged&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30303,16 +30303,16 @@
               <approx-count>55</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>413614.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>27.457116303770579</statistic>
+                <statistic aggregation='Sum' datatype='real'>417934.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>27.504705495228695</statistic>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
                 <statistic aggregation='Max' datatype='integer'>61</statistic>
-                <statistic aggregation='Stdev' datatype='real'>14.885645442053594</statistic>
-                <statistic aggregation='StdevP' datatype='real'>14.885151353747357</statistic>
-                <statistic aggregation='Var' datatype='real'>221.58244022653096</statistic>
-                <statistic aggregation='VarP' datatype='real'>221.5677308239668</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>14694344.0</statistic>
+                <statistic aggregation='Stdev' datatype='real'>14.90875766976681</statistic>
+                <statistic aggregation='StdevP' datatype='real'>14.908267080659591</statistic>
+                <statistic aggregation='Var' datatype='real'>222.27105525583067</statistic>
+                <statistic aggregation='VarP' datatype='real'>222.25642734827846</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>14872338.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -30332,16 +30332,16 @@
               <approx-count>55</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>413614.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>27.457116303770579</statistic>
+                <statistic aggregation='Sum' datatype='real'>417934.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>27.504705495228695</statistic>
                 <statistic aggregation='Min' datatype='integer'>1</statistic>
                 <statistic aggregation='Max' datatype='integer'>61</statistic>
-                <statistic aggregation='Stdev' datatype='real'>14.885645442053594</statistic>
-                <statistic aggregation='StdevP' datatype='real'>14.885151353747357</statistic>
-                <statistic aggregation='Var' datatype='real'>221.58244022653096</statistic>
-                <statistic aggregation='VarP' datatype='real'>221.5677308239668</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>14694344.0</statistic>
+                <statistic aggregation='Stdev' datatype='real'>14.90875766976681</statistic>
+                <statistic aggregation='StdevP' datatype='real'>14.908267080659591</statistic>
+                <statistic aggregation='Var' datatype='real'>222.27105525583067</statistic>
+                <statistic aggregation='VarP' datatype='real'>222.25642734827846</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>14872338.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
@@ -30358,12 +30358,12 @@
               <family>log-publisher-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>6050</approx-count>
+              <approx-count>6105</approx-count>
               <contains-null>true</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-19 14:12:33#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:45:03#</statistic>
-                <statistic aggregation='Count' datatype='integer'>15055</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:47#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15186</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30386,13 +30386,13 @@
               <family>log-publisher-job</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>6052</approx-count>
+              <approx-count>6107</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-19 14:12:04#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:44:56#</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-04-03 01:39:19#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:40#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-04-04 01:31:53#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30415,12 +30415,12 @@
               <family>log-publisher-job-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>14805</approx-count>
+              <approx-count>14936</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-19 14:12:11#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:45:02#</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:47#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -30439,12 +30439,12 @@
               <family>log-publisher-job-url</family>
               <local-type>datetime</local-type>
               <aggregation>Year</aggregation>
-              <approx-count>15064</approx-count>
+              <approx-count>15195</approx-count>
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='datetime'>#2017-01-19 14:12:06#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:45:00#</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:43:44#</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
@@ -30472,7 +30472,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;aanl&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;zoa&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30497,16 +30497,16 @@
               <approx-count>177</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>4267340.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>283.2806691449814</statistic>
+                <statistic aggregation='Sum' datatype='real'>4307068.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>283.45297795327411</statistic>
                 <statistic aggregation='Min' datatype='integer'>206</statistic>
                 <statistic aggregation='Max' datatype='integer'>385</statistic>
-                <statistic aggregation='Stdev' datatype='real'>45.745391721598928</statistic>
-                <statistic aggregation='StdevP' datatype='real'>45.743873328378974</statistic>
-                <statistic aggregation='Var' datatype='real'>2092.6408637625318</statistic>
-                <statistic aggregation='VarP' datatype='real'>2092.5019470827815</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>1240376380.0</statistic>
+                <statistic aggregation='Stdev' datatype='real'>45.842935948827424</statistic>
+                <statistic aggregation='StdevP' datatype='real'>45.841427436480686</statistic>
+                <statistic aggregation='Var' datatype='real'>2101.5747764082935</statistic>
+                <statistic aggregation='VarP' datatype='real'>2101.4364694141241</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>1252782578.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30530,16 +30530,16 @@
               <approx-count>177</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>4267340.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>283.2806691449814</statistic>
+                <statistic aggregation='Sum' datatype='real'>4307068.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>283.45297795327411</statistic>
                 <statistic aggregation='Min' datatype='integer'>206</statistic>
                 <statistic aggregation='Max' datatype='integer'>385</statistic>
-                <statistic aggregation='Stdev' datatype='real'>45.745391721598928</statistic>
-                <statistic aggregation='StdevP' datatype='real'>45.743873328378974</statistic>
-                <statistic aggregation='Var' datatype='real'>2092.6408637625318</statistic>
-                <statistic aggregation='VarP' datatype='real'>2092.5019470827815</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>1240376380.0</statistic>
+                <statistic aggregation='Stdev' datatype='real'>45.842935948827424</statistic>
+                <statistic aggregation='StdevP' datatype='real'>45.841427436480686</statistic>
+                <statistic aggregation='Var' datatype='real'>2101.5747764082935</statistic>
+                <statistic aggregation='VarP' datatype='real'>2101.4364694141241</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>1252782578.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -30568,7 +30568,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;http://data.aidsalliance.org/iati/aidsalliance01.xml&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;https://www.woordendaad.nl/download/CAwdEAwUUkBBXEdN&amp;inline=0&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30598,7 +30598,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;1.02&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Not defined&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
@@ -30626,7 +30626,7 @@
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;Check total&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Ok&quot;</statistic>
-                <statistic aggregation='Count' datatype='integer'>15064</statistic>
+                <statistic aggregation='Count' datatype='integer'>15195</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
@@ -32915,7 +32915,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-budgets.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:09:32 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\fct-budgets.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:58:31 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_1430615170003025]' value='[Extract].[Calculation_1430615170003025]' />
@@ -33041,7 +33041,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='10362' timestamp-start='2017-05-29 08:09:32.462' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='10362' timestamp-start='2017-05-30 13:58:31.890' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -33053,19 +33053,19 @@
               <ordinal>0</ordinal>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>6316</approx-count>
+              <approx-count>6317</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>35621440809.925674</statistic>
-                <statistic aggregation='Avg' datatype='real'>3437699.3640152165</statistic>
+                <statistic aggregation='Sum' datatype='real'>35621586317.925674</statistic>
+                <statistic aggregation='Avg' datatype='real'>3437713.4064780618</statistic>
                 <statistic aggregation='Min' datatype='real'>-6575.0</statistic>
                 <statistic aggregation='Max' datatype='real'>1387489495.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>26725290.486907687</statistic>
-                <statistic aggregation='StdevP' datatype='real'>26724000.874124978</statistic>
-                <statistic aggregation='Var' datatype='real'>714241151609598.5</statistic>
-                <statistic aggregation='VarP' datatype='real'>714172222720232.62</statistic>
+                <statistic aggregation='Stdev' datatype='real'>26725288.743049752</statistic>
+                <statistic aggregation='StdevP' datatype='real'>26723999.130351193</statistic>
+                <statistic aggregation='Var' datatype='real'>714241058399381.87</statistic>
+                <statistic aggregation='VarP' datatype='real'>714172129519011.37</statistic>
                 <statistic aggregation='Count' datatype='integer'>10362</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>7.5227083762446377e+18</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>7.5227084109211443e+18</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -33090,16 +33090,16 @@
               <approx-count>6890</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>48715852887.562904</statistic>
-                <statistic aggregation='Avg' datatype='real'>4701394.7971012257</statistic>
+                <statistic aggregation='Sum' datatype='real'>48715707779.562904</statistic>
+                <statistic aggregation='Avg' datatype='real'>4701380.7932409672</statistic>
                 <statistic aggregation='Min' datatype='real'>-24043350.0</statistic>
                 <statistic aggregation='Max' datatype='real'>2914409015.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>52494515.990416199</statistic>
-                <statistic aggregation='StdevP' datatype='real'>52491982.899190247</statistic>
-                <statistic aggregation='Var' datatype='real'>2755674209068062.0</statistic>
-                <statistic aggregation='VarP' datatype='real'>2755408268688881.5</statistic>
+                <statistic aggregation='Stdev' datatype='real'>52494517.210163489</statistic>
+                <statistic aggregation='StdevP' datatype='real'>52491984.118878677</statistic>
+                <statistic aggregation='Var' datatype='real'>2755674337128150.5</statistic>
+                <statistic aggregation='VarP' datatype='real'>2755408396736611.5</statistic>
                 <statistic aggregation='Count' datatype='integer'>10362</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>2.8780572937456128e+19</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>2.8780572899868746e+19</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -33708,16 +33708,16 @@
               <approx-count>7671</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>84337293697.489059</statistic>
-                <statistic aggregation='Avg' datatype='real'>8139094.1611164892</statistic>
+                <statistic aggregation='Sum' datatype='real'>84337294097.489059</statistic>
+                <statistic aggregation='Avg' datatype='real'>8139094.1997190751</statistic>
                 <statistic aggregation='Min' datatype='real'>-19500000.0</statistic>
                 <statistic aggregation='Max' datatype='real'>2914409015.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>71204652.522680208</statistic>
-                <statistic aggregation='StdevP' datatype='real'>71201216.585094184</statistic>
-                <statistic aggregation='Var' datatype='real'>5070102540875629.0</statistic>
-                <statistic aggregation='VarP' datatype='real'>5069613243197490.0</statistic>
+                <statistic aggregation='Stdev' datatype='real'>71204652.51848121</statistic>
+                <statistic aggregation='StdevP' datatype='real'>71201216.580895379</statistic>
+                <statistic aggregation='Var' datatype='real'>5070102540277653.0</statistic>
+                <statistic aggregation='VarP' datatype='real'>5069613242599571.0</statistic>
                 <statistic aggregation='Count' datatype='integer'>10362</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>5.3217761600709992e+19</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>5.321776160102563e+19</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -34317,19 +34317,19 @@
               <family>fct-budgets</family>
               <local-type>real</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>6127</approx-count>
+              <approx-count>6128</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>35316898611.603233</statistic>
-                <statistic aggregation='Avg' datatype='real'>3408309.0727275847</statistic>
+                <statistic aggregation='Sum' datatype='real'>35317044119.603233</statistic>
+                <statistic aggregation='Avg' datatype='real'>3408323.1151904296</statistic>
                 <statistic aggregation='Min' datatype='real'>-6575.0</statistic>
                 <statistic aggregation='Max' datatype='real'>1387489495.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>26719203.230913814</statistic>
-                <statistic aggregation='StdevP' datatype='real'>26717913.911867972</statistic>
-                <statistic aggregation='Var' datatype='real'>713915821294875.12</statistic>
-                <statistic aggregation='VarP' datatype='real'>713846923801988.12</statistic>
+                <statistic aggregation='Stdev' datatype='real'>26719201.50210635</statistic>
+                <statistic aggregation='StdevP' datatype='real'>26717912.183143932</statistic>
+                <statistic aggregation='Var' datatype='real'>713915728910162.25</statistic>
+                <statistic aggregation='VarP' datatype='real'>713846831426191.0</statistic>
                 <statistic aggregation='Count' datatype='integer'>10362</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>7.5172527303947295e+18</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>7.5172527650712361e+18</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -34499,7 +34499,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>10362</statistic>
               </statistics>
               <attributes>
@@ -34563,7 +34563,7 @@
               <collation flag='0' name='LROOT' />
               <statistics>
                 <statistic aggregation='Min' datatype='string'>&quot;20160429T081619&quot;</statistic>
-                <statistic aggregation='Max' datatype='string'>&quot;20170528T111500&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;20170529T111518&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>10362</statistic>
               </statistics>
               <attributes>
@@ -36690,14 +36690,14 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\ref-menu-lines (iatireference).tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:10:32 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\ref-menu-lines (iatireference).tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:59:18 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <calculations>
             <calculation column='[Calculation_1620713104224991]' formula='IF [Id] &gt;= 10 THEN 1 ELSE [Id] + 1 END' />
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='25' timestamp-start='2017-05-29 08:10:32.246' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='25' timestamp-start='2017-05-30 13:59:18.895' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -36935,7 +36935,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\publisher-timeliness.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:10:39 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\publisher-timeliness.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:59:25 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <calculations>
             <calculation column='[Calculation_2281025173321602]' formula='[start-date]-[generated-datetime]' />
@@ -36943,7 +36943,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='55' timestamp-start='2017-05-29 08:10:39.194' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='55' timestamp-start='2017-05-30 13:59:25.201' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -36958,16 +36958,16 @@
               <approx-count>32</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Sum' datatype='real'>1567.0</statistic>
-                <statistic aggregation='Avg' datatype='real'>28.490909090909092</statistic>
+                <statistic aggregation='Sum' datatype='real'>1619.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>29.436363636363637</statistic>
                 <statistic aggregation='Min' datatype='real'>1.0</statistic>
-                <statistic aggregation='Max' datatype='real'>202.0</statistic>
-                <statistic aggregation='Stdev' datatype='real'>33.338817730638972</statistic>
-                <statistic aggregation='StdevP' datatype='real'>33.034347264227179</statistic>
-                <statistic aggregation='Var' datatype='real'>1111.4767676767676</statistic>
-                <statistic aggregation='VarP' datatype='real'>1091.2680991735538</statistic>
+                <statistic aggregation='Max' datatype='real'>203.0</statistic>
+                <statistic aggregation='Stdev' datatype='real'>33.385383603964151</statistic>
+                <statistic aggregation='StdevP' datatype='real'>33.080487869527417</statistic>
+                <statistic aggregation='Var' datatype='real'>1114.5838383838384</statistic>
+                <statistic aggregation='VarP' datatype='real'>1094.3186776859504</statistic>
                 <statistic aggregation='Count' datatype='integer'>55</statistic>
-                <statistic aggregation='SumXSqr' datatype='real'>104665.0</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>107845.0</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -37022,7 +37022,7 @@
               <contains-null>false</contains-null>
               <statistics>
                 <statistic aggregation='Min' datatype='date'>#2016-11-08#</statistic>
-                <statistic aggregation='Max' datatype='date'>#2017-05-28#</statistic>
+                <statistic aggregation='Max' datatype='date'>#2017-05-29#</statistic>
                 <statistic aggregation='Count' datatype='integer'>55</statistic>
                 <statistic aggregation='Median' datatype='date'>#2017-05-08#</statistic>
               </statistics>
@@ -37148,10 +37148,10 @@
               <approx-count>1</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='date'>#2017-05-29#</statistic>
-                <statistic aggregation='Max' datatype='date'>#2017-05-29#</statistic>
+                <statistic aggregation='Min' datatype='date'>#2017-05-30#</statistic>
+                <statistic aggregation='Max' datatype='date'>#2017-05-30#</statistic>
                 <statistic aggregation='Count' datatype='integer'>55</statistic>
-                <statistic aggregation='Median' datatype='date'>#2017-05-29#</statistic>
+                <statistic aggregation='Median' datatype='date'>#2017-05-30#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
@@ -37171,7 +37171,7 @@
               <remote-alias>Calculation_2691025173806090</remote-alias>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>2</approx-count>
+              <approx-count>3</approx-count>
               <scale>1</scale>
               <width>15</width>
               <contains-null>false</contains-null>
@@ -37180,14 +37180,12 @@
                 <statistic aggregation='Min' datatype='string'>&quot;In grace period&quot;</statistic>
                 <statistic aggregation='Max' datatype='string'>&quot;Too late&quot;</statistic>
                 <statistic aggregation='Count' datatype='integer'>55</statistic>
-                <statistic aggregation='Median' datatype='string'>&quot;On time&quot;</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='string' name='DebugRemoteCollation'>&quot;binary&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
                 <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
-                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (size)'>60</attribute>
                 <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
                 <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
@@ -38132,7 +38130,7 @@
         </groupfilter>
       </group>
       <extract count='-1' enabled='true' units='records'>
-        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\log-reference-errors.tde' schema='Extract' tablename='Extract' update-time='05/29/2017 08:10:47 AM'>
+        <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\log-reference-errors.tde' schema='Extract' tablename='Extract' update-time='05/30/2017 01:59:31 PM'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <cols>
             <map key='[Calculation_0381104150535936]' value='[Extract].[Calculation_0381104150535936]' />
@@ -38188,7 +38186,7 @@
             <calculation column='[Number of Records]' formula='1' />
           </calculations>
           <refresh>
-            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='58' timestamp-start='2017-05-29 08:10:47.139' />
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='58' timestamp-start='2017-05-30 13:59:31.228' />
           </refresh>
           <metadata-records>
             <metadata-record class='column'>
@@ -38869,10 +38867,10 @@
               <approx-count>3</approx-count>
               <contains-null>false</contains-null>
               <statistics>
-                <statistic aggregation='Min' datatype='datetime'>#2017-05-29 01:33:41#</statistic>
-                <statistic aggregation='Max' datatype='datetime'>#2017-05-29 01:44:10#</statistic>
+                <statistic aggregation='Min' datatype='datetime'>#2017-05-30 01:32:02#</statistic>
+                <statistic aggregation='Max' datatype='datetime'>#2017-05-30 01:42:54#</statistic>
                 <statistic aggregation='Count' datatype='integer'>58</statistic>
-                <statistic aggregation='Median' datatype='datetime'>#2017-05-29 01:33:41#</statistic>
+                <statistic aggregation='Median' datatype='datetime'>#2017-05-30 01:32:02#</statistic>
               </statistics>
               <attributes>
                 <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
