@@ -1,0 +1,2452 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10100.16.1223.0056                               -->
+<datasource formatted-name='mysql.42678.610012905090' inline='true' source-platform='win' version='10.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <connection class='federated'>
+    <named-connections>
+      <named-connection caption='log-reference-errors' name='mysql.42678.610012905090leaf'>
+        <connection class='mysql' dbname='iatidatamart' odbc-native-protocol='yes' port='3306' server='185.108.227.151' source-charset='' username='public' workgroup-auth-mode='as-is' />
+      </named-connection>
+    </named-connections>
+    <relation join='inner' type='join'>
+      <clause type='join'>
+        <expression op='='>
+          <expression op='[log-reference-errors].[url-id]' />
+          <expression op='[dim-url].[url-id]' />
+        </expression>
+      </clause>
+      <relation join='inner' type='join'>
+        <clause type='join'>
+          <expression op='='>
+            <expression op='[log-reference-errors].[iati-identifier]' />
+            <expression op='[dim-activity].[iati-identifier]' />
+          </expression>
+        </clause>
+        <relation connection='mysql.42678.610012905090leaf' name='log-reference-errors' table='[log-reference-errors]' type='table' />
+        <relation connection='mysql.42678.610012905090leaf' name='dim-activity' table='[dim-activity]' type='table' />
+      </relation>
+      <relation connection='mysql.42678.610012905090leaf' name='dim-url' table='[dim-url]' type='table' />
+    </relation>
+    <cols>
+      <map key='[Is-parent]' value='[dim-activity].[Is-parent]' />
+      <map key='[activity-status-name]' value='[dim-activity].[activity-status-name]' />
+      <map key='[activity-status]' value='[dim-activity].[activity-status]' />
+      <map key='[activity-title]' value='[dim-activity].[activity-title]' />
+      <map key='[activity-website]' value='[dim-activity].[activity-website]' />
+      <map key='[contact-email]' value='[dim-activity].[contact-email]' />
+      <map key='[contact-mailing-address]' value='[dim-activity].[contact-mailing-address]' />
+      <map key='[contact-organisation]' value='[dim-activity].[contact-organisation]' />
+      <map key='[contact-person-name]' value='[dim-activity].[contact-person-name]' />
+      <map key='[contact-telephone]' value='[dim-activity].[contact-telephone]' />
+      <map key='[default-finance-type]' value='[dim-activity].[default-finance-type]' />
+      <map key='[default-tied-status]' value='[dim-activity].[default-tied-status]' />
+      <map key='[end-actual]' value='[dim-activity].[end-actual]' />
+      <map key='[end-planned]' value='[dim-activity].[end-planned]' />
+      <map key='[generated-datetime (dim-activity)]' value='[dim-activity].[generated-datetime]' />
+      <map key='[generated-datetime]' value='[log-reference-errors].[generated-datetime]' />
+      <map key='[iati-identifier (dim-activity)]' value='[dim-activity].[iati-identifier]' />
+      <map key='[iati-identifier]' value='[log-reference-errors].[iati-identifier]' />
+      <map key='[invalid-reference]' value='[log-reference-errors].[invalid-reference]' />
+      <map key='[load-time]' value='[dim-url].[load-time]' />
+      <map key='[marker-biodiv]' value='[dim-activity].[marker-biodiv]' />
+      <map key='[marker-climate-adaptation]' value='[dim-activity].[marker-climate-adaptation]' />
+      <map key='[marker-climate-mitigation]' value='[dim-activity].[marker-climate-mitigation]' />
+      <map key='[marker-desertification]' value='[dim-activity].[marker-desertification]' />
+      <map key='[marker-environment]' value='[dim-activity].[marker-environment]' />
+      <map key='[marker-gender]' value='[dim-activity].[marker-gender]' />
+      <map key='[marker-pdgg]' value='[dim-activity].[marker-pdgg]' />
+      <map key='[marker-rmnch]' value='[dim-activity].[marker-rmnch]' />
+      <map key='[marker-trade]' value='[dim-activity].[marker-trade]' />
+      <map key='[publisher (dim-activity)]' value='[dim-activity].[publisher]' />
+      <map key='[publisher (dim-url)]' value='[dim-url].[publisher]' />
+      <map key='[publisher-id]' value='[dim-activity].[publisher-id]' />
+      <map key='[publisher-name]' value='[log-reference-errors].[publisher-name]' />
+      <map key='[publisher]' value='[log-reference-errors].[publisher]' />
+      <map key='[reporting-org-name]' value='[dim-activity].[reporting-org-name]' />
+      <map key='[reporting-org-ref]' value='[dim-activity].[reporting-org-ref]' />
+      <map key='[reporting-org-type-name]' value='[dim-activity].[reporting-org-type-name]' />
+      <map key='[reporting-org-type]' value='[dim-activity].[reporting-org-type]' />
+      <map key='[start-actual]' value='[dim-activity].[start-actual]' />
+      <map key='[start-planned]' value='[dim-activity].[start-planned]' />
+      <map key='[url-id (dim-activity)]' value='[dim-activity].[url-id]' />
+      <map key='[url-id (dim-url)]' value='[dim-url].[url-id]' />
+      <map key='[url-id]' value='[log-reference-errors].[url-id]' />
+      <map key='[url]' value='[dim-url].[url]' />
+      <map key='[urlroot]' value='[dim-activity].[urlroot]' />
+    </cols>
+    <metadata-records>
+      <metadata-record class='column'>
+        <remote-name>publisher</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[publisher]</local-name>
+        <parent-name>[log-reference-errors]</parent-name>
+        <remote-alias>publisher</remote-alias>
+        <ordinal>1</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>21</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>iati-identifier</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[iati-identifier]</local-name>
+        <parent-name>[log-reference-errors]</parent-name>
+        <remote-alias>iati-identifier</remote-alias>
+        <ordinal>2</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>100</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>generated-datetime</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[generated-datetime]</local-name>
+        <parent-name>[log-reference-errors]</parent-name>
+        <remote-alias>generated-datetime</remote-alias>
+        <ordinal>3</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>50</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>url-id</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[url-id]</local-name>
+        <parent-name>[log-reference-errors]</parent-name>
+        <remote-alias>url-id</remote-alias>
+        <ordinal>4</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>invalid-reference</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[invalid-reference]</local-name>
+        <parent-name>[log-reference-errors]</parent-name>
+        <remote-alias>invalid-reference</remote-alias>
+        <ordinal>5</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>100</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>publisher-name</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[publisher-name]</local-name>
+        <parent-name>[log-reference-errors]</parent-name>
+        <remote-alias>publisher-name</remote-alias>
+        <ordinal>6</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>255</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>iati-identifier</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[iati-identifier (dim-activity)]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>iati-identifier</remote-alias>
+        <ordinal>8</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>100</width>
+        <contains-null>true</contains-null>
+        <padded-semantics>true</padded-semantics>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>activity-status</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[activity-status]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>activity-status</remote-alias>
+        <ordinal>9</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>activity-status-name</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[activity-status-name]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>activity-status-name</remote-alias>
+        <ordinal>10</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>50</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>contact-organisation</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[contact-organisation]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>contact-organisation</remote-alias>
+        <ordinal>11</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>contact-person-name</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[contact-person-name]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>contact-person-name</remote-alias>
+        <ordinal>12</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>contact-telephone</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[contact-telephone]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>contact-telephone</remote-alias>
+        <ordinal>13</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>contact-email</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[contact-email]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>contact-email</remote-alias>
+        <ordinal>14</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>contact-mailing-address</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[contact-mailing-address]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>contact-mailing-address</remote-alias>
+        <ordinal>15</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>5592405</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>activity-website</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[activity-website]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>activity-website</remote-alias>
+        <ordinal>16</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>default-finance-type</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[default-finance-type]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>default-finance-type</remote-alias>
+        <ordinal>17</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>default-tied-status</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[default-tied-status]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>default-tied-status</remote-alias>
+        <ordinal>18</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>reporting-org-name</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[reporting-org-name]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>reporting-org-name</remote-alias>
+        <ordinal>19</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>activity-title</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[activity-title]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>activity-title</remote-alias>
+        <ordinal>20</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>5592405</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>reporting-org-ref</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[reporting-org-ref]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>reporting-org-ref</remote-alias>
+        <ordinal>21</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>reporting-org-type</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[reporting-org-type]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>reporting-org-type</remote-alias>
+        <ordinal>22</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>reporting-org-type-name</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[reporting-org-type-name]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>reporting-org-type-name</remote-alias>
+        <ordinal>23</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>85</width>
+        <contains-null>true</contains-null>
+        <cast-to-local-type>true</cast-to-local-type>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>end-actual</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[end-actual]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>end-actual</remote-alias>
+        <ordinal>24</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>end-planned</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[end-planned]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>end-planned</remote-alias>
+        <ordinal>25</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>start-actual</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[start-actual]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>start-actual</remote-alias>
+        <ordinal>26</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>start-planned</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[start-planned]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>start-planned</remote-alias>
+        <ordinal>27</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-gender</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-gender]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-gender</remote-alias>
+        <ordinal>28</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-environment</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-environment]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-environment</remote-alias>
+        <ordinal>29</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-pdgg</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-pdgg]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-pdgg</remote-alias>
+        <ordinal>30</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-trade</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-trade]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-trade</remote-alias>
+        <ordinal>31</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-biodiv</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-biodiv]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-biodiv</remote-alias>
+        <ordinal>32</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-climate-mitigation</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-climate-mitigation]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-climate-mitigation</remote-alias>
+        <ordinal>33</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-climate-adaptation</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-climate-adaptation]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-climate-adaptation</remote-alias>
+        <ordinal>34</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-desertification</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-desertification]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-desertification</remote-alias>
+        <ordinal>35</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>marker-rmnch</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[marker-rmnch]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>marker-rmnch</remote-alias>
+        <ordinal>36</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>publisher</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[publisher (dim-activity)]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>publisher</remote-alias>
+        <ordinal>37</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>21</width>
+        <contains-null>true</contains-null>
+        <padded-semantics>true</padded-semantics>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>publisher-id</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[publisher-id]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>publisher-id</remote-alias>
+        <ordinal>38</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>url-id</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[url-id (dim-activity)]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>url-id</remote-alias>
+        <ordinal>39</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>generated-datetime</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[generated-datetime (dim-activity)]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>generated-datetime</remote-alias>
+        <ordinal>40</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>50</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>Is-parent</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[Is-parent]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>Is-parent</remote-alias>
+        <ordinal>41</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>1</width>
+        <contains-null>true</contains-null>
+        <padded-semantics>true</padded-semantics>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>urlroot</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[urlroot]</local-name>
+        <parent-name>[dim-activity]</parent-name>
+        <remote-alias>urlroot</remote-alias>
+        <ordinal>42</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>255</width>
+        <contains-null>true</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>url-id</remote-name>
+        <remote-type>20</remote-type>
+        <local-name>[url-id (dim-url)]</local-name>
+        <parent-name>[dim-url]</parent-name>
+        <remote-alias>url-id</remote-alias>
+        <ordinal>44</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>19</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>url</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[url]</local-name>
+        <parent-name>[dim-url]</parent-name>
+        <remote-alias>url</remote-alias>
+        <ordinal>45</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>255</width>
+        <contains-null>false</contains-null>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>publisher</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[publisher (dim-url)]</local-name>
+        <parent-name>[dim-url]</parent-name>
+        <remote-alias>publisher</remote-alias>
+        <ordinal>46</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>21</width>
+        <contains-null>false</contains-null>
+        <padded-semantics>true</padded-semantics>
+        <collation flag='0' name='LROOT' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>load-time</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[load-time]</local-name>
+        <parent-name>[dim-url]</parent-name>
+        <remote-alias>load-time</remote-alias>
+        <ordinal>47</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+    </metadata-records>
+  </connection>
+  <aliases enabled='yes' />
+  <column caption='Invalid reference count' datatype='integer' name='[Calculation_0381104150535936]' role='measure' type='quantitative'>
+    <calculation class='tableau' formula='[Number of Records]' />
+  </column>
+  <column caption='Blank' datatype='string' name='[Calculation_1031104144458048]' role='dimension' type='nominal'>
+    <calculation class='tableau' formula='&quot; &quot;' />
+  </column>
+  <column caption='Invalid ref count' datatype='integer' name='[Calculation_3441104152659979]' role='measure' type='quantitative'>
+    <calculation class='tableau' formula='IFNULL(COUNT([Calculation_0381104150535936]),0)' />
+  </column>
+  <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+    <calculation class='tableau' formula='1' />
+  </column>
+  <column caption='Activity-Status-Name' datatype='string' name='[activity-status-name]' role='dimension' type='nominal' />
+  <column caption='Activity-Status' datatype='string' name='[activity-status]' role='dimension' type='nominal' />
+  <column caption='Activity title' datatype='string' name='[activity-title]' role='dimension' type='nominal' />
+  <column caption='Activity-Website' datatype='string' name='[activity-website]' role='dimension' type='nominal' />
+  <column caption='Contact-Email' datatype='string' name='[contact-email]' role='dimension' type='nominal' />
+  <column caption='Contact-Mailing-Address' datatype='string' name='[contact-mailing-address]' role='dimension' type='nominal' />
+  <column caption='Contact-Organisation' datatype='string' name='[contact-organisation]' role='dimension' type='nominal' />
+  <column caption='Contact-Person-Name' datatype='string' name='[contact-person-name]' role='dimension' type='nominal' />
+  <column caption='Contact-Telephone' datatype='string' name='[contact-telephone]' role='dimension' type='nominal' />
+  <column caption='Default-Finance-Type' datatype='string' name='[default-finance-type]' role='dimension' type='nominal' />
+  <column caption='Default-Tied-Status' datatype='string' name='[default-tied-status]' role='dimension' type='nominal' />
+  <column caption='End-Actual' datatype='datetime' name='[end-actual]' role='dimension' type='ordinal' />
+  <column caption='End-Planned' datatype='datetime' name='[end-planned]' role='dimension' type='ordinal' />
+  <column caption='Generated-Datetime (Dim-Activity)' datatype='string' name='[generated-datetime (dim-activity)]' role='dimension' type='nominal' />
+  <column caption='Generated datetime' datatype='string' name='[generated-datetime]' role='dimension' type='nominal' />
+  <column caption='Iati-Identifier (Dim-Activity)' datatype='string' name='[iati-identifier (dim-activity)]' role='dimension' type='nominal' />
+  <column caption='Activity identifier' datatype='string' name='[iati-identifier]' role='dimension' type='nominal' />
+  <column caption='Invalid BZ reference' datatype='string' name='[invalid-reference]' role='dimension' type='nominal' />
+  <column caption='Load-Time' datatype='datetime' name='[load-time]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Biodiv' datatype='integer' name='[marker-biodiv]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Climate-Adaptation' datatype='integer' name='[marker-climate-adaptation]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Climate-Mitigation' datatype='integer' name='[marker-climate-mitigation]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Desertification' datatype='integer' name='[marker-desertification]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Environment' datatype='integer' name='[marker-environment]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Gender' datatype='integer' name='[marker-gender]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Pdgg' datatype='integer' name='[marker-pdgg]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Rmnch' datatype='integer' name='[marker-rmnch]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' caption='Marker-Trade' datatype='integer' name='[marker-trade]' role='dimension' type='ordinal' />
+  <column caption='Publisher (Dim-Activity)' datatype='string' name='[publisher (dim-activity)]' role='dimension' type='nominal' />
+  <column caption='Publisher (Dim-Url)' datatype='string' name='[publisher (dim-url)]' role='dimension' type='nominal' />
+  <column caption='Publisher-Id' datatype='integer' name='[publisher-id]' role='dimension' type='ordinal' />
+  <column caption='Publisher name' datatype='string' name='[publisher-name]' role='dimension' type='nominal' />
+  <column caption='Publisher' datatype='string' name='[publisher]' role='dimension' type='nominal' />
+  <column caption='Reporting-Org-Name' datatype='string' name='[reporting-org-name]' role='dimension' type='nominal' />
+  <column caption='Reporting-Org-Ref' datatype='string' name='[reporting-org-ref]' role='dimension' type='nominal' />
+  <column caption='Reporting-Org-Type-Name' datatype='string' name='[reporting-org-type-name]' role='dimension' type='nominal' />
+  <column caption='Reporting-Org-Type' datatype='string' name='[reporting-org-type]' role='dimension' type='nominal' />
+  <column caption='Start-Actual' datatype='datetime' name='[start-actual]' role='dimension' type='ordinal' />
+  <column caption='Start-Planned' datatype='datetime' name='[start-planned]' role='dimension' type='ordinal' />
+  <column caption='Url-Id (Dim-Activity)' datatype='integer' name='[url-id (dim-activity)]' role='dimension' type='ordinal' />
+  <column caption='Url-Id (Dim-Url)' datatype='integer' name='[url-id (dim-url)]' role='dimension' type='ordinal' />
+  <column caption='Url-Id' datatype='integer' name='[url-id]' role='dimension' type='ordinal' />
+  <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
+  <column caption='Urlroot' datatype='string' name='[urlroot]' role='dimension' type='nominal' />
+  <group caption='Action (Publisher)' hidden='true' name='[Action (Publisher)]' name-style='unqualified' user:auto-column='sheet_link'>
+    <groupfilter function='crossjoin'>
+      <groupfilter function='level-members' level='[publisher]' />
+    </groupfilter>
+  </group>
+  <extract count='-1' enabled='true' units='records'>
+    <connection class='dataengine' dbname='D:\Users\User.Open\My Documents\IATI repositories\iati_pdi_repo\Tableau workbooks\Production\datasource\log-reference-errors.tde' schema='Extract' tablename='Extract' update-time='05/31/2017 07:34:23 AM'>
+      <relation name='Extract' table='[Extract].[Extract]' type='table' />
+      <cols>
+        <map key='[Calculation_0381104150535936]' value='[Extract].[Calculation_0381104150535936]' />
+        <map key='[Is-parent]' value='[Extract].[Is-parent]' />
+        <map key='[Number of Records]' value='[Extract].[Number of Records]' />
+        <map key='[activity-status-name]' value='[Extract].[activity-status-name]' />
+        <map key='[activity-status]' value='[Extract].[activity-status]' />
+        <map key='[activity-title]' value='[Extract].[activity-title]' />
+        <map key='[activity-website]' value='[Extract].[activity-website]' />
+        <map key='[contact-email]' value='[Extract].[contact-email]' />
+        <map key='[contact-mailing-address]' value='[Extract].[contact-mailing-address]' />
+        <map key='[contact-organisation]' value='[Extract].[contact-organisation]' />
+        <map key='[contact-person-name]' value='[Extract].[contact-person-name]' />
+        <map key='[contact-telephone]' value='[Extract].[contact-telephone]' />
+        <map key='[default-finance-type]' value='[Extract].[default-finance-type]' />
+        <map key='[default-tied-status]' value='[Extract].[default-tied-status]' />
+        <map key='[end-actual]' value='[Extract].[end-actual]' />
+        <map key='[end-planned]' value='[Extract].[end-planned]' />
+        <map key='[generated-datetime (dim-activity)]' value='[Extract].[generated-datetime]' />
+        <map key='[generated-datetime]' value='[Extract].[generated-datetime1]' />
+        <map key='[iati-identifier (dim-activity)]' value='[Extract].[iati-identifier]' />
+        <map key='[iati-identifier]' value='[Extract].[iati-identifier1]' />
+        <map key='[invalid-reference]' value='[Extract].[invalid-reference]' />
+        <map key='[load-time]' value='[Extract].[load-time]' />
+        <map key='[marker-biodiv]' value='[Extract].[marker-biodiv]' />
+        <map key='[marker-climate-adaptation]' value='[Extract].[marker-climate-adaptation]' />
+        <map key='[marker-climate-mitigation]' value='[Extract].[marker-climate-mitigation]' />
+        <map key='[marker-desertification]' value='[Extract].[marker-desertification]' />
+        <map key='[marker-environment]' value='[Extract].[marker-environment]' />
+        <map key='[marker-gender]' value='[Extract].[marker-gender]' />
+        <map key='[marker-pdgg]' value='[Extract].[marker-pdgg]' />
+        <map key='[marker-rmnch]' value='[Extract].[marker-rmnch]' />
+        <map key='[marker-trade]' value='[Extract].[marker-trade]' />
+        <map key='[publisher (dim-activity)]' value='[Extract].[publisher]' />
+        <map key='[publisher (dim-url)]' value='[Extract].[publisher1]' />
+        <map key='[publisher-id]' value='[Extract].[publisher-id]' />
+        <map key='[publisher-name]' value='[Extract].[publisher-name]' />
+        <map key='[publisher]' value='[Extract].[publisher2]' />
+        <map key='[reporting-org-name]' value='[Extract].[reporting-org-name]' />
+        <map key='[reporting-org-ref]' value='[Extract].[reporting-org-ref]' />
+        <map key='[reporting-org-type-name]' value='[Extract].[reporting-org-type-name]' />
+        <map key='[reporting-org-type]' value='[Extract].[reporting-org-type]' />
+        <map key='[start-actual]' value='[Extract].[start-actual]' />
+        <map key='[start-planned]' value='[Extract].[start-planned]' />
+        <map key='[url-id (dim-activity)]' value='[Extract].[url-id]' />
+        <map key='[url-id (dim-url)]' value='[Extract].[url-id1]' />
+        <map key='[url-id]' value='[Extract].[url-id2]' />
+        <map key='[url]' value='[Extract].[url]' />
+        <map key='[urlroot]' value='[Extract].[urlroot]' />
+      </cols>
+      <calculations>
+        <calculation column='[Calculation_0381104150535936]' formula='[Number of Records]' />
+        <calculation column='[Number of Records]' formula='1' />
+      </calculations>
+      <refresh>
+        <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='58' timestamp-start='2017-05-31 07:34:23.587' />
+      </refresh>
+      <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>Calculation_0381104150535936</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[Calculation_0381104150535936]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>Calculation_0381104150535936</remote-alias>
+          <ordinal>0</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>58.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>1.0</statistic>
+            <statistic aggregation='Min' datatype='integer'>1</statistic>
+            <statistic aggregation='Max' datatype='integer'>1</statistic>
+            <statistic aggregation='Stdev' datatype='real'>0.0</statistic>
+            <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Var' datatype='real'>0.0</statistic>
+            <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='integer'>1</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>58.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Is-parent</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[Is-parent]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>Is-parent</remote-alias>
+          <ordinal>1</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>1</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;N&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Y&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>5</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Number of Records</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[Number of Records]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>Number of Records</remote-alias>
+          <ordinal>2</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>58.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>1.0</statistic>
+            <statistic aggregation='Min' datatype='integer'>1</statistic>
+            <statistic aggregation='Max' datatype='integer'>1</statistic>
+            <statistic aggregation='Stdev' datatype='real'>0.0</statistic>
+            <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Var' datatype='real'>0.0</statistic>
+            <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='integer'>1</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>58.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>activity-status-name</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[activity-status-name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>activity-status-name</remote-alias>
+          <ordinal>3</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>50</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;Completion&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Implementation&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>6</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>activity-status</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[activity-status]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>activity-status</remote-alias>
+          <ordinal>4</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;2&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;3&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>7</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>activity-title</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[activity-title]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>activity-title</remote-alias>
+          <ordinal>5</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>56</approx-count>
+          <scale>1</scale>
+          <width>1024</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;A conjunctive water supply system for Deyang City&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Young Professional Programme&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4096</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>35</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>activity-website</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[activity-website]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>activity-website</remote-alias>
+          <ordinal>6</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>1</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Count' datatype='integer'>0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>contact-email</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[contact-email]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>contact-email</remote-alias>
+          <ordinal>7</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;general@carenederland.org&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;tduchene@internews.org&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>11</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>16</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>contact-mailing-address</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[contact-mailing-address]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>contact-mailing-address</remote-alias>
+          <ordinal>8</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>1024</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;New City Cloisters 196 Old Street London EC1V 9FR United Kingdom&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;New City Cloisters 196 Old Street London EC1V 9FR United Kingdom&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>1</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4096</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>8</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>contact-organisation</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[contact-organisation]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>contact-organisation</remote-alias>
+          <ordinal>9</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;CARE Nederland&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Internews Europe&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>11</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>17</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>contact-person-name</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[contact-person-name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>contact-person-name</remote-alias>
+          <ordinal>10</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;Tania Duchêne&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Tania Duchêne&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>1</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>9</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>contact-telephone</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[contact-telephone]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>contact-telephone</remote-alias>
+          <ordinal>11</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;+31703105050&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;+44 (0)207 566 3300&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>11</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>18</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>default-finance-type</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[default-finance-type]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>default-finance-type</remote-alias>
+          <ordinal>12</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;110&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;110&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>37</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>10</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>default-tied-status</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[default-tied-status]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>default-tied-status</remote-alias>
+          <ordinal>13</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>true</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;4&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;5&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>37</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>19</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>end-actual</remote-name>
+          <remote-type>135</remote-type>
+          <local-name>[end-actual]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>end-actual</remote-alias>
+          <ordinal>14</ordinal>
+          <family>dim-activity</family>
+          <local-type>datetime</local-type>
+          <aggregation>Year</aggregation>
+          <approx-count>25</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Min' datatype='datetime'>#2014-03-25 00:00:00#</statistic>
+            <statistic aggregation='Max' datatype='datetime'>#2016-03-31 00:00:00#</statistic>
+            <statistic aggregation='Count' datatype='integer'>38</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>3</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;datetime&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>end-planned</remote-name>
+          <remote-type>135</remote-type>
+          <local-name>[end-planned]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>end-planned</remote-alias>
+          <ordinal>15</ordinal>
+          <family>dim-activity</family>
+          <local-type>datetime</local-type>
+          <aggregation>Year</aggregation>
+          <approx-count>13</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Min' datatype='datetime'>#2013-12-31 00:00:00#</statistic>
+            <statistic aggregation='Max' datatype='datetime'>#2020-12-31 00:00:00#</statistic>
+            <statistic aggregation='Count' datatype='integer'>22</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>2</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;datetime&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>generated-datetime</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[generated-datetime (dim-activity)]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>generated-datetime</remote-alias>
+          <ordinal>16</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>50</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;20170328T031357&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;20170523T125756&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;20170328T031357&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>20</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>generated-datetime1</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[generated-datetime]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>generated-datetime1</remote-alias>
+          <ordinal>17</ordinal>
+          <family>log-reference-errors</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>50</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;20170328T031357&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;20170523T125756&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;20170328T031357&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>21</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>iati-identifier</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[iati-identifier (dim-activity)]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>iati-identifier</remote-alias>
+          <ordinal>18</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>58</approx-count>
+          <scale>1</scale>
+          <width>100</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;GB-CHC-1148404- GB-CHC-1148404-4104-1_CS-HR-NMFA&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;NL-KVK-41158230-MUL031N&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>400</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>36</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>iati-identifier1</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[iati-identifier]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>iati-identifier1</remote-alias>
+          <ordinal>19</ordinal>
+          <family>log-reference-errors</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>58</approx-count>
+          <scale>1</scale>
+          <width>100</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;GB-CHC-1148404- GB-CHC-1148404-4104-1_CS-HR-NMFA&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;NL-KVK-41158230-MUL031N&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>400</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>37</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>invalid-reference</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[invalid-reference]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>invalid-reference</remote-alias>
+          <ordinal>20</ordinal>
+          <family>log-reference-errors</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>100</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;XM-DAC-7-27555&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;XM-DAC-7-99IM201601G&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;XM-DAC-7-99IM201601G&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>400</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>22</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>load-time</remote-name>
+          <remote-type>135</remote-type>
+          <local-name>[load-time]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>load-time</remote-alias>
+          <ordinal>21</ordinal>
+          <family>dim-url</family>
+          <local-type>datetime</local-type>
+          <aggregation>Year</aggregation>
+          <approx-count>3</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Min' datatype='datetime'>#2017-05-31 01:33:59#</statistic>
+            <statistic aggregation='Max' datatype='datetime'>#2017-05-31 01:52:16#</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='datetime'>#2017-05-31 01:33:59#</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>0</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;datetime&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-biodiv</remote-name>
+          <remote-type>3</remote-type>
+          <local-name>[marker-biodiv]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-biodiv</remote-alias>
+          <ordinal>22</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Count' datatype='integer'>0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-climate-adaptation</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[marker-climate-adaptation]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-climate-adaptation</remote-alias>
+          <ordinal>23</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>2</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>2.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>2.0</statistic>
+            <statistic aggregation='Min' datatype='integer'>2</statistic>
+            <statistic aggregation='Max' datatype='integer'>2</statistic>
+            <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+            <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Count' datatype='integer'>1</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>4.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>11</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-climate-mitigation</remote-name>
+          <remote-type>3</remote-type>
+          <local-name>[marker-climate-mitigation]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-climate-mitigation</remote-alias>
+          <ordinal>24</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Count' datatype='integer'>0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-desertification</remote-name>
+          <remote-type>3</remote-type>
+          <local-name>[marker-desertification]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-desertification</remote-alias>
+          <ordinal>25</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Count' datatype='integer'>0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-environment</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[marker-environment]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-environment</remote-alias>
+          <ordinal>26</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>2</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>2.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>2.0</statistic>
+            <statistic aggregation='Min' datatype='integer'>2</statistic>
+            <statistic aggregation='Max' datatype='integer'>2</statistic>
+            <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+            <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Count' datatype='integer'>1</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>4.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>12</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-gender</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[marker-gender]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-gender</remote-alias>
+          <ordinal>27</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>2</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>20.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>2.0</statistic>
+            <statistic aggregation='Min' datatype='integer'>2</statistic>
+            <statistic aggregation='Max' datatype='integer'>2</statistic>
+            <statistic aggregation='Stdev' datatype='real'>0.0</statistic>
+            <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Var' datatype='real'>0.0</statistic>
+            <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+            <statistic aggregation='Count' datatype='integer'>10</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>40.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>13</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-pdgg</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[marker-pdgg]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-pdgg</remote-alias>
+          <ordinal>28</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>3</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>20.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>1.8181818181818181</statistic>
+            <statistic aggregation='Min' datatype='integer'>0</statistic>
+            <statistic aggregation='Max' datatype='integer'>2</statistic>
+            <statistic aggregation='Stdev' datatype='real'>0.60302268915552726</statistic>
+            <statistic aggregation='StdevP' datatype='real'>0.57495957457606894</statistic>
+            <statistic aggregation='Var' datatype='real'>0.36363636363636365</statistic>
+            <statistic aggregation='VarP' datatype='real'>0.33057851239669422</statistic>
+            <statistic aggregation='Count' datatype='integer'>11</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>40.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>23</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-rmnch</remote-name>
+          <remote-type>3</remote-type>
+          <local-name>[marker-rmnch]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-rmnch</remote-alias>
+          <ordinal>29</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Count' datatype='integer'>0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>marker-trade</remote-name>
+          <remote-type>3</remote-type>
+          <local-name>[marker-trade]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>marker-trade</remote-alias>
+          <ordinal>30</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>1</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Count' datatype='integer'>0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint32&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>publisher</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[publisher (dim-activity)]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>publisher</remote-alias>
+          <ordinal>31</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>21</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;carenederland&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;rvo&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;rvo&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>84</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>24</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>publisher1</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[publisher (dim-url)]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>publisher1</remote-alias>
+          <ordinal>32</ordinal>
+          <family>dim-url</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>21</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;carenederland&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;rvo&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;rvo&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>84</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>25</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>publisher-id</remote-name>
+          <remote-type>16</remote-type>
+          <local-name>[publisher-id]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>publisher-id</remote-alias>
+          <ordinal>33</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>3</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>708.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>12.206896551724139</statistic>
+            <statistic aggregation='Min' datatype='integer'>3</statistic>
+            <statistic aggregation='Max' datatype='integer'>53</statistic>
+            <statistic aggregation='Stdev' datatype='real'>19.303448124567865</statistic>
+            <statistic aggregation='StdevP' datatype='real'>19.13631555778775</statistic>
+            <statistic aggregation='Var' datatype='real'>372.62310949788264</statistic>
+            <statistic aggregation='VarP' datatype='real'>366.19857312722951</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='integer'>3</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>29882.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>26</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>publisher-name</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[publisher-name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>publisher-name</remote-alias>
+          <ordinal>34</ordinal>
+          <family>log-reference-errors</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>255</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;CARE Nederland&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Netherlands Enterprise Agency&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;Netherlands Enterprise Agency&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1020</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>27</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>publisher2</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[publisher]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>publisher2</remote-alias>
+          <ordinal>35</ordinal>
+          <family>log-reference-errors</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>21</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;carenederland&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;rvo&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;rvo&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>84</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>28</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>reporting-org-name</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[reporting-org-name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>reporting-org-name</remote-alias>
+          <ordinal>36</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;CARE Nederland&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;Netherlands Enterprise Agency&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;Netherlands Enterprise Agency&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;desc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>29</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>reporting-org-ref</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[reporting-org-ref]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>reporting-org-ref</remote-alias>
+          <ordinal>37</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;GB-CHC-1148404&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;NL-KVK-41158230&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>30</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>reporting-org-type-name</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[reporting-org-type-name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>reporting-org-type-name</remote-alias>
+          <ordinal>38</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;Government&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;International NGO&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;Government&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>14</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>reporting-org-type</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[reporting-org-type]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>reporting-org-type</remote-alias>
+          <ordinal>39</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>2</approx-count>
+          <scale>1</scale>
+          <width>765</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;10&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;21&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;10&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>3060</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>15</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>start-actual</remote-name>
+          <remote-type>135</remote-type>
+          <local-name>[start-actual]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>start-actual</remote-alias>
+          <ordinal>40</ordinal>
+          <family>dim-activity</family>
+          <local-type>datetime</local-type>
+          <aggregation>Year</aggregation>
+          <approx-count>40</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Min' datatype='datetime'>#2011-01-01 00:00:00#</statistic>
+            <statistic aggregation='Max' datatype='datetime'>#2016-08-22 00:00:00#</statistic>
+            <statistic aggregation='Count' datatype='integer'>47</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>4</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;datetime&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>start-planned</remote-name>
+          <remote-type>135</remote-type>
+          <local-name>[start-planned]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>start-planned</remote-alias>
+          <ordinal>41</ordinal>
+          <family>dim-activity</family>
+          <local-type>datetime</local-type>
+          <aggregation>Year</aggregation>
+          <approx-count>7</approx-count>
+          <contains-null>true</contains-null>
+          <statistics>
+            <statistic aggregation='Min' datatype='datetime'>#2013-06-01 00:00:00#</statistic>
+            <statistic aggregation='Max' datatype='datetime'>#2016-01-01 00:00:00#</statistic>
+            <statistic aggregation='Count' datatype='integer'>16</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;datetime&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>url-id</remote-name>
+          <remote-type>2</remote-type>
+          <local-name>[url-id (dim-activity)]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>url-id</remote-alias>
+          <ordinal>42</ordinal>
+          <family>dim-activity</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>3</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>14009.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>241.5344827586207</statistic>
+            <statistic aggregation='Min' datatype='integer'>213</statistic>
+            <statistic aggregation='Max' datatype='integer'>365</statistic>
+            <statistic aggregation='Stdev' datatype='real'>59.536282765362849</statistic>
+            <statistic aggregation='StdevP' datatype='real'>59.020807411378932</statistic>
+            <statistic aggregation='Var' datatype='real'>3544.5689655172414</statistic>
+            <statistic aggregation='VarP' datatype='real'>3483.4557074910822</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='integer'>213</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>3585697.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>31</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>url-id1</remote-name>
+          <remote-type>2</remote-type>
+          <local-name>[url-id (dim-url)]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>url-id1</remote-alias>
+          <ordinal>43</ordinal>
+          <family>dim-url</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>3</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>14009.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>241.5344827586207</statistic>
+            <statistic aggregation='Min' datatype='integer'>213</statistic>
+            <statistic aggregation='Max' datatype='integer'>365</statistic>
+            <statistic aggregation='Stdev' datatype='real'>59.536282765362849</statistic>
+            <statistic aggregation='StdevP' datatype='real'>59.020807411378932</statistic>
+            <statistic aggregation='Var' datatype='real'>3544.5689655172414</statistic>
+            <statistic aggregation='VarP' datatype='real'>3483.4557074910822</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='integer'>213</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>3585697.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>32</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>url-id2</remote-name>
+          <remote-type>2</remote-type>
+          <local-name>[url-id]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>url-id2</remote-alias>
+          <ordinal>44</ordinal>
+          <family>log-reference-errors</family>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <approx-count>3</approx-count>
+          <contains-null>false</contains-null>
+          <statistics>
+            <statistic aggregation='Sum' datatype='real'>14009.0</statistic>
+            <statistic aggregation='Avg' datatype='real'>241.5344827586207</statistic>
+            <statistic aggregation='Min' datatype='integer'>213</statistic>
+            <statistic aggregation='Max' datatype='integer'>365</statistic>
+            <statistic aggregation='Stdev' datatype='real'>59.536282765362849</statistic>
+            <statistic aggregation='StdevP' datatype='real'>59.020807411378932</statistic>
+            <statistic aggregation='Var' datatype='real'>3544.5689655172414</statistic>
+            <statistic aggregation='VarP' datatype='real'>3483.4557074910822</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='integer'>213</statistic>
+            <statistic aggregation='SumXSqr' datatype='real'>3585697.0</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>33</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>url</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[url]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>url</remote-alias>
+          <ordinal>45</ordinal>
+          <family>dim-url</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>3</approx-count>
+          <scale>1</scale>
+          <width>255</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;http://www.rvo.nl/sites/default/files/rvo_website_content/opendata/IATI.xml&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;https://aidstream.org/files/xml/ieu-998.xml&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1020</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>34</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>urlroot</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[urlroot]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <remote-alias>urlroot</remote-alias>
+          <ordinal>46</ordinal>
+          <family>dim-activity</family>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <approx-count>1</approx-count>
+          <scale>1</scale>
+          <width>255</width>
+          <contains-null>false</contains-null>
+          <collation flag='0' name='LROOT' />
+          <statistics>
+            <statistic aggregation='Min' datatype='string'>&quot;http://185.108.227.151/&quot;</statistic>
+            <statistic aggregation='Max' datatype='string'>&quot;http://185.108.227.151/&quot;</statistic>
+            <statistic aggregation='Count' datatype='integer'>58</statistic>
+            <statistic aggregation='Median' datatype='string'>&quot;http://185.108.227.151/&quot;</statistic>
+          </statistics>
+          <attributes>
+            <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+            <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+            <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1020</attribute>
+            <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+            <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+          </attributes>
+        </metadata-record>
+      </metadata-records>
+    </connection>
+  </extract>
+  <layout dim-ordering='alphabetic' dim-percentage='0.720199' group-percentage='0.0380795' measure-ordering='alphabetic' measure-percentage='0.114238' parameter-percentage='0.127483' show-structure='true' />
+  <semantic-values>
+    <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+  </semantic-values>
+</datasource>

@@ -113,7 +113,10 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-budget-type
@@ -195,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=7896 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=7937 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -257,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-budgets
@@ -281,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
   `budget-value-eur` double DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   `disbursement-eur` double DEFAULT NULL,
   `expenditure-eur` double DEFAULT NULL,
@@ -343,7 +346,10 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-country-region
@@ -380,7 +386,7 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
   `generated-datetime` varchar(50) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
@@ -443,7 +449,10 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-documents
@@ -462,7 +471,7 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-url-id` (`url-id`),
@@ -524,7 +533,10 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-locations
@@ -546,7 +558,7 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`) USING BTREE,
   KEY `idx-publisher-id` (`publisher-id`) USING BTREE,
@@ -608,7 +620,10 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-organisations
@@ -625,7 +640,7 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
   KEY `idx-url-id` (`url-id`),
@@ -689,7 +704,10 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-results
@@ -724,7 +742,7 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
   `provider-org-activity-id` varchar(100) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   `result-description` varchar(5000) DEFAULT NULL,
   `publisher-name` varchar(128) DEFAULT NULL,
@@ -788,7 +806,10 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-transactions
@@ -816,7 +837,7 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
   `url-id` int(11) DEFAULT NULL,
   `buza-descendant-yn` char(1) DEFAULT NULL,
   `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` varchar(100) DEFAULT NULL,
+  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
   `has-childs` char(1) DEFAULT NULL,
   `cofinance-yn` char(1) DEFAULT NULL,
   KEY `idx-iati-identifier` (`iati-identifier`),
@@ -880,7 +901,10 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-archive
@@ -1217,7 +1241,7 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.currency-rates
@@ -1312,7 +1336,10 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-country-region
@@ -1384,7 +1411,10 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-descriptions
@@ -1456,7 +1486,10 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-documents
@@ -1530,7 +1563,10 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-locations
@@ -1607,7 +1643,10 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-organisations
@@ -1681,7 +1720,10 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-related
@@ -1753,7 +1795,10 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-results
@@ -1838,7 +1883,10 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-transactions
@@ -1926,7 +1974,10 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION iwda VALUES IN (59) ENGINE = InnoDB,
  PARTITION `w-d` VALUES IN (56) ENGINE = InnoDB,
  PARTITION wpp VALUES IN (57) ENGINE = InnoDB,
- PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB) */;
+ PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
+ PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
+ PARTITION hai VALUES IN (63) ENGINE = InnoDB,
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.stg-parent-child-other
