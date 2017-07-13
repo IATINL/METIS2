@@ -27,3 +27,4 @@ Version 3.38 Debugged exchange rate update procedure
 Version 3.39 Hotfix retrieval reference currency rates by removing hardcoded 2017 selection
 Version migratie: Changed IP addresses in Tableau workbooks because of Conclusion Migration
 Version PAT  Production Acceptance test migration to Conclusion servers
+Version 3.40 Bugfix of circular references in merge joins
