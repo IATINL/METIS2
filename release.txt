@@ -28,4 +28,5 @@ Version 3.39 Hotfix retrieval reference currency rates by removing hardcoded 201
 Version migratie: Changed IP addresses in Tableau workbooks because of Conclusion Migration
 Version PAT  Production Acceptance test migration to Conclusion servers
 Version 3.40 Bugfix of circular references in merge joins in Link publisher job
+Version 3.41 Removed XSD validation due to errors using the IATI public validator
 
