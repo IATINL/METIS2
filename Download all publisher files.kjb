@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;24 10&#x3a;35&#x3a;27.441</modified_date>
+  <modified_date>2017&#x2f;07&#x2f;13 12&#x3a;47&#x3a;47.810</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -388,8 +388,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>922</xloc>
-      <yloc>629</yloc>
+      <xloc>923</xloc>
+      <yloc>496</yloc>
       </entry>
     <entry>
       <name>Get file timestamp &#x26; version</name>
@@ -576,8 +576,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2365</xloc>
-      <yloc>567</yloc>
+      <xloc>2366</xloc>
+      <yloc>434</yloc>
       </entry>
     <entry>
       <name>Unchanged file message</name>
@@ -630,66 +630,6 @@
       <yloc>110</yloc>
       </entry>
     <entry>
-      <name>XSD valid&#x3f;</name>
-      <description/>
-      <type>SIMPLE_EVAL</type>
-      <valuetype>field</valuetype>
-      <fieldname>xsd-test-passed</fieldname>
-      <variablename/>
-      <fieldtype>string</fieldtype>
-      <mask/>
-      <comparevalue>Y</comparevalue>
-      <minvalue/>
-      <maxvalue/>
-      <successcondition>equal</successcondition>
-      <successnumbercondition>equal</successnumbercondition>
-      <successbooleancondition>false</successbooleancondition>
-      <successwhenvarset>N</successwhenvarset>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1198</xloc>
-      <yloc>111</yloc>
-      </entry>
-    <entry>
-      <name>Log XSD error</name>
-      <description/>
-      <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file downloaded from &#x24;&#x7b;jsonURL&#x7d; does not validate for IATI version &#x24;&#x7b;VERSION&#x7d;&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
-      <loglevel>Minimal</loglevel>
-      <logsubject>XSD validation</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1316</xloc>
-      <yloc>375</yloc>
-      </entry>
-    <entry>
-      <name>XSD validation error</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>XSD validation error in file &#x24;&#x7b;jsonURL&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>LOG-STATUS</variable_name>
-          <variable_value>Error</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>2363</xloc>
-      <yloc>370</yloc>
-      </entry>
-    <entry>
       <name>Log timestamp and&#x2f;or version error</name>
       <description/>
       <type>WRITE_TO_LOG</type>
@@ -737,8 +677,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1044</xloc>
-      <yloc>568</yloc>
+      <xloc>1045</xloc>
+      <yloc>435</yloc>
       </entry>
     <entry>
       <name>Read processing flag</name>
@@ -839,8 +779,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2363</xloc>
-      <yloc>498</yloc>
+      <xloc>2364</xloc>
+      <yloc>365</yloc>
       </entry>
     <entry>
       <name>Log invalid XML file</name>
@@ -852,8 +792,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1151</xloc>
-      <yloc>498</yloc>
+      <xloc>1152</xloc>
+      <yloc>365</yloc>
       </entry>
     <entry>
       <name>Delete activity file</name>
@@ -866,78 +806,6 @@
       <nr>0</nr>
       <xloc>640</xloc>
       <yloc>113</yloc>
-      </entry>
-    <entry>
-      <name>IATI public validator</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>IATI public validator</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1082</xloc>
-      <yloc>111</yloc>
-      </entry>
-    <entry>
-      <name>Log unexpected XSD validator error</name>
-      <description/>
-      <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Unexpected IATI public XSD validator error for &#x24;&#x7b;jsonURL&#x7d;. Site may be down or XML file too big.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
-      <loglevel>Minimal</loglevel>
-      <logsubject>Unexpected IATI XSD validator error</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1239</xloc>
-      <yloc>433</yloc>
-      </entry>
-    <entry>
-      <name>Unexpected IATI XSD validator error</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>Unexpected IATI XSD validator error in file &#x24;&#x7b;jsonURL&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>LOG-STATUS</variable_name>
-          <variable_value>Error</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>2364</xloc>
-      <yloc>434</yloc>
       </entry>
     <entry>
       <name>Log download processing</name>
@@ -995,8 +863,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2368</xloc>
-      <yloc>628</yloc>
+      <xloc>2369</xloc>
+      <yloc>495</yloc>
       </entry>
     <entry>
       <name>Check if activity file</name>
@@ -1165,24 +1033,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>XSD valid&#x3f;</from>
-      <to>Log XSD error</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log XSD error</from>
-      <to>XSD validation error</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Get file timestamp &#x26; version</from>
       <to>Log timestamp and&#x2f;or version error</to>
       <from_nr>0</from_nr>
@@ -1282,61 +1132,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>IATI public validator</from>
-      <to>XSD valid&#x3f;</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>XML is well formed&#x3f;</from>
-      <to>IATI public validator</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>IATI public validator</from>
-      <to>Log unexpected XSD validator error</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log unexpected XSD validator error</from>
-      <to>Unexpected IATI XSD validator error</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Timestamp or version error</from>
-      <to>Log download processing</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>XSD validation error</from>
-      <to>Log download processing</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Unexpected IATI XSD validator error</from>
       <to>Log download processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1417,15 +1213,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>XSD valid&#x3f;</from>
-      <to>Check if activity file</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Check if activity file</from>
       <to>Get file timestamp &#x26; version</to>
       <from_nr>0</from_nr>
@@ -1496,6 +1283,15 @@
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>XML is well formed&#x3f;</from>
+      <to>Check if activity file</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
