@@ -29,4 +29,5 @@ Version migratie: Changed IP addresses in Tableau workbooks because of Conclusio
 Version PAT  Production Acceptance test migration to Conclusion servers
 Version 3.40 Bugfix of circular references in merge joins in Link publisher job
 Version 3.41 Removed XSD validation due to errors using the IATI public validator
+Version 3.42 Added xmllint XSD validation local on the system
 
