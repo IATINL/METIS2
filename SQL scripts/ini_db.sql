@@ -13,6 +13,7 @@
 
 
 -- Dumping database structure for iatidatamart
+DROP DATABASE IF EXISTS `iatidatamart`;
 CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatidatamart`;
 
@@ -116,7 +117,20 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-budget-type
@@ -198,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB AUTO_INCREMENT=7937 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=8989 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.dim-organisation-role
@@ -260,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=482 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-budgets
@@ -349,7 +363,20 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-country-region
@@ -452,7 +479,20 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-documents
@@ -536,7 +576,20 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-locations
@@ -623,7 +676,20 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-organisations
@@ -707,7 +773,20 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-results
@@ -809,7 +888,20 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.fct-transactions
@@ -904,7 +996,20 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-archive
@@ -1003,6 +1108,7 @@ CREATE TABLE IF NOT EXISTS `log-reference-errors` (
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatilogging
+DROP DATABASE IF EXISTS `iatilogging`;
 CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatilogging`;
 
@@ -1079,6 +1185,7 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatireference
+DROP DATABASE IF EXISTS `iatireference`;
 CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatireference`;
 
@@ -1225,6 +1332,7 @@ CREATE TABLE IF NOT EXISTS `ref-parameters` (
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatischema
+DROP DATABASE IF EXISTS `iatischema`;
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatischema`;
 
@@ -1241,7 +1349,7 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.currency-rates
@@ -1339,7 +1447,20 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-country-region
@@ -1414,7 +1535,20 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-descriptions
@@ -1489,7 +1623,20 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-documents
@@ -1566,7 +1713,20 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-locations
@@ -1646,7 +1806,20 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-organisations
@@ -1723,7 +1896,20 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-related
@@ -1798,7 +1984,20 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-results
@@ -1886,7 +2085,20 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.dwh-transactions
@@ -1977,7 +2189,20 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION iucn_nl VALUES IN (60) ENGINE = InnoDB,
  PARTITION `max-foundation` VALUES IN (62) ENGINE = InnoDB,
  PARTITION hai VALUES IN (63) ENGINE = InnoDB,
- PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB) */;
+ PARTITION solidaridad VALUES IN (64) ENGINE = InnoDB,
+ PARTITION climate_centre VALUES IN (68) ENGINE = InnoDB,
+ PARTITION halo VALUES IN (67) ENGINE = InnoDB,
+ PARTITION mamac VALUES IN (69) ENGINE = InnoDB,
+ PARTITION `icco-cooperation` VALUES IN (79) ENGINE = InnoDB,
+ PARTITION mag VALUES IN (75) ENGINE = InnoDB,
+ PARTITION mainline VALUES IN (76) ENGINE = InnoDB,
+ PARTITION mce VALUES IN (77) ENGINE = InnoDB,
+ PARTITION mvo_nederland VALUES IN (74) ENGINE = InnoDB,
+ PARTITION psi VALUES IN (71) ENGINE = InnoDB,
+ PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
+ PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
+ PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
 -- Dumping structure for table iatischema.stg-parent-child-other
@@ -2019,6 +2244,7 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
 -- Data exporting was unselected.
 
 -- Dumping database structure for iatistaging
+DROP DATABASE IF EXISTS `iatistaging`;
 CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatistaging`;
 

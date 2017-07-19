@@ -79,16 +79,21 @@ CREATE TABLE `iati-view-implementing-organisations` (
 DROP VIEW IF EXISTS `iati-view-kumu-connections`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-kumu-connections` (
-	`From` VARCHAR(1024) NULL COLLATE 'utf8_bin',
-	`To` VARCHAR(1024) NULL COLLATE 'utf8_bin'
+	`From` TEXT NULL COLLATE 'utf8_bin',
+	`To` TEXT NULL COLLATE 'utf8_bin',
+	`Type` VARCHAR(3) NOT NULL COLLATE 'utf8_general_ci',
+	`BZ activity` CHAR(100) NULL COLLATE 'utf8_general_ci'
 ) ENGINE=MyISAM;
 
 -- Dumping structure for view iatidatamart.iati-view-kumu-elements
 DROP VIEW IF EXISTS `iati-view-kumu-elements`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `iati-view-kumu-elements` (
-	`Label` TINYTEXT NULL COLLATE 'utf8_general_ci',
-	`Type` TINYTEXT NULL COLLATE 'utf8_general_ci'
+	`Label` TEXT NULL COLLATE 'utf8_bin',
+	`Type` VARCHAR(8) NOT NULL COLLATE 'utf8_general_ci',
+	`Org type` VARCHAR(85) NULL COLLATE 'utf8_general_ci',
+	`BZ Activity` CHAR(100) NULL COLLATE 'utf8_general_ci',
+	`Total flows` DOUBLE NULL
 ) ENGINE=MyISAM;
 
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
@@ -190,13 +195,13 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP VIEW IF EXISTS `iati-view-kumu-connections`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-kumu-connections`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-kumu-connections` AS select `prov-org`.`organisation-name` AS `From`,`rec-org`.`organisation-name` AS `To` from ((`iatidatamart`.`fct-transactions` `trx` join `iatidatamart`.`dim-organisation` `prov-org` on((`prov-org`.`organisation-id` = `trx`.`provider-org-id`))) join `iatidatamart`.`dim-organisation` `rec-org` on((`rec-org`.`organisation-id` = `trx`.`receiver-org-id`))) where (`trx`.`buza-descendant-yn` = 'Y') group by `trx`.`provider-org-id`,`trx`.`receiver-org-id`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-kumu-connections` AS select `prov-org`.`organisation-name` AS `From`,`act`.`reporting-org-name` AS `To`,'In' AS `Type`,`trx`.`buza-ancestor-activity-id` AS `BZ activity` from ((`iatidatamart`.`fct-transactions` `trx` join `iatidatamart`.`dim-organisation` `prov-org` on((`prov-org`.`organisation-id` = `trx`.`provider-org-id`))) join `iatidatamart`.`dim-activity` `act` on((`act`.`iati-identifier` = `trx`.`iati-identifier`))) where ((`trx`.`buza-descendant-yn` = 'Y') and (`prov-org`.`organisation-name` <> `act`.`reporting-org-name`) and ((`trx`.`transaction-type-code` = 'IC') or (`trx`.`transaction-type-code` = 'IF'))) group by `prov-org`.`organisation-name`,`act`.`reporting-org-name`,'In' union select `act`.`reporting-org-name` AS `From`,`rec-org`.`organisation-name` AS `To`,'Out' AS `Type`,`trx`.`buza-ancestor-activity-id` AS `BZ activity` from ((`iatidatamart`.`fct-transactions` `trx` join `iatidatamart`.`dim-organisation` `rec-org` on((`rec-org`.`organisation-id` = `trx`.`receiver-org-id`))) join `iatidatamart`.`dim-activity` `act` on((`act`.`iati-identifier` = `trx`.`iati-identifier`))) where ((`trx`.`buza-descendant-yn` = 'Y') and (`rec-org`.`organisation-name` <> `act`.`reporting-org-name`) and ((`trx`.`transaction-type-code` = 'D') or (`trx`.`transaction-type-code` = 'E'))) group by `act`.`reporting-org-name`,`rec-org`.`organisation-name`,'Out';
 
 -- Dumping structure for view iatidatamart.iati-view-kumu-elements
 DROP VIEW IF EXISTS `iati-view-kumu-elements`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `iati-view-kumu-elements`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-kumu-elements` AS select `act`.`reporting-org-name` AS `Label`,`act`.`reporting-org-type-name` AS `Type` from (`iatidatamart`.`fct-transactions` `trx` join `iatidatamart`.`dim-activity` `act` on((`trx`.`iati-identifier` = `act`.`iati-identifier`))) group by `act`.`reporting-org-name`,`act`.`reporting-org-type-name`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `iatidatamart`.`iati-view-kumu-elements` AS select `org`.`organisation-name` AS `Label`,'provider' AS `Type`,`org`.`organisation-type-name` AS `Org type`,`trx`.`buza-ancestor-activity-id` AS `BZ Activity`,sum(`trx`.`transaction-value-eur`) AS `Total flows` from (`iatidatamart`.`fct-transactions` `trx` join `iatidatamart`.`dim-organisation` `org` on((`trx`.`provider-org-id` = `org`.`organisation-id`))) where ((`trx`.`buza-descendant-yn` = 'Y') or (left(`trx`.`iati-identifier`,8) = 'XM-DAC-7-PPR')) group by `org`.`organisation-name`,`org`.`organisation-type-name` union select `org`.`organisation-name` AS `Label`,'receiver' AS `Type`,`org`.`organisation-type-name` AS `Org type`,`trx`.`buza-ancestor-activity-id` AS `BZ Activity`,sum(`trx`.`transaction-value-eur`) AS `Total flows` from (`iatidatamart`.`fct-transactions` `trx` join `iatidatamart`.`dim-organisation` `org` on((`trx`.`receiver-org-id` = `org`.`organisation-id`))) where ((`trx`.`buza-descendant-yn` = 'Y') or (left(`trx`.`iati-identifier`,8) = 'XM-DAC-7-PPR')) group by `org`.`organisation-name`,`org`.`organisation-type-name`;
 
 -- Dumping structure for view iatidatamart.iati-view-last-date-published
 DROP VIEW IF EXISTS `iati-view-last-date-published`;
