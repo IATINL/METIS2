@@ -68,15 +68,15 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;05&#x2f;17 12&#x3a;01&#x3a;04.967</modified_date>
+  <modified_date>2017&#x2f;07&#x2f;26 12&#x3a;17&#x3a;19.592</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Calculate EUR amounts  so that transactions &#xd;&#xa;with different currencies are weighted correctly.</note>
-      <xloc>2096</xloc>
-      <yloc>91</yloc>
+      <xloc>1976</xloc>
+      <yloc>233</yloc>
       <width>280</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
@@ -95,11 +95,11 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Log unknown exchange rates&#xd;&#xa;and set those rates to zero.</note>
-      <xloc>1824</xloc>
-      <yloc>228</yloc>
-      <width>179</width>
-      <heigth>40</heigth>
+      <note>Log unknown exchange rates.</note>
+      <xloc>1898</xloc>
+      <yloc>87</yloc>
+      <width>183</width>
+      <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -195,59 +195,6 @@
     </attributes>
   </connection>
   <connection>
-    <name>IATI_logging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatilogging</database>
-    <port>3307</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_reference</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatireference</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>IATI_staging</name>
     <server/>
     <type>MYSQL</type>
@@ -276,28 +223,21 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Known rates</from><to>Unknown trx rate log</to><enabled>Y</enabled> </hop>
   <hop> <from>Convert types</from><to>Derive currency &#x26; trx year</to><enabled>Y</enabled> </hop>
-  <hop> <from>Known rates</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams</from><to>If prov. org act. is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set ex rate to 0 if not found</from><to>Append streams</to><enabled>Y</enabled> </hop>
   <hop> <from>If prov. org act. is null</from><to>Calc euro trx amount</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unknown trx rate log</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Set ex rate to 0 if not found</to><enabled>Y</enabled> </hop>
   <hop> <from>Rel act has no transactions&#x3f;</from><to>Rel act with trx sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act start dates</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act trx from DB</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 0 trx</from><to>Convert types</to><enabled>Y</enabled> </hop>
   <hop> <from>If org name or ref is null</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
-  <hop> <from>EUR rate is 1</from><to>Known rates</to><enabled>Y</enabled> </hop>
   <hop> <from>If not found</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>If rel act is found</from><to>If not found</to><enabled>Y</enabled> </hop>
   <hop> <from>If rel act is found</from><to>No rel act sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Pass incoming trx only</from><to>Outgoing sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc euro trx amount</from><to>If org name or ref is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write transactions to stg</from><to>Error log write budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write transactions to stg</from><to>Error log write transactions</to><enabled>Y</enabled> </hop>
   <hop> <from>Pass incoming trx only</from><to>Sort incoming trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort incoming trx</from><to>Unique trx ids</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rel act</from><to>Merge trx</to><enabled>Y</enabled> </hop>
@@ -311,6 +251,12 @@
   <hop> <from>Sort trx</from><to>Merge trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Derive currency &#x26; trx year</from><to>Lookup currency rate</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup currency rate</from><to>EUR rate is 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>EUR rate is 1</from><to>Select valid currencies</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select valid currencies</from><to>If prov. org act. is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select valid currencies</from><to>Select currency error log fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select currency error log fields</from><to>Get Variables</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Variables</from><to>Set currency error type</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set currency error type</from><to>Log currency error</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -487,27 +433,6 @@
     </step>
 
   <step>
-    <name>Append streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Known rates</head_name>
-<tail_name>Set ex rate to 0 if not found</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2022</xloc>
-      <yloc>166</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Calc euro trx amount</name>
     <type>Formula</type>
     <description/>
@@ -527,7 +452,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2267</xloc>
+      <xloc>2086</xloc>
       <yloc>167</yloc>
       <draw>Y</draw>
       </GUI>
@@ -721,7 +646,7 @@
     </step>
 
   <step>
-    <name>Error log write budgets</name>
+    <name>Error log write transactions</name>
     <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -862,8 +787,89 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2605</xloc>
-      <yloc>54</yloc>
+      <xloc>2429</xloc>
+      <yloc>66</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select valid currencies</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>If prov. org act. is null</send_true_to>
+<send_false_to>Select currency error log fields</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>exchange-rate</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>calculated-transaction-currency</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>calculated-transaction-year</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1819</xloc>
+      <yloc>165</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get Variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1958</xloc>
+      <yloc>22</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -954,7 +960,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2428</xloc>
+      <xloc>2247</xloc>
       <yloc>168</yloc>
       <draw>Y</draw>
       </GUI>
@@ -988,7 +994,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2136</xloc>
+      <xloc>1955</xloc>
       <yloc>165</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1024,8 +1030,8 @@
     </step>
 
   <step>
-    <name>Known rates</name>
-    <type>FilterRows</type>
+    <name>Log currency error</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1034,39 +1040,162 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Append streams</send_true_to>
-<send_false_to>Unknown trx rate log</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>exchange-rate</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>calculated-transaction-currency</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>calculated-transaction-year</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  </conditions>
- </condition>
-    </compare>
+    <connection>IATI_datamart</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>log-currency-errors</table>
+      <key>
+        <name>job-number</name>
+        <field>job-number</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>url-id</name>
+        <field>url-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iso-date</name>
+        <field>iso-date</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>currency</name>
+        <field>currency</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>type</name>
+        <field>type</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>job-number</name>
+        <rename>job-number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>url-id</name>
+        <rename>url-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iati-identifier</name>
+        <rename>iati-identifier</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>type</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>value</name>
+        <rename>value</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iso-date</name>
+        <rename>iso-date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>currency</name>
+        <rename>currency</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>exchange-rate</name>
+        <rename>exchange-rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher</name>
+        <rename>publisher</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>generated-datetime</name>
+        <rename>generated-datetime</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1787</xloc>
-      <yloc>167</yloc>
+      <xloc>2248</xloc>
+      <yloc>23</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Lookup currency rate</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>currency-rates</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>calculated-transaction-currency</name>
+        <field>Valuta</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>calculated-transaction-year</name>
+        <field>Jaar</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Koers</name>
+        <rename>exchange-rate</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1539</xloc>
+      <yloc>164</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1307,6 +1436,62 @@
     </step>
 
   <step>
+    <name>Select currency error log fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-value</name>
+        <rename>value</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-iso-date</name>
+        <rename>iso-date</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-currency</name>
+        <rename>currency</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1819</xloc>
+      <yloc>22</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Select values</name>
     <type>SelectValues</type>
     <description/>
@@ -1386,40 +1571,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1148</xloc>
       <yloc>297</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Set ex rate to 0 if not found</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>exchange-rate</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2019</xloc>
-      <yloc>299</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1604,339 +1755,6 @@
     </step>
 
   <step>
-    <name>Unknown trx rate log</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>windows-1252</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;LOGPATH&#x7d;&#x5c;log - unknown transaction currencies</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>Y</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>100</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>transaction-type-code</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>provider-org</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>provider-org-reference</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>provider-org-activity-id</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>100</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>receiver-org</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>receiver-org-reference</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>receiver-org-activity-id</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>100</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>transaction-value</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>20</length>
-        <precision>2</precision>
-      </field>
-      <field>
-        <name>transaction-iso-date</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>default-currency</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>transaction-currency</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>publisher</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>24</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>publisher-id</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>24</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>generated-datetime</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>24</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>url-id</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>9</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>calculated-transaction-currency</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>calculated-transaction-year</name>
-        <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>exchange-rate</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1786</xloc>
-      <yloc>300</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>Y</limitRows>
-      <limitRowsNumber>10</limitRowsNumber>
-      <logmessage>Warning&#x3a; Unable to retrieve valid exchange rate. Invalid rates are set to 0.</logmessage>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        </field>
-      <field>
-        <name>transaction-type-code</name>
-        </field>
-      <field>
-        <name>transaction-value</name>
-        </field>
-      <field>
-        <name>transaction-iso-date</name>
-        </field>
-      <field>
-        <name>default-currency</name>
-        </field>
-      <field>
-        <name>transaction-currency</name>
-        </field>
-      <field>
-        <name>publisher</name>
-        </field>
-      <field>
-        <name>generated-datetime</name>
-        </field>
-      <field>
-        <name>exchange-rate</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1894</xloc>
-      <yloc>300</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Write transactions to stg</name>
     <type>TableOutput</type>
     <description/>
@@ -2044,15 +1862,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2609</xloc>
+      <xloc>2428</xloc>
       <yloc>169</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Lookup currency rate</name>
-    <type>DBLookup</type>
+    <name>Set currency error type</name>
+    <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2061,39 +1879,24 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>currency-rates</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>calculated-transaction-currency</name>
-        <field>Valuta</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>calculated-transaction-year</name>
-        <field>Jaar</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>Koers</name>
-        <rename>exchange-rate</rename>
-        <default/>
-        <type>Number</type>
-      </value>
-    </lookup>
+    <fields>
+      <field>
+        <name>type</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>transaction</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1539</xloc>
-      <yloc>164</yloc>
+      <xloc>2103</xloc>
+      <yloc>23</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2101,7 +1904,7 @@
   <step_error_handling>
       <error>
         <source_step>Write transactions to stg</source_step>
-        <target_step>Error log write budgets</target_step>
+        <target_step>Error log write transactions</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
