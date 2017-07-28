@@ -2,19 +2,18 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.4.0.5125
+-- HeidiSQL Version:             9.1.0.4867
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
 
 -- Dumping database structure for iatireference
 CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatireference`;
+
 
 -- Dumping structure for table iatireference.ref-country-classification
 DROP TABLE IF EXISTS `ref-country-classification`;
@@ -273,6 +272,7 @@ INSERT INTO `ref-country-classification` (`ISOA2`, `ISOA3`, `UNCountry`, `UNLDC`
 	('ZW', 'ZWE', 'Zimbabwe', '', 'Low income', 'Sub-Saharan Africa', 'Y');
 /*!40000 ALTER TABLE `ref-country-classification` ENABLE KEYS */;
 
+
 -- Dumping structure for table iatireference.ref-currency-rates
 DROP TABLE IF EXISTS `ref-currency-rates`;
 CREATE TABLE IF NOT EXISTS `ref-currency-rates` (
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `ref-currency-rates` (
   KEY `idx_currency-rates_lookup` (`Valuta`,`Jaar`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
--- Dumping data for table iatireference.ref-currency-rates: ~2,343 rows (approximately)
+-- Dumping data for table iatireference.ref-currency-rates: ~2,397 rows (approximately)
 DELETE FROM `ref-currency-rates`;
 /*!40000 ALTER TABLE `ref-currency-rates` DISABLE KEYS */;
 INSERT INTO `ref-currency-rates` (`Jaar`, `Valuta`, `Bron`, `Koers`) VALUES
@@ -2687,6 +2687,7 @@ INSERT INTO `ref-currency-rates` (`Jaar`, `Valuta`, `Bron`, `Koers`) VALUES
 	(2017, 'ZMW', 'Reuters DSS', 9.615384615);
 /*!40000 ALTER TABLE `ref-currency-rates` ENABLE KEYS */;
 
+
 -- Dumping structure for table iatireference.ref-menu-lines
 DROP TABLE IF EXISTS `ref-menu-lines`;
 CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
@@ -2724,6 +2725,7 @@ INSERT INTO `ref-menu-lines` (`Id`) VALUES
 	(25);
 /*!40000 ALTER TABLE `ref-menu-lines` ENABLE KEYS */;
 
+
 -- Dumping structure for table iatireference.ref-parameters
 DROP TABLE IF EXISTS `ref-parameters`;
 CREATE TABLE IF NOT EXISTS `ref-parameters` (
@@ -2732,7 +2734,7 @@ CREATE TABLE IF NOT EXISTS `ref-parameters` (
   PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table iatireference.ref-parameters: ~1 rows (approximately)
+-- Dumping data for table iatireference.ref-parameters: ~0 rows (approximately)
 DELETE FROM `ref-parameters`;
 /*!40000 ALTER TABLE `ref-parameters` DISABLE KEYS */;
 INSERT INTO `ref-parameters` (`key`, `value`) VALUES
@@ -2743,6 +2745,7 @@ INSERT INTO `ref-parameters` (`key`, `value`) VALUES
 -- Dumping database structure for iatischema
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatischema`;
+
 
 -- Dumping structure for table iatischema.ctl-publishers
 DROP TABLE IF EXISTS `ctl-publishers`;
@@ -2757,9 +2760,9 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
 
--- Dumping data for table iatischema.ctl-publishers: ~57 rows (approximately)
+-- Dumping data for table iatischema.ctl-publishers: ~70 rows (approximately)
 DELETE FROM `ctl-publishers`;
 /*!40000 ALTER TABLE `ctl-publishers` DISABLE KEYS */;
 INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-processing`, `testfile-location`, `is-testfile`, `publisher-name`) VALUES
@@ -2767,12 +2770,13 @@ INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-proc
 	('achest', 26, b'0', b'0', NULL, b'0', 'African Centre for Global Health and Social Transformation'),
 	('agriprofocus', 58, b'0', b'0', NULL, b'0', 'AgriProFocus'),
 	('akvo', 42, b'0', b'0', NULL, b'0', 'Akvo Foundation'),
-	('amrefnl', 18, b'0', b'0', NULL, b'0', 'Amref Flying Doctors'),
+	('amrefnl', 18, b'1', b'1', NULL, b'0', 'Amref Flying Doctors'),
 	('awepa', 12, b'0', b'0', NULL, b'0', 'AWEPA'),
 	('bothends', 6, b'0', b'0', NULL, b'0', 'Both ENDS'),
 	('carenederland', 53, b'0', b'0', NULL, b'0', 'CARE Nederland'),
 	('ccc', 7, b'0', b'0', NULL, b'0', 'Clean Clothes Campaign'),
 	('cfyas', 29, b'0', b'0', NULL, b'0', 'CHOICE for Youth and Sexuality'),
+	('climate_centre', 68, b'0', b'0', NULL, b'0', 'Red Cross Red Crescent Climate Centre '),
 	('cocnl_publisher', 52, b'0', b'0', NULL, b'0', 'COC Nederland'),
 	('cordaid', 49, b'0', b'0', NULL, b'0', 'Cordaid'),
 	('dai', 46, b'0', b'0', NULL, b'0', 'Dorcas Aid International'),
@@ -2784,27 +2788,37 @@ INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-proc
 	('foenl', 8, b'0', b'0', NULL, b'0', 'Milieudefensie'),
 	('free_press_unlimited', 11, b'0', b'0', NULL, b'0', 'Free Press Unlimited'),
 	('fwf', 50, b'0', b'0', NULL, b'0', 'Fair Wear Foundation'),
-	('hai', 63, b'1', b'1', NULL, b'0', 'Stichting Health Action International'),
+	('hai', 63, b'0', b'0', NULL, b'0', 'Stichting Health Action International'),
+	('halo', 67, b'0', b'0', NULL, b'0', 'The HALO Trust'),
+	('icco-cooperation', 79, b'0', b'0', NULL, b'0', 'ICCO cooperation'),
 	('ieu', 37, b'0', b'0', NULL, b'0', 'Internews Europe'),
 	('ihaa', 40, b'0', b'0', NULL, b'0', 'International HIV/AIDS Alliance'),
 	('irc', 25, b'0', b'0', NULL, b'0', 'IRC'),
-	('iucn_nl', 60, b'0', b'0', NULL, b'0', 'IUCN Nederlands Comité'),
+	('iucn_nl', 60, b'0', b'0', NULL, b'0', 'IUCN Nederlands ComitÃ©'),
 	('iwda', 59, b'0', b'0', NULL, b'0', 'International Women\'s Development Agency'),
+	('mag', 75, b'0', b'0', NULL, b'0', 'Mine Action Group'),
+	('mainline', 76, b'0', b'0', NULL, b'0', 'Mainline'),
+	('mamac', 69, b'0', b'0', NULL, b'0', 'Mama Cash'),
 	('max-foundation', 62, b'0', b'0', NULL, b'0', 'Max Foundation'),
-	('mefbenin', 55, b'0', b'0', NULL, b'0', 'Ministère de l\'Economie et des Finances du Bénin'),
+	('mce', 77, b'0', b'0', NULL, b'0', 'Mercy Corps Europe'),
+	('mefbenin', 55, b'0', b'0', NULL, b'0', 'MinistÃ¨re de l\'Economie et des Finances du BÃ©nin'),
 	('minbuza_nl', 1, b'0', b'0', NULL, b'0', 'Netherlands Ministry of Foreign Affairs'),
+	('mvo_nederland', 74, b'0', b'0', NULL, b'0', 'MVO Nederland'),
 	('nimd-hq', 16, b'0', b'0', NULL, b'0', 'Netherlands Institute for Multiparty Democracy (NIMD)'),
 	('nl-kvk-41207989', 17, b'0', b'0', NULL, b'0', 'Aids Fonds - STOP AIDS NOW! - Soa Aids Nederland'),
 	('nlrc', 5, b'0', b'0', '', b'0', 'Netherlands Red Cross'),
 	('oneacrefund', 43, b'0', b'0', NULL, b'0', 'One Acre Fund'),
 	('onl', 22, b'0', b'0', NULL, b'0', 'Oxfam Novib Nederland'),
 	('plannlno', 19, b'0', b'0', NULL, b'0', 'Plan Nederland'),
+	('psi', 71, b'1', b'1', NULL, b'0', 'Population Services International'),
+	('pumnl', 78, b'0', b'0', NULL, b'0', 'PUM Netherlands senior experts'),
+	('rainfoundation', 73, b'1', b'1', NULL, b'0', 'RAIN Foundation'),
 	('rutgers', 32, b'0', b'0', NULL, b'0', 'Rutgers'),
 	('rvo', 3, b'0', b'0', '', b'0', 'Netherlands Enterprise Agency'),
 	('scnl', 41, b'0', b'0', NULL, b'0', 'Save the Children Netherlands'),
 	('simavi', 20, b'0', b'0', NULL, b'0', 'Simavi'),
 	('snv', 39, b'0', b'0', NULL, b'0', 'SNV Netherlands Development Organisation'),
-	('solidaridad', 64, b'1', b'1', NULL, b'0', 'Solidaridad'),
+	('solidaridad', 64, b'0', b'0', NULL, b'0', 'Solidaridad'),
 	('somo', 9, b'0', b'0', NULL, b'0', 'Stichting Onderzoek Multinationale Ondernemingen (SOMO)'),
 	('stichting_hivos', 31, b'0', b'0', NULL, b'0', 'Hivos'),
 	('st_vluchteling', 45, b'0', b'0', NULL, b'0', 'Stichting Vluchteling'),
@@ -2812,8 +2826,10 @@ INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-proc
 	('tdh_nl', 33, b'0', b'0', NULL, b'0', 'Terre des Hommes Netherlands'),
 	('tear', 38, b'0', b'0', NULL, b'0', 'TEAR fund Nederland'),
 	('tni', 10, b'0', b'0', NULL, b'0', 'Transnational Institute'),
+	('unfpa', 70, b'0', b'0', NULL, b'0', 'United Nations Population Fund'),
 	('utz', 54, b'0', b'0', NULL, b'0', 'UTZ'),
 	('w-d', 56, b'0', b'0', NULL, b'0', 'Stichting Woord en Daad'),
+	('waste', 72, b'1', b'1', NULL, b'0', 'WASTE'),
 	('wemos', 27, b'0', b'0', NULL, b'0', 'Wemos Foundation'),
 	('wfwiuk', 36, b'0', b'0', NULL, b'0', 'Women for Women International (UK)'),
 	('wi', 23, b'0', b'0', NULL, b'0', 'Wetlands International'),
@@ -2821,7 +2837,6 @@ INSERT INTO `ctl-publishers` (`publisher`, `publisher-id`, `active`, `force-proc
 	('wvnld', 44, b'0', b'0', NULL, b'0', 'World Vision Nederland'),
 	('zoa', 2, b'0', b'0', '', b'0', 'ZOA');
 /*!40000 ALTER TABLE `ctl-publishers` ENABLE KEYS */;
-
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
