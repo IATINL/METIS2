@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;09&#x2f;01 16&#x3a;03&#x3a;28.740</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;02 12&#x3a;17&#x3a;40.949</modified_date>
+  <modified_date>2017&#x2f;08&#x2f;15 14&#x3a;04&#x3a;42.552</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -95,35 +95,6 @@
       <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
-  <connection>
-    <name>IATI_database</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatimariadb</database>
-    <port>3306</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.Database type</code><attribute>Innodb</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>IATI_datamart</name>
     <server/>
@@ -152,91 +123,11 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>IATI_logging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatilogging</database>
-    <port>3307</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_reference</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatireference</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_staging</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatistaging</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>Get end time of url processing</from><to>Update url log</to><enabled>Y</enabled> </hop>
   <hop> <from>Get Variables</from><to>If field value is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If field value is null</from><to>Get end time of url processing</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get end time of url processing</from><to>Limit error message length</to><enabled>Y</enabled> </hop>
+  <hop> <from>Limit error message length</from><to>Update url log</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Get Variables</name>
@@ -570,8 +461,35 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>484</xloc>
-      <yloc>87</yloc>
+      <xloc>629</xloc>
+      <yloc>86</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Limit error message length</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>log-message</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>8191</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>499</xloc>
+      <yloc>86</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
