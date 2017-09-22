@@ -68,20 +68,39 @@
   <created_user>-</created_user>
   <created_date>2017&#x2f;09&#x2f;21 14&#x3a;41&#x3a;00.019</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;09&#x2f;21 15&#x3a;54&#x3a;45.024</modified_date>
-    <key_for_session_key/>
+  <modified_date>2017&#x2f;09&#x2f;22 10&#x3a;16&#x3a;38.451</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <order>
-  <hop> <from>Get Variables</from><to>Formula</to><enabled>Y</enabled> </hop>
-  <hop> <from>Formula</from><to>Execute XSD validation</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Variables</from><to>Build execute string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Build execute string</from><to>Execute XSD validation</to><enabled>Y</enabled> </hop>
   <hop> <from>If no errors</from><to>All OK</to><enabled>Y</enabled> </hop>
   <hop> <from>If no errors</from><to>XSD file failed to validate</to><enabled>Y</enabled> </hop>
   <hop> <from>Execute XSD validation</from><to>Write error output to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write error output to log</from><to>If no errors</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>All OK</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>969</xloc>
+      <yloc>72</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Execute XSD validation</name>
     <type>ExecProcess</type>
@@ -98,11 +117,37 @@
     <errorfieldname>Error output</errorfieldname>
     <exitvaluefieldname>Exit value</exitvaluefieldname>
     <failwhennotsuccess>N</failwhennotsuccess>
-    <outputlinedelimiter>CRLF</outputlinedelimiter>
+    <outputlinedelimiter>&#x24;&#x5b;0D,0A&#x5d;</outputlinedelimiter>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>465</xloc>
       <yloc>74</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Build execute string</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>execute-string</field_name>
+<formula_string>&#x5b;xsdvalidator&#x5d;&#x26;&#x22;  &#x22;&#x22;&#x22;&#x26;&#x5b;xsdpath&#x5d;&#x26;&#x22;&#x22;&#x22;  &#x22;&#x22;&#x22;&#x26;&#x5b;version&#x5d;&#x26;&#x22;&#x22;&#x22; &#x22;&#x22;&#x22;&#x26;&#x5b;datapath&#x5d;&#x26;&#x22;&#x22;&#x22;&#x22;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>299</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -177,32 +222,6 @@
     </step>
 
   <step>
-    <name>Formula</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>execute-string</field_name>
-<formula_string>&#x5b;xsdvalidator&#x5d;&#x26;&#x22; &#x22;&#x22;&#x22;&#x26;&#x5b;xsdpath&#x5d;&#x26;&#x22;&#x22;&#x22;  &#x22;&#x22;&#x22;&#x26;&#x5b;version&#x5d;&#x26;&#x22;&#x22;&#x22; &#x22;&#x22;&#x22;&#x26;&#x5b;datapath&#x5d;&#x26;&#x22;&#x22;&#x22;&#x22;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>302</xloc>
-      <yloc>75</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>If no errors</name>
     <type>FilterRows</type>
     <description/>
@@ -227,47 +246,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>797</xloc>
       <yloc>74</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>All OK</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>969</xloc>
-      <yloc>72</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>XSD file failed to validate</name>
-    <type>Abort</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <row_threshold>0</row_threshold>
-      <message>XSD file failed to validate</message>
-      <always_log_rows>Y</always_log_rows>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>797</xloc>
-      <yloc>314</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -332,6 +310,28 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>638</xloc>
       <yloc>74</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>XSD file failed to validate</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>XSD file failed to validate</message>
+      <always_log_rows>Y</always_log_rows>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>797</xloc>
+      <yloc>314</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
