@@ -33,3 +33,4 @@ Version 3.42 Added xmllint XSD validation local on the system
 Version 3.43 Added currency errors in control total calculations
 Version 3.44 Debugged results string lengths and simplified XSD validation messages
 Version 3.45 Added XSD validation messages to DB for use in Tableau
+Version 3.46 Workaround for PDI 'Too many arguments' bug
