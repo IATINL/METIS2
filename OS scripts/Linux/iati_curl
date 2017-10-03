@@ -1,0 +1,13 @@
+#!/bin/bash
+# 
+# Shell script to be called from Pentaho to retrive XML from the internet
+#
+
+DATAPATH="/var/local/pentaho/IATI Publishers"
+IATIURL="${1}"
+
+# use CURL to rerieve data the internet
+
+curl -L ${IATIURL}  --fail --silent --show-error -o "${DATAPATH}/activities.xml" 
+
+
