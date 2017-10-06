@@ -1,0 +1,4 @@
+#!/bin/bash
+IATIVERSION=$(xmllint --xpath 'string(//iati-activities/@version)' "/var/local/pentaho/IATI Publishers/activities.xml")
+
+xmllint -schema "/opt/pentaho/iati_pdi/IATI XSD/${IATIVERSION}/iati-activities-schema.xsd" "/var/local/pentaho/IATI Publishers/activities.xml" --noout 2>output.tmp
