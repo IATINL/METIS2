@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 09&#x3a;37&#x3a;08.487</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;08&#x2f;02 13&#x3a;41&#x3a;40.684</modified_date>
+  <modified_date>2017&#x2f;10&#x2f;30 11&#x3a;43&#x3a;37.233</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -723,7 +723,7 @@
       </field>
       <field>
         <name>result-type-code</name>
-        <xpath>..&#x2f;..&#x2f;..&#x2f;result&#x2f;&#x40;type</xpath>
+        <xpath>..&#x2f;..&#x2f;.&#x2f;&#x40;type</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -738,7 +738,7 @@
       </field>
       <field>
         <name>aggregation-status</name>
-        <xpath>..&#x2f;..&#x2f;..&#x2f;result&#x2f;&#x40;aggregation-status</xpath>
+        <xpath>..&#x2f;..&#x2f;.&#x2f;&#x40;aggregation-status</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Boolean</type>
@@ -783,7 +783,7 @@
       </field>
       <field>
         <name>indicator-measure-code</name>
-        <xpath>..&#x2f;..&#x2f;indicator&#x2f;&#x40;measure</xpath>
+        <xpath>..&#x2f;.&#x2f;&#x40;measure</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
