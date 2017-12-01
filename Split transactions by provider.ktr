@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;25 11&#x3a;33&#x3a;44.268</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;05&#x2f;17 15&#x3a;49&#x3a;37.738</modified_date>
+  <modified_date>2017&#x2f;11&#x2f;23 15&#x3a;20&#x3a;27.749</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -95,11 +95,11 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Calculate for each incoming transaction if it is cofinancing an &#xd;&#xa;activity which is directly or indirectly financed by the Netherlands &#xd;&#xa;Ministry of Foreign Affairs. Do for each IATI activity&#x3a;&#xd;&#xa;- select all incoming fund transactions which are directly or indirectly funded by a BZ ancestor&#xd;&#xa;- select the first BZ ancestor activity if more than one BZ ancestor activity is selected&#xd;&#xa;- update the IF transactions which are NOT directly or indirectly funded to BZ with the BZ ancestor &#xd;&#xa;  activity id. Set the confinance flag  and BZ ancestor flag for the updated activities to Y&#x28;es&#x29; </note>
-      <xloc>4561</xloc>
-      <yloc>370</yloc>
-      <width>579</width>
-      <heigth>115</heigth>
+      <note>Calculate for each incoming transaction if it is cofinancing an &#xd;&#xa;activity which is directly or indirectly financed by the Netherlands &#xd;&#xa;Ministry of Foreign Affairs. Do for each IATI activity&#x3a;&#xd;&#xa;- select the first BZ ancestor activity if more than one BZ ancestor activity is selected&#xd;&#xa;- update all transactions which are NOT directly or indirectly funded to BZ with the BZ ancestor &#xd;&#xa;  activity id. Set the confinance flag  and BZ ancestor flag for the updated activities to Y&#x28;es&#x29; </note>
+      <xloc>4598</xloc>
+      <yloc>391</yloc>
+      <width>559</width>
+      <heigth>100</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -383,87 +383,6 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>IATI_logging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatilogging</database>
-    <port>3307</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_reference</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatireference</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_staging</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatistaging</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
   <hop> <from>Sort outgoing</from><to>Merge outgoing</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort outgoing pc list</from><to>Merge outgoing</to><enabled>Y</enabled> </hop>
@@ -471,14 +390,11 @@
   <hop> <from>Add cofin descendants</from><to>Update link fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Is BZ descendant&#x3f;</from><to>Get first BZ descendant by activity</to><enabled>Y</enabled> </hop>
   <hop> <from>Is BZ descendant&#x3f;</from><to>Other sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Is incoming&#x3f;</from><to>Outgoing sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Is incoming&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort cofin rows</from><to>Add cofin descendants</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort fact rows</from><to>Add cofin descendants</to><enabled>Y</enabled> </hop>
   <hop> <from>Split</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Split</from><to>Sort fact rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove outgoing 0 trx</from><to>Split</to><enabled>Y</enabled> </hop>
-  <hop> <from>Is incoming&#x3f;</from><to>Is BZ descendant&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Get first BZ descendant by activity</from><to>Set merge keys</to><enabled>Y</enabled> </hop>
   <hop> <from>Set merge keys</from><to>Sort cofin rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Update link fields</from><to>Lookup publisher name</to><enabled>Y</enabled> </hop>
@@ -568,6 +484,7 @@
   <hop> <from>Filter incoming</from><to>Sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup publisher name</from><to>Split streams</to><enabled>Y</enabled> </hop>
   <hop> <from>Select childs</from><to>Filter incoming</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Is BZ descendant&#x3f;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add cofin descendants</name>
@@ -1347,6 +1264,9 @@
         <field>
           <name>iati-identifier</name>
         </field>
+        <field>
+          <name>transaction-type-code</name>
+        </field>
       </group>
       <fields>
         <field>
@@ -1453,47 +1373,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>4825</xloc>
       <yloc>517</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Is incoming&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Is BZ descendant&#x3f;</send_true_to>
-<send_false_to>Outgoing sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>transaction-type-code</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>IF</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>transaction-type-code</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>IC</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>4649</xloc>
-      <yloc>518</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2094,25 +1973,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>4365</xloc>
       <yloc>523</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Outgoing sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>4648</xloc>
-      <yloc>646</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
