@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;01&#x2f;18 14&#x3a;25&#x3a;32.932</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;10&#x2f;03 16&#x3a;50&#x3a;36.337</modified_date>
+  <modified_date>2017&#x2f;11&#x2f;13 15&#x3a;28&#x3a;53.368</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -78,14 +78,18 @@
   <hop> <from>Trigger download</from><to>Get json url and os name</to><enabled>Y</enabled> </hop>
   <hop> <from>Select output fields</from><to>Set return values</to><enabled>Y</enabled> </hop>
   <hop> <from>Encode URL</from><to>Abort because of badly formed URL</to><enabled>Y</enabled> </hop>
-  <hop> <from>Encode URL</from><to>Constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Get json url and os name</from><to>Encode URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Select URL &#x26; agent</from><to>Download IATI XML with curl</to><enabled>Y</enabled> </hop>
   <hop> <from>Download IATI XML with curl</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log</from><to>Select output fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Determine process string</from><to>Select URL &#x26; agent</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constants</from><to>Set curl script name</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add user-agent constant</from><to>Set curl script name</to><enabled>Y</enabled> </hop>
   <hop> <from>Set curl script name</from><to>Determine process string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Encode URL</from><to>Not W10 os&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not W10 os&#x3f;</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append streams</from><to>Add user-agent constant</to><enabled>Y</enabled> </hop>
+  <hop> <from>Not W10 os&#x3f;</from><to>Add escape char &#x5e; to &#x26; for W10 batch files</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add escape char &#x5e; to &#x26; for W10 batch files</from><to>Append streams</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort because of badly formed URL</name>
@@ -110,7 +114,7 @@
     </step>
 
   <step>
-    <name>Constants</name>
+    <name>Add user-agent constant</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -136,8 +140,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>390</xloc>
-      <yloc>24</yloc>
+      <xloc>654</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -162,8 +166,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>622</xloc>
-      <yloc>23</yloc>
+      <xloc>903</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -187,8 +191,8 @@
     <outputlinedelimiter>&#x24;&#x5b;0D,0A&#x5d;</outputlinedelimiter>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>928</xloc>
-      <yloc>23</yloc>
+      <xloc>1157</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -298,8 +302,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>760</xloc>
-      <yloc>23</yloc>
+      <xloc>1026</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -308,7 +312,7 @@
     <name>Select output fields</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -326,8 +330,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1188</xloc>
-      <yloc>23</yloc>
+      <xloc>1356</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -352,8 +356,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>484</xloc>
-      <yloc>24</yloc>
+      <xloc>781</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -386,8 +390,8 @@
     <use_formatting>Y</use_formatting>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1343</xloc>
-      <yloc>23</yloc>
+      <xloc>1457</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -471,8 +475,90 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1064</xloc>
-      <yloc>23</yloc>
+      <xloc>1268</xloc>
+      <yloc>25</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add escape char &#x5e; to &#x26; for W10 batch files</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>jsonURL</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x26;</replace_string>
+        <replace_by_string>&#x5e;&#x26;</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>459</xloc>
+      <yloc>106</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Not W10 os&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Append streams</send_true_to>
+<send_false_to>Add escape char &#x5e; to &#x26; for W10 batch files</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>osName</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>Windows 10</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>396</xloc>
+      <yloc>25</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<head_name>Not W10 os&#x3f;</head_name>
+<tail_name>Add escape char &#x5e; to &#x26; for W10 batch files</tail_name>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>533</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
