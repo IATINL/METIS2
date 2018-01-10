@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;05&#x2f;04 13&#x3a;23&#x3a;42.994</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;05&#x2f;16 16&#x3a;16&#x3a;15.761</modified_date>
+  <modified_date>2018&#x2f;01&#x2f;10 14&#x3a;29&#x3a;11.784</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -166,115 +166,6 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>IATI_datamart</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatidatamart</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_logging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatilogging</database>
-    <port>3307</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_reference</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatireference</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_staging</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatistaging</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
   <hop> <from>Sort childs and parents</from><to>Unique parent childs</to><enabled>Y</enabled> </hop>
   <hop> <from>Read provider from incoming trx</from><to>Select trx provider fields</to><enabled>Y</enabled> </hop>
@@ -301,8 +192,14 @@
   <hop> <from>Sort on child 2</from><to>Great grand parents</to><enabled>Y</enabled> </hop>
   <hop> <from>Great grand parents</from><to>Rename to great grand parent</to><enabled>Y</enabled> </hop>
   <hop> <from>Rename to great grand parent</from><to>If no great grand parent</to><enabled>Y</enabled> </hop>
-  <hop> <from>If no great grand parent</from><to>Calc if buza activity&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Select table fields</from><to>Write to parent child other table</to><enabled>Y</enabled> </hop>
+  <hop> <from>If no great grand parent</from><to>Sort on great grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort on great grand parent</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue</from><to>Sort on child 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort on child 3</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>If no gg grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>If no gg grand parent</from><to>Calc if buza activity&#x3f;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Append streams</name>
@@ -357,10 +254,17 @@
 <value_precision>-1</value_precision>
 <replace_field/>
 </formula>
+       <formula><field_name>great-great-grand-parent-is-minbuza</field_name>
+<formula_string>IF&#x28;LEFT&#x28;&#x5b;iati-identifier-great-great-grand-parent&#x5d;&#x3b;9&#x29;&#x3d;&#x22;XM-DAC-7-&#x22;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2336</xloc>
-      <yloc>123</yloc>
+      <xloc>2811</xloc>
+      <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -486,8 +390,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2197</xloc>
-      <yloc>124</yloc>
+      <xloc>2165</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -635,7 +539,7 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2031</xloc>
+      <xloc>2015</xloc>
       <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
@@ -661,13 +565,13 @@
       </valuetypes>
     <fields>
       <field>
-        <name>grand-parent-is-minbuza</name>
+        <name>parent-is-minbuza</name>
         <value>N</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
       <field>
-        <name>parent-is-minbuza</name>
+        <name>grand-parent-is-minbuza</name>
         <value>N</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -678,11 +582,17 @@
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
+      <field>
+        <name>great-great-grand-parent-is-minbuza</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2481</xloc>
-      <yloc>123</yloc>
+      <xloc>2956</xloc>
+      <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -749,8 +659,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2860</xloc>
-      <yloc>121</yloc>
+      <xloc>3335</xloc>
+      <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -814,7 +724,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>sibling-activity-id</field_name>
-<formula_string>IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;1&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;2&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;3&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x29;&#x29;&#x29;</formula_string>
+<formula_string>IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;1&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;2&#x3b;&#x5b;iati-identifier-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;3&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;IF&#x28;&#x5b;sibling-level&#x5d;&#x3d;4&#x3b;&#x5b;iati-identifier-great-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-great-great-grand-parent&#x5d;&#x29;&#x29;&#x29;&#x29;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -822,8 +732,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2736</xloc>
-      <yloc>122</yloc>
+      <xloc>3210</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -840,14 +750,14 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>sibling-yn</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x29;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
+<formula_string>IF&#x28;OR&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;&#x5b;great-great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x29;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;</formula_string>
 <value_type>String</value_type>
 <value_length>1</value_length>
 <value_precision>-1</value_precision>
 <replace_field/>
 </formula>
        <formula><field_name>sibling-level</field_name>
-<formula_string>IF&#x28;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;1&#x3b;IF&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;2&#x3b;IF&#x28;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;3&#x3b;0&#x29;&#x29;&#x29;</formula_string>
+<formula_string>IF&#x28;&#x5b;parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;1&#x3b;IF&#x28;&#x5b;grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;2&#x3b;IF&#x28;&#x5b;great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;3&#x3b;IF&#x28;&#x5b;great-great-grand-parent-is-minbuza&#x5d;&#x3d;&#x22;Y&#x22;&#x3b;4&#x3b;0&#x29;&#x29;&#x29;&#x29;</formula_string>
 <value_type>Integer</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -855,8 +765,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2611</xloc>
-      <yloc>122</yloc>
+      <xloc>3086</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1116,8 +1026,170 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3017</xloc>
-      <yloc>120</yloc>
+      <xloc>3492</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort on great grand parent</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-great-grand-parent</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2304</xloc>
+      <yloc>123</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort on great grand parent</step1>
+<step2>Sort on child 3</step2>
+    <keys_1>
+      <key>iati-identifier-great-grand-parent</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier-child</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2432</xloc>
+      <yloc>123</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort on child 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier-child</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1104</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>iati-identifier-child</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-parent</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-grand-parent</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-great-grand-parent</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>iati-identifier-parent_1</name>
+        <rename>iati-identifier-great-great-grand-parent</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2540</xloc>
+      <yloc>122</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no gg grand parent</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier-great-great-grand-parent&#x5d;&#x29;&#x3b;&#x5b;iati-identifier-great-grand-parent&#x5d;&#x3b;&#x5b;iati-identifier-great-great-grand-parent&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>iati-identifier-great-great-grand-parent</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2658</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
