@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;10&#x2f;28 17&#x3a;40&#x3a;48.943</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;01&#x2f;10 17&#x3a;08&#x3a;59.884</modified_date>
+  <modified_date>2018&#x2f;01&#x2f;11 15&#x3a;07&#x3a;10.505</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -178,6 +178,27 @@
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
+    <notepad>
+      <note>Make unique combinations of parent and &#xd;&#xa;childs, summing the weigths</note>
+      <xloc>4824</xloc>
+      <yloc>77</yloc>
+      <width>233</width>
+      <heigth>42</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -230,7 +251,6 @@
   <hop> <from>Rename to great grand parent</from><to>Calc if buza activity&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace null values</from><to>Sibling level</to><enabled>Y</enabled> </hop>
   <hop> <from>Sibling level</from><to>Sibling identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select table fields</from><to>Write to parent child trx table</to><enabled>Y</enabled> </hop>
   <hop> <from>Calculate compound weigth</from><to>Select table fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Sibling identifier</from><to>Calculate compound weigth</to><enabled>Y</enabled> </hop>
   <hop> <from>If no parent</from><to>If no parent provider</to><enabled>Y</enabled> </hop>
@@ -259,6 +279,8 @@
   <hop> <from>If empty weigth_4</from><to>If no great great grand parent</to><enabled>Y</enabled> </hop>
   <hop> <from>If no great great grand parent</from><to>If no great great grand parent prov</to><enabled>Y</enabled> </hop>
   <hop> <from>If no great great grand parent prov</from><to>Rename to great grand parent</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select table fields</from><to>Sum over parent child pairs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sum over parent child pairs</from><to>Write to parent child trx table</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calc if buza activity&#x3f;</name>
@@ -462,6 +484,40 @@
     </step>
 
   <step>
+    <name>If empty weigth_4</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>weigth_4</name>
+        <value>100</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3471</xloc>
+      <yloc>183</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>If no grand parent</name>
     <type>Formula</type>
     <description/>
@@ -561,6 +617,58 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>3050</xloc>
       <yloc>185</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no great great grand parent</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier_4&#x5d;&#x29;&#x3b;&#x5b;provider-org-activity-id_3&#x5d;&#x3b;&#x5b;iati-identifier_4&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>iati-identifier_4</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3600</xloc>
+      <yloc>184</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If no great great grand parent prov</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;provider-org-activity-id_4&#x5d;&#x29;&#x3b;&#x5b;iati-identifier_4&#x5d;&#x3b;&#x5b;provider-org-activity-id_4&#x5d;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>provider-org-activity-id_4</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3765</xloc>
+      <yloc>184</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -697,6 +805,34 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2654</xloc>
       <yloc>184</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge great great grand parent</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort on provider_3</step1>
+<step2>Wait 7</step2>
+    <keys_1>
+      <key>provider-org-activity-id_3</key>
+    </keys_1>
+    <keys_2>
+      <key>iati-identifier</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3334</xloc>
+      <yloc>183</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1184,6 +1320,40 @@
     </step>
 
   <step>
+    <name>Sort on provider_3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>provider-org-activity-id_3</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3184</xloc>
+      <yloc>183</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Sort parent IF&#x2f;IC trx</name>
     <type>SortRows</type>
     <description/>
@@ -1512,6 +1682,30 @@
     </step>
 
   <step>
+    <name>Wait 7</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <pass_all_rows>Y</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2596</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Write to parent child trx table</name>
     <type>TableOutput</type>
     <description/>
@@ -1567,15 +1761,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>4958</xloc>
+      <xloc>5087</xloc>
       <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Merge great great grand parent</name>
-    <type>MergeJoin</type>
+    <name>Sum over parent child pairs</name>
+    <type>MemoryGroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1584,163 +1778,60 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort on provider_3</step1>
-<step2>Wait 7</step2>
-    <keys_1>
-      <key>provider-org-activity-id_3</key>
-    </keys_1>
-    <keys_2>
-      <key>iati-identifier</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3334</xloc>
-      <yloc>183</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Wait 7</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2596</xloc>
-      <yloc>255</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort on provider_3</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>provider-org-activity-id_3</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3184</xloc>
-      <yloc>183</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If empty weigth_4</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>weigth_4</name>
-        <value>100</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>iati-identifier-child</name>
+        </field>
+        <field>
+          <name>iati-identifier-parent</name>
+        </field>
+        <field>
+          <name>sibling-activity-id</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>iati-identifier-child</aggregate>
+          <subject>iati-identifier-child</subject>
+          <type>FIRST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>iati-identifier-parent</aggregate>
+          <subject>iati-identifier-parent</subject>
+          <type>FIRST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>sibling-yn</aggregate>
+          <subject>sibling-yn</subject>
+          <type>FIRST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>sibling-level</aggregate>
+          <subject>sibling-level</subject>
+          <type>FIRST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>sibling-activity-id</aggregate>
+          <subject>sibling-activity-id</subject>
+          <type>FIRST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>compound-weigth</aggregate>
+          <subject>compound-weigth</subject>
+          <type>SUM</type>
+          <valuefield/>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3471</xloc>
-      <yloc>183</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If no great great grand parent</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier_4&#x5d;&#x29;&#x3b;&#x5b;provider-org-activity-id_3&#x5d;&#x3b;&#x5b;iati-identifier_4&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>iati-identifier_4</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3600</xloc>
-      <yloc>184</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If no great great grand parent prov</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;provider-org-activity-id_4&#x5d;&#x29;&#x3b;&#x5b;iati-identifier_4&#x5d;&#x3b;&#x5b;provider-org-activity-id_4&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>provider-org-activity-id_4</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3765</xloc>
-      <yloc>184</yloc>
+      <xloc>4927</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
