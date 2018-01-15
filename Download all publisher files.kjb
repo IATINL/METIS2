@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;09 14&#x3a;15&#x3a;34.551</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;10&#x2f;02 17&#x3a;45&#x3a;55.118</modified_date>
+  <modified_date>2018&#x2f;01&#x2f;10 15&#x3a;49&#x3a;35.200</modified_date>
     <parameters>
         <parameter>
             <name>Publisher</name>
@@ -763,10 +763,10 @@
       <yloc>111</yloc>
       </entry>
     <entry>
-      <name>Log IATI filetype error</name>
+      <name>Log not an activity file</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;Activity file downloaded from &#x24;&#x7b;jsonURL&#x7d; does not seem to be a real activity file.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
+      <logmessage>---------------------------------------------------------------------------------------------------------------&#xd;&#xa;File downloaded from &#x24;&#x7b;jsonURL&#x7d; is not an activity file. File ignored.&#xd;&#xa;---------------------------------------------------------------------------------------------------------------</logmessage>
       <loglevel>Minimal</loglevel>
       <logsubject>IATI filetype error</logsubject>
       <parallel>N</parallel>
@@ -776,7 +776,7 @@
       <yloc>9</yloc>
       </entry>
     <entry>
-      <name>IATI filetype error</name>
+      <name>Ignore non-activity files</name>
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
@@ -785,7 +785,7 @@
       <fields>
         <field>
           <variable_name>LOG-MESSAGE</variable_name>
-          <variable_value>IATI filetype error detected for &#x24;&#x7b;jsonURL&#x7d;</variable_value>
+          <variable_value>File with url &#x24;&#x7b;jsonURL&#x7d; is not an activity file.</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -1242,7 +1242,7 @@
     </hop>
     <hop>
       <from>Check if activity file</from>
-      <to>Log IATI filetype error</to>
+      <to>Log not an activity file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1250,8 +1250,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Log IATI filetype error</from>
-      <to>IATI filetype error</to>
+      <from>Log not an activity file</from>
+      <to>Ignore non-activity files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1286,7 +1286,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>IATI filetype error</from>
+      <from>Ignore non-activity files</from>
       <to>Log succesfull processing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

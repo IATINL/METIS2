@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;11&#x2f;10 12&#x3a;18&#x3a;59.824</modified_date>
+  <modified_date>2018&#x2f;01&#x2f;11 16&#x3a;43&#x3a;58.487</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -230,7 +230,6 @@
   <hop> <from>Read act start dates</from><to>Add trx iso date</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act trx from DB</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 0 trx</from><to>Convert types</to><enabled>Y</enabled> </hop>
-  <hop> <from>If org name or ref is null</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
   <hop> <from>If not found</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Append 0 trx</to><enabled>Y</enabled> </hop>
   <hop> <from>If rel act is found</from><to>If not found</to><enabled>Y</enabled> </hop>
@@ -257,6 +256,9 @@
   <hop> <from>Select currency error log fields</from><to>Get Variables</to><enabled>Y</enabled> </hop>
   <hop> <from>Get Variables</from><to>Set currency error type</to><enabled>Y</enabled> </hop>
   <hop> <from>Set currency error type</from><to>Log currency error</to><enabled>Y</enabled> </hop>
+  <hop> <from>If org name or ref is null</from><to>Only prov. act. for incoming trx</to><enabled>Y</enabled> </hop>
+  <hop> <from>Only prov. act. for incoming trx</from><to>Remove prov act self ref</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove prov act self ref</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -787,7 +789,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2429</xloc>
+      <xloc>2686</xloc>
       <yloc>66</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1202,6 +1204,32 @@
     </step>
 
   <step>
+    <name>Only prov. act. for incoming trx</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;OR&#x28;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IC&#x22;&#x3b;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IF&#x22;&#x29;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x22;Unspecified&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>provider-org-activity-id</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2402</xloc>
+      <yloc>168</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Outgoing sink</name>
     <type>Dummy</type>
     <description/>
@@ -1383,6 +1411,32 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>606</xloc>
       <yloc>660</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove prov act self ref</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>IF&#x28;&#x5b;iati-identifier&#x5d;&#x3c;&#x3e;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x22;Unspecified&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>provider-org-activity-id</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2554</xloc>
+      <yloc>169</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1895,7 +1949,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2428</xloc>
+      <xloc>2685</xloc>
       <yloc>169</yloc>
       <draw>Y</draw>
       </GUI>
