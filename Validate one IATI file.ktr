@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;02&#x2f;16 11&#x3a;05&#x3a;39.215</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;12 17&#x3a;18&#x3a;16.502</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;21 11&#x3a;56&#x3a;26.556</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -148,7 +148,6 @@
   <hop> <from>Get data validator SVRL</from><to>Abort, data validator retrieval error</to><enabled>Y</enabled> </hop>
   <hop> <from>Get data validator SVRL</from><to>Valid HTTP response&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Valid HTTP response&#x3f;</from><to>Get data from XML</to><enabled>Y</enabled> </hop>
-  <hop> <from>Valid HTTP response&#x3f;</from><to>Abort , unable to retrieve SVRL file</to><enabled>Y</enabled> </hop>
   <hop> <from>Get data from XML</from><to>Pretty location</to><enabled>Y</enabled> </hop>
   <hop> <from>Pretty location</from><to>Trim error text</to><enabled>Y</enabled> </hop>
   <hop> <from>Generate URL</from><to>Log svrl url</to><enabled>Y</enabled> </hop>
@@ -173,29 +172,10 @@
   <hop> <from>Existing SVRL file&#x3f;</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Error text</to><enabled>Y</enabled> </hop>
   <hop> <from>Error text</from><to>Write error to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants 2</from><to>Unable to retrieve file</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unable to retrieve file</from><to>Write error to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Valid HTTP response&#x3f;</from><to>Add constants 2</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Abort , unable to retrieve SVRL file</name>
-    <type>Abort</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <row_threshold>0</row_threshold>
-      <message>Unable to retrieve SVRL file</message>
-      <always_log_rows>Y</always_log_rows>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>810</xloc>
-      <yloc>241</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Abort, data validator retrieval error</name>
     <type>Abort</type>
@@ -214,6 +194,87 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>603</xloc>
       <yloc>242</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Undefined</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>error-code</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>error-class</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>system</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>error-level</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>system</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>error-location</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>263</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -274,6 +335,61 @@
     </step>
 
   <step>
+    <name>Error text</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>error-text</field_name>
+<formula_string>&#x22;SVRL output for IATI file with MD5 &#x22;&#x26;&#x5b;md5&#x5d;&#x26;&#x22; not found in the data validator&#x22;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>338</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Existing SVRL file&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Generate URL</send_true_to>
+<send_false_to>Add constants</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>id</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>263</xloc>
+      <yloc>135</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Generate URL</name>
     <type>Formula</type>
     <description/>
@@ -285,7 +401,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>svrl-url</field_name>
-<formula_string>&#x5b;url-root&#x5d;&#x26;&#x22;iati-files&#x2f;dataworkbench-svrl&#x2f;download&#x2f;&#x22;&#x26;&#x5b;md5&#x5d;&#x26;&#x22;.svrl&#x22;&#xd;&#xa;</formula_string>
+<formula_string>&#x5b;url-root&#x5d;&#x26;&#x22;api&#x2f;iati-files&#x2f;dataworkbench-svrl&#x2f;download&#x2f;&#x22;&#x26;&#x5b;md5&#x5d;&#x26;&#x22;.svrl&#x22;&#xd;&#xa;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -556,107 +672,6 @@
     </step>
 
   <step>
-    <name>Write data validator output to log</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_datamart</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>log-publisher-errors</table>
-      <key>
-        <name>job-number</name>
-        <field>job-number</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>publisher-id</name>
-        <field>publisher-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>url-id</name>
-        <field>url-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>error-code</name>
-        <field>error-code</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>job-number</name>
-        <rename>job-number</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>publisher-id</name>
-        <rename>publisher-id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>url-id</name>
-        <rename>url-id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>iati-identifier</name>
-        <rename>iati-identifier</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>error-code</name>
-        <rename>error-code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>error-class</name>
-        <rename>error-class</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>error-level</name>
-        <rename>error-level</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>error-location</name>
-        <rename>error-location</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>error-text</name>
-        <rename>error-text</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1816</xloc>
-      <yloc>136</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Log svrl url</name>
     <type>WriteToLog</type>
     <description/>
@@ -680,6 +695,42 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>484</xloc>
+      <yloc>133</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Lookup SVRL file id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Read SVRL filelist</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>md5</name>
+        <field>md5</field>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>145</xloc>
       <yloc>133</yloc>
       <draw>Y</draw>
       </GUI>
@@ -732,6 +783,32 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1111</xloc>
       <yloc>137</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read SVRL filelist</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <sql>SELECT&#xd;&#xa;  name&#xd;&#xa;, url&#xd;&#xa;, md5&#xd;&#xa;, publisher&#xd;&#xa;, filename&#xd;&#xa;, downloaded&#xd;&#xa;, updated&#xd;&#xa;, id&#xd;&#xa;FROM iatidatamart.&#x60;log-svrl-filelist&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>145</xloc>
+      <yloc>9</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1181,7 +1258,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Get data from XML</send_true_to>
-<send_false_to>Abort , unable to retrieve SVRL file</send_false_to>
+<send_false_to>Add constants 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -1199,97 +1276,8 @@
     </step>
 
   <step>
-    <name>XML Input Stream &#x28;StAX&#x29;</name>
-    <type>XMLInputStream</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <filename>D&#x3a;&#x5c;Metis&#x5c;iati_working_dir&#x5c;activities.xml</filename>
-    <addResultFile>N</addResultFile>
-    <nrRowsToSkip>0</nrRowsToSkip>
-    <rowLimit>0</rowLimit>
-    <defaultStringLen>1024</defaultStringLen>
-    <encoding>UTF-8</encoding>
-    <enableNamespaces>N</enableNamespaces>
-    <enableTrim>Y</enableTrim>
-    <includeFilenameField>N</includeFilenameField>
-    <filenameField>xml_filename</filenameField>
-    <includeRowNumberField>N</includeRowNumberField>
-    <rowNumberField>xml_row_number</rowNumberField>
-    <includeDataTypeNumericField>N</includeDataTypeNumericField>
-    <dataTypeNumericField>xml_data_type_numeric</dataTypeNumericField>
-    <includeDataTypeDescriptionField>Y</includeDataTypeDescriptionField>
-    <dataTypeDescriptionField>xml_data_type_description</dataTypeDescriptionField>
-    <includeXmlLocationLineField>N</includeXmlLocationLineField>
-    <xmlLocationLineField>xml_location_line</xmlLocationLineField>
-    <includeXmlLocationColumnField>N</includeXmlLocationColumnField>
-    <xmlLocationColumnField>xml_location_column</xmlLocationColumnField>
-    <includeXmlElementIDField>Y</includeXmlElementIDField>
-    <xmlElementIDField>xml_element_id</xmlElementIDField>
-    <includeXmlParentElementIDField>Y</includeXmlParentElementIDField>
-    <xmlParentElementIDField>xml_parent_element_id</xmlParentElementIDField>
-    <includeXmlElementLevelField>Y</includeXmlElementLevelField>
-    <xmlElementLevelField>xml_element_level</xmlElementLevelField>
-    <includeXmlPathField>Y</includeXmlPathField>
-    <xmlPathField>xml_path</xmlPathField>
-    <includeXmlParentPathField>Y</includeXmlParentPathField>
-    <xmlParentPathField>xml_parent_path</xmlParentPathField>
-    <includeXmlDataNameField>Y</includeXmlDataNameField>
-    <xmlDataNameField>xml_data_name</xmlDataNameField>
-    <includeXmlDataValueField>Y</includeXmlDataValueField>
-    <xmlDataValueField>xml_data_value</xmlDataValueField>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>28</xloc>
-      <yloc>412</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup SVRL file id</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Read SVRL filelist</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>md5</name>
-        <field>md5</field>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>145</xloc>
-      <yloc>133</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Read SVRL filelist</name>
-    <type>TableInput</type>
+    <name>Write data validator output to log</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1299,45 +1287,91 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;  name&#xd;&#xa;, url&#xd;&#xa;, md5&#xd;&#xa;, publisher&#xd;&#xa;, filename&#xd;&#xa;, downloaded&#xd;&#xa;, updated&#xd;&#xa;, id&#xd;&#xa;FROM iatidatamart.&#x60;log-svrl-filelist&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>log-publisher-errors</table>
+      <key>
+        <name>job-number</name>
+        <field>job-number</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>url-id</name>
+        <field>url-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>error-code</name>
+        <field>error-code</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>job-number</name>
+        <rename>job-number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>url-id</name>
+        <rename>url-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iati-identifier</name>
+        <rename>iati-identifier</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-code</name>
+        <rename>error-code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-class</name>
+        <rename>error-class</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-level</name>
+        <rename>error-level</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-location</name>
+        <rename>error-location</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-text</name>
+        <rename>error-text</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>145</xloc>
-      <yloc>9</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Existing SVRL file&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Generate URL</send_true_to>
-<send_false_to>Add constants</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>id</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>263</xloc>
-      <yloc>135</yloc>
+      <xloc>1816</xloc>
+      <yloc>136</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1444,7 +1478,60 @@
     </step>
 
   <step>
-    <name>Add constants</name>
+    <name>XML Input Stream &#x28;StAX&#x29;</name>
+    <type>XMLInputStream</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <filename>D&#x3a;&#x5c;Metis&#x5c;iati_working_dir&#x5c;activities.xml</filename>
+    <addResultFile>N</addResultFile>
+    <nrRowsToSkip>0</nrRowsToSkip>
+    <rowLimit>0</rowLimit>
+    <defaultStringLen>1024</defaultStringLen>
+    <encoding>UTF-8</encoding>
+    <enableNamespaces>N</enableNamespaces>
+    <enableTrim>Y</enableTrim>
+    <includeFilenameField>N</includeFilenameField>
+    <filenameField>xml_filename</filenameField>
+    <includeRowNumberField>N</includeRowNumberField>
+    <rowNumberField>xml_row_number</rowNumberField>
+    <includeDataTypeNumericField>N</includeDataTypeNumericField>
+    <dataTypeNumericField>xml_data_type_numeric</dataTypeNumericField>
+    <includeDataTypeDescriptionField>Y</includeDataTypeDescriptionField>
+    <dataTypeDescriptionField>xml_data_type_description</dataTypeDescriptionField>
+    <includeXmlLocationLineField>N</includeXmlLocationLineField>
+    <xmlLocationLineField>xml_location_line</xmlLocationLineField>
+    <includeXmlLocationColumnField>N</includeXmlLocationColumnField>
+    <xmlLocationColumnField>xml_location_column</xmlLocationColumnField>
+    <includeXmlElementIDField>Y</includeXmlElementIDField>
+    <xmlElementIDField>xml_element_id</xmlElementIDField>
+    <includeXmlParentElementIDField>Y</includeXmlParentElementIDField>
+    <xmlParentElementIDField>xml_parent_element_id</xmlParentElementIDField>
+    <includeXmlElementLevelField>Y</includeXmlElementLevelField>
+    <xmlElementLevelField>xml_element_level</xmlElementLevelField>
+    <includeXmlPathField>Y</includeXmlPathField>
+    <xmlPathField>xml_path</xmlPathField>
+    <includeXmlParentPathField>Y</includeXmlParentPathField>
+    <xmlParentPathField>xml_parent_path</xmlParentPathField>
+    <includeXmlDataNameField>Y</includeXmlDataNameField>
+    <xmlDataNameField>xml_data_name</xmlDataNameField>
+    <includeXmlDataValueField>Y</includeXmlDataValueField>
+    <xmlDataValueField>xml_data_value</xmlDataValueField>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>28</xloc>
+      <yloc>412</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add constants 2</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -1518,14 +1605,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>263</xloc>
-      <yloc>239</yloc>
+      <xloc>809</xloc>
+      <yloc>242</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Error text</name>
+    <name>Unable to retrieve file</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -1536,7 +1623,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>error-text</field_name>
-<formula_string>&#x22;SVRL output for IATI file with MD5 &#x22;&#x26;&#x5b;md5&#x5d;&#x26;&#x22; not found in the data validator&#x22;</formula_string>
+<formula_string>&#x22;SVRL file  IATI file with MD5 &#x22;&#x26;&#x5b;md5&#x5d;&#x26;&#x22; could not be retreived from server, HTTP status&#x3a; &#x22;&#x26;&#x5b;http-status&#x5d;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -1544,8 +1631,109 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>338</xloc>
-      <yloc>240</yloc>
+      <xloc>930</xloc>
+      <yloc>242</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write error to log 2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>log-publisher-errors</table>
+      <key>
+        <name>job-number</name>
+        <field>job-number</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>url-id</name>
+        <field>url-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>error-code</name>
+        <field>error-code</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>job-number</name>
+        <rename>job-number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>url-id</name>
+        <rename>url-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iati-identifier</name>
+        <rename>iati-identifier</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-code</name>
+        <rename>error-code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-class</name>
+        <rename>error-class</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-level</name>
+        <rename>error-level</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-location</name>
+        <rename>error-location</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>error-text</name>
+        <rename>error-text</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1063</xloc>
+      <yloc>243</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
