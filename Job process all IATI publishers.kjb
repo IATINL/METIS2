@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;21 13&#x3a;42&#x3a;24.964</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;28 16&#x3a;26&#x3a;21.790</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -75,8 +75,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>17</xloc>
-      <yloc>112</yloc>
+      <xloc>33</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -85,8 +85,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2011</xloc>
-      <yloc>116</yloc>
+      <xloc>2027</xloc>
+      <yloc>120</yloc>
       </entry>
     <entry>
       <name>Process one publisher</name>
@@ -120,8 +120,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>915</xloc>
-      <yloc>113</yloc>
+      <xloc>931</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>Read publisher list</name>
@@ -154,8 +154,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>650</xloc>
-      <yloc>112</yloc>
+      <xloc>666</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Log start of job</name>
@@ -188,8 +188,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>398</xloc>
-      <yloc>112</yloc>
+      <xloc>414</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Log end of job</name>
@@ -222,8 +222,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1874</xloc>
-      <yloc>114</yloc>
+      <xloc>1890</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Check IATI availability</name>
@@ -235,8 +235,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>511</xloc>
-      <yloc>112</yloc>
+      <xloc>527</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Write IATI error to screen</name>
@@ -248,8 +248,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>657</xloc>
-      <yloc>332</yloc>
+      <xloc>673</xloc>
+      <yloc>336</yloc>
       </entry>
     <entry>
       <name>Link publishers</name>
@@ -280,8 +280,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1037</xloc>
-      <yloc>114</yloc>
+      <xloc>1053</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Read config to set variables</name>
@@ -314,8 +314,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>137</xloc>
-      <yloc>112</yloc>
+      <xloc>153</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Set temp variables</name>
@@ -339,8 +339,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>286</xloc>
-      <yloc>112</yloc>
+      <xloc>302</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Log IATI availability error</name>
@@ -364,8 +364,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1719</xloc>
-      <yloc>333</yloc>
+      <xloc>1735</xloc>
+      <yloc>337</yloc>
       </entry>
     <entry>
       <name>Log OK</name>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1710</xloc>
-      <yloc>114</yloc>
+      <xloc>1726</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Write config read error</name>
@@ -402,8 +402,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>135</xloc>
-      <yloc>208</yloc>
+      <xloc>151</xloc>
+      <yloc>212</yloc>
       </entry>
     <entry>
       <name>Abort process all IATI publishers job</name>
@@ -413,8 +413,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>135</xloc>
-      <yloc>308</yloc>
+      <xloc>151</xloc>
+      <yloc>312</yloc>
       </entry>
     <entry>
       <name>Check totals</name>
@@ -447,8 +447,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1579</xloc>
-      <yloc>114</yloc>
+      <xloc>1595</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Calculate DM totals</name>
@@ -481,8 +481,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1466</xloc>
-      <yloc>114</yloc>
+      <xloc>1482</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Log check total error</name>
@@ -506,8 +506,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1713</xloc>
-      <yloc>181</yloc>
+      <xloc>1729</xloc>
+      <yloc>185</yloc>
       </entry>
     <entry>
       <name>Check if activity is a parent</name>
@@ -540,8 +540,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1166</xloc>
-      <yloc>114</yloc>
+      <xloc>1182</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>No publishers defined</name>
@@ -553,8 +553,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>739</xloc>
-      <yloc>269</yloc>
+      <xloc>755</xloc>
+      <yloc>273</yloc>
       </entry>
     <entry>
       <name>Log no publishers error</name>
@@ -578,8 +578,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1718</xloc>
-      <yloc>269</yloc>
+      <xloc>1734</xloc>
+      <yloc>273</yloc>
       </entry>
     <entry>
       <name>Log end of unsuccesful job</name>
@@ -612,8 +612,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1883</xloc>
-      <yloc>265</yloc>
+      <xloc>1899</xloc>
+      <yloc>269</yloc>
       </entry>
     <entry>
       <name>Fatal error</name>
@@ -623,8 +623,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2017</xloc>
-      <yloc>265</yloc>
+      <xloc>2033</xloc>
+      <yloc>269</yloc>
       </entry>
     <entry>
       <name>Check if valid BZ reference</name>
@@ -657,8 +657,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1318</xloc>
-      <yloc>114</yloc>
+      <xloc>1334</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Get valid SVRL MD5 list</name>
@@ -691,8 +691,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>782</xloc>
-      <yloc>112</yloc>
+      <xloc>798</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Invalid SVRL catalog</name>
@@ -704,8 +704,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>846</xloc>
-      <yloc>207</yloc>
+      <xloc>862</xloc>
+      <yloc>211</yloc>
       </entry>
   </entries>
   <hops>
@@ -771,15 +771,6 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Check IATI availability</from>
-      <to>Write IATI error to screen</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Log start of job</from>
@@ -961,12 +952,21 @@
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Check IATI availability</from>
+      <to>Write IATI error to screen</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
       <note>Read the list of all active publishers. Then process each publisher one &#xd;&#xa;at a time. When all publishers are processed, calculate the linking &#xd;&#xa;between the publishers, based on the related activities and the incoming&#xd;&#xa;fund transactions.</note>
-      <xloc>15</xloc>
-      <yloc>12</yloc>
+      <xloc>28</xloc>
+      <yloc>0</yloc>
       <width>392</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -986,8 +986,8 @@
     </notepad>
     <notepad>
       <note>Check if the total of all financial &#xd;&#xa;amounts at the end of processing&#xd;&#xa;are  the same as what is read in&#xd;&#xa;at the start of the process.</note>
-      <xloc>1097</xloc>
-      <yloc>17</yloc>
+      <xloc>1116</xloc>
+      <yloc>0</yloc>
       <width>188</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>

@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;03&#x2f;12 13&#x3a;40&#x3a;20.969</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;20 12&#x3a;00&#x3a;57.525</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;28 14&#x3a;23&#x3a;54.669</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -103,14 +103,27 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get IATI validator root</from><to>Generate URL</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get valid SVRL file list</from><to>Abort svrl file list retrieval</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get valid SVRL file list</from><to>Valid HTTP response&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Valid HTTP response&#x3f;</from><to>Abort invalid HTTP response</to><enabled>Y</enabled> </hop>
-  <hop> <from>Generate URL</from><to>Get valid SVRL file list</to><enabled>Y</enabled> </hop>
-  <hop> <from>JSON Input</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Write SVRL file list</to><enabled>Y</enabled> </hop>
   <hop> <from>Valid HTTP response&#x3f;</from><to>JSON Input</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get IATI validator root</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants</from><to>Generate URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Generate URL</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Encode URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Encode URL</from><to>Encoding error</to><enabled>Y</enabled> </hop>
+  <hop> <from>Encode URL</from><to>HTTP Client</to><enabled>Y</enabled> </hop>
+  <hop> <from>HTTP Client</from><to>Valid HTTP response&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>JSON Input</from><to>Filter incomplete rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter incomplete rows</from><to>Incomplete sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter incomplete rows</from><to>Select dataset rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace quotes</from><to>Replace escape slash</to><enabled>Y</enabled> </hop>
+  <hop> <from>JSON Input</from><to>Abort json parse</to><enabled>Y</enabled> </hop>
+  <hop> <from>HTTP Client</from><to>HTTP error</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select dataset rows</from><to>Replace &#x7b;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace &#x7b;</from><to>Replace &#x7d;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace &#x7d;</from><to>Split Fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Split Fields</from><to>Replace quotes</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace escape slash</from><to>Convert dates</to><enabled>Y</enabled> </hop>
+  <hop> <from>Convert dates</from><to>Write SVRL file list</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort invalid HTTP response</name>
@@ -128,14 +141,14 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>253</yloc>
+      <xloc>666</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Abort svrl file list retrieval</name>
+    <name>Abort json parse</name>
     <type>Abort</type>
     <description/>
     <distribute>Y</distribute>
@@ -146,12 +159,138 @@
            <schema_name/>
            </partitioning>
       <row_threshold>0</row_threshold>
-      <message>Unable to retreive SVRL file list</message>
+      <message>Unexpected JSON parse error</message>
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>435</xloc>
-      <yloc>252</yloc>
+      <xloc>790</xloc>
+      <yloc>203</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>filter</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>&#x3f;filter&#x3d;&#x7b;&#x22;where&#x22;&#x3a; &#x7b;&#x22;svrl-updated&#x22;&#x3a;&#x7b;&#x22;gt&#x22;&#x3a; &#x22;2018-01-01&#x22;&#x7d;&#x7d;&#x7d;</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>165</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Encode URL</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;java&#xd;&#xa;var url &#x3d; new org.apache.commons.httpclient.URI&#x28;url&#x29;.toString&#x28;&#x29;&#x3b;&#xd;&#xa;if&#x28;new org.apache.commons.httpclient.URI&#x28;url&#x29;.getScheme&#x28;&#x29; &#x3d;&#x3d; null&#x29; &#x7b;&#xd;&#xa; url &#x3d; url&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>url</name>
+        <rename>url</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>471</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Encoding error</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>Url encoding error</message>
+      <always_log_rows>Y</always_log_rows>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>471</xloc>
+      <yloc>206</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter incomplete rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Select dataset rows</send_true_to>
+<send_false_to>Incomplete sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>rows</leftvalue>
+   <function>CONTAINS</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>&#x22;md5&#x22;&#x3a;</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>rows</leftvalue>
+   <function>CONTAINS</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>&#x22;url&#x22;&#x3a;</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>893</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -167,8 +306,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-       <formula><field_name>svrl-url</field_name>
-<formula_string>&#x5b;url-root&#x5d;&#x26;&#x22;api&#x2f;iati-datasets&#x22;&#xd;&#xa;</formula_string>
+       <formula><field_name>url</field_name>
+<formula_string>&#x5b;url-root&#x5d;&#x26;&#x22;api&#x2f;iati-datasets&#x22;&#x26;&#x5b;filter&#x5d;&#xd;&#xa;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -176,8 +315,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>304</xloc>
-      <yloc>88</yloc>
+      <xloc>271</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -209,15 +348,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>196</xloc>
-      <yloc>88</yloc>
+      <xloc>50</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get valid SVRL file list</name>
-    <type>Rest</type>
+    <name>HTTP Client</name>
+    <type>HTTP</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -226,36 +365,69 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <applicationType>XML</applicationType>
-    <method>GET</method>
     <url/>
     <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>svrl-url</urlField>
-    <bodyField/>
+    <urlField>url</urlField>
+    <encoding>UTF-8</encoding>
     <httpLogin/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <matrixParameters>
-      </matrixParameters>
+    <socketTimeout>10000</socketTimeout>
+    <connectionTimeout>10000</connectionTimeout>
+    <closeIdleConnectionsTime>-1</closeIdleConnectionsTime>
+    <lookup>
+    </lookup>
     <result>
       <name>svrl-response</name>
       <code>http-status</code>
       <response_time/>
-      </result>
+    </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>437</xloc>
-      <yloc>88</yloc>
+      <xloc>555</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>HTTP error</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>Unexpected HTTP get retrieval error </message>
+      <always_log_rows>Y</always_log_rows>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>555</xloc>
+      <yloc>205</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Incomplete sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>897</xloc>
+      <yloc>203</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -291,86 +463,8 @@
     </file>
     <fields>
       <field>
-        <name>name</name>
-        <path>&#x24;..name</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>url</name>
-        <path>&#x24;..url</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>md5</name>
-        <path>&#x24;..md5</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>publisher</name>
-        <path>&#x24;..publisher</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>filename</name>
-        <path>&#x24;..filename</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>updated</name>
-        <path>&#x24;..updated</path>
-        <type>Date</type>
-        <format>yyyy-MM-dd&#x27;T&#x27;HH&#x3a;mm&#x3a;ss.SSSXXX</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>id</name>
-        <path>&#x24;..id</path>
+        <name>rows</name>
+        <path>&#x24;.&#x5b;0&#x3a;&#x5d;</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -396,14 +490,241 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>724</xloc>
-      <yloc>88</yloc>
+      <xloc>791</xloc>
+      <yloc>46</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values</name>
+    <name>Replace escape slash</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>url</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x5c;&#x2f;</replace_string>
+        <replace_by_string>&#x2f;</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>name</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x5c;&#x2f;</replace_string>
+        <replace_by_string>&#x2f;</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1425</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace quotes</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>filename</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>id</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>md5</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>url</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>name</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>publisher</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>downloaded</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>updated</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>svrl-updated</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1323</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace &#x7b;</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>rows</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5e;&#x5c;&#x7b;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1097</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace &#x7d;</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>rows</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5c;&#x7d;&#x24;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1174</xloc>
+      <yloc>46</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Convert dates</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -413,7 +734,11 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>name</name>
+    <fields>      <field>        <name>id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>md5</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -421,7 +746,7 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>md5</name>
+      </field>      <field>        <name>name</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -433,19 +758,231 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>downloaded</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>updated</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>id</name>
+      </field>      <field>        <name>svrl-updated</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>downloaded</name>
+        <rename>downloaded</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd&#x27;T&#x27;HH&#x3a;mm&#x3a;ss.SSSXXX</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>updated</name>
+        <rename>updated</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd&#x27;T&#x27;HH&#x3a;mm&#x3a;ss.SSSXXX</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>svrl-updated</name>
+        <rename>svrl-updated</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd&#x27;T&#x27;HH&#x3a;mm&#x3a;ss.SSSXXX</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1530</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select dataset rows</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>rows</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>843</xloc>
-      <yloc>88</yloc>
+      <xloc>1009</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Split Fields</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <splitfield>rows</splitfield>
+   <delimiter>,</delimiter>
+   <enclosure>&#x22;</enclosure>
+    <fields>      <field>        <name>id</name>
+        <id>&#x22;id&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>md5</name>
+        <id>&#x22;md5&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>url</name>
+        <id>&#x22;url&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>name</name>
+        <id>&#x22;name&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>publisher</name>
+        <id>&#x22;publisher&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>filename</name>
+        <id>&#x22;filename&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>downloaded</name>
+        <id>&#x22;downloaded&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>updated</name>
+        <id>&#x22;updated&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>svrl-updated</name>
+        <id>&#x22;svrl-updated&#x22;&#x3a;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1246</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -473,8 +1010,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>599</xloc>
-      <yloc>89</yloc>
+      <xloc>666</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -529,26 +1066,85 @@
           <stream_name>filename</stream_name>
         </field>
         <field>
-          <column_name>updated</column_name>
-          <stream_name>updated</stream_name>
-        </field>
-        <field>
           <column_name>id</column_name>
           <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>downloaded</column_name>
+          <stream_name>downloaded</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>967</xloc>
-      <yloc>88</yloc>
+      <xloc>1638</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage/>
+    <fields>
+      <field>
+        <name>url-root</name>
+        </field>
+      <field>
+        <name>filter</name>
+        </field>
+      <field>
+        <name>url</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>371</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
       <error>
-        <source_step>Get valid SVRL file list</source_step>
-        <target_step>Abort svrl file list retrieval</target_step>
+        <source_step>Encode URL</source_step>
+        <target_step>Encoding error</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>HTTP Client</source_step>
+        <target_step>HTTP error</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>JSON Input</source_step>
+        <target_step>Abort json parse</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
