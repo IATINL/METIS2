@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;09&#x2f;19 16&#x3a;13&#x3a;46.308</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;08&#x2f;02 13&#x3a;05&#x3a;13.312</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;29 10&#x3a;57&#x3a;43.019</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -75,8 +75,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>21</xloc>
-      <yloc>145</yloc>
+      <xloc>16</xloc>
+      <yloc>166</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -85,8 +85,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>736</xloc>
-      <yloc>146</yloc>
+      <xloc>731</xloc>
+      <yloc>167</yloc>
       </entry>
     <entry>
       <name>Job partition publisher database</name>
@@ -117,8 +117,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>165</xloc>
-      <yloc>145</yloc>
+      <xloc>160</xloc>
+      <yloc>166</yloc>
       </entry>
     <entry>
       <name>Job process all IATI publishers</name>
@@ -149,8 +149,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>365</xloc>
-      <yloc>146</yloc>
+      <xloc>360</xloc>
+      <yloc>167</yloc>
       </entry>
     <entry>
       <name>Job generate activity documentation</name>
@@ -181,8 +181,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>566</xloc>
-      <yloc>146</yloc>
+      <xloc>561</xloc>
+      <yloc>167</yloc>
       </entry>
     <entry>
       <name>Abort process publishers</name>
@@ -192,8 +192,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>363</xloc>
-      <yloc>302</yloc>
+      <xloc>358</xloc>
+      <yloc>323</yloc>
       </entry>
     <entry>
       <name>Abort partitioning</name>
@@ -203,8 +203,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>163</xloc>
-      <yloc>303</yloc>
+      <xloc>158</xloc>
+      <yloc>324</yloc>
       </entry>
     <entry>
       <name>Abort document generation</name>
@@ -214,8 +214,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>566</xloc>
-      <yloc>301</yloc>
+      <xloc>561</xloc>
+      <yloc>322</yloc>
       </entry>
   </entries>
   <hops>
@@ -288,8 +288,8 @@
       <note>Process all IATI data of selected publishers. The processing is split into 3 steps&#x3a;&#xd;&#xa;1 - partition the database to make sure new publishers are defined as a database partition&#xd;&#xa;2 - read alle publishers files into the reporting database&#xd;&#xa;3 - generate precooked activity overviews.&#xd;&#xa;&#xd;&#xa;In case of severe errors, processing is aborted.</note>
       <xloc>13</xloc>
       <yloc>13</yloc>
-      <width>528</width>
-      <heigth>101</heigth>
+      <width>662</width>
+      <heigth>124</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>

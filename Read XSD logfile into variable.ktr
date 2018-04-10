@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2017&#x2f;08&#x2f;15 11&#x3a;39&#x3a;59.540</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;08&#x2f;15 13&#x3a;57&#x3a;49.043</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;29 10&#x3a;16&#x3a;30.070</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Make XSD error messages available in a PDI variable, &#xd;&#xa;so that the error message can be processed.</note>
+      <xloc>222</xloc>
+      <yloc>64</yloc>
+      <width>366</width>
+      <heigth>50</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <order>
   <hop> <from>Load file content in memory</from><to>Set message log variable</to><enabled>Y</enabled> </hop>
@@ -162,7 +183,7 @@
     <fields>
       <field>
         <field_name>File content</field_name>
-        <variable_name>XSD-ERROR-LOG</variable_name>
+        <variable_name>LOG-MESSAGE-DETAILED</variable_name>
         <variable_type>JVM</variable_type>
         <default_value>XSD Ok</default_value>
         </field>

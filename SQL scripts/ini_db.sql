@@ -2,22 +2,21 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.10-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.1.0.4867
+-- HeidiSQL Version:             9.5.0.5196
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
 -- Dumping database structure for iatidatamart
-DROP DATABASE IF EXISTS `iatidatamart`;
 CREATE DATABASE IF NOT EXISTS `iatidatamart` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatidatamart`;
 
-
 -- Dumping structure for table iatidatamart.dim-activity
-DROP TABLE IF EXISTS `dim-activity`;
 CREATE TABLE IF NOT EXISTS `dim-activity` (
   `iati-identifier` char(100) DEFAULT NULL,
   `activity-status` tinytext,
@@ -129,13 +128,73 @@ CREATE TABLE IF NOT EXISTS `dim-activity` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-budget-type
-DROP TABLE IF EXISTS `dim-budget-type`;
 CREATE TABLE IF NOT EXISTS `dim-budget-type` (
   `budget-type` int(11) NOT NULL,
   `budget-type-name` tinytext,
@@ -143,25 +202,20 @@ CREATE TABLE IF NOT EXISTS `dim-budget-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-country
-DROP TABLE IF EXISTS `dim-country`;
 CREATE TABLE IF NOT EXISTS `dim-country` (
   `recipient-country-code` varchar(2) NOT NULL,
   `recipient-country-name` tinytext,
   `ldc` varchar(3) DEFAULT NULL,
   `income-category` varchar(25) DEFAULT NULL,
   `is-fragile-state` char(1) DEFAULT NULL,
+  `DAC-income` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`recipient-country-code`),
   KEY `idx_dim-country_lookup` (`recipient-country-code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-description-type
-DROP TABLE IF EXISTS `dim-description-type`;
 CREATE TABLE IF NOT EXISTS `dim-description-type` (
   `description-type-name` tinytext,
   `description-type-narrative` tinytext,
@@ -169,10 +223,7 @@ CREATE TABLE IF NOT EXISTS `dim-description-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-document-type
-DROP TABLE IF EXISTS `dim-document-type`;
 CREATE TABLE IF NOT EXISTS `dim-document-type` (
   `document-type-code` char(3) NOT NULL,
   `document-type-name` tinytext,
@@ -184,20 +235,14 @@ CREATE TABLE IF NOT EXISTS `dim-document-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-indicator-measure
-DROP TABLE IF EXISTS `dim-indicator-measure`;
 CREATE TABLE IF NOT EXISTS `dim-indicator-measure` (
   `indicator-measure-code` int(11) DEFAULT NULL,
   `indicator-measure-name` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-location-type
-DROP TABLE IF EXISTS `dim-location-type`;
 CREATE TABLE IF NOT EXISTS `dim-location-type` (
   `location-type-code` char(6) DEFAULT NULL,
   `location-type-name` tinytext,
@@ -208,10 +253,7 @@ CREATE TABLE IF NOT EXISTS `dim-location-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-organisation
-DROP TABLE IF EXISTS `dim-organisation`;
 CREATE TABLE IF NOT EXISTS `dim-organisation` (
   `organisation-id` bigint(20) NOT NULL AUTO_INCREMENT,
   `organisation-ref` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -225,13 +267,10 @@ CREATE TABLE IF NOT EXISTS `dim-organisation` (
   KEY `idx-organisation-ref-name` (`organisation-ref`,`organisation-name`(255)),
   KEY `idx-organisation-type` (`organisation-type-code`),
   KEY `idx_dim-organisation_lookup` (`organisation-name`(255))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=12204 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-organisation-role
-DROP TABLE IF EXISTS `dim-organisation-role`;
 CREATE TABLE IF NOT EXISTS `dim-organisation-role` (
   `participating-org-role-code` int(11) DEFAULT NULL,
   `participating-org-role-name` varchar(20) DEFAULT NULL,
@@ -240,10 +279,7 @@ CREATE TABLE IF NOT EXISTS `dim-organisation-role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-region
-DROP TABLE IF EXISTS `dim-region`;
 CREATE TABLE IF NOT EXISTS `dim-region` (
   `recipient-region-code` char(11) NOT NULL,
   `recipient-region-name` tinytext,
@@ -252,20 +288,14 @@ CREATE TABLE IF NOT EXISTS `dim-region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-result-type
-DROP TABLE IF EXISTS `dim-result-type`;
 CREATE TABLE IF NOT EXISTS `dim-result-type` (
   `result-type-code` int(11) DEFAULT NULL,
   `result-type-name` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-sector
-DROP TABLE IF EXISTS `dim-sector`;
 CREATE TABLE IF NOT EXISTS `dim-sector` (
   `sector-code` char(5) NOT NULL,
   `sector-name` tinytext,
@@ -277,10 +307,7 @@ CREATE TABLE IF NOT EXISTS `dim-sector` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-transaction-type
-DROP TABLE IF EXISTS `dim-transaction-type`;
 CREATE TABLE IF NOT EXISTS `dim-transaction-type` (
   `transaction-type-code` char(2) DEFAULT NULL,
   `transaction-type-name` tinytext,
@@ -288,10 +315,7 @@ CREATE TABLE IF NOT EXISTS `dim-transaction-type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.dim-url
-DROP TABLE IF EXISTS `dim-url`;
 CREATE TABLE IF NOT EXISTS `dim-url` (
   `url-id` bigint(20) NOT NULL AUTO_INCREMENT,
   `url` varchar(255) NOT NULL,
@@ -299,13 +323,10 @@ CREATE TABLE IF NOT EXISTS `dim-url` (
   `load-time` datetime DEFAULT NULL,
   PRIMARY KEY (`url-id`),
   KEY `idx_dim-url_lookup` (`url`,`publisher`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=1427 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-budgets
-DROP TABLE IF EXISTS `fct-budgets`;
 CREATE TABLE IF NOT EXISTS `fct-budgets` (
   `iati-identifier` char(100) DEFAULT NULL,
   `recipient-country-code` varchar(2) DEFAULT NULL,
@@ -403,13 +424,73 @@ CREATE TABLE IF NOT EXISTS `fct-budgets` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-country-region
-DROP TABLE IF EXISTS `fct-country-region`;
 CREATE TABLE IF NOT EXISTS `fct-country-region` (
   `iati-identifier` char(100) COLLATE utf8mb4_bin DEFAULT NULL,
   `recipient-country-code` varchar(2) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -430,10 +511,7 @@ CREATE TABLE IF NOT EXISTS `fct-country-region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-descriptions
-DROP TABLE IF EXISTS `fct-descriptions`;
 CREATE TABLE IF NOT EXISTS `fct-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `description` varchar(16384) DEFAULT NULL,
@@ -523,19 +601,79 @@ CREATE TABLE IF NOT EXISTS `fct-descriptions` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-documents
-DROP TABLE IF EXISTS `fct-documents`;
 CREATE TABLE IF NOT EXISTS `fct-documents` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `document-title` mediumtext,
+  `document-title` varchar(255) DEFAULT NULL,
   `document-language` varchar(10) DEFAULT NULL,
-  `document-url` mediumtext,
-  `document-format` varchar(50) DEFAULT NULL,
+  `document-url` varchar(512) DEFAULT NULL,
+  `document-format` varchar(255) DEFAULT NULL,
   `document-type-code` char(3) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -622,13 +760,73 @@ CREATE TABLE IF NOT EXISTS `fct-documents` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-locations
-DROP TABLE IF EXISTS `fct-locations`;
 CREATE TABLE IF NOT EXISTS `fct-locations` (
   `iati-identifier` char(100) DEFAULT NULL,
   `location-type-code` tinytext,
@@ -724,13 +922,73 @@ CREATE TABLE IF NOT EXISTS `fct-locations` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-organisations
-DROP TABLE IF EXISTS `fct-organisations`;
 CREATE TABLE IF NOT EXISTS `fct-organisations` (
   `iati-identifier` char(100) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
@@ -823,13 +1081,73 @@ CREATE TABLE IF NOT EXISTS `fct-organisations` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-results
-DROP TABLE IF EXISTS `fct-results`;
 CREATE TABLE IF NOT EXISTS `fct-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
@@ -940,17 +1258,77 @@ CREATE TABLE IF NOT EXISTS `fct-results` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.fct-transactions
-DROP TABLE IF EXISTS `fct-transactions`;
 CREATE TABLE IF NOT EXISTS `fct-transactions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `provider-org-id` bigint(20) DEFAULT NULL,
-  `provider-org-activity-id` varchar(100) DEFAULT NULL,
+  `provider-org-activity-id` char(100) DEFAULT NULL,
   `receiver-org-id` bigint(20) DEFAULT NULL,
   `receiver-org-activity-id` char(100) DEFAULT NULL,
   `sector-code` varchar(5) DEFAULT NULL,
@@ -959,10 +1337,10 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
   `recipient-region-code` char(3) DEFAULT NULL,
   `country-region-percentage` double DEFAULT NULL,
   `transaction-iso-date` date DEFAULT NULL,
-  `transaction-type-code` tinytext,
+  `transaction-type-code` char(2) DEFAULT NULL,
   `transaction-value` double DEFAULT NULL,
   `transaction-value-eur` double DEFAULT NULL,
-  `currency` tinytext,
+  `currency` char(3) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-name` varchar(128) DEFAULT NULL,
   `generated-datetime` varchar(50) DEFAULT NULL,
@@ -1050,13 +1428,73 @@ CREATE TABLE IF NOT EXISTS `fct-transactions` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-archive
-DROP TABLE IF EXISTS `log-archive`;
 CREATE TABLE IF NOT EXISTS `log-archive` (
   `publisher` char(21) DEFAULT NULL,
   `archive-timestamp` varchar(50) DEFAULT NULL,
@@ -1068,10 +1506,7 @@ CREATE TABLE IF NOT EXISTS `log-archive` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-check-totals
-DROP TABLE IF EXISTS `log-check-totals`;
 CREATE TABLE IF NOT EXISTS `log-check-totals` (
   `job-number` int(11) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -1084,10 +1519,38 @@ CREATE TABLE IF NOT EXISTS `log-check-totals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
+-- Dumping structure for table iatidatamart.log-currency-errors
+CREATE TABLE IF NOT EXISTS `log-currency-errors` (
+  `job-number` bigint(20) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
+  `iati-identifier` char(100) COLLATE utf8mb4_bin DEFAULT NULL,
+  `iso-date` date DEFAULT NULL,
+  `currency` varchar(3) COLLATE utf8mb4_bin DEFAULT NULL,
+  `type` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL,
+  `exchange-rate` double DEFAULT NULL,
+  `publisher` varchar(24) COLLATE utf8mb4_bin DEFAULT NULL,
+  `generated-datetime` varchar(24) COLLATE utf8mb4_bin DEFAULT NULL,
+  `value` double DEFAULT NULL,
+  KEY `idx_log-currency-errors_lookup` (`iati-identifier`,`publisher-id`,`url-id`),
+  KEY `job-number` (`job-number`),
+  KEY `iso-date` (`iso-date`),
+  KEY `currency` (`currency`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+-- Data exporting was unselected.
+-- Dumping structure for table iatidatamart.log-document-existence
+CREATE TABLE IF NOT EXISTS `log-document-existence` (
+  `activity-number` bigint(20) DEFAULT NULL,
+  `job-time` datetime DEFAULT NULL,
+  `download-time` datetime DEFAULT NULL,
+  `URL` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL,
+  `HTTP-status` int(11) DEFAULT NULL,
+  `EXISTS` char(1) COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+-- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-duplicates
-DROP TABLE IF EXISTS `log-duplicates`;
 CREATE TABLE IF NOT EXISTS `log-duplicates` (
   `job-number` int(11) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -1096,10 +1559,7 @@ CREATE TABLE IF NOT EXISTS `log-duplicates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-iati-job
-DROP TABLE IF EXISTS `log-iati-job`;
 CREATE TABLE IF NOT EXISTS `log-iati-job` (
   `job-number` bigint(20) NOT NULL,
   `job-start-date-time` datetime DEFAULT NULL,
@@ -1111,10 +1571,27 @@ CREATE TABLE IF NOT EXISTS `log-iati-job` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
+-- Dumping structure for table iatidatamart.log-publisher-errors
+CREATE TABLE IF NOT EXISTS `log-publisher-errors` (
+  `job-number` int(11) DEFAULT NULL,
+  `publisher-id` int(11) DEFAULT NULL,
+  `url-id` int(11) DEFAULT NULL,
+  `iati-identifier` char(100) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-code` varchar(15) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-class` varchar(25) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-level` varchar(15) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-location` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-text` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL,
+  KEY `idx_log-publisher-errors_lookup` (`publisher-id`,`url-id`,`iati-identifier`,`error-code`),
+  KEY `jobnumber` (`job-number`),
+  KEY `publisher-id` (`publisher-id`),
+  KEY `url-id` (`url-id`),
+  KEY `iati-identifier` (`iati-identifier`),
+  KEY `error-code` (`error-code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
-
+-- Data exporting was unselected.
 -- Dumping structure for table iatidatamart.log-publisher-job
-DROP TABLE IF EXISTS `log-publisher-job`;
 CREATE TABLE IF NOT EXISTS `log-publisher-job` (
   `job-number` int(11) NOT NULL,
   `publisher-id` int(11) NOT NULL,
@@ -1126,10 +1603,7 @@ CREATE TABLE IF NOT EXISTS `log-publisher-job` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-publisher-job-url
-DROP TABLE IF EXISTS `log-publisher-job-url`;
 CREATE TABLE IF NOT EXISTS `log-publisher-job-url` (
   `job-number` bigint(20) DEFAULT NULL,
   `publisher-id` bigint(20) DEFAULT NULL,
@@ -1141,16 +1615,14 @@ CREATE TABLE IF NOT EXISTS `log-publisher-job-url` (
   `archive-path` varchar(255) DEFAULT NULL,
   `filename` varchar(100) DEFAULT NULL,
   `http-status` varchar(11) DEFAULT NULL,
-  `log-message` varchar(255) DEFAULT NULL,
+  `log-message` varchar(8192) DEFAULT NULL,
+  `log-message-detailed` varchar(8192) DEFAULT NULL,
   `log-status` varchar(20) DEFAULT NULL,
   KEY `idx_log-publisher-job-url_lookup` (`job-number`,`publisher-id`,`url-id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatidatamart.log-reference-errors
-DROP TABLE IF EXISTS `log-reference-errors`;
 CREATE TABLE IF NOT EXISTS `log-reference-errors` (
   `publisher` varchar(21) DEFAULT NULL,
   `iati-identifier` varchar(100) DEFAULT NULL,
@@ -1161,16 +1633,40 @@ CREATE TABLE IF NOT EXISTS `log-reference-errors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
+-- Dumping structure for table iatidatamart.log-svrl-filelist
+CREATE TABLE IF NOT EXISTS `log-svrl-filelist` (
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `md5` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `publisher` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `filename` varchar(128) COLLATE utf8mb4_bin DEFAULT NULL,
+  `id` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `downloaded` datetime DEFAULT NULL,
+  KEY `publisher` (`publisher`),
+  FULLTEXT KEY `url` (`url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+-- Data exporting was unselected.
+-- Dumping structure for table iatidatamart.log-svrl-test
+CREATE TABLE IF NOT EXISTS `log-svrl-test` (
+  `publisher` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
+  `md5` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-code` varchar(15) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-class` varchar(15) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-level` varchar(25) COLLATE utf8mb4_bin DEFAULT NULL,
+  `error-text` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL,
+  `count-locations` int(11) DEFAULT NULL,
+  `time-end` datetime DEFAULT NULL,
+  `time-start` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Data exporting was unselected.
 
 -- Dumping database structure for iatilogging
-DROP DATABASE IF EXISTS `iatilogging`;
 CREATE DATABASE IF NOT EXISTS `iatilogging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatilogging`;
 
-
 -- Dumping structure for table iatilogging.log-pdi-etl
-DROP TABLE IF EXISTS `log-pdi-etl`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl` (
   `ID_JOB` int(11) DEFAULT NULL,
   `CHANNEL_ID` varchar(255) DEFAULT NULL,
@@ -1198,10 +1694,7 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatilogging.log-pdi-etl-channel
-DROP TABLE IF EXISTS `log-pdi-etl-channel`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl-channel` (
   `ID_BATCH` int(11) DEFAULT NULL,
   `CHANNEL_ID` varchar(255) DEFAULT NULL,
@@ -1218,10 +1711,7 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-channel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatilogging.log-pdi-etl-job-entry
-DROP TABLE IF EXISTS `log-pdi-etl-job-entry`;
 CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
   `ID_BATCH` int(11) DEFAULT NULL,
   `CHANNEL_ID` varchar(255) DEFAULT NULL,
@@ -1245,192 +1735,11 @@ CREATE TABLE IF NOT EXISTS `log-pdi-etl-job-entry` (
 
 -- Data exporting was unselected.
 
-
--- Dumping database structure for iatireference
-DROP DATABASE IF EXISTS `iatireference`;
-CREATE DATABASE IF NOT EXISTS `iatireference` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `iatireference`;
-
-
--- Dumping structure for table iatireference.codelist-activity-status
-DROP TABLE IF EXISTS `codelist-activity-status`;
-CREATE TABLE IF NOT EXISTS `codelist-activity-status` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext,
-  `description` tinytext,
-  KEY `idx_codelist-activity-status_lookup` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-date-type
-DROP TABLE IF EXISTS `codelist-date-type`;
-CREATE TABLE IF NOT EXISTS `codelist-date-type` (
-  `code2x` int(11) DEFAULT NULL,
-  `code1x` varchar(13) DEFAULT NULL,
-  `name` tinytext,
-  `description` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-gazetteer-agency
-DROP TABLE IF EXISTS `codelist-gazetteer-agency`;
-CREATE TABLE IF NOT EXISTS `codelist-gazetteer-agency` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-geographic-exactness
-DROP TABLE IF EXISTS `codelist-geographic-exactness`;
-CREATE TABLE IF NOT EXISTS `codelist-geographic-exactness` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext,
-  `description` mediumtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-geographic-location-class
-DROP TABLE IF EXISTS `codelist-geographic-location-class`;
-CREATE TABLE IF NOT EXISTS `codelist-geographic-location-class` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext,
-  `description` mediumtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-geographic-location-reach
-DROP TABLE IF EXISTS `codelist-geographic-location-reach`;
-CREATE TABLE IF NOT EXISTS `codelist-geographic-location-reach` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext,
-  `description` mediumtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-geographic-precision
-DROP TABLE IF EXISTS `codelist-geographic-precision`;
-CREATE TABLE IF NOT EXISTS `codelist-geographic-precision` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext,
-  `description` mediumtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-geographic-vocabulary
-DROP TABLE IF EXISTS `codelist-geographic-vocabulary`;
-CREATE TABLE IF NOT EXISTS `codelist-geographic-vocabulary` (
-  `code` char(2) DEFAULT NULL,
-  `name` tinytext,
-  `url` tinytext,
-  `description` mediumtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-iati-organisations
-DROP TABLE IF EXISTS `codelist-iati-organisations`;
-CREATE TABLE IF NOT EXISTS `codelist-iati-organisations` (
-  `org-iati-id` char(100) COLLATE utf8mb4_bin NOT NULL,
-  `org-title` varchar(256) COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`org-iati-id`),
-  KEY `idx_codelist-iati-organisations_lookup` (`org-iati-id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-organisation-type
-DROP TABLE IF EXISTS `codelist-organisation-type`;
-CREATE TABLE IF NOT EXISTS `codelist-organisation-type` (
-  `org-type-code` int(11) DEFAULT NULL,
-  `org-type-name` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.codelist-policy-marker
-DROP TABLE IF EXISTS `codelist-policy-marker`;
-CREATE TABLE IF NOT EXISTS `codelist-policy-marker` (
-  `code` int(11) DEFAULT NULL,
-  `name` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.ref-country-classification
-DROP TABLE IF EXISTS `ref-country-classification`;
-CREATE TABLE IF NOT EXISTS `ref-country-classification` (
-  `ISOA2` char(2) DEFAULT NULL,
-  `ISOA3` char(3) DEFAULT NULL,
-  `UNCountry` varchar(50) DEFAULT NULL,
-  `UNLDC` char(3) DEFAULT NULL,
-  `Income` varchar(25) DEFAULT NULL,
-  `Region` varchar(35) DEFAULT NULL,
-  `FragileState` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.ref-currency-rates
-DROP TABLE IF EXISTS `ref-currency-rates`;
-CREATE TABLE IF NOT EXISTS `ref-currency-rates` (
-  `Jaar` int(4) NOT NULL DEFAULT '0',
-  `Valuta` char(3) NOT NULL DEFAULT '',
-  `Bron` char(20) NOT NULL,
-  `Koers` double DEFAULT NULL,
-  PRIMARY KEY (`Jaar`,`Valuta`,`Bron`),
-  KEY `idx_currency-rates_lookup` (`Valuta`,`Jaar`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.ref-menu-lines
-DROP TABLE IF EXISTS `ref-menu-lines`;
-CREATE TABLE IF NOT EXISTS `ref-menu-lines` (
-  `Id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table iatireference.ref-parameters
-DROP TABLE IF EXISTS `ref-parameters`;
-CREATE TABLE IF NOT EXISTS `ref-parameters` (
-  `key` char(10) NOT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
 -- Dumping database structure for iatischema
-DROP DATABASE IF EXISTS `iatischema`;
 CREATE DATABASE IF NOT EXISTS `iatischema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatischema`;
 
-
 -- Dumping structure for table iatischema.ctl-publishers
-DROP TABLE IF EXISTS `ctl-publishers`;
 CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   `publisher` char(21) NOT NULL,
   `publisher-id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1439,16 +1748,15 @@ CREATE TABLE IF NOT EXISTS `ctl-publishers` (
   `testfile-location` varchar(256) DEFAULT NULL,
   `is-testfile` bit(1) NOT NULL DEFAULT b'0',
   `publisher-name` varchar(128) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `email-active` bit(1) DEFAULT b'0',
   PRIMARY KEY (`publisher`),
   UNIQUE KEY `publisher_UNIQUE` (`publisher`),
   UNIQUE KEY `publisher-id_UNIQUE` (`publisher-id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.currency-rates
-DROP TABLE IF EXISTS `currency-rates`;
 CREATE TABLE IF NOT EXISTS `currency-rates` (
   `Jaar` int(4) NOT NULL DEFAULT '0',
   `Valuta` char(3) NOT NULL DEFAULT '',
@@ -1459,10 +1767,7 @@ CREATE TABLE IF NOT EXISTS `currency-rates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-budgets
-DROP TABLE IF EXISTS `dwh-budgets`;
 CREATE TABLE IF NOT EXISTS `dwh-budgets` (
   `iati-identifier` char(100) DEFAULT NULL,
   `recipient-country-code` varchar(2) DEFAULT NULL,
@@ -1557,13 +1862,73 @@ CREATE TABLE IF NOT EXISTS `dwh-budgets` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-country-region
-DROP TABLE IF EXISTS `dwh-country-region`;
 CREATE TABLE IF NOT EXISTS `dwh-country-region` (
   `iati-identifier` char(100) DEFAULT NULL,
   `recipient-country-code` char(2) DEFAULT NULL,
@@ -1647,13 +2012,73 @@ CREATE TABLE IF NOT EXISTS `dwh-country-region` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-descriptions
-DROP TABLE IF EXISTS `dwh-descriptions`;
 CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `description` varchar(16384) DEFAULT NULL,
@@ -1737,19 +2162,79 @@ CREATE TABLE IF NOT EXISTS `dwh-descriptions` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-documents
-DROP TABLE IF EXISTS `dwh-documents`;
 CREATE TABLE IF NOT EXISTS `dwh-documents` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `document-title` mediumtext,
+  `document-title` varchar(255) DEFAULT NULL,
   `document-language` varchar(10) DEFAULT NULL,
-  `document-url` mediumtext,
-  `document-format` varchar(50) DEFAULT NULL,
+  `document-url` varchar(512) DEFAULT NULL,
+  `document-format` varchar(255) DEFAULT NULL,
   `document-type-code` char(3) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -1829,13 +2314,73 @@ CREATE TABLE IF NOT EXISTS `dwh-documents` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-locations
-DROP TABLE IF EXISTS `dwh-locations`;
 CREATE TABLE IF NOT EXISTS `dwh-locations` (
   `iati-identifier` char(100) DEFAULT NULL,
   `location-type-code` tinytext,
@@ -1924,13 +2469,73 @@ CREATE TABLE IF NOT EXISTS `dwh-locations` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-organisations
-DROP TABLE IF EXISTS `dwh-organisations`;
 CREATE TABLE IF NOT EXISTS `dwh-organisations` (
   `iati-identifier` char(100) DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
@@ -2016,13 +2621,73 @@ CREATE TABLE IF NOT EXISTS `dwh-organisations` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-related
-DROP TABLE IF EXISTS `dwh-related`;
 CREATE TABLE IF NOT EXISTS `dwh-related` (
   `iati-identifier` char(100) DEFAULT NULL,
   `related-activity-ref` char(100) DEFAULT NULL,
@@ -2106,13 +2771,73 @@ CREATE TABLE IF NOT EXISTS `dwh-related` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-results
-DROP TABLE IF EXISTS `dwh-results`;
 CREATE TABLE IF NOT EXISTS `dwh-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
@@ -2209,13 +2934,73 @@ CREATE TABLE IF NOT EXISTS `dwh-results` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.dwh-transactions
-DROP TABLE IF EXISTS `dwh-transactions`;
 CREATE TABLE IF NOT EXISTS `dwh-transactions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `provider-org` varchar(255) DEFAULT NULL,
@@ -2227,13 +3012,13 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
   `receiver-org-reference` varchar(85) DEFAULT NULL,
   `receiver-org-activity-id` char(100) DEFAULT NULL,
   `transaction-iso-date` date DEFAULT NULL,
-  `transaction-type-code` tinytext,
+  `transaction-type-code` char(2) DEFAULT NULL,
   `sector-code` char(5) DEFAULT NULL,
   `sector-percentage` double DEFAULT NULL,
   `recipient-country-code` char(2) DEFAULT NULL,
   `recipient-region-code` char(3) DEFAULT NULL,
   `country-region-percentage` double DEFAULT NULL,
-  `currency` tinytext,
+  `currency` char(3) DEFAULT NULL,
   `transaction-value` double DEFAULT NULL,
   `transaction-value-eur` double DEFAULT NULL,
   `publisher` char(21) DEFAULT NULL,
@@ -2315,13 +3100,73 @@ CREATE TABLE IF NOT EXISTS `dwh-transactions` (
  PARTITION pumnl VALUES IN (78) ENGINE = InnoDB,
  PARTITION rainfoundation VALUES IN (73) ENGINE = InnoDB,
  PARTITION unfpa VALUES IN (70) ENGINE = InnoDB,
- PARTITION waste VALUES IN (72) ENGINE = InnoDB) */;
+ PARTITION waste VALUES IN (72) ENGINE = InnoDB,
+ PARTITION pax VALUES IN (80) ENGINE = InnoDB,
+ PARTITION acord VALUES IN (86) ENGINE = InnoDB,
+ PARTITION acted VALUES IN (82) ENGINE = InnoDB,
+ PARTITION ldsps VALUES IN (81) ENGINE = InnoDB,
+ PARTITION nrc VALUES IN (83) ENGINE = InnoDB,
+ PARTITION redeenkind VALUES IN (85) ENGINE = InnoDB,
+ PARTITION saferworld VALUES IN (84) ENGINE = InnoDB,
+ PARTITION fmo VALUES IN (89) ENGINE = InnoDB,
+ PARTITION wageningen_ur VALUES IN (87) ENGINE = InnoDB,
+ PARTITION warchildholland VALUES IN (88) ENGINE = InnoDB,
+ PARTITION afewinternational VALUES IN (91) ENGINE = InnoDB,
+ PARTITION gppac VALUES IN (90) ENGINE = InnoDB,
+ PARTITION cdi VALUES IN (93) ENGINE = InnoDB,
+ PARTITION `wfm-igp` VALUES IN (92) ENGINE = InnoDB,
+ PARTITION siren VALUES IN (95) ENGINE = InnoDB,
+ PARTITION wai VALUES IN (94) ENGINE = InnoDB,
+ PARTITION hsi VALUES IN (97) ENGINE = InnoDB,
+ PARTITION ibis_denmark VALUES IN (96) ENGINE = InnoDB,
+ PARTITION aauk VALUES IN (102) ENGINE = InnoDB,
+ PARTITION bsr_admin VALUES IN (100) ENGINE = InnoDB,
+ PARTITION nswp VALUES IN (99) ENGINE = InnoDB,
+ PARTITION united_work VALUES IN (101) ENGINE = InnoDB,
+ PARTITION weforum_geneva VALUES IN (98) ENGINE = InnoDB,
+ PARTITION sjg VALUES IN (103) ENGINE = InnoDB,
+ PARTITION giro555 VALUES IN (104) ENGINE = InnoDB,
+ PARTITION `pmo-us` VALUES IN (105) ENGINE = InnoDB,
+ PARTITION undp VALUES IN (106) ENGINE = InnoDB,
+ PARTITION foei VALUES IN (107) ENGINE = InnoDB,
+ PARTITION ibfd VALUES IN (108) ENGINE = InnoDB,
+ PARTITION kit VALUES IN (109) ENGINE = InnoDB,
+ PARTITION healthnet VALUES IN (112) ENGINE = InnoDB,
+ PARTITION stad VALUES IN (111) ENGINE = InnoDB,
+ PARTITION vngi VALUES IN (110) ENGINE = InnoDB,
+ PARTITION amrefhq VALUES IN (115) ENGINE = InnoDB,
+ PARTITION amrefkenya VALUES IN (116) ENGINE = InnoDB,
+ PARTITION amrefmw VALUES IN (118) ENGINE = InnoDB,
+ PARTITION amrefug VALUES IN (117) ENGINE = InnoDB,
+ PARTITION `creausa-org` VALUES IN (120) ENGINE = InnoDB,
+ PARTITION `solidaridad-europe` VALUES IN (113) ENGINE = InnoDB,
+ PARTITION `soneb-benin` VALUES IN (114) ENGINE = InnoDB,
+ PARTITION sosnl VALUES IN (119) ENGINE = InnoDB,
+ PARTITION unicefnl VALUES IN (121) ENGINE = InnoDB,
+ PARTITION agencia_do_zambeze VALUES IN (124) ENGINE = InnoDB,
+ PARTITION `nl-kvk-54436222-27541` VALUES IN (123) ENGINE = InnoDB,
+ PARTITION skn VALUES IN (122) ENGINE = InnoDB,
+ PARTITION worldwaternet VALUES IN (125) ENGINE = InnoDB,
+ PARTITION `alcrer-1` VALUES IN (127) ENGINE = InnoDB,
+ PARTITION ihedelft VALUES IN (126) ENGINE = InnoDB,
+ PARTITION swb_1 VALUES IN (128) ENGINE = InnoDB,
+ PARTITION wcc VALUES IN (130) ENGINE = InnoDB,
+ PARTITION hefoundation VALUES IN (132) ENGINE = InnoDB,
+ PARTITION hiil_mfa VALUES IN (133) ENGINE = InnoDB,
+ PARTITION icdi VALUES IN (134) ENGINE = InnoDB,
+ PARTITION udpk VALUES IN (131) ENGINE = InnoDB,
+ PARTITION thp_org VALUES IN (139) ENGINE = InnoDB,
+ PARTITION `tos-nl` VALUES IN (138) ENGINE = InnoDB,
+ PARTITION uva_org VALUES IN (140) ENGINE = InnoDB,
+ PARTITION wnf VALUES IN (142) ENGINE = InnoDB,
+ PARTITION freeagirl VALUES IN (143) ENGINE = InnoDB,
+ PARTITION decp VALUES IN (145) ENGINE = InnoDB,
+ PARTITION manniondaniels VALUES IN (144) ENGINE = InnoDB,
+ PARTITION cowi VALUES IN (146) ENGINE = InnoDB,
+ PARTITION tns VALUES IN (147) ENGINE = InnoDB) */;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.stg-parent-child-other
-DROP TABLE IF EXISTS `stg-parent-child-other`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
   `iati-identifier-child` char(100) DEFAULT NULL,
   `iati-identifier-parent` char(100) DEFAULT NULL,
@@ -2331,10 +3176,7 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-other` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatischema.stg-parent-child-trx
-DROP TABLE IF EXISTS `stg-parent-child-trx`;
 CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
   `iati-identifier-child` char(100) DEFAULT NULL,
   `iati-identifier-parent` char(100) DEFAULT NULL,
@@ -2348,29 +3190,11 @@ CREATE TABLE IF NOT EXISTS `stg-parent-child-trx` (
 
 -- Data exporting was unselected.
 
-
--- Dumping structure for table iatischema.stg-parent-child-trx-in
-DROP TABLE IF EXISTS `stg-parent-child-trx-in`;
-CREATE TABLE IF NOT EXISTS `stg-parent-child-trx-in` (
-  `iati-identifier-child` char(100) DEFAULT NULL,
-  `iati-identifier-parent` char(100) DEFAULT NULL,
-  `buza-descendant-yn` char(1) DEFAULT NULL,
-  `buza-descendant-level` int(11) DEFAULT NULL,
-  `buza-ancestor-activity-id` char(100) DEFAULT NULL,
-  `compound-weigth` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
 -- Dumping database structure for iatistaging
-DROP DATABASE IF EXISTS `iatistaging`;
 CREATE DATABASE IF NOT EXISTS `iatistaging` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
 USE `iatistaging`;
 
-
 -- Dumping structure for table iatistaging.src-act-budgets
-DROP TABLE IF EXISTS `src-act-budgets`;
 CREATE TABLE IF NOT EXISTS `src-act-budgets` (
   `iati-identifier` char(100) DEFAULT NULL,
   `budget-type` int(11) DEFAULT NULL,
@@ -2388,10 +3212,7 @@ CREATE TABLE IF NOT EXISTS `src-act-budgets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-countries
-DROP TABLE IF EXISTS `src-act-countries`;
 CREATE TABLE IF NOT EXISTS `src-act-countries` (
   `iati-identifier-countries` char(100) DEFAULT NULL,
   `recipient-country-code` tinytext,
@@ -2404,10 +3225,7 @@ CREATE TABLE IF NOT EXISTS `src-act-countries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-data
-DROP TABLE IF EXISTS `src-act-data`;
 CREATE TABLE IF NOT EXISTS `src-act-data` (
   `iati-identifier` char(100) DEFAULT NULL,
   `activity-title` mediumtext,
@@ -2434,10 +3252,7 @@ CREATE TABLE IF NOT EXISTS `src-act-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-dates
-DROP TABLE IF EXISTS `src-act-dates`;
 CREATE TABLE IF NOT EXISTS `src-act-dates` (
   `iati-identifier` char(100) DEFAULT NULL,
   `activity-iso-date` tinytext,
@@ -2451,10 +3266,7 @@ CREATE TABLE IF NOT EXISTS `src-act-dates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-descriptions
-DROP TABLE IF EXISTS `src-act-descriptions`;
 CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `description` varchar(16384) DEFAULT NULL,
@@ -2467,29 +3279,23 @@ CREATE TABLE IF NOT EXISTS `src-act-descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-documents
-DROP TABLE IF EXISTS `src-act-documents`;
 CREATE TABLE IF NOT EXISTS `src-act-documents` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `document-type-code` tinytext,
+  `document-type-code` varchar(3) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `url-id` int(11) DEFAULT NULL,
   `document-url` varchar(512) DEFAULT NULL,
-  `document-title` tinytext,
-  `document-language` tinytext,
-  `document-format` tinytext,
+  `document-title` varchar(255) DEFAULT NULL,
+  `document-language` varchar(10) DEFAULT NULL,
+  `document-format` varchar(255) DEFAULT NULL,
   `sequence` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-locations
-DROP TABLE IF EXISTS `src-act-locations`;
 CREATE TABLE IF NOT EXISTS `src-act-locations` (
   `iati-identifier-locations` char(100) DEFAULT NULL,
   `location-name` tinytext,
@@ -2507,10 +3313,7 @@ CREATE TABLE IF NOT EXISTS `src-act-locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-organisations
-DROP TABLE IF EXISTS `src-act-organisations`;
 CREATE TABLE IF NOT EXISTS `src-act-organisations` (
   `iati-identifier` char(100) DEFAULT NULL,
   `participating-org` mediumtext,
@@ -2525,10 +3328,7 @@ CREATE TABLE IF NOT EXISTS `src-act-organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-policy-markers
-DROP TABLE IF EXISTS `src-act-policy-markers`;
 CREATE TABLE IF NOT EXISTS `src-act-policy-markers` (
   `iati-identifier` char(100) DEFAULT NULL,
   `vocabulary` tinytext,
@@ -2542,10 +3342,7 @@ CREATE TABLE IF NOT EXISTS `src-act-policy-markers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-regions
-DROP TABLE IF EXISTS `src-act-regions`;
 CREATE TABLE IF NOT EXISTS `src-act-regions` (
   `iati-identifier-regions` char(100) DEFAULT NULL,
   `recipient-region-code` tinytext,
@@ -2558,10 +3355,7 @@ CREATE TABLE IF NOT EXISTS `src-act-regions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-related
-DROP TABLE IF EXISTS `src-act-related`;
 CREATE TABLE IF NOT EXISTS `src-act-related` (
   `iati-identifier` char(100) DEFAULT NULL,
   `related-activity-ref` char(100) DEFAULT NULL,
@@ -2574,10 +3368,7 @@ CREATE TABLE IF NOT EXISTS `src-act-related` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-results
-DROP TABLE IF EXISTS `src-act-results`;
 CREATE TABLE IF NOT EXISTS `src-act-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
@@ -2604,10 +3395,7 @@ CREATE TABLE IF NOT EXISTS `src-act-results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-sectors
-DROP TABLE IF EXISTS `src-act-sectors`;
 CREATE TABLE IF NOT EXISTS `src-act-sectors` (
   `iati-identifier` char(100) DEFAULT NULL,
   `sector-code` varchar(5) DEFAULT NULL,
@@ -2622,28 +3410,25 @@ CREATE TABLE IF NOT EXISTS `src-act-sectors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.src-act-transactions
-DROP TABLE IF EXISTS `src-act-transactions`;
 CREATE TABLE IF NOT EXISTS `src-act-transactions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `transaction-type-code` tinytext,
-  `provider-org` tinytext,
-  `provider-org-reference` tinytext,
-  `provider-org-activity-id` varchar(100) DEFAULT NULL,
-  `receiver-org` tinytext,
-  `receiver-org-reference` tinytext,
-  `receiver-org-activity-id` varchar(100) DEFAULT NULL,
-  `value` tinytext,
-  `transaction-iso-date` tinytext,
-  `default-currency` tinytext,
-  `transaction-currency` tinytext,
-  `transaction-description` tinytext,
-  `transaction-flow-type-code` tinytext,
-  `transaction-finance-type-code` tinytext,
-  `transaction-aid-type-code` tinytext,
-  `transaction-tied-status-code` tinytext,
+  `provider-org` varchar(255) DEFAULT NULL,
+  `provider-org-reference` varchar(85) DEFAULT NULL,
+  `provider-org-activity-id` char(100) DEFAULT NULL,
+  `receiver-org` varchar(255) DEFAULT NULL,
+  `receiver-org-reference` varchar(85) DEFAULT NULL,
+  `receiver-org-activity-id` char(100) DEFAULT NULL,
+  `value` double DEFAULT NULL,
+  `transaction-iso-date` varchar(50) DEFAULT NULL,
+  `transaction-type-code` char(2) DEFAULT NULL,
+  `default-currency` char(3) DEFAULT NULL,
+  `transaction-currency` char(3) DEFAULT NULL,
+  `transaction-description` varchar(255) DEFAULT NULL,
+  `transaction-flow-type-code` char(3) DEFAULT NULL,
+  `transaction-finance-type-code` char(3) DEFAULT NULL,
+  `transaction-aid-type-code` char(3) DEFAULT NULL,
+  `transaction-tied-status-code` char(1) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
@@ -2652,10 +3437,7 @@ CREATE TABLE IF NOT EXISTS `src-act-transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.stg-act-country-region
-DROP TABLE IF EXISTS `stg-act-country-region`;
 CREATE TABLE IF NOT EXISTS `stg-act-country-region` (
   `iati-identifier` char(100) DEFAULT NULL,
   `recipient-country-code` char(2) DEFAULT NULL,
@@ -2668,10 +3450,7 @@ CREATE TABLE IF NOT EXISTS `stg-act-country-region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.stg-act-sectors
-DROP TABLE IF EXISTS `stg-act-sectors`;
 CREATE TABLE IF NOT EXISTS `stg-act-sectors` (
   `iati-identifier` char(100) DEFAULT NULL,
   `sector-code` char(5) DEFAULT NULL,
@@ -2686,25 +3465,22 @@ CREATE TABLE IF NOT EXISTS `stg-act-sectors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.stg-act-transactions
-DROP TABLE IF EXISTS `stg-act-transactions`;
 CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `provider-org` tinytext,
+  `provider-org` varchar(255) DEFAULT NULL,
   `provider-org-id` bigint(20) DEFAULT NULL,
   `provider-org-reference` varchar(85) DEFAULT NULL,
-  `provider-org-activity-id` varchar(100) DEFAULT NULL,
-  `receiver-org` tinytext,
+  `provider-org-activity-id` char(100) DEFAULT NULL,
+  `receiver-org` varchar(255) DEFAULT NULL,
   `receiver-org-id` bigint(20) DEFAULT NULL,
   `receiver-org-reference` varchar(85) DEFAULT NULL,
-  `receiver-org-activity-id` varchar(100) DEFAULT NULL,
+  `receiver-org-activity-id` char(100) DEFAULT NULL,
   `transaction-iso-date` datetime DEFAULT NULL,
-  `currency` tinytext,
+  `currency` char(3) DEFAULT NULL,
   `transaction-value` double DEFAULT NULL,
   `transaction-value-eur` double DEFAULT NULL,
-  `transaction-type-code` varchar(2) DEFAULT NULL,
+  `transaction-type-code` char(2) DEFAULT NULL,
   `default-currency` char(3) DEFAULT NULL,
   `transaction-currency` char(3) DEFAULT NULL,
   `exchange-rate` double DEFAULT NULL,
@@ -2715,10 +3491,7 @@ CREATE TABLE IF NOT EXISTS `stg-act-transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-budgets
-DROP TABLE IF EXISTS `xml-act-budgets`;
 CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
   `iati-identifier` char(100) DEFAULT NULL,
   `budget-type` int(11) DEFAULT NULL,
@@ -2735,10 +3508,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-budgets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-countries
-DROP TABLE IF EXISTS `xml-act-countries`;
 CREATE TABLE IF NOT EXISTS `xml-act-countries` (
   `iati-identifier-countries` char(100) DEFAULT NULL,
   `recipient-country-code` tinytext,
@@ -2750,10 +3520,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-countries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-data
-DROP TABLE IF EXISTS `xml-act-data`;
 CREATE TABLE IF NOT EXISTS `xml-act-data` (
   `iati-identifier` char(100) DEFAULT NULL,
   `activity-title` mediumtext,
@@ -2779,10 +3546,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-dates
-DROP TABLE IF EXISTS `xml-act-dates`;
 CREATE TABLE IF NOT EXISTS `xml-act-dates` (
   `iati-identifier` char(100) DEFAULT NULL,
   `activity-iso-date` tinytext,
@@ -2795,10 +3559,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-dates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-descriptions
-DROP TABLE IF EXISTS `xml-act-descriptions`;
 CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
   `iati-identifier` char(100) DEFAULT NULL,
   `description` varchar(16384) DEFAULT NULL,
@@ -2810,17 +3571,14 @@ CREATE TABLE IF NOT EXISTS `xml-act-descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-documents
-DROP TABLE IF EXISTS `xml-act-documents`;
 CREATE TABLE IF NOT EXISTS `xml-act-documents` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `document-type-code` tinytext,
+  `document-type-code` varchar(3) DEFAULT NULL,
   `document-url` varchar(512) DEFAULT NULL,
-  `document-title` tinytext,
-  `document-language` tinytext,
-  `document-format` tinytext,
+  `document-title` varchar(255) DEFAULT NULL,
+  `document-language` varchar(10) DEFAULT NULL,
+  `document-format` varchar(255) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
@@ -2828,10 +3586,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-locations
-DROP TABLE IF EXISTS `xml-act-locations`;
 CREATE TABLE IF NOT EXISTS `xml-act-locations` (
   `iati-identifier-locations` char(100) DEFAULT NULL,
   `location-name` tinytext,
@@ -2848,10 +3603,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-organisations
-DROP TABLE IF EXISTS `xml-act-organisations`;
 CREATE TABLE IF NOT EXISTS `xml-act-organisations` (
   `iati-identifier` char(100) DEFAULT NULL,
   `participating-org` mediumtext,
@@ -2865,10 +3617,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-policy-markers
-DROP TABLE IF EXISTS `xml-act-policy-markers`;
 CREATE TABLE IF NOT EXISTS `xml-act-policy-markers` (
   `iati-identifier` char(100) DEFAULT NULL,
   `vocabulary` tinytext,
@@ -2881,10 +3630,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-policy-markers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-regions
-DROP TABLE IF EXISTS `xml-act-regions`;
 CREATE TABLE IF NOT EXISTS `xml-act-regions` (
   `iati-identifier-regions` char(100) DEFAULT NULL,
   `recipient-region-code` tinytext,
@@ -2896,10 +3642,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-regions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-related
-DROP TABLE IF EXISTS `xml-act-related`;
 CREATE TABLE IF NOT EXISTS `xml-act-related` (
   `iati-identifier` char(100) DEFAULT NULL,
   `related-activity-ref` char(100) DEFAULT NULL,
@@ -2911,10 +3654,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-related` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-results
-DROP TABLE IF EXISTS `xml-act-results`;
 CREATE TABLE IF NOT EXISTS `xml-act-results` (
   `iati-identifier` char(100) DEFAULT NULL,
   `result-type-code` int(11) DEFAULT NULL,
@@ -2940,10 +3680,7 @@ CREATE TABLE IF NOT EXISTS `xml-act-results` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-sectors
-DROP TABLE IF EXISTS `xml-act-sectors`;
 CREATE TABLE IF NOT EXISTS `xml-act-sectors` (
   `iati-identifier` char(100) DEFAULT NULL,
   `sector-code` char(5) DEFAULT NULL,
@@ -2957,32 +3694,29 @@ CREATE TABLE IF NOT EXISTS `xml-act-sectors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
-
-
 -- Dumping structure for table iatistaging.xml-act-transactions
-DROP TABLE IF EXISTS `xml-act-transactions`;
 CREATE TABLE IF NOT EXISTS `xml-act-transactions` (
   `iati-identifier` char(100) DEFAULT NULL,
-  `transaction-type-code` tinytext,
-  `provider-org` tinytext,
-  `provider-org-reference` tinytext,
-  `provider-org-activity-id` varchar(100) DEFAULT NULL,
-  `receiver-org` tinytext,
-  `receiver-org-reference` tinytext,
+  `provider-org` varchar(255) DEFAULT NULL,
+  `provider-org-reference` varchar(85) DEFAULT NULL,
+  `provider-org-activity-id` char(100) DEFAULT NULL,
+  `receiver-org` varchar(255) DEFAULT NULL,
+  `receiver-org-reference` varchar(85) DEFAULT NULL,
+  `receiver-org-activity-id` char(100) DEFAULT NULL,
+  `transaction-iso-date` varchar(50) DEFAULT NULL,
+  `transaction-type-code` char(2) DEFAULT NULL,
+  `default-currency` char(3) DEFAULT NULL,
+  `transaction-currency` char(3) DEFAULT NULL,
   `value` double DEFAULT NULL,
-  `transaction-iso-date` tinytext,
-  `default-currency` tinytext,
-  `transaction-currency` tinytext,
-  `transaction-description` tinytext,
-  `transaction-flow-type-code` tinytext,
-  `transaction-finance-type-code` tinytext,
-  `transaction-aid-type-code` tinytext,
-  `transaction-tied-status-code` tinytext,
+  `transaction-description` varchar(255) DEFAULT NULL,
+  `transaction-flow-type-code` char(3) DEFAULT NULL,
+  `transaction-finance-type-code` char(3) DEFAULT NULL,
+  `transaction-aid-type-code` char(3) DEFAULT NULL,
+  `transaction-tied-status-code` char(1) DEFAULT NULL,
   `publisher` varchar(24) DEFAULT NULL,
   `publisher-id` int(11) DEFAULT NULL,
   `generated-datetime` varchar(24) DEFAULT NULL,
-  `url-id` int(11) DEFAULT NULL,
-  `receiver-org-activity-id` char(100) DEFAULT NULL
+  `url-id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.

@@ -1,5 +1,5 @@
 <job>
-  <name>Scan MinBuza document existance</name>
+  <name>Scan MinBuza document existence</name>
     <description/>
     <extended_description/>
     <job_version/>
@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;02&#x2f;02 11&#x3a;14&#x3a;32.505</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;02&#x2f;02 11&#x3a;34&#x3a;16.205</modified_date>
+  <modified_date>2018&#x2f;02&#x2f;22 09&#x3a;30&#x3a;36.441</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -116,13 +116,13 @@
       <yloc>117</yloc>
       </entry>
     <entry>
-      <name>Check MinBuza document existance</name>
+      <name>Check MinBuza document existence</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Check MinBuza document existance</transname>
+      <transname>Check MinBuza document existence</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>Y</params_from_previous>
@@ -170,7 +170,7 @@
       <arg_from_previous>N</arg_from_previous>
       <fields>
         <field>
-          <name>log-document-existance</name>
+          <name>log-document-existence</name>
           <schemaname>iatidatamart</schemaname>
         </field>
       </fields>
@@ -184,7 +184,7 @@
   <hops>
     <hop>
       <from>Get MinBuza document links</from>
-      <to>Check MinBuza document existance</to>
+      <to>Check MinBuza document existence</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -192,7 +192,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check MinBuza document existance</from>
+      <from>Check MinBuza document existence</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
