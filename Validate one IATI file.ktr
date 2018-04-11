@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;02&#x2f;16 11&#x3a;05&#x3a;39.215</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;04&#x2f;06 15&#x3a;45&#x3a;20.283</modified_date>
+  <modified_date>2018&#x2f;04&#x2f;11 14&#x3a;45&#x3a;15.741</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -591,7 +591,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>D&#x3a;&#x5c;Metis&#x5c;iati_working_dir&#x5c;activities.xml</filename>
+    <filename>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</filename>
     <addResultFile>N</addResultFile>
     <nrRowsToSkip>0</nrRowsToSkip>
     <rowLimit>0</rowLimit>
@@ -900,6 +900,34 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>251</xloc>
       <yloc>266</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort on path 2 &#x28;a&#x29;</step1>
+<step2>Sort on path 2 &#x28;b&#x29;</step2>
+    <keys_1>
+      <key>path2</key>
+    </keys_1>
+    <keys_2>
+      <key>path2</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1444</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1681,34 +1709,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>588</xloc>
       <yloc>391</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort on path 2 &#x28;a&#x29;</step1>
-<step2>Sort on path 2 &#x28;b&#x29;</step2>
-    <keys_1>
-      <key>path2</key>
-    </keys_1>
-    <keys_2>
-      <key>path2</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1444</xloc>
-      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
