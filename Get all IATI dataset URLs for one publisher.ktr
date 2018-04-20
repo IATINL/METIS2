@@ -68,15 +68,15 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 15&#x3a;47&#x3a;45.026</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;13 13&#x3a;59&#x3a;45.484</modified_date>
+  <modified_date>2018&#x2f;04&#x2f;20 09&#x3a;34&#x3a;31.380</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Read all activity URL&#x27;s from the IATI registry by submitting an API call. &#xd;&#xa;The URL are retrieved from the resulting json data. The maximum waiting&#xd;&#xa;time when trying to retrieve the url list from the IATI registry is 360 seconds.</note>
-      <xloc>17</xloc>
-      <yloc>7</yloc>
+      <xloc>26</xloc>
+      <yloc>90</yloc>
       <width>445</width>
       <heigth>55</heigth>
       <fontname>Arial</fontname>
@@ -173,7 +173,7 @@
   <hop> <from>HTTP status ok&#x3f;</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Get all URLs</to><enabled>Y</enabled> </hop>
   <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Get author email address for publisher</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get author email address for publisher</from><to>Update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get author email address for publisher</from><to>Update e-mail address</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>API call to IATI</name>
@@ -206,8 +206,8 @@
     </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>525</xloc>
-      <yloc>107</yloc>
+      <xloc>534</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -227,8 +227,8 @@
 <tail_name>Detect empty stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>724</xloc>
-      <yloc>105</yloc>
+      <xloc>733</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -246,8 +246,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1664</xloc>
-      <yloc>110</yloc>
+      <xloc>1673</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -265,8 +265,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>627</xloc>
-      <yloc>235</yloc>
+      <xloc>636</xloc>
+      <yloc>318</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -284,8 +284,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1058</xloc>
-      <yloc>105</yloc>
+      <xloc>1067</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -309,8 +309,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1534</xloc>
-      <yloc>110</yloc>
+      <xloc>1543</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -386,8 +386,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1158</xloc>
-      <yloc>107</yloc>
+      <xloc>1167</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -450,8 +450,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1166</xloc>
-      <yloc>386</yloc>
+      <xloc>1184</xloc>
+      <yloc>59</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -483,8 +483,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>199</xloc>
-      <yloc>110</yloc>
+      <xloc>208</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -506,8 +506,8 @@
         <precision>-1</precision>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>54</xloc>
-      <yloc>110</yloc>
+      <xloc>63</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -535,8 +535,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>940</xloc>
-      <yloc>105</yloc>
+      <xloc>949</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -557,8 +557,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>939</xloc>
-      <yloc>237</yloc>
+      <xloc>948</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -591,8 +591,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>831</xloc>
-      <yloc>105</yloc>
+      <xloc>840</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -610,8 +610,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1297</xloc>
-      <yloc>236</yloc>
+      <xloc>1306</xloc>
+      <yloc>319</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -632,8 +632,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1160</xloc>
-      <yloc>236</yloc>
+      <xloc>1169</xloc>
+      <yloc>319</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -661,8 +661,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>109</yloc>
+      <xloc>1305</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -693,8 +693,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1424</xloc>
-      <yloc>109</yloc>
+      <xloc>1433</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -719,14 +719,14 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>317</xloc>
-      <yloc>109</yloc>
+      <xloc>326</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Update</name>
+    <name>Update e-mail address</name>
     <type>Update</type>
     <description/>
     <distribute>Y</distribute>
@@ -758,8 +758,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1316</xloc>
-      <yloc>386</yloc>
+      <xloc>1434</xloc>
+      <yloc>59</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -811,8 +811,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1538</xloc>
-      <yloc>238</yloc>
+      <xloc>1547</xloc>
+      <yloc>321</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -840,8 +840,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>422</xloc>
-      <yloc>109</yloc>
+      <xloc>431</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
