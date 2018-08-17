@@ -49,3 +49,4 @@ Version 3.58 Added 2.03 XSD files and optimized RPD query to retrieve mail notif
 Version 3.59 Solved transaction iso-date and transaction-type bug
 Version 3.60 If transaction iso date is empty, fill this date with the transaction value date
 Version 3.61 Reduced sortsize to solve java heap space out of memory problem
+Version 3.62 Processing of Dialig & Dissent result references (temporary solution)
