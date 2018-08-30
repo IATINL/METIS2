@@ -8,37 +8,9 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;08&#x2f;15 16&#x3a;35&#x3a;51.319</modified_date>
+  <modified_date>2018&#x2f;08&#x2f;30 16&#x3a;26&#x3a;03.264</modified_date>
     <parameters>
     </parameters>
-  <connection>
-    <name>IATI_datamart</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatidatamart</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>IATI_logging</name>
     <server>localhost</server>
@@ -113,8 +85,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2473</xloc>
-      <yloc>121</yloc>
+      <xloc>2045</xloc>
+      <yloc>120</yloc>
       </entry>
     <entry>
       <name>Process one publisher</name>
@@ -250,8 +222,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2336</xloc>
-      <yloc>119</yloc>
+      <xloc>1908</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Check IATI availability</name>
@@ -392,8 +364,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2178</xloc>
-      <yloc>328</yloc>
+      <xloc>1750</xloc>
+      <yloc>327</yloc>
       </entry>
     <entry>
       <name>Log OK</name>
@@ -417,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2172</xloc>
-      <yloc>119</yloc>
+      <xloc>1744</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Write config read error</name>
@@ -475,8 +447,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2041</xloc>
-      <yloc>119</yloc>
+      <xloc>1613</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Calculate DM totals</name>
@@ -534,8 +506,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2175</xloc>
-      <yloc>186</yloc>
+      <xloc>1747</xloc>
+      <yloc>185</yloc>
       </entry>
     <entry>
       <name>Check if activity is a parent</name>
@@ -606,8 +578,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2177</xloc>
-      <yloc>264</yloc>
+      <xloc>1749</xloc>
+      <yloc>263</yloc>
       </entry>
     <entry>
       <name>Log end of unsuccesful job</name>
@@ -640,8 +612,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2342</xloc>
-      <yloc>260</yloc>
+      <xloc>1914</xloc>
+      <yloc>259</yloc>
       </entry>
     <entry>
       <name>Fatal error</name>
@@ -651,8 +623,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2476</xloc>
-      <yloc>260</yloc>
+      <xloc>2048</xloc>
+      <yloc>259</yloc>
       </entry>
     <entry>
       <name>Check if valid BZ reference</name>
@@ -734,72 +706,6 @@
       <nr>0</nr>
       <xloc>862</xloc>
       <yloc>211</yloc>
-      </entry>
-    <entry>
-      <name>Purge publisher error log</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Purge publisher error log</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1765</xloc>
-      <yloc>119</yloc>
-      </entry>
-    <entry>
-      <name>Create empty error log copy</name>
-      <description/>
-      <type>SQL</type>
-      <sql>DROP TABLE IF EXISTS &#x60;log-publisher-errors-copy&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS &#x60;log-publisher-errors-copy&#x60; &#x28;&#xd;&#xa;	&#x60;job-number&#x60; INT&#x28;11&#x29; NULL DEFAULT NULL,&#xd;&#xa;	&#x60;publisher-id&#x60; INT&#x28;11&#x29; NULL DEFAULT NULL,&#xd;&#xa;	&#x60;url-id&#x60; INT&#x28;11&#x29; NULL DEFAULT NULL,&#xd;&#xa;	&#x60;iati-identifier&#x60; CHAR&#x28;100&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	&#x60;error-code&#x60; VARCHAR&#x28;15&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	&#x60;error-class&#x60; VARCHAR&#x28;25&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	&#x60;error-level&#x60; VARCHAR&#x28;15&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	&#x60;error-location&#x60; VARCHAR&#x28;255&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	&#x60;error-text&#x60; VARCHAR&#x28;1024&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	&#x60;purge-flag&#x60; CHAR&#x28;1&#x29; NULL DEFAULT NULL COLLATE &#x27;utf8mb4_bin&#x27;,&#xd;&#xa;	INDEX &#x60;jobnumber&#x60; &#x28;&#x60;job-number&#x60;&#x29;,&#xd;&#xa;	INDEX &#x60;publisher-id&#x60; &#x28;&#x60;publisher-id&#x60;&#x29;,&#xd;&#xa;	INDEX &#x60;url-id&#x60; &#x28;&#x60;url-id&#x60;&#x29;,&#xd;&#xa;	INDEX &#x60;iati-identifier&#x60; &#x28;&#x60;iati-identifier&#x60;&#x29;,&#xd;&#xa;	INDEX &#x60;publisher-id_job-number&#x60; &#x28;&#x60;publisher-id&#x60;, &#x60;job-number&#x60;&#x29;&#xd;&#xa;&#x29;&#xd;&#xa;COLLATE&#x3d;&#x27;utf8mb4_bin&#x27;&#xd;&#xa;ENGINE&#x3d;InnoDB&#xd;&#xa;ROW_FORMAT&#x3d;COMPACT&#xd;&#xa;&#x3b;</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>IATI_datamart</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1614</xloc>
-      <yloc>118</yloc>
-      </entry>
-    <entry>
-      <name>Copy purged error log</name>
-      <description/>
-      <type>SQL</type>
-      <sql>DROP TABLE IF EXISTS &#x60;log-publisher-errors&#x60;&#x3b;&#xd;&#xa;RENAME TABLE &#x60;log-publisher-errors-copy&#x60; TO &#x60;log-publisher-errors&#x60;&#x3b;</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>IATI_datamart</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1911</xloc>
-      <yloc>119</yloc>
       </entry>
   </entries>
   <hops>
@@ -1048,38 +954,11 @@
     </hop>
     <hop>
       <from>Calculate DM totals</from>
-      <to>Create empty error log copy</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Create empty error log copy</from>
-      <to>Purge publisher error log</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Purge publisher error log</from>
-      <to>Copy purged error log</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Copy purged error log</from>
       <to>Check totals</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
   </hops>
