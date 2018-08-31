@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;08&#x2f;30 13&#x3a;05&#x3a;19.846</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;08&#x2f;30 14&#x3a;01&#x3a;58.688</modified_date>
+  <modified_date>2018&#x2f;08&#x2f;31 12&#x3a;19&#x3a;43.249</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -98,13 +98,13 @@
       <yloc>81</yloc>
       </entry>
     <entry>
-      <name>Retrieve XML from archive</name>
+      <name>Calculate archive filename</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Retrieve XML from archive</transname>
+      <transname>Calculate archive filename</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -170,7 +170,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Retrieve XML from archive</from>
+      <from>Calculate archive filename</from>
       <to>Copy Files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -189,7 +189,7 @@
     </hop>
     <hop>
       <from>START</from>
-      <to>Retrieve XML from archive</to>
+      <to>Calculate archive filename</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -198,6 +198,27 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Validate exactly one publisher activity file. This process is&#xd;&#xa;repeated for as many file there are selected for validation.</note>
+      <xloc>55</xloc>
+      <yloc>13</yloc>
+      <width>311</width>
+      <heigth>42</heigth>
+      <fontname/>
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>

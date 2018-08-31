@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;21 10&#x3a;40&#x3a;19.425</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;08&#x2f;30 16&#x3a;26&#x3a;03.264</modified_date>
+  <modified_date>2018&#x2f;08&#x2f;31 15&#x3a;29&#x3a;17.772</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -85,8 +85,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2045</xloc>
-      <yloc>120</yloc>
+      <xloc>1925</xloc>
+      <yloc>119</yloc>
       </entry>
     <entry>
       <name>Process one publisher</name>
@@ -120,8 +120,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>931</xloc>
-      <yloc>117</yloc>
+      <xloc>811</xloc>
+      <yloc>116</yloc>
       </entry>
     <entry>
       <name>Read publisher list</name>
@@ -222,8 +222,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1908</xloc>
-      <yloc>118</yloc>
+      <xloc>1788</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>Check IATI availability</name>
@@ -280,8 +280,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1053</xloc>
-      <yloc>118</yloc>
+      <xloc>933</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>Read config to set variables</name>
@@ -364,8 +364,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1750</xloc>
-      <yloc>327</yloc>
+      <xloc>1630</xloc>
+      <yloc>326</yloc>
       </entry>
     <entry>
       <name>Log OK</name>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1744</xloc>
-      <yloc>118</yloc>
+      <xloc>1624</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>Write config read error</name>
@@ -447,8 +447,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1613</xloc>
-      <yloc>118</yloc>
+      <xloc>1493</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>Calculate DM totals</name>
@@ -481,8 +481,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1482</xloc>
-      <yloc>118</yloc>
+      <xloc>1362</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>Log check total error</name>
@@ -506,8 +506,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1747</xloc>
-      <yloc>185</yloc>
+      <xloc>1627</xloc>
+      <yloc>184</yloc>
       </entry>
     <entry>
       <name>Check if activity is a parent</name>
@@ -540,8 +540,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1182</xloc>
-      <yloc>118</yloc>
+      <xloc>1062</xloc>
+      <yloc>117</yloc>
       </entry>
     <entry>
       <name>No publishers defined</name>
@@ -578,8 +578,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1749</xloc>
-      <yloc>263</yloc>
+      <xloc>1629</xloc>
+      <yloc>262</yloc>
       </entry>
     <entry>
       <name>Log end of unsuccesful job</name>
@@ -612,8 +612,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1914</xloc>
-      <yloc>259</yloc>
+      <xloc>1794</xloc>
+      <yloc>258</yloc>
       </entry>
     <entry>
       <name>Fatal error</name>
@@ -623,8 +623,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>2048</xloc>
-      <yloc>259</yloc>
+      <xloc>1928</xloc>
+      <yloc>258</yloc>
       </entry>
     <entry>
       <name>Check if valid BZ reference</name>
@@ -657,55 +657,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1334</xloc>
-      <yloc>118</yloc>
-      </entry>
-    <entry>
-      <name>Get valid SVRL MD5 list</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Get valid SVRL MD5 list</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>798</xloc>
-      <yloc>116</yloc>
-      </entry>
-    <entry>
-      <name>Invalid SVRL catalog</name>
-      <description/>
-      <type>WRITE_TO_LOG</type>
-      <logmessage>----------------------------------------------------------------------------------------------------------&#xd;&#xa;Unable to retrieve the MD5 catalog from the IATI data validator&#xd;&#xa;----------------------------------------------------------------------------------------------------------</logmessage>
-      <loglevel>Error</loglevel>
-      <logsubject>No publishers to process</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>862</xloc>
-      <yloc>211</yloc>
+      <xloc>1214</xloc>
+      <yloc>117</yloc>
       </entry>
   </entries>
   <hops>
@@ -908,42 +861,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Read publisher list</from>
-      <to>Get valid SVRL MD5 list</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get valid SVRL MD5 list</from>
-      <to>Process one publisher</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get valid SVRL MD5 list</from>
-      <to>Invalid SVRL catalog</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Invalid SVRL catalog</from>
-      <to>Process one publisher</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Check IATI availability</from>
       <to>Write IATI error to screen</to>
       <from_nr>0</from_nr>
@@ -960,6 +877,15 @@
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Read publisher list</from>
+      <to>Process one publisher</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
@@ -986,8 +912,8 @@
     </notepad>
     <notepad>
       <note>Check if the total of all financial &#xd;&#xa;amounts at the end of processing&#xd;&#xa;are  the same as what is read in&#xd;&#xa;at the start of the process.</note>
-      <xloc>1379</xloc>
-      <yloc>7</yloc>
+      <xloc>1259</xloc>
+      <yloc>6</yloc>
       <width>188</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
