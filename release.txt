@@ -52,3 +52,4 @@ Version 3.61 Reduced sortsize to solve java heap space out of memory problem
 Version 3.62 Processing of Dialig & Dissent result references (temporary solution)
 Version 3.63 Fixed typo in selection of DD indicators from the results reference part of the IATI XML
 Version 3.64 Fixed duplicate results removal error in the case that the same result period occurs more than once
+Version 3.65 Fixed XPATH statement for reading result references from XML
