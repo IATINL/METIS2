@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;03&#x2f;08 17&#x3a;06&#x3a;01.290</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;05 12&#x3a;34&#x3a;02.933</modified_date>
+  <modified_date>2018&#x2f;09&#x2f;05 15&#x3a;58&#x3a;58.861</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -116,29 +116,8 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>If an alternate e-mail address&#xd;&#xa;is specified, it takes precedence&#xd;&#xa;over the IATI registry supplied &#xd;&#xa;e-mail address.</note>
-      <xloc>612</xloc>
-      <yloc>185</yloc>
-      <width>176</width>
-      <heigth>74</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
       <note>Log the date on which the notification message was send</note>
-      <xloc>1105</xloc>
+      <xloc>1002</xloc>
       <yloc>292</yloc>
       <width>313</width>
       <heigth>26</heigth>
@@ -216,7 +195,6 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Mail subject and msg text</from><to>Mail feedback</to><enabled>Y</enabled> </hop>
   <hop> <from>Read publisher e-mail addresses</from><to>Lookup e-mail address</to><enabled>Y</enabled> </hop>
   <hop> <from>Feedback file exists</from><to>Feedback file exists&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Feedback file exists&#x3f;</from><to>Mail subject and msg text</to><enabled>Y</enabled> </hop>
@@ -226,37 +204,12 @@
   <hop> <from>Read publisher error log</from><to>Get Variables</to><enabled>Y</enabled> </hop>
   <hop> <from>Get Variables</from><to>Lookup e-mail address</to><enabled>Y</enabled> </hop>
   <hop> <from>E-mail address active&#x3f;</from><to>Calc error file name</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc error file name</from><to>Calc email address</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc email address</from><to>Feedback file exists</to><enabled>Y</enabled> </hop>
   <hop> <from>Mail subject and msg text</from><to>Get System Info</to><enabled>Y</enabled> </hop>
   <hop> <from>Get System Info</from><to>Update publishers last notification data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calc error file name</from><to>Feedback file exists</to><enabled>Y</enabled> </hop>
+  <hop> <from>Mail subject and msg text</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Mail feedback</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Calc email address</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;email-alternate&#x5d;&#x29;&#x3b;&#x5b;email&#x5d;&#x3b;&#x5b;email-alternate&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>email</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>675</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Calc error file name</name>
     <type>Formula</type>
@@ -330,7 +283,7 @@
     <addresultfilenames>N</addresultfilenames>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>799</xloc>
+      <xloc>696</xloc>
       <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
@@ -359,8 +312,33 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>914</xloc>
+      <xloc>811</xloc>
       <yloc>122</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>system-date</name>
+        <type>system date &#x28;variable&#x29;</type>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1008</xloc>
+      <yloc>231</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -529,12 +507,6 @@
         <type>String</type>
       </value>
       <value>
-        <name>email-alternate</name>
-        <rename>email-alternate</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
         <name>email-active</name>
         <rename>email-active</rename>
         <default/>
@@ -604,7 +576,7 @@
       </embeddedimages>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1290</xloc>
+      <xloc>1187</xloc>
       <yloc>120</yloc>
       <draw>Y</draw>
       </GUI>
@@ -649,7 +621,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1052</xloc>
+      <xloc>949</xloc>
       <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
@@ -678,7 +650,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>915</xloc>
+      <xloc>812</xloc>
       <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
@@ -696,7 +668,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, email&#xd;&#xa;, &#x60;email-alternate&#x60;&#xd;&#xa;, &#x60;email-active&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, email&#xd;&#xa;, &#x60;email-active&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -704,8 +676,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>301</xloc>
-      <yloc>20</yloc>
+      <xloc>302</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -769,15 +741,15 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1294</xloc>
+      <xloc>1191</xloc>
       <yloc>230</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -786,16 +758,20 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Sending email to</logmessage>
     <fields>
       <field>
-        <name>system-date</name>
-        <type>system date &#x28;variable&#x29;</type>
+        <name>publisher</name>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1111</xloc>
-      <yloc>231</yloc>
+      <xloc>1076</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

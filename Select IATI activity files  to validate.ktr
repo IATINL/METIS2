@@ -68,15 +68,15 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;08&#x2f;29 18&#x3a;05&#x3a;54.657</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;05 12&#x3a;02&#x3a;32.084</modified_date>
+  <modified_date>2018&#x2f;09&#x2f;05 16&#x3a;22&#x3a;31.758</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Select only the most recent files are selected which have been succesfully processed &#xd;&#xa;and for which validation information is available in the data validator service. This means  &#xd;&#xa;selection only&#x3a;&#xd;&#xa;&#xd;&#xa;- for publishers which are due for notification &#x28;&#x3d; current date &#x3e;&#x3d; last notification date &#x2b; notification period&#x29;&#xd;&#xa;- if the publisher files have been changed and succesfully processed &#x28;&#x3d; log-status &#x3d; &#x27;ok&#x27;&#x29;&#xd;&#xa;- from the most recent job where the publisher file is succesfully processed&#xd;&#xa;- the publisher files MD5 signature is in the list of existing MD5&#x27;s in the data validator service</note>
-      <xloc>70</xloc>
-      <yloc>7</yloc>
+      <xloc>5</xloc>
+      <yloc>5</yloc>
       <width>577</width>
       <heigth>137</heigth>
       <fontname>Segoe UI</fontname>
@@ -96,8 +96,8 @@
     </notepad>
     <notepad>
       <note>Only select the most recent publisher file&#xd;&#xa;processed.</note>
-      <xloc>1063</xloc>
-      <yloc>487</yloc>
+      <xloc>1229</xloc>
+      <yloc>493</yloc>
       <width>226</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -117,8 +117,8 @@
     </notepad>
     <notepad>
       <note>Only select files for which there is an&#xd;&#xa;data validation result available. </note>
-      <xloc>1412</xloc>
-      <yloc>487</yloc>
+      <xloc>1578</xloc>
+      <yloc>493</yloc>
       <width>202</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -138,8 +138,8 @@
     </notepad>
     <notepad>
       <note>Select publishers due for reporting</note>
-      <xloc>66</xloc>
-      <yloc>363</yloc>
+      <xloc>75</xloc>
+      <yloc>359</yloc>
       <width>192</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
@@ -219,22 +219,22 @@
   <hop> <from>Read valid MD5 values from svrl filelist</from><to>Lookup valid MD5</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup valid MD5</from><to>Select existing MD5 values in IATI DV</to><enabled>Y</enabled> </hop>
   <hop> <from>Select existing MD5 values in IATI DV</from><to>Rename MD5 field</to><enabled>Y</enabled> </hop>
-  <hop> <from>Rename MD5 field</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
   <hop> <from>Select existing MD5 values in IATI DV</from><to>Invalid DV MD5 sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Add seq for multiple jobs</to><enabled>Y</enabled> </hop>
   <hop> <from>Add seq for multiple jobs</from><to>Select files from most recent job</to><enabled>Y</enabled> </hop>
   <hop> <from>Select files from most recent job</from><to>Lookup valid MD5</to><enabled>Y</enabled> </hop>
   <hop> <from>Select files from most recent job</from><to>Previous file sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Get MD5 from filename</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get notification date &#x26; period</from><to>Now</to><enabled>Y</enabled> </hop>
-  <hop> <from>Now</from><to>Days between</to><enabled>Y</enabled> </hop>
   <hop> <from>Days between</from><to>Exceeding notification period</to><enabled>Y</enabled> </hop>
   <hop> <from>Exceeding notification period</from><to>Within notification period sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Read publishers url job log</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Exceeding notification period</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup</from><to>Select publishers due for reporting</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select publishers due for reporting</from><to>Get MD5 from filename</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select publishers due for reporting</from><to>Publisher files not in period sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Stream lookup</from><to>Select files due for reporting</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select files due for reporting</from><to>Get MD5 from filename</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select files due for reporting</from><to>Publisher files not in period sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get notification date &#x26; period</from><to>Days between</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename MD5 field</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add seq for multiple jobs</name>
@@ -260,8 +260,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1042</xloc>
-      <yloc>281</yloc>
+      <xloc>1208</xloc>
+      <yloc>287</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -279,8 +279,70 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1796</xloc>
-      <yloc>281</yloc>
+      <xloc>2075</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Days between</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>days_between</field_name>
+<calc_type>DATE_DIFF</calc_type>
+<field_a>now</field_a>
+<field_b>notification-date</field_b>
+<field_c/>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>246</xloc>
+      <yloc>289</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Exceeding notification period</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Stream lookup</send_true_to>
+<send_false_to>Within notification period sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>days_between</leftvalue>
+ <function>&#x3e;&#x3d;</function>
+ <rightvalue>notification-period</rightvalue>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>438</xloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -306,8 +368,34 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>821</xloc>
-      <yloc>283</yloc>
+      <xloc>987</xloc>
+      <yloc>289</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get notification date &#x26; period</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, IFNULL&#x28;&#x60;notification-date&#x60;,NOW&#x28;&#x29;&#x29; &#x60;notification-date&#x60;&#xd;&#xa;, &#x60;notification-period&#x60;&#xd;&#xa;, NOW&#x28;&#x29; AS now&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>60</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -325,8 +413,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1491</xloc>
-      <yloc>414</yloc>
+      <xloc>1657</xloc>
+      <yloc>420</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -361,8 +449,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1326</xloc>
-      <yloc>280</yloc>
+      <xloc>1492</xloc>
+      <yloc>286</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -380,8 +468,27 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1196</xloc>
-      <yloc>413</yloc>
+      <xloc>1362</xloc>
+      <yloc>419</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Publisher files not in period sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>831</xloc>
+      <yloc>420</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -406,8 +513,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>70</xloc>
-      <yloc>168</yloc>
+      <xloc>72</xloc>
+      <yloc>179</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -432,8 +539,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1327</xloc>
-      <yloc>148</yloc>
+      <xloc>1493</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -492,8 +599,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1660</xloc>
-      <yloc>282</yloc>
+      <xloc>1826</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -521,8 +628,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1494</xloc>
-      <yloc>281</yloc>
+      <xloc>1660</xloc>
+      <yloc>287</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -550,8 +657,37 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1197</xloc>
-      <yloc>281</yloc>
+      <xloc>1363</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select files due for reporting</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Get MD5 from filename</send_true_to>
+<send_false_to>Publisher files not in period sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>publisher_due_for_report</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>829</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -596,140 +732,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>928</xloc>
-      <yloc>281</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get notification date &#x26; period</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;notification-date&#x60;&#xd;&#xa;, &#x60;notification-period&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>71</xloc>
-      <yloc>286</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Now</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>now</name>
-        <type>system date &#x28;variable&#x29;</type>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>177</xloc>
-      <yloc>286</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Days between</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>days_between</field_name>
-<calc_type>DATE_DIFF</calc_type>
-<field_a>now</field_a>
-<field_b>notification-date</field_b>
-<field_c/>
-<value_type>None</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>262</xloc>
-      <yloc>286</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Exceeding notification period</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Stream lookup</send_true_to>
-<send_false_to>Within notification period sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>days_between</leftvalue>
- <function>&#x3e;&#x3d;</function>
- <rightvalue>notification-period</rightvalue>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>390</xloc>
-      <yloc>284</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Within notification period sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>389</xloc>
-      <yloc>414</yloc>
+      <xloc>1094</xloc>
+      <yloc>287</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -764,43 +768,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>518</xloc>
-      <yloc>285</yloc>
+      <xloc>684</xloc>
+      <yloc>291</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select publishers due for reporting</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Get MD5 from filename</send_true_to>
-<send_false_to>Publisher files not in period sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>publisher_due_for_report</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>663</xloc>
-      <yloc>283</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Publisher files not in period sink</name>
+    <name>Within notification period sink</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -812,8 +787,43 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>665</xloc>
-      <yloc>414</yloc>
+      <xloc>441</xloc>
+      <yloc>411</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Selected files for datavalidation&#xd;&#xa;---------------------------------</logmessage>
+    <fields>
+      <field>
+        <name>publisher</name>
+        </field>
+      <field>
+        <name>archive-path</name>
+        </field>
+      <field>
+        <name>filename</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1952</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
