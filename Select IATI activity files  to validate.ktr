@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Mail notification to publishers</name>
+    <name>Select IATI activity files  to validate</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,18 +66,39 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;03&#x2f;08 17&#x3a;06&#x3a;01.290</created_date>
+  <created_date>2018&#x2f;08&#x2f;29 18&#x3a;05&#x3a;54.657</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;05 15&#x3a;58&#x3a;58.861</modified_date>
+  <modified_date>2018&#x2f;09&#x2f;05 16&#x3a;22&#x3a;31.758</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Select all publishers for which an error notification must be send &#xd;&#xa;to the author e-mail address as specified in the IATI registry.</note>
-      <xloc>730</xloc>
-      <yloc>15</yloc>
-      <width>352</width>
+      <note>Select only the most recent files are selected which have been succesfully processed &#xd;&#xa;and for which validation information is available in the data validator service. This means  &#xd;&#xa;selection only&#x3a;&#xd;&#xa;&#xd;&#xa;- for publishers which are due for notification &#x28;&#x3d; current date &#x3e;&#x3d; last notification date &#x2b; notification period&#x29;&#xd;&#xa;- if the publisher files have been changed and succesfully processed &#x28;&#x3d; log-status &#x3d; &#x27;ok&#x27;&#x29;&#xd;&#xa;- from the most recent job where the publisher file is succesfully processed&#xd;&#xa;- the publisher files MD5 signature is in the list of existing MD5&#x27;s in the data validator service</note>
+      <xloc>5</xloc>
+      <yloc>5</yloc>
+      <width>577</width>
+      <heigth>137</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Only select the most recent publisher file&#xd;&#xa;processed.</note>
+      <xloc>1229</xloc>
+      <yloc>493</yloc>
+      <width>226</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -95,10 +116,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Check if e-mail address is active &#xd;&#xa;and if the email address is valid</note>
-      <xloc>412</xloc>
-      <yloc>17</yloc>
-      <width>182</width>
+      <note>Only select files for which there is an&#xd;&#xa;data validation result available. </note>
+      <xloc>1578</xloc>
+      <yloc>493</yloc>
+      <width>202</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -116,10 +137,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Log the date on which the notification message was send</note>
-      <xloc>1002</xloc>
-      <yloc>292</yloc>
-      <width>313</width>
+      <note>Select publishers due for reporting</note>
+      <xloc>75</xloc>
+      <yloc>359</yloc>
+      <width>192</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -195,24 +216,29 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Read publisher e-mail addresses</from><to>Lookup e-mail address</to><enabled>Y</enabled> </hop>
-  <hop> <from>Feedback file exists</from><to>Feedback file exists&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Feedback file exists&#x3f;</from><to>Mail subject and msg text</to><enabled>Y</enabled> </hop>
-  <hop> <from>Feedback file exists&#x3f;</from><to>Non existing feedback file sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup e-mail address</from><to>E-mail address active&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>E-mail address active&#x3f;</from><to>Inactive mail address sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read publisher error log</from><to>Get Variables</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get Variables</from><to>Lookup e-mail address</to><enabled>Y</enabled> </hop>
-  <hop> <from>E-mail address active&#x3f;</from><to>Calc error file name</to><enabled>Y</enabled> </hop>
-  <hop> <from>Mail subject and msg text</from><to>Get System Info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get System Info</from><to>Update publishers last notification data</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc error file name</from><to>Feedback file exists</to><enabled>Y</enabled> </hop>
-  <hop> <from>Mail subject and msg text</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Mail feedback</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read valid MD5 values from svrl filelist</from><to>Lookup valid MD5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Lookup valid MD5</from><to>Select existing MD5 values in IATI DV</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select existing MD5 values in IATI DV</from><to>Rename MD5 field</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select existing MD5 values in IATI DV</from><to>Invalid DV MD5 sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Add seq for multiple jobs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add seq for multiple jobs</from><to>Select files from most recent job</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select files from most recent job</from><to>Lookup valid MD5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select files from most recent job</from><to>Previous file sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get MD5 from filename</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Days between</from><to>Exceeding notification period</to><enabled>Y</enabled> </hop>
+  <hop> <from>Exceeding notification period</from><to>Within notification period sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read publishers url job log</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Exceeding notification period</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Stream lookup</from><to>Select files due for reporting</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select files due for reporting</from><to>Get MD5 from filename</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select files due for reporting</from><to>Publisher files not in period sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get notification date &#x26; period</from><to>Days between</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rename MD5 field</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Calc error file name</name>
-    <type>Formula</type>
+    <name>Add seq for multiple jobs</name>
+    <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -221,131 +247,109 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-       <formula><field_name>htmlfilename</field_name>
-<formula_string>&#x5b;htmlpath&#x5d;&#x26;&#x22;&#x2f;Publisherfeedback-&#x22;&#x26;&#x5b;publisher&#x5d;&#x26;&#x22;.pdf&#x22;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>564</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>E-mail address active&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Calc error file name</send_true_to>
-<send_false_to>Inactive mail address sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>email-active</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>429</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Feedback file exists</name>
-    <type>FileExists</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <filenamefield>htmlfilename</filenamefield>
-    <resultfieldname>file-exists</resultfieldname>
-    <includefiletype>N</includefiletype>
-    <filetypefieldname/>
-    <addresultfilenames>N</addresultfilenames>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>696</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Feedback file exists&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Mail subject and msg text</send_true_to>
-<send_false_to>Non existing feedback file sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>file-exists</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>811</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>seq</resultfieldName>
     <fields>
       <field>
-        <name>system-date</name>
-        <type>system date &#x28;variable&#x29;</type>
+        <name>publisher-id</name>
+        </field>
+      <field>
+        <name>url-id</name>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1008</xloc>
-      <yloc>231</yloc>
+      <xloc>1208</xloc>
+      <yloc>287</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get Variables</name>
-    <type>GetVariable</type>
+    <name>Copy rows to result</name>
+    <type>RowsToResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2075</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Days between</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>days_between</field_name>
+<calc_type>DATE_DIFF</calc_type>
+<field_a>now</field_a>
+<field_b>notification-date</field_b>
+<field_c/>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>246</xloc>
+      <yloc>289</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Exceeding notification period</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Stream lookup</send_true_to>
+<send_false_to>Within notification period sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>days_between</leftvalue>
+ <function>&#x3e;&#x3d;</function>
+ <rightvalue>notification-period</rightvalue>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>438</xloc>
+      <yloc>290</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get MD5 from filename</name>
+    <type>StringCut</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -356,112 +360,48 @@
            </partitioning>
     <fields>
       <field>
-        <name>htmlpath</name>
-        <variable>&#x24;&#x7b;HTMLPATH&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-address-sender</name>
-        <variable>&#x24;&#x7b;MAIL_ADDRESS_SENDER&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-sender-name</name>
-        <variable>&#x24;&#x7b;MAIL_SENDER_NAME&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-smtp-server</name>
-        <variable>&#x24;&#x7b;MAIL_SMTP_SERVER&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-smtp-port</name>
-        <variable>&#x24;&#x7b;MAIL_SMTP_PORT&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-user</name>
-        <variable>&#x24;&#x7b;MAIL_USER&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-user-pwd</name>
-        <variable>&#x24;&#x7b;MAIL_USER_PWD&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mail-connection-type</name>
-        <variable>&#x24;&#x7b;MAIL_CONNECTION_TYPE&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <in_stream_name>filename</in_stream_name>
+        <out_stream_name>md5</out_stream_name>
+        <cut_from>11</cut_from>
+        <cut_to>43</cut_to>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>177</xloc>
-      <yloc>125</yloc>
+      <xloc>987</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Inactive mail address sink</name>
+    <name>Get notification date &#x26; period</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, IFNULL&#x28;&#x60;notification-date&#x60;,NOW&#x28;&#x29;&#x29; &#x60;notification-date&#x60;&#xd;&#xa;, &#x60;notification-period&#x60;&#xd;&#xa;, NOW&#x28;&#x29; AS now&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>60</xloc>
+      <yloc>289</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Invalid DV MD5 sink</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -473,14 +413,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>430</xloc>
-      <yloc>263</yloc>
+      <xloc>1657</xloc>
+      <yloc>420</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Lookup e-mail address</name>
+    <name>Lookup valid MD5</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -490,40 +430,34 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <from>Read publisher e-mail addresses</from>
+    <from>Read valid MD5 values from svrl filelist</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>publisher</name>
-        <field>publisher</field>
+        <name>md5</name>
+        <field>md5</field>
       </key>
       <value>
-        <name>email</name>
-        <rename>email</rename>
+        <name>md5</name>
+        <rename>existing-md5</rename>
         <default/>
         <type>String</type>
-      </value>
-      <value>
-        <name>email-active</name>
-        <rename>email-active</rename>
-        <default/>
-        <type>Boolean</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>302</xloc>
-      <yloc>125</yloc>
+      <xloc>1492</xloc>
+      <yloc>286</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Mail feedback</name>
-    <type>Mail</type>
+    <name>Previous file sink</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -532,104 +466,17 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <server>mail-smtp-server</server>
-      <port>mail-smtp-port</port>
-      <destination>email</destination>
-      <destinationCc/>
-      <destinationBCc/>
-      <replyToAddresses/>
-      <replyto>mail-address-sender</replyto>
-      <replytoname>mail-sender-name</replytoname>
-      <subject>mail-subject</subject>
-      <include_date>Y</include_date>
-      <include_subfolders>N</include_subfolders>
-      <zipFilenameDynamic>N</zipFilenameDynamic>
-      <isFilenameDynamic>Y</isFilenameDynamic>
-      <attachContentFromField>N</attachContentFromField>
-      <attachContentField/>
-      <attachContentFileNameField/>
-      <dynamicFieldname>htmlfilename</dynamicFieldname>
-      <dynamicWildcard/>
-      <dynamicZipFilename/>
-      <sourcefilefoldername/>
-      <sourcewildcard/>
-      <contact_person/>
-      <contact_phone/>
-      <comment>message-lines</comment>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name/>
-      <zip_limit_size>0</zip_limit_size>
-      <use_auth>Y</use_auth>
-      <use_secure_auth>Y</use_secure_auth>
-      <auth_user>mail-user</auth_user>
-      <auth_password>Encrypted 2be98afa50bce9ec9be0aab629382b8de</auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-    <encoding>UTF-8</encoding>
-    <priority>normal</priority>
-    <importance>normal</importance>
-    <sensitivity>normal</sensitivity>
-    <secureconnectiontype>SSL</secureconnectiontype>
-      <embeddedimages>
-      </embeddedimages>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1187</xloc>
-      <yloc>120</yloc>
+      <xloc>1362</xloc>
+      <yloc>419</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Mail subject and msg text</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>mail-subject</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>IATI data quality feedback</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>message-lines</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Please open the attached PDF file to review the quality feedback of your last IATI publication.</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>949</xloc>
-      <yloc>121</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Non existing feedback file sink</name>
-    <type>WriteToLog</type>
+    <name>Publisher files not in period sink</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -638,52 +485,16 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>File does not exists, no e-mail send</logmessage>
-    <fields>
-      <field>
-        <name>htmlfilename</name>
-        </field>
-      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>812</xloc>
-      <yloc>264</yloc>
+      <xloc>831</xloc>
+      <yloc>420</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Read publisher e-mail addresses</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, email&#xd;&#xa;, &#x60;email-active&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>302</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Read publisher error log</name>
+    <name>Read publishers url job log</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -694,7 +505,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;	a.&#x60;job-number&#x60;&#xd;&#xa;	, a.&#x60;publisher-id&#x60;&#xd;&#xa;	, b.&#x60;publisher&#x60;&#xd;&#xa;FROM &#xd;&#xa;	&#x60;log-publisher-errors&#x60; a JOIN &#x60;iatischema&#x60;.&#x60;ctl-publishers&#x60; b&#xd;&#xa;ON a.&#x60;publisher-id&#x60;&#x3d;b.&#x60;publisher-id&#x60;&#xd;&#xa;WHERE&#xd;&#xa;	a.&#x60;error-code&#x60;&#x3c;&#x3e;0&#xd;&#xa;GROUP BY&#xd;&#xa;	a.&#x60;job-number&#x60;&#xd;&#xa;	, a.&#x60;publisher-id&#x60;&#xd;&#xa;	, b.&#x60;publisher&#x60;&#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;	a.&#x60;publisher-id&#x60;&#xd;&#xa;, 	b.&#x60;publisher&#x60;&#xd;&#xa;, 	a.&#x60;url-id&#x60;&#xd;&#xa;,	a.&#x60;generated-datetime&#x60; &#xd;&#xa;, 	a.&#x60;archive-path&#x60; &#xd;&#xa;, 	a.&#x60;filename&#x60; &#xd;&#xa;, 	a.&#x60;job-number&#x60;&#xd;&#xa;, 	a.&#x60;log-status&#x60; &#xd;&#xa;, 	a.&#x60;svrl-http-status&#x60;&#xd;&#xa;, 	a.&#x60;svrl-md5&#x60;&#xd;&#xa;,   a.&#x60;svrl-report-flag&#x60;&#xd;&#xa;FROM iatidatamart.&#x60;log-publisher-job-url&#x60; AS a LEFT JOIN iatischema.&#x60;ctl-publishers&#x60; AS b ON a.&#x60;publisher-id&#x60; &#x3d; b.&#x60;publisher-id&#x60;&#xd;&#xa;WHERE &#x60;log-status&#x60;&#x3d;&#x27;ok&#x27;&#xd;&#xa;ORDER BY &#x60;publisher-id&#x60;, &#x60;url-id&#x60;&#xd;&#xa; &#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -702,15 +513,15 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>63</xloc>
-      <yloc>125</yloc>
+      <xloc>72</xloc>
+      <yloc>179</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Update publishers last notification data</name>
-    <type>Update</type>
+    <name>Read valid MD5 values from svrl filelist</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -719,30 +530,265 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_database</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>ctl-publishers</table>
-      <key>
-        <name>publisher</name>
-        <field>publisher</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-        </key>
-      <value>
-        <name>notification-date</name>
-        <rename>system-date</rename>
-        </value>
-      </lookup>
+    <connection>IATI_datamart</connection>
+    <sql>SELECT&#xd;&#xa; md5&#xd;&#xa;FROM iatidatamart.&#x60;log-svrl-filelist&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1191</xloc>
-      <yloc>230</yloc>
+      <xloc>1493</xloc>
+      <yloc>154</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rename MD5 field</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>archive-path</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>filename</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>job-number</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>log-status</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>svrl-http-status</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>existing-md5</name>
+        <rename>md5</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1826</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select existing MD5 values in IATI DV</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Rename MD5 field</send_true_to>
+<send_false_to>Invalid DV MD5 sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>existing-md5</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1660</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select files from most recent job</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Lookup valid MD5</send_true_to>
+<send_false_to>Previous file sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>seq</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1363</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select files due for reporting</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Get MD5 from filename</send_true_to>
+<send_false_to>Publisher files not in period sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>publisher_due_for_report</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>829</xloc>
+      <yloc>289</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>publisher-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>job-number</name>
+        <ascending>N</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1094</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Exceeding notification period</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+      </key>
+      <value>
+        <name>publisher</name>
+        <rename>publisher_due_for_report</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>684</xloc>
+      <yloc>291</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Within notification period sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>441</xloc>
+      <yloc>411</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -762,16 +808,22 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Sending email to</logmessage>
+      <logmessage>Selected files for datavalidation&#xd;&#xa;---------------------------------</logmessage>
     <fields>
       <field>
         <name>publisher</name>
         </field>
+      <field>
+        <name>archive-path</name>
+        </field>
+      <field>
+        <name>filename</name>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1076</xloc>
-      <yloc>121</yloc>
+      <xloc>1952</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
