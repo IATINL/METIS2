@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;02 11&#x3a;25&#x3a;41.075</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;03 09&#x3a;38&#x3a;09.314</modified_date>
+  <modified_date>2018&#x2f;09&#x2f;18 13&#x3a;48&#x3a;52.560</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -60,7 +60,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>645</xloc>
+      <xloc>523</xloc>
       <yloc>117</yloc>
       </entry>
     <entry>
@@ -128,39 +128,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>500</xloc>
-      <yloc>116</yloc>
-      </entry>
-    <entry>
-      <name>Job publisher feedback</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id/>
-      <filename/>
-      <jobname>Job publisher feedback</jobname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>342</xloc>
+      <xloc>378</xloc>
       <yloc>116</yloc>
       </entry>
   </entries>
@@ -185,15 +153,6 @@
     </hop>
     <hop>
       <from>Read config to set variables</from>
-      <to>Job publisher feedback</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Job publisher feedback</from>
       <to>Generate result summaries</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -204,11 +163,11 @@
   </hops>
   <notepads>
     <notepad>
-      <note>This job produces the precooked PDF reports with result and e-mails error reports to the publishers.&#xd;&#xa;- The result summaries are produced for each BZ activity with related activities.&#xd;&#xa;- The error feedback documents are send to the publisher by e-mail</note>
+      <note>This job produces the precooked PDF reports with the result summaries&#xd;&#xa;for each BZ activity.</note>
       <xloc>12</xloc>
       <yloc>10</yloc>
-      <width>584</width>
-      <heigth>55</heigth>
+      <width>425</width>
+      <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
