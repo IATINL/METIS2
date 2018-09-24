@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;08&#x2f;29 18&#x3a;05&#x3a;54.657</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;17 16&#x3a;36&#x3a;21.752</modified_date>
+  <modified_date>2018&#x2f;09&#x2f;21 17&#x3a;46&#x3a;27.567</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -96,8 +96,8 @@
     </notepad>
     <notepad>
       <note>Only select the most recent publisher file&#xd;&#xa;processed.</note>
-      <xloc>1221</xloc>
-      <yloc>402</yloc>
+      <xloc>1344</xloc>
+      <yloc>397</yloc>
       <width>226</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -117,8 +117,8 @@
     </notepad>
     <notepad>
       <note>Only select files for which there is an&#xd;&#xa;data validation result available. </note>
-      <xloc>1570</xloc>
-      <yloc>402</yloc>
+      <xloc>1693</xloc>
+      <yloc>397</yloc>
       <width>202</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -220,11 +220,8 @@
   <hop> <from>Lookup valid MD5</from><to>Select existing MD5 values in IATI DV</to><enabled>Y</enabled> </hop>
   <hop> <from>Select existing MD5 values in IATI DV</from><to>Rename MD5 field</to><enabled>Y</enabled> </hop>
   <hop> <from>Select existing MD5 values in IATI DV</from><to>Invalid DV MD5 sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Add seq for multiple jobs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add seq for multiple jobs</from><to>Select files from most recent job</to><enabled>Y</enabled> </hop>
   <hop> <from>Select files from most recent job</from><to>Lookup valid MD5</to><enabled>Y</enabled> </hop>
   <hop> <from>Select files from most recent job</from><to>Previous file sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get MD5 from filename</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Days between</from><to>Exceeding notification period</to><enabled>Y</enabled> </hop>
   <hop> <from>Exceeding notification period</from><to>Within notification period sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Read publishers url job log</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
@@ -236,37 +233,13 @@
   <hop> <from>Write to log</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
   <hop> <from>Get notification date &#x26; period</from><to>If field value is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If field value is null</from><to>Days between</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get MD5 from filename</from><to>Memory Group by</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Select files from most recent job</to><enabled>Y</enabled> </hop>
+  <hop> <from>Memory Group by</from><to>Block 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get MD5 from filename</from><to>Block 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block 1</from><to>Merge Join</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Add seq for multiple jobs</name>
-    <type>FieldsChangeSequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <start>1</start>
-      <increment>1</increment>
-      <resultfieldName>seq</resultfieldName>
-    <fields>
-      <field>
-        <name>publisher-id</name>
-        </field>
-      <field>
-        <name>url-id</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1200</xloc>
-      <yloc>196</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Copy rows to result</name>
     <type>RowsToResult</type>
@@ -280,8 +253,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2067</xloc>
-      <yloc>197</yloc>
+      <xloc>2190</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -352,7 +325,7 @@
     <name>Get MD5 from filename</name>
     <type>StringCut</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -402,6 +375,40 @@
     </step>
 
   <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>notification-date</name>
+        <value>2000-01-01 00&#x3a;00&#x3a;00.000000</value>
+        <mask>yyyy-MM-dd&#x27;T&#x27;HH&#x3a;mm&#x3a;ss.SSSXXX</mask>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>206</xloc>
+      <yloc>358</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Invalid DV MD5 sink</name>
     <type>Dummy</type>
     <description/>
@@ -414,8 +421,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1649</xloc>
-      <yloc>329</yloc>
+      <xloc>1772</xloc>
+      <yloc>324</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -450,8 +457,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1484</xloc>
-      <yloc>195</yloc>
+      <xloc>1607</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -469,8 +476,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1354</xloc>
-      <yloc>328</yloc>
+      <xloc>1477</xloc>
+      <yloc>323</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -540,8 +547,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1485</xloc>
-      <yloc>87</yloc>
+      <xloc>1608</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -600,8 +607,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1818</xloc>
-      <yloc>197</yloc>
+      <xloc>1941</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -629,8 +636,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1652</xloc>
-      <yloc>196</yloc>
+      <xloc>1775</xloc>
+      <yloc>191</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -680,61 +687,15 @@
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>seq</leftvalue>
+ <leftvalue>job-number</leftvalue>
  <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+ <rightvalue>max-job-number</rightvalue>
+ </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1355</xloc>
-      <yloc>196</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>publisher-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>url-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>job-number</name>
-        <ascending>N</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1086</xloc>
-      <yloc>196</yloc>
+      <xloc>1470</xloc>
+      <yloc>191</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -823,15 +784,15 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1944</xloc>
-      <yloc>197</yloc>
+      <xloc>2067</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
+    <name>Memory Group by</name>
+    <type>MemoryGroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -840,25 +801,95 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>notification-date</name>
-        <value>2000-01-01 00&#x3a;00&#x3a;00.000000</value>
-        <mask>yyyy-MM-dd&#x27;T&#x27;HH&#x3a;mm&#x3a;ss.SSSXXX</mask>
-        <set_empty_string>N</set_empty_string>
+      <give_back_row>N</give_back_row>
+      <group>
+      </group>
+      <fields>
+        <field>
+          <aggregate>max-job-number</aggregate>
+          <subject>job-number</subject>
+          <type>MAX</type>
+          <valuefield/>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>206</xloc>
-      <yloc>358</yloc>
+      <xloc>1120</xloc>
+      <yloc>290</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Block 1</step1>
+<step2>Block 2</step2>
+    <keys_1>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1310</xloc>
+      <yloc>194</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block 2</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <pass_all_rows>Y</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1207</xloc>
+      <yloc>290</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block 1</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <pass_all_rows>Y</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1207</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
