@@ -68,61 +68,12 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 14&#x3a;10&#x3a;38.027</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;10&#x2f;03 18&#x3a;15&#x3a;53.386</modified_date>
+  <modified_date>2018&#x2f;10&#x2f;24 14&#x3a;06&#x3a;03.693</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Add DD1 ... DD6 at the front of the indicator title. This is a quick fix&#xd;&#xa;for Dialog &#x26; Dissent result reporting, to be replaced by a more &#xd;&#xa;structural handling of result vocabularies.</note>
-      <xloc>1355</xloc>
-      <yloc>315</yloc>
-      <width>359</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
-  <connection>
-    <name>IATI_reference</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatireference</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>IATI_staging</name>
     <server/>
@@ -167,102 +118,14 @@
   <hop> <from>Replace NL-1 in desc src</from><to>Cut too long desc</to><enabled>Y</enabled> </hop>
   <hop> <from>Cut too long desc</from><to>Write xml descriptions</to><enabled>Y</enabled> </hop>
   <hop> <from>Get results from XML 2.x</from><to>Get result vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select rows with existing BZ indicator code</from><to>Non BZ indicator ref sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select rows with existing BZ indicator code</from><to>Block 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Block 2</from><to>Lookup ref code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Cut comments and values</from><to>Block 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Block 1</from><to>Lookup ref code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get result references from XML 2.x 2</from><to>Lookup BZ indicator code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup BZ indicator code</from><to>Select rows with existing BZ indicator code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get BZ indicator list</from><to>Lookup BZ indicator code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get BZ indicator list 2</from><to>Merge BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge BZ indicators</from><to>Existing BZ indicator</to><enabled>Y</enabled> </hop>
-  <hop> <from>Existing BZ indicator</from><to>Formula</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup ref code</from><to>Add ref code to title</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add ref code to title</from><to>Merge BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Formula</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add ref code to title</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Write xml activity results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Cut comments and values</from><to>Write xml activity results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get result references from XML 2.x 2</from><to>Get res ref vars</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get res ref vars</from><to>Sort res refs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort res refs</from><to>Replace NL-1 in res ref src</to><enabled>Y</enabled> </hop>
+  <hop> <from>Trim res ref</from><to>Cut title &#x26; desc</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in res ref src</from><to>Trim res ref</to><enabled>Y</enabled> </hop>
+  <hop> <from>Cut title &#x26; desc</from><to>Write xml activity result refs</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Add ref code to title</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;reference-code&#x5d;&#x29;&#x3b;&#x5b;indicator-title&#x5d;&#x3b;&#x5b;reference-code&#x5d;&#x26;&#x22; &#x22;&#x26;&#x5b;Indicator-title&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>indicator-title</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1178</xloc>
-      <yloc>279</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Block 1</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>971</xloc>
-      <yloc>278</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Block 2</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1054</xloc>
-      <yloc>426</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Cut comments and values</name>
     <type>StringCut</type>
@@ -338,8 +201,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>856</xloc>
-      <yloc>277</yloc>
+      <xloc>861</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -400,66 +263,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>860</xloc>
       <yloc>35</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Non BZ indicator ref sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>854</xloc>
-      <yloc>531</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select rows with existing BZ indicator code</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Block 2</send_true_to>
-<send_false_to>Non BZ indicator ref sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>BZ-indicator-code</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>DD1&#x3b;DD2&#x3b;DD3&#x3b;DD4&#x3b;DD5&#x3b;DD6</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>reference-vocabulary</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>99</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>855</xloc>
-      <yloc>427</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -848,181 +651,6 @@
     </step>
 
   <step>
-    <name>Get result references from XML 2.x 2</name>
-    <type>getXMLData</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <namespaceaware>N</namespaceaware>
-    <ignorecomments>N</ignorecomments>
-    <readurl>Y</readurl>
-    <validating>N</validating>
-    <usetoken>N</usetoken>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <rownum_field/>
-    <encoding>UTF-8</encoding>
-    <file>
-      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <xpath>..&#x2f;..&#x2f;..&#x2f;iati-identifier</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>100</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>indicator-title</name>
-        <xpath>..&#x2f;title&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>indicator-description</name>
-        <xpath>..&#x2f;description&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>period-start</name>
-        <xpath>..&#x2f;period&#x2f;period-start&#x2f;&#x40;iso-date</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>period-end</name>
-        <xpath>..&#x2f;period&#x2f;period-end&#x2f;&#x40;iso-date</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>reference-code</name>
-        <xpath>&#x40;code</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>reference-vocabulary</name>
-        <xpath>&#x40;vocabulary</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>reference-uri</name>
-        <xpath>&#x40;uri</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;result&#x2f;indicator&#x2f;reference</loopxpath>
-    <IsInFields>N</IsInFields>
-    <IsAFile>N</IsAFile>
-    <XmlField>jsonURL</XmlField>
-    <prunePath/>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>115</xloc>
-      <yloc>428</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Get result vars</name>
     <type>GetVariable</type>
     <description/>
@@ -1085,8 +713,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>291</xloc>
-      <yloc>277</yloc>
+      <xloc>289</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1395,60 +1023,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>113</xloc>
-      <yloc>277</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup ref code</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Block 2</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <key>
-        <name>indicator-description</name>
-        <field>indicator-description</field>
-      </key>
-      <key>
-        <name>indicator-title</name>
-        <field>indicator-title</field>
-      </key>
-      <key>
-        <name>period-start</name>
-        <field>period-start</field>
-      </key>
-      <key>
-        <name>period-end</name>
-        <field>period-end</field>
-      </key>
-      <value>
-        <name>reference-code</name>
-        <rename>reference-code</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1059</xloc>
-      <yloc>279</yloc>
+      <xloc>111</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1543,8 +1119,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>585</xloc>
-      <yloc>276</yloc>
+      <xloc>583</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1653,7 +1229,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>426</xloc>
+      <xloc>420</xloc>
       <yloc>102</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1735,8 +1311,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>420</xloc>
-      <yloc>277</yloc>
+      <xloc>418</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1821,8 +1397,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>712</xloc>
-      <yloc>277</yloc>
+      <xloc>710</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1889,10 +1465,6 @@
           <stream_name>indicator-description</stream_name>
         </field>
         <field>
-          <column_name>indicator-reference-bz</column_name>
-          <stream_name>reference-code_1</stream_name>
-        </field>
-        <field>
           <column_name>period-start</column_name>
           <stream_name>period-start</stream_name>
         </field>
@@ -1947,8 +1519,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2046</xloc>
-      <yloc>278</yloc>
+      <xloc>1056</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2013,8 +1585,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1297</xloc>
-      <yloc>38</yloc>
+      <xloc>1050</xloc>
+      <yloc>36</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2091,15 +1663,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1299</xloc>
-      <yloc>105</yloc>
+      <xloc>1052</xloc>
+      <yloc>103</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get BZ indicator list</name>
-    <type>TableInput</type>
+    <name>Get result references from XML 2.x 2</name>
+    <type>getXMLData</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2108,86 +1680,173 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>IATI_reference</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;BZ-indicator-code&#x60;&#xd;&#xa;, &#x60;BZ-indicator-description&#x60;&#xd;&#xa;, &#x60;BZ-result-area&#x60;&#xd;&#xa;FROM iatireference.&#x60;ref-bz-result-indicators&#x60;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>586</xloc>
-      <yloc>345</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup BZ indicator code</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Get BZ indicator list</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>reference-code</name>
-        <field>BZ-indicator-code</field>
-      </key>
-      <value>
-        <name>BZ-indicator-code</name>
-        <rename>BZ-indicator-code</rename>
-        <default/>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <namespaceaware>N</namespaceaware>
+    <ignorecomments>N</ignorecomments>
+    <readurl>Y</readurl>
+    <validating>N</validating>
+    <usetoken>N</usetoken>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <rownum_field/>
+    <encoding>UTF-8</encoding>
+    <file>
+      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <xpath>..&#x2f;..&#x2f;..&#x2f;iati-identifier</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
         <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>586</xloc>
-      <yloc>428</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get BZ indicator list 2</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_reference</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;BZ-indicator-code&#x60;&#xd;&#xa;FROM iatireference.&#x60;ref-bz-result-indicators&#x60;&#xd;&#xa;</sql>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>100</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>indicator-title</name>
+        <xpath>..&#x2f;title&#x2f;narrative</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>indicator-description</name>
+        <xpath>..&#x2f;description&#x2f;narrative</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>period-start</name>
+        <xpath>..&#x2f;period&#x2f;period-start&#x2f;&#x40;iso-date</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>period-end</name>
+        <xpath>..&#x2f;period&#x2f;period-end&#x2f;&#x40;iso-date</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>reference-code</name>
+        <xpath>&#x40;code</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>reference-vocabulary</name>
+        <xpath>&#x40;vocabulary</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>reference-uri</name>
+        <xpath>&#x40;uri</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
     <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;result&#x2f;indicator&#x2f;reference</loopxpath>
+    <IsInFields>N</IsInFields>
+    <IsAFile>N</IsAFile>
+    <XmlField>jsonURL</XmlField>
+    <prunePath/>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1174</xloc>
-      <yloc>524</yloc>
+      <xloc>106</xloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Merge BZ indicators</name>
-    <type>MergeJoin</type>
+    <name>Get res ref vars</name>
+    <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2196,185 +1855,66 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<join_type>INNER</join_type>
-<step1>Add ref code to title</step1>
-<step2>Get BZ indicator list 2</step2>
-    <keys_1>
-    </keys_1>
-    <keys_2>
-    </keys_2>
+    <fields>
+      <field>
+        <name>publisher</name>
+        <variable>&#x24;&#x7b;PAR-PUBLISHER&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>publisher-id</name>
+        <variable>&#x24;&#x7b;PAR-PUBLISHER-ID&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+        <variable>&#x24;&#x7b;PAR-ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>url-id</name>
+        <variable>&#x24;&#x7b;PAR-URL-ID&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1268</xloc>
-      <yloc>408</yloc>
+      <xloc>293</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Existing BZ indicator</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>found</field_name>
-<formula_string>NOT&#x28;ISERROR&#x28;FIND&#x28;&#x5b;BZ-indicator-code&#x5d;&#x3b;&#x28;&#x5b;indicator-title&#x5d;&#x26;&#x22; &#x22;&#x26;&#x5b;indicator-description&#x5d;&#x29;&#x29;&#x29;&#x29;</formula_string>
-<value_type>Boolean</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1387</xloc>
-      <yloc>408</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1715</xloc>
-      <yloc>408</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Formula</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;&#x5b;found&#x5d;&#x3b;&#x5b;BZ-indicator-code&#x5d;&#x3b;&#x5b;reference-code&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>reference-code</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1500</xloc>
-      <yloc>409</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Select values</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>found</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1601</xloc>
-      <yloc>409</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1603</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort rows</step1>
-<step2>Sort rows 2</step2>
-    <keys_1>
-      <key>indicator-title</key>
-      <key>indicator-description</key>
-    </keys_1>
-    <keys_2>
-      <key>indicator-title</key>
-      <key>indicator-description</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1896</xloc>
-      <yloc>278</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows</name>
+    <name>Sort res refs</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2393,6 +1933,12 @@
       <unique_rows>N</unique_rows>
     <fields>
       <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
         <name>indicator-title</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
@@ -2404,18 +1950,48 @@
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
+      <field>
+        <name>period-start</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>period-end</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>reference-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>reference-vocabulary</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>reference-uri</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1794</xloc>
-      <yloc>278</yloc>
+      <xloc>418</xloc>
+      <yloc>287</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
+    <name>Replace NL-1 in res ref src</name>
+    <type>ReplaceString</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2424,31 +2000,189 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>indicator-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
+        <in_stream_name>iati-identifier</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_by_string>XM-DAC-7</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1798</xloc>
-      <yloc>408</yloc>
+      <xloc>581</xloc>
+      <yloc>285</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Cut title &#x26; desc</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>indicator-title</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>510</cut_to>
+      </field>
+      <field>
+        <in_stream_name>indicator-description</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>3998</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>865</xloc>
+      <yloc>284</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Trim res ref</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>indicator-title</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>indicator-description</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>717</xloc>
+      <yloc>285</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write xml activity result refs</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-result-refs</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>indicator-title</column_name>
+          <stream_name>indicator-title</stream_name>
+        </field>
+        <field>
+          <column_name>indicator-description</column_name>
+          <stream_name>indicator-description</stream_name>
+        </field>
+        <field>
+          <column_name>period-start</column_name>
+          <stream_name>period-start</stream_name>
+        </field>
+        <field>
+          <column_name>period-end</column_name>
+          <stream_name>period-end</stream_name>
+        </field>
+        <field>
+          <column_name>reference-code</column_name>
+          <stream_name>reference-code</stream_name>
+        </field>
+        <field>
+          <column_name>reference-vocabulary</column_name>
+          <stream_name>reference-vocabulary</stream_name>
+        </field>
+        <field>
+          <column_name>reference-uri</column_name>
+          <stream_name>reference-uri</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1053</xloc>
+      <yloc>282</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
