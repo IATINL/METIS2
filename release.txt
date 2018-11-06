@@ -55,3 +55,4 @@ Version 3.64 Fixed duplicate results removal error in the case that the same res
 Version 3.65 Fixed XPATH statement for reading result references from XML
 Version 3.66 Splitting publisher feedback job from main data processing job
 Version 3.67 Updated publisher feedback PDF layout
+Version 3.68 Added result reference processing (max one result ref per indicator)
