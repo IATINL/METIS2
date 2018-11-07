@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;02 11&#x3a;25&#x3a;41.075</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;18 13&#x3a;48&#x3a;52.560</modified_date>
+  <modified_date>2018&#x2f;11&#x2f;07 16&#x3a;26&#x3a;38.583</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -60,8 +60,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>523</xloc>
-      <yloc>117</yloc>
+      <xloc>735</xloc>
+      <yloc>115</yloc>
       </entry>
     <entry>
       <name>Read config to set variables</name>
@@ -98,13 +98,13 @@
       <yloc>116</yloc>
       </entry>
     <entry>
-      <name>Generate result summaries</name>
+      <name>BZ activities to make resultreport for </name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Generate result summaries</transname>
+      <transname>BZ activities to make resultreport for </transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -128,8 +128,62 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>378</xloc>
+      <xloc>394</xloc>
       <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>Generate 1 resultsummary</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Generate 1 resultsummary</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>Y</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>Y</set_logfile>
+      <logfile>D&#x3a;&#x5c;Metis&#x5c;iati_working_dir&#x5c;PDF generation test</logfile>
+      <logext>txt</logext>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>588</xloc>
+      <yloc>115</yloc>
+      </entry>
+    <entry>
+      <name>DUMMY</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>N</start>
+      <dummy>Y</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>591</xloc>
+      <yloc>236</yloc>
       </entry>
   </entries>
   <hops>
@@ -143,8 +197,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Generate result summaries</from>
-      <to>Success</to>
+      <from>BZ activities to make resultreport for </from>
+      <to>Generate 1 resultsummary</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -152,22 +206,40 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
+      <from>Generate 1 resultsummary</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>Read config to set variables</from>
-      <to>Generate result summaries</to>
+      <to>BZ activities to make resultreport for </to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Generate 1 resultsummary</from>
+      <to>DUMMY</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
-      <note>This job produces the precooked PDF reports with the result summaries&#xd;&#xa;for each BZ activity.</note>
+      <note>This job produces the precooked PDF reports with result anf e-mails error reports to the publishers.&#xd;&#xa;- The result summaries are produced for each BZ activity with related activities.&#xd;&#xa;- The error feedback documents are send to the publisher by e-mail</note>
       <xloc>12</xloc>
       <yloc>10</yloc>
-      <width>425</width>
-      <heigth>40</heigth>
+      <width>580</width>
+      <heigth>55</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
