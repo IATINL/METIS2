@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;02&#x2f;04 13&#x3a;53&#x3a;05.512</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019&#x2f;08&#x2f;23 10&#x3a;54&#x3a;18.974</modified_date>
+  <modified_date>2019&#x2f;11&#x2f;08 10&#x3a;32&#x3a;50.641</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -77,8 +77,8 @@
       <note>Replace organisation names based on the &#xd;&#xa;published organisation references &#x28;IATI organisation id&#x29;</note>
       <xloc>9</xloc>
       <yloc>186</yloc>
-      <width>325</width>
-      <heigth>40</heigth>
+      <width>415</width>
+      <heigth>48</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -98,8 +98,8 @@
       <note>Add result reference to the &#xd;&#xa;front of the indicator title.</note>
       <xloc>1101</xloc>
       <yloc>2514</yloc>
-      <width>154</width>
-      <heigth>42</heigth>
+      <width>192</width>
+      <heigth>50</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -119,8 +119,8 @@
       <note>Read all result references and subsequently select &#xd;&#xa;only the unique BZ relevant references for each activity.</note>
       <xloc>158</xloc>
       <yloc>2515</yloc>
-      <width>302</width>
-      <heigth>42</heigth>
+      <width>376</width>
+      <heigth>50</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -140,8 +140,8 @@
       <note>Read all results and determine all unque results.</note>
       <xloc>152</xloc>
       <yloc>2352</yloc>
-      <width>260</width>
-      <heigth>26</heigth>
+      <width>326</width>
+      <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -161,8 +161,8 @@
       <note>Determine for each BZ indicator code if the code is part of&#xd;&#xa;the indicator title and&#x2f;or indicator description. If so, fill the &#xd;&#xa;reference code field with the BZ code for each unique result. </note>
       <xloc>1237</xloc>
       <yloc>2636</yloc>
-      <width>331</width>
-      <heigth>58</heigth>
+      <width>414</width>
+      <heigth>70</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -182,8 +182,8 @@
       <note>Lookup reference. This streamlookup assumes that there is only 1 reference code per indicator.&#xd;&#xa;The number of result records is therefore not changed. This lookup has to be replaced with a&#xd;&#xa;left outer merge join to support multiple ref codes per indicator. In that case METIS and other &#xd;&#xa;result dashboards, need to be changed.</note>
       <xloc>644</xloc>
       <yloc>2281</yloc>
-      <width>508</width>
-      <heigth>74</heigth>
+      <width>634</width>
+      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -203,8 +203,8 @@
       <note>See previous note about streamlookup.</note>
       <xloc>2068</xloc>
       <yloc>2357</yloc>
-      <width>216</width>
-      <heigth>26</heigth>
+      <width>270</width>
+      <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -2383,10 +2383,12 @@
     <keys_1>
       <key>iati-identifier</key>
       <key>indicator-title</key>
+      <key>indicator-description</key>
     </keys_1>
     <keys_2>
       <key>iati-identifier</key>
       <key>indicator-title</key>
+      <key>indicator-description</key>
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -4478,6 +4480,12 @@
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
+      <field>
+        <name>indicator-description</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -4514,6 +4522,12 @@
       </field>
       <field>
         <name>indicator-title</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>indicator-description</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
