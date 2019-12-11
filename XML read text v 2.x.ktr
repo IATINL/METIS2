@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 14&#x3a;10&#x3a;38.027</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019&#x2f;11&#x2f;12 16&#x3a;20&#x3a;56.814</modified_date>
+  <modified_date>2019&#x2f;12&#x2f;11 11&#x3a;39&#x3a;57.839</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -236,6 +236,51 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>861</xloc>
       <yloc>102</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Cut result ref flds</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>result-title</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>510</cut_to>
+      </field>
+      <field>
+        <in_stream_name>result-description</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>4998</cut_to>
+      </field>
+      <field>
+        <in_stream_name>indicator-title</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>510</cut_to>
+      </field>
+      <field>
+        <in_stream_name>indicator-description</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>3998</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>863</xloc>
+      <yloc>283</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -872,111 +917,6 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>target-comment</name>
-        <xpath>..&#x2f;period&#x2f;target&#x2f;comment&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>2000</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>actual-comment</name>
-        <xpath>..&#x2f;period&#x2f;actual&#x2f;comment&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>2000</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>baseline-comment</name>
-        <xpath>..&#x2f;baseline&#x2f;comment&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>5500</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>baseline-year</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;year</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>baseline-value</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;value</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>actual-value</name>
-        <xpath>..&#x2f;period&#x2f;actual&#x2f;&#x40;value</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>target-value</name>
-        <xpath>..&#x2f;period&#x2f;target&#x2f;&#x40;value</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
         <name>indicator-measure-code</name>
         <xpath>..&#x2f;&#x40;measure</xpath>
         <element_type>attribut</element_type>
@@ -1013,36 +953,6 @@
         <result_type>valueof</result_type>
         <type>Boolean</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>period-start</name>
-        <xpath>..&#x2f;period&#x2f;period-start&#x2f;&#x40;iso-date</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>period-end</name>
-        <xpath>..&#x2f;period&#x2f;period-end&#x2f;&#x40;iso-date</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
         <currency/>
         <decimal/>
         <group/>
@@ -2063,34 +1973,6 @@
           <stream_name>url-id</stream_name>
         </field>
         <field>
-          <column_name>target-comment</column_name>
-          <stream_name>target-comment</stream_name>
-        </field>
-        <field>
-          <column_name>actual-comment</column_name>
-          <stream_name>actual-comment</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-comment</column_name>
-          <stream_name>baseline-comment</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-year</column_name>
-          <stream_name>baseline-year</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-value</column_name>
-          <stream_name>baseline-value</stream_name>
-        </field>
-        <field>
-          <column_name>actual-value</column_name>
-          <stream_name>actual-value</stream_name>
-        </field>
-        <field>
-          <column_name>target-value</column_name>
-          <stream_name>target-value</stream_name>
-        </field>
-        <field>
           <column_name>indicator-measure-code</column_name>
           <stream_name>indicator-measure-code</stream_name>
         </field>
@@ -2101,14 +1983,6 @@
         <field>
           <column_name>aggregation-status</column_name>
           <stream_name>aggregation-status</stream_name>
-        </field>
-        <field>
-          <column_name>period-start</column_name>
-          <stream_name>period-start</stream_name>
-        </field>
-        <field>
-          <column_name>period-end</column_name>
-          <stream_name>period-end</stream_name>
         </field>
     </fields>
      <cluster_schema/>
@@ -2381,87 +2255,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1052</xloc>
       <yloc>103</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Cut result ref flds</name>
-    <type>StringCut</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>actual-comment</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>1998</cut_to>
-      </field>
-      <field>
-        <in_stream_name>target-comment</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>1998</cut_to>
-      </field>
-      <field>
-        <in_stream_name>baseline-comment</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>5498</cut_to>
-      </field>
-      <field>
-        <in_stream_name>actual-value</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>253</cut_to>
-      </field>
-      <field>
-        <in_stream_name>baseline-value</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>253</cut_to>
-      </field>
-      <field>
-        <in_stream_name>target-value</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>253</cut_to>
-      </field>
-      <field>
-        <in_stream_name>result-title</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>510</cut_to>
-      </field>
-      <field>
-        <in_stream_name>result-description</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>4998</cut_to>
-      </field>
-      <field>
-        <in_stream_name>indicator-title</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>510</cut_to>
-      </field>
-      <field>
-        <in_stream_name>indicator-description</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>3998</cut_to>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>863</xloc>
-      <yloc>283</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
