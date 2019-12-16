@@ -1,5 +1,5 @@
 <job>
-  <name>Scan MinBuza document existence</name>
+  <name>Download public pdfs</name>
     <description/>
     <extended_description/>
     <job_version/>
@@ -8,37 +8,9 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;02&#x2f;02 11&#x3a;14&#x3a;32.505</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019&#x2f;12&#x2f;02 17&#x3a;46&#x3a;57.538</modified_date>
+  <modified_date>2019&#x2f;12&#x2f;05 12&#x3a;18&#x3a;39.734</modified_date>
     <parameters>
     </parameters>
-  <connection>
-    <name>IATI_datamart</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatidatamart</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -78,17 +50,27 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>143</xloc>
-      <yloc>120</yloc>
+      <xloc>184</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
-      <name>Get MinBuza document links</name>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>787</xloc>
+      <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>Get valid publieksbemo pdf list</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Get MinBuza document links</transname>
+      <transname>Get valid publieksbemo pdf list</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -112,20 +94,20 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>447</xloc>
-      <yloc>117</yloc>
+      <xloc>363</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
-      <name>Check MinBuza document existence</name>
+      <name>Download pdf file from URL with curl</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>Check MinBuza document existence</transname>
+      <transname>Download pdf file from URL with curl</transname>
       <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>Y</params_from_previous>
+      <params_from_previous>N</params_from_previous>
       <exec_per_row>Y</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
@@ -143,48 +125,32 @@
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>iati-identifier</name>
-            <stream_name>iati-identifier</stream_name>
+            <parameter>            <name>jsonURL</name>
+            <stream_name>jsonURL</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>pdf-filename</name>
+            <stream_name>pdf-filename</stream_name>
             <value/>
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>632</xloc>
-      <yloc>116</yloc>
-      </entry>
-    <entry>
-      <name>Success</name>
-      <description/>
-      <type>SUCCESS</type>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>823</xloc>
-      <yloc>115</yloc>
-      </entry>
-    <entry>
-      <name>Truncate tables</name>
-      <description/>
-      <type>TRUNCATE_TABLES</type>
-      <connection>IATI_datamart</connection>
-      <arg_from_previous>N</arg_from_previous>
-      <fields>
-        <field>
-          <name>log-document-existence</name>
-          <schemaname>iatidatamart</schemaname>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>291</xloc>
-      <yloc>119</yloc>
+      <xloc>578</xloc>
+      <yloc>117</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>Get MinBuza document links</from>
-      <to>Check MinBuza document existence</to>
+      <from>START</from>
+      <to>Get valid publieksbemo pdf list</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Get valid publieksbemo pdf list</from>
+      <to>Download pdf file from URL with curl</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -192,31 +158,13 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check MinBuza document existence</from>
+      <from>Download pdf file from URL with curl</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>Truncate tables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Truncate tables</from>
-      <to>Get MinBuza document links</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
