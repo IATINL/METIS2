@@ -68,15 +68,15 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 14&#x3a;10&#x3a;38.027</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;06&#x2f;08 11&#x3a;26&#x3a;38.578</modified_date>
+  <modified_date>2020&#x2f;06&#x2f;09 10&#x3a;22&#x3a;01.736</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>This version reads all result fields including every result reference in the IATI file.&#xd;&#xa;The indicator is replicated for each reference code.</note>
-      <xloc>1453</xloc>
-      <yloc>542</yloc>
+      <xloc>1608</xloc>
+      <yloc>534</yloc>
       <width>426</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -167,17 +167,17 @@
   <hop> <from>Cut multiple nref flds</from><to>Write xml activity results nrefs</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in multiple nrefs</from><to>Trim multiple resrefs</to><enabled>Y</enabled> </hop>
   <hop> <from>Trim multiple resrefs</from><to>Cut multiple nref flds</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows results nrefs</from><to>Merge Join</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows results</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Get multiple nrefs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Select fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows results</from><to>Replace NL-1 in result src</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get multiple nrefs</from><to>Replace NL-1 in multiple nrefs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get multiple result references from XML 2.x</from><to>Remove CRLF from keys 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove CRLF from keys 2</from><to>Sort rows results nrefs</to><enabled>Y</enabled> </hop>
   <hop> <from>Get results from XML 2.x</from><to>Get result vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get result vars</from><to>Remove CRLF from keys</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove CRLF from keys</from><to>Sort rows results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get result vars</from><to>Remove CRLF from result keys</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows results nrefs</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get multiple result references from XML 2.x</from><to>Get nrefs vars</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get nrefs vars</from><to>Remove CRLF from nref keys</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select fields</from><to>Replace NL-1 in multiple nrefs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove CRLF from result keys</from><to>Sort rows results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove CRLF from nref keys</from><to>Sort rows results nrefs</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Cut comments and values</name>
@@ -254,8 +254,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>999</xloc>
-      <yloc>408</yloc>
+      <xloc>1112</xloc>
+      <yloc>407</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -332,8 +332,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1164</xloc>
-      <yloc>543</yloc>
+      <xloc>1279</xloc>
+      <yloc>547</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -794,7 +794,7 @@
     </step>
 
   <step>
-    <name>Get multiple nrefs</name>
+    <name>Get nrefs vars</name>
     <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
@@ -856,8 +856,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>729</xloc>
-      <yloc>546</yloc>
+      <xloc>278</xloc>
+      <yloc>551</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1015,141 +1015,6 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>period-start</name>
-        <xpath>..&#x2f;period&#x2f;period-start&#x2f;&#x40;iso-date</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>period-end</name>
-        <xpath>..&#x2f;period&#x2f;period-end&#x2f;&#x40;iso-date</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>baseline-value</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;value</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>baseline-year</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;year</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>baseline-comment</name>
-        <xpath>..&#x2f;baseline&#x2f;comment&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>actual-value</name>
-        <xpath>..&#x2f;period&#x2f;actual&#x2f;&#x40;value</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>actual-comment</name>
-        <xpath>..&#x2f;period&#x2f;actual&#x2f;comment&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>5000</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>target-value</name>
-        <xpath>..&#x2f;period&#x2f;target&#x2f;&#x40;value</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>target-comment</name>
-        <xpath>..&#x2f;period&#x2f;target&#x2f;comment&#x2f;narrative</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>5000</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
         <name>reference-code</name>
         <xpath>&#x40;code</xpath>
         <element_type>attribut</element_type>
@@ -1211,8 +1076,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>94</xloc>
-      <yloc>550</yloc>
+      <xloc>100</xloc>
+      <yloc>549</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1500,8 +1365,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>106</xloc>
-      <yloc>290</yloc>
+      <xloc>110</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1569,8 +1434,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>289</xloc>
-      <yloc>408</yloc>
+      <xloc>282</xloc>
+      <yloc>409</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1908,15 +1773,10 @@
       <key>indicator-measure-code</key>
       <key>key-indicator-title</key>
       <key>key-indicator-description</key>
-      <key>period-start</key>
-      <key>period-end</key>
-      <key>baseline-value</key>
-      <key>baseline-year</key>
-      <key>actual-value</key>
-      <key>actual-comment</key>
-      <key>target-value</key>
-      <key>target-comment</key>
-      <key>baseline-comment</key>
+      <key>publisher</key>
+      <key>publisher-id</key>
+      <key>generated-datetime</key>
+      <key>url-id</key>
     </keys_1>
     <keys_2>
       <key>iati-identifier</key>
@@ -1927,20 +1787,161 @@
       <key>indicator-measure-code</key>
       <key>key-indicator-title</key>
       <key>key-indicator-description</key>
-      <key>period-start</key>
-      <key>period-end</key>
-      <key>baseline-value</key>
-      <key>baseline-year</key>
-      <key>actual-value</key>
-      <key>actual-comment</key>
-      <key>target-value</key>
-      <key>target-comment</key>
-      <key>baseline-comment</key>
+      <key>publisher</key>
+      <key>publisher-id</key>
+      <key>generated-datetime</key>
+      <key>url-id</key>
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>542</xloc>
-      <yloc>548</yloc>
+      <xloc>774</xloc>
+      <yloc>549</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove CRLF from result keys</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>result-title</in_stream_name>
+        <out_stream_name>key-result-title</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>result-description</in_stream_name>
+        <out_stream_name>key-result-description</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>indicator-title</in_stream_name>
+        <out_stream_name>key-indicator-title</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>indicator-description</in_stream_name>
+        <out_stream_name>key-indicator-description</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>414</xloc>
+      <yloc>409</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove CRLF from nref keys</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>result-title</in_stream_name>
+        <out_stream_name>key-result-title</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>result-description</in_stream_name>
+        <out_stream_name>key-result-description</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>indicator-title</in_stream_name>
+        <out_stream_name>key-indicator-title</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>indicator-description</in_stream_name>
+        <out_stream_name>key-indicator-description</out_stream_name>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>crlf</remove_special_characters>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>416</xloc>
+      <yloc>550</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2035,8 +2036,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>882</xloc>
-      <yloc>545</yloc>
+      <xloc>997</xloc>
+      <yloc>549</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2099,14 +2100,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>721</xloc>
-      <yloc>407</yloc>
+      <xloc>834</xloc>
+      <yloc>406</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values</name>
+    <name>Select fields</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2196,11 +2197,27 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>622</xloc>
-      <yloc>549</yloc>
+      <xloc>862</xloc>
+      <yloc>550</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2447,55 +2464,25 @@
         <presorted>N</presorted>
       </field>
       <field>
-        <name>period-start</name>
+        <name>publisher</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>period-end</name>
+        <name>publisher-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>baseline-value</name>
+        <name>generated-datetime</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>baseline-year</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>actual-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>actual-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>target-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>target-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>baseline-comment</name>
+        <name>url-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
@@ -2503,8 +2490,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>543</xloc>
-      <yloc>409</yloc>
+      <xloc>591</xloc>
+      <yloc>407</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2577,73 +2564,25 @@
         <presorted>N</presorted>
       </field>
       <field>
-        <name>period-start</name>
+        <name>publisher</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>period-end</name>
+        <name>publisher-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>baseline-value</name>
+        <name>generated-datetime</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>baseline-year</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>actual-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>actual-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>target-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>target-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>baseline-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>reference-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>reference-vocabulary</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>reference-uri</name>
+        <name>url-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
@@ -2651,8 +2590,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>416</xloc>
-      <yloc>551</yloc>
+      <xloc>585</xloc>
+      <yloc>549</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2698,8 +2637,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1027</xloc>
-      <yloc>544</yloc>
+      <xloc>1142</xloc>
+      <yloc>548</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2831,8 +2770,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>848</xloc>
-      <yloc>408</yloc>
+      <xloc>961</xloc>
+      <yloc>407</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3051,8 +2990,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1194</xloc>
-      <yloc>407</yloc>
+      <xloc>1307</xloc>
+      <yloc>406</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3185,8 +3124,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1328</xloc>
-      <yloc>543</yloc>
+      <xloc>1442</xloc>
+      <yloc>545</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3331,152 +3270,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1052</xloc>
       <yloc>103</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Remove CRLF from keys</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>result-title</in_stream_name>
-        <out_stream_name>key-result-title</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>result-description</in_stream_name>
-        <out_stream_name>key-result-description</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>indicator-title</in_stream_name>
-        <out_stream_name>key-indicator-title</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>indicator-description</in_stream_name>
-        <out_stream_name>key-indicator-description</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>414</xloc>
-      <yloc>409</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Remove CRLF from keys 2</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>result-title</in_stream_name>
-        <out_stream_name>key-result-title</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>result-description</in_stream_name>
-        <out_stream_name>key-result-description</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>indicator-title</in_stream_name>
-        <out_stream_name>key-indicator-title</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>indicator-description</in_stream_name>
-        <out_stream_name>key-indicator-description</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>280</xloc>
-      <yloc>552</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
