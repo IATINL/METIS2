@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2020&#x2f;06&#x2f;26 14&#x3a;43&#x3a;58.956</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;06&#x2f;26 15&#x3a;25&#x3a;34.877</modified_date>
+  <modified_date>2020&#x2f;07&#x2f;28 12&#x3a;25&#x3a;04.643</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -104,6 +104,7 @@
   </connection>
   <order>
   <hop> <from>Trigger</from><to>Clone DM table structures</to><enabled>Y</enabled> </hop>
+  <hop> <from>Clone DM table structures</from><to>Blocking Step</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Clone DM table structures</name>
@@ -121,7 +122,7 @@
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-locations&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-locations&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-budgets&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-budgets&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-transactions&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-transactions&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-results&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-results&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-results-nrefs&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-results-nrefs&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-documents&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-documents&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-descriptions&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-descriptions&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-organisations&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-organisations&#x60; WHERE 1&#x3d;0&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-country-region&#x60; AS SELECT &#x2a; FROM iatidatamart.&#x60;fct-country-region&#x60; WHERE 1&#x3d;0&#x3b;</sql>
+    <sql>CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-locations&#x60; LIKE iatidatamart.&#x60;fct-locations&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-budgets&#x60; LIKE iatidatamart.&#x60;fct-budgets&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-transactions&#x60; LIKE iatidatamart.&#x60;fct-transactions&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-results&#x60; LIKE iatidatamart.&#x60;fct-results&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-results-nrefs&#x60; LIKE iatidatamart.&#x60;fct-results-nrefs&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-documents&#x60; LIKE iatidatamart.&#x60;fct-documents&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-descriptions&#x60; LIKE iatidatamart.&#x60;fct-descriptions&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-organisations&#x60; LIKE iatidatamart.&#x60;fct-organisations&#x60;&#x3b;&#xd;&#xa;CREATE TABLE IF NOT EXISTS iatidatamart.&#x60;clone-fct-country-region&#x60; LIKE iatidatamart.&#x60;fct-country-region&#x60;&#x3b;</sql>
     <set_params>N</set_params>
     <insert_field/>
     <update_field/>
@@ -170,6 +171,30 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>291</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Blocking Step</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <pass_all_rows>N</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>610</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
