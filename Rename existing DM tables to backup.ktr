@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Read config to set variables</name>
+    <name>Rename existing DM tables to backup</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,20 +66,50 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2011&#x2f;04&#x2f;22 12&#x3a;33&#x3a;24.933</created_date>
+  <created_date>2020&#x2f;07&#x2f;27 12&#x3a;46&#x3a;05.679</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;08&#x2f;03 10&#x3a;26&#x3a;21.682</modified_date>
+  <modified_date>2020&#x2f;07&#x2f;28 16&#x3a;42&#x3a;20.901</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>IATI_datamart</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>iatidatamart</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>config.properties</from><to>set variables</to><enabled>Y</enabled> </hop>
+  <hop> <from>Formula</from><to>Execute row SQL script</to><enabled>Y</enabled> </hop>
+  <hop> <from>Data Grid</from><to>Formula</to><enabled>Y</enabled> </hop>
+  <hop> <from>Execute row SQL script</from><to>Blocking Step</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>config.properties</name>
-    <type>PropertyInput</type>
+    <name>Blocking Step</name>
+    <type>BlockingStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -88,75 +118,22 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <file_type>property</file_type>
-    <encoding>UTF-8</encoding>
-    <include>N</include>
-    <include_field/>
-    <filename_Field/>
-    <rownum>N</rownum>
-    <isaddresult>Y</isaddresult>
-    <filefield>N</filefield>
-    <rownum_field/>
-    <resetrownumber>N</resetrownumber>
-    <resolvevaluevariable>N</resolvevaluevariable>
-    <ini_section>N</ini_section>
-    <ini_section_field/>
-    <section/>
-    <file>
-      <name>&#x24;&#x7b;user.home&#x7d;&#x2f;iati_pdi_config&#x2f;config.properties</name>
-      <exclude_filemask/>
-      <filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>Key</name>
-        <column>key</column>
-        <type>String</type>
-        <format/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <currency/>
-        <decimal/>
-        <group/>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Value</name>
-        <column>value</column>
-        <type>String</type>
-        <format/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <currency/>
-        <decimal/>
-        <group/>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+      <pass_all_rows>N</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>80</xloc>
-      <yloc>60</yloc>
+      <xloc>663</xloc>
+      <yloc>87</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>set variables</name>
-    <type>ScriptValueMod</type>
+    <name>Data Grid</name>
+    <type>DataGrid</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -165,15 +142,99 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;setVariable&#x28;Key,Value,&#x22;r&#x22;&#x29;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>    </fields>     <cluster_schema/>
+    <fields>
+      <field>
+        <name>rename_from</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>rename_to</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line> <item>iatidatamart.&#x60;fct-locations&#x60;</item><item>iatidatamart.&#x60;backup-fct-locations&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-budgets&#x60;</item><item>iatidatamart.&#x60;backup-fct-budgets&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-transactions&#x60;</item><item>iatidatamart.&#x60;backup-fct-transactions&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-results&#x60;</item><item>iatidatamart.&#x60;backup-fct-results&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-results-nrefs&#x60;</item><item>iatidatamart.&#x60;backup-fct-results-nrefs&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-documents&#x60;</item><item>iatidatamart.&#x60;backup-fct-documents&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-descriptions&#x60;</item><item>iatidatamart.&#x60;backup-fct-descriptions&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-organisations&#x60;</item><item>iatidatamart.&#x60;backup-fct-organisations&#x60;</item> </line>
+      <line> <item>iatidatamart.&#x60;fct-country-region&#x60;</item><item>iatidatamart.&#x60;backup-fct-country-region&#x60;</item> </line>
+    </data>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>282</xloc>
-      <yloc>61</yloc>
+      <xloc>152</xloc>
+      <yloc>87</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Execute row SQL script</name>
+    <type>ExecSQLRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <commit>1</commit>
+    <connection>IATI_datamart</connection>
+    <sql_field>sql</sql_field>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <sqlFromfile>N</sqlFromfile>
+    <sendOneStatement>Y</sendOneStatement>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>456</xloc>
+      <yloc>87</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Formula</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>sql</field_name>
+<formula_string>&#x22;RENAME TABLE &#x22;&#x26;&#x5b;rename_from&#x5d;&#x26;&#x22; TO &#x22;&#x26;&#x5b;rename_to&#x5d;&#xd;&#xa;&#xd;&#xa;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>289</xloc>
+      <yloc>87</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
