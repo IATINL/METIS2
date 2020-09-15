@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;20 10&#x3a;05&#x3a;36.901</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;06&#x2f;26 15&#x3a;17&#x3a;13.096</modified_date>
+  <modified_date>2020&#x2f;09&#x2f;15 10&#x3a;18&#x3a;57.455</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -123,6 +123,27 @@
       <heigth>40</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Remove zero budget lines removes all budgetlines &#xd;&#xa;where both the budget, disbursements and expenditures&#xd;&#xa;are zero</note>
+      <xloc>993</xloc>
+      <yloc>591</yloc>
+      <width>309</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -210,7 +231,7 @@
   <hop> <from>Join actuals</from><to>If budget is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If budget is null</from><to>Select budget &#x26; actuals</to><enabled>Y</enabled> </hop>
   <hop> <from>Select budget &#x26; actuals</from><to>Remove zero budgets</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove zero budgets</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove zero budgets</from><to>Zero budget sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove zero budgets</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows 2</from><to>Join weights</to><enabled>Y</enabled> </hop>
   <hop> <from>Add child indicator</from><to>Calc has childs</to><enabled>Y</enabled> </hop>
@@ -416,7 +437,7 @@
     </step>
 
   <step>
-    <name>Dummy &#x28;do nothing&#x29; 2</name>
+    <name>Zero budget sink</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -821,7 +842,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Sort rows 2</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29; 2</send_false_to>
+<send_false_to>Zero budget sink</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -829,6 +850,20 @@
   <condition>
    <negated>N</negated>
    <leftvalue>budget-value-eur</leftvalue>
+   <function>&#x3c;&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>disbursement-eur</leftvalue>
+   <function>&#x3c;&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>expenditure-eur</leftvalue>
    <function>&#x3c;&#x3e;</function>
    <rightvalue/>
    <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
