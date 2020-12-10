@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;08 10&#x3a;15&#x3a;10.798</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;10&#x2f;25 11&#x3a;27&#x3a;48.746</modified_date>
+  <modified_date>2020&#x2f;11&#x2f;26 15&#x3a;12&#x3a;31.164</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -113,13 +113,13 @@
   <hop> <from>Map reporting org type</from><to>Replace NL-1 in act src</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill empty location type code</from><to>Set position delimeter</to><enabled>Y</enabled> </hop>
   <hop> <from>If org type is null</from><to>Map org type text to codes</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in country src</from><to>Write src countries</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in region src</from><to>Write src regions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in country src</from><to>Write xml countries</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in region src</from><to>Write xml regions</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter clean values</from><to>Replace NL-1 in location src</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in location src</from><to>Write src locations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in location src</from><to>Write xml locations</to><enabled>Y</enabled> </hop>
   <hop> <from>Trim organisation names</from><to>Replace NL-1 in org src</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in org src</from><to>If part org name or ref is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If part org name or ref is null</from><to>Write src organisations</to><enabled>Y</enabled> </hop>
+  <hop> <from>If part org name or ref is null</from><to>Write xml organisations</to><enabled>Y</enabled> </hop>
   <hop> <from>Get countries from XML 2.x</from><to>Get country vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get regions from XML 2.x</from><to>Get region vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get general activity data from XML 2.x</from><to>Get act vars</to><enabled>Y</enabled> </hop>
@@ -140,12 +140,12 @@
   <hop> <from>Get sectors from XML 2.x</from><to>Get sector vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in sector src</from><to>Change &#x25; to number</to><enabled>Y</enabled> </hop>
   <hop> <from>Change &#x25; to number</from><to>Fill empty vocabulary code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Limit code to 5 chars</from><to>Write src sectors</to><enabled>Y</enabled> </hop>
+  <hop> <from>Limit code to 5 chars</from><to>Write xml sectors</to><enabled>Y</enabled> </hop>
   <hop> <from>Is DAC sector&#x3f;</from><to>Non DAC sector sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill empty vocabulary code</from><to>Is DAC sector&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Is DAC sector&#x3f;</from><to>Limit code to 5 chars</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in act src</from><to>Limit field width</to><enabled>Y</enabled> </hop>
-  <hop> <from>Limit field width</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Limit field width</from><to>Write xml activity data</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Change &#x25; to number</name>
@@ -792,7 +792,7 @@
       </field>
       <field>
         <name>default-finance-type</name>
-        <xpath>default-finance-type&#x2f;code</xpath>
+        <xpath>default-finance-type&#x2f;&#x40;code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -807,7 +807,37 @@
       </field>
       <field>
         <name>default-tied-status</name>
-        <xpath>default-tied-status&#x2f;code</xpath>
+        <xpath>default-tied-status&#x2f;&#x40;code</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>default-aid-type</name>
+        <xpath>default-aid-type&#x2f;&#x40;code</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>humanitarian</name>
+        <xpath>&#x40;humanitarian</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -2798,7 +2828,7 @@
     </step>
 
   <step>
-    <name>Write src activity data</name>
+    <name>Write xml activity data</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2829,6 +2859,10 @@
         <field>
           <column_name>iati-identifier</column_name>
           <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>humanitarian</column_name>
+          <stream_name>humanitarian</stream_name>
         </field>
         <field>
           <column_name>activity-title</column_name>
@@ -2883,6 +2917,10 @@
           <stream_name>reporting-org-type</stream_name>
         </field>
         <field>
+          <column_name>default-aid-type</column_name>
+          <stream_name>default-aid-type</stream_name>
+        </field>
+        <field>
           <column_name>default-finance-type</column_name>
           <stream_name>default-finance-type</stream_name>
         </field>
@@ -2916,7 +2954,7 @@
     </step>
 
   <step>
-    <name>Write src countries</name>
+    <name>Write xml countries</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2982,7 +3020,7 @@
     </step>
 
   <step>
-    <name>Write src locations</name>
+    <name>Write xml locations</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3060,7 +3098,7 @@
     </step>
 
   <step>
-    <name>Write src organisations</name>
+    <name>Write xml organisations</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3134,7 +3172,7 @@
     </step>
 
   <step>
-    <name>Write src regions</name>
+    <name>Write xml regions</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3200,7 +3238,7 @@
     </step>
 
   <step>
-    <name>Write src sectors</name>
+    <name>Write xml sectors</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3271,7 +3309,7 @@
 
   <step_error_handling>
       <error>
-        <source_step>Write src locations</source_step>
+        <source_step>Write xml locations</source_step>
         <target_step/>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
