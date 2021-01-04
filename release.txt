@@ -69,3 +69,4 @@ Version 3.78 Fix for the handling of empty streams in reverse geolocation
 Version 3.79 Added functionality to have multiple result references for one result indicator
 Version 3.80 Redesigned datamart layer refresh so that data will still be available if unexpected errors occur
 Version 3.81 Fixed bug where zero budgetlines are removed when there are non-zero disbursements or expenditures in the budget period
+Version 3.82 Added humanitarian flag and aidtype to the database and codelists
