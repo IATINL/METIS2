@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;11 13&#x3a;37&#x3a;32.643</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;10&#x2f;25 11&#x3a;28&#x3a;38.880</modified_date>
+  <modified_date>2020&#x2f;11&#x2f;26 15&#x3a;15&#x3a;23.576</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -107,11 +107,11 @@
   <hop> <from>Replace NL-1</from><to>Map participating role</to><enabled>Y</enabled> </hop>
   <hop> <from>Map reporting org type</from><to>Replace NL-1 in act src</to><enabled>Y</enabled> </hop>
   <hop> <from>If org type is null</from><to>Map organisation type </to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in country src</from><to>Write src countries</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in region src</from><to>Write src regions</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in country src</from><to>Write xml countries</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace NL-1 in region src</from><to>Write xml regions</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill empty location type code</from><to>Replace NL-1 in location src</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in org src</from><to>If part org name or ref is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If part org name or ref is null</from><to>Write src organisations</to><enabled>Y</enabled> </hop>
+  <hop> <from>If part org name or ref is null</from><to>Write xml organisations</to><enabled>Y</enabled> </hop>
   <hop> <from>Get sectors from XML 1.x</from><to>Get sector vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get countries from XML 1.x</from><to>Get country vars</to><enabled>Y</enabled> </hop>
   <hop> <from>Get regions from XML 1.x</from><to>Get region vars</to><enabled>Y</enabled> </hop>
@@ -133,16 +133,16 @@
   <hop> <from>Fill empty voc code</from><to>Replace NL-1 in sector src</to><enabled>Y</enabled> </hop>
   <hop> <from>Map participating role</from><to>Replace NL-1 in org src</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in location src</from><to>Map precision codes</to><enabled>Y</enabled> </hop>
-  <hop> <from>Map precision codes</from><to>Write src locations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Map precision codes</from><to>Write xml locations</to><enabled>Y</enabled> </hop>
   <hop> <from>Get sector vars</from><to>Sort sector rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in sector src</from><to>Change &#x25; to number</to><enabled>Y</enabled> </hop>
   <hop> <from>Is DAC sector&#x3f;</from><to>Non DAC sector sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Is DAC sector&#x3f;</from><to>Limit code to 5 chars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Limit code to 5 chars</from><to>Write src sectors</to><enabled>Y</enabled> </hop>
+  <hop> <from>Limit code to 5 chars</from><to>Write xml sectors</to><enabled>Y</enabled> </hop>
   <hop> <from>Change &#x25; to number</from><to>Is DAC sector&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in act src</from><to>Map act status to number</to><enabled>Y</enabled> </hop>
   <hop> <from>Map act status to number</from><to>Limit field width</to><enabled>Y</enabled> </hop>
-  <hop> <from>Limit field width</from><to>Write src activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Limit field width</from><to>Write xml activity data</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Change &#x25; to number</name>
@@ -2762,7 +2762,7 @@
     </step>
 
   <step>
-    <name>Write src activity data</name>
+    <name>Write xml activity data</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2872,7 +2872,7 @@
     </step>
 
   <step>
-    <name>Write src countries</name>
+    <name>Write xml countries</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2938,7 +2938,7 @@
     </step>
 
   <step>
-    <name>Write src locations</name>
+    <name>Write xml locations</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3024,7 +3024,7 @@
     </step>
 
   <step>
-    <name>Write src organisations</name>
+    <name>Write xml organisations</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3098,7 +3098,7 @@
     </step>
 
   <step>
-    <name>Write src regions</name>
+    <name>Write xml regions</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3164,7 +3164,7 @@
     </step>
 
   <step>
-    <name>Write src sectors</name>
+    <name>Write xml sectors</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>

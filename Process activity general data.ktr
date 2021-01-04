@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 16&#x3a;03&#x3a;28.750</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019&#x2f;01&#x2f;30 14&#x3a;01&#x3a;13.294</modified_date>
+  <modified_date>2020&#x2f;12&#x2f;09 10&#x3a;28&#x3a;48.183</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -164,20 +164,23 @@
   <hop> <from>Denormalise dates</from><to>Join dates</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act dates from DB</from><to>Select dates</to><enabled>Y</enabled> </hop>
   <hop> <from>Get org type codelist</from><to>Lookup rep org type</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write activity data</from><to>Error log write activity data</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write activity dimension</from><to>Error log write activity data</to><enabled>Y</enabled> </hop>
   <hop> <from>Read policy markers from DB</from><to>Sort marker rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort marker rows</from><to>Denormalise markers</to><enabled>Y</enabled> </hop>
   <hop> <from>Join markers</from><to>Join dates</to><enabled>Y</enabled> </hop>
   <hop> <from>Denormalise markers</from><to>Join markers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup rep org type</from><to>String operations</to><enabled>Y</enabled> </hop>
   <hop> <from>String operations</from><to>Join markers</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act data from DB</from><to>Lookup act status</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup act status</from><to>Lookup rep org type</to><enabled>Y</enabled> </hop>
   <hop> <from>Get act status codelist</from><to>Lookup act status</to><enabled>Y</enabled> </hop>
   <hop> <from>Get url root from parameters</from><to>Select urlroot</to><enabled>Y</enabled> </hop>
   <hop> <from>Select urlroot</from><to>Join urlroot</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join urlroot</from><to>Write activity data</to><enabled>Y</enabled> </hop>
   <hop> <from>Join dates</from><to>Join urlroot</to><enabled>Y</enabled> </hop>
+  <hop> <from>Join urlroot</from><to>If humanitarian marker is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>If humanitarian marker is null</from><to>Write activity dimension</to><enabled>Y</enabled> </hop>
+  <hop> <from>Lookup rep org type</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Stream lookup</from><to>String operations</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get aid type codelist</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Denormalise dates</name>
@@ -256,8 +259,8 @@
         </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>658</xloc>
-      <yloc>41</yloc>
+      <xloc>698</xloc>
+      <yloc>39</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -409,8 +412,8 @@
         </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>535</xloc>
-      <yloc>141</yloc>
+      <xloc>575</xloc>
+      <yloc>139</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -557,8 +560,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1116</xloc>
-      <yloc>35</yloc>
+      <xloc>1325</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -583,8 +586,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>223</xloc>
-      <yloc>371</yloc>
+      <xloc>206</xloc>
+      <yloc>370</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -609,8 +612,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>368</xloc>
-      <yloc>373</yloc>
+      <xloc>351</xloc>
+      <yloc>372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -637,6 +640,40 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>80</xloc>
       <yloc>454</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If humanitarian marker is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>humanitarian</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1187</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -689,8 +726,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>885</xloc>
-      <yloc>265</yloc>
+      <xloc>925</xloc>
+      <yloc>263</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -773,8 +810,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>713</xloc>
-      <yloc>264</yloc>
+      <xloc>753</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -799,8 +836,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1015</xloc>
-      <yloc>265</yloc>
+      <xloc>1055</xloc>
+      <yloc>263</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -835,8 +872,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>224</xloc>
-      <yloc>265</yloc>
+      <xloc>207</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -871,8 +908,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>369</xloc>
-      <yloc>264</yloc>
+      <xloc>352</xloc>
+      <yloc>263</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -889,7 +926,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;activity-title&#x60;&#xd;&#xa;, &#x60;activity-status&#x60;&#xd;&#xa;, &#x60;contact-organisation&#x60;&#xd;&#xa;, &#x60;contact-person-name&#x60;&#xd;&#xa;, &#x60;contact-telephone&#x60;&#xd;&#xa;, &#x60;contact-email&#x60;&#xd;&#xa;, &#x60;contact-mailing-address&#x60;&#xd;&#xa;, &#x60;activity-website&#x60;&#xd;&#xa;, &#x60;reporting-org-name&#x60;&#xd;&#xa;, &#x60;reporting-org-ref&#x60;&#xd;&#xa;, &#x60;reporting-org-type&#x60;&#xd;&#xa;, &#x60;default-finance-type&#x60;&#xd;&#xa;, &#x60;default-tied-status&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-data&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;humanitarian&#x60;&#xd;&#xa;, &#x60;activity-title&#x60;&#xd;&#xa;, &#x60;activity-status&#x60;&#xd;&#xa;, &#x60;contact-organisation&#x60;&#xd;&#xa;, &#x60;contact-person-name&#x60;&#xd;&#xa;, &#x60;contact-telephone&#x60;&#xd;&#xa;, &#x60;contact-email&#x60;&#xd;&#xa;, &#x60;contact-mailing-address&#x60;&#xd;&#xa;, &#x60;activity-website&#x60;&#xd;&#xa;, &#x60;reporting-org-name&#x60;&#xd;&#xa;, &#x60;reporting-org-ref&#x60;&#xd;&#xa;, &#x60;reporting-org-type&#x60;&#xd;&#xa;, &#x60;default-aid-type&#x60;&#xd;&#xa;, &#x60;default-finance-type&#x60;&#xd;&#xa;, &#x60;default-tied-status&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-data&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -897,7 +934,7 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>85</xloc>
+      <xloc>83</xloc>
       <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
@@ -996,8 +1033,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>374</xloc>
-      <yloc>40</yloc>
+      <xloc>357</xloc>
+      <yloc>39</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1020,8 +1057,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>869</xloc>
-      <yloc>450</yloc>
+      <xloc>909</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1066,8 +1103,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>533</xloc>
-      <yloc>40</yloc>
+      <xloc>573</xloc>
+      <yloc>38</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1100,8 +1137,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>372</xloc>
-      <yloc>142</yloc>
+      <xloc>355</xloc>
+      <yloc>141</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1134,14 +1171,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>539</xloc>
-      <yloc>264</yloc>
+      <xloc>579</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write activity data</name>
+    <name>Write activity dimension</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1172,6 +1209,10 @@
         <field>
           <column_name>iati-identifier</column_name>
           <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>humanitarian</column_name>
+          <stream_name>humanitarian</stream_name>
         </field>
         <field>
           <column_name>activity-title</column_name>
@@ -1262,6 +1303,22 @@
           <stream_name>marker-rmnch</stream_name>
         </field>
         <field>
+          <column_name>default-aid-type</column_name>
+          <stream_name>default-aid-type</stream_name>
+        </field>
+        <field>
+          <column_name>aid-type-name</column_name>
+          <stream_name>aid-type-name</stream_name>
+        </field>
+        <field>
+          <column_name>aid-type-category-code</column_name>
+          <stream_name>aid-type-category-code</stream_name>
+        </field>
+        <field>
+          <column_name>aid-type-category-name</column_name>
+          <stream_name>aid-type-category-name</stream_name>
+        </field>
+        <field>
           <column_name>default-finance-type</column_name>
           <stream_name>default-finance-type</stream_name>
         </field>
@@ -1308,15 +1365,89 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1119</xloc>
-      <yloc>265</yloc>
+      <xloc>1329</xloc>
+      <yloc>262</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Get aid type codelist</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>default-aid-type</name>
+        <field>aid-type-code</field>
+      </key>
+      <value>
+        <name>aid-type-name</name>
+        <rename>aid-type-name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>aid-type-category-code</name>
+        <rename>aid-type-category-code</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>aid-type-category-name</name>
+        <rename>aid-type-category-name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>473</xloc>
+      <yloc>262</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get aid type codelist</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_reference</connection>
+    <sql>SELECT&#xd;&#xa;  &#x60;aid-type-code&#x60;&#xd;&#xa;, &#x60;aid-type-name&#x60;&#xd;&#xa;, &#x60;aid-type-description&#x60;&#xd;&#xa;, &#x60;aid-type-category-code&#x60;&#xd;&#xa;, &#x60;aid-type-category-name&#x60;&#xd;&#xa;, &#x60;aid-type-category-description&#x60;&#xd;&#xa;FROM iatireference.&#x60;codelist-aid-type&#x60;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>473</xloc>
+      <yloc>369</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
       <error>
-        <source_step>Write activity data</source_step>
+        <source_step>Write activity dimension</source_step>
         <target_step>Error log write activity data</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename>nr of errors</nr_valuename>
