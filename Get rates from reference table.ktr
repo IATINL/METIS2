@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;07&#x2f;07 15&#x3a;47&#x3a;37.845</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;05&#x2f;19 10&#x3a;31&#x3a;48.109</modified_date>
+  <modified_date>2021&#x2f;01&#x2f;11 10&#x3a;10&#x3a;10.783</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Add Euro as a currency with exchange rate 1</note>
+      <xloc>229</xloc>
+      <yloc>267</yloc>
+      <width>244</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -104,59 +125,6 @@
     </attributes>
   </connection>
   <connection>
-    <name>IATI_datamart</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatidatamart</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_logging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatilogging</database>
-    <port>3307</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>IATI_reference</name>
     <server/>
     <type>MYSQL</type>
@@ -184,44 +152,15 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>IATI_staging</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatistaging</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
   <hop> <from>Generate EUR rate &#x28;1.0000&#x29;</from><to>Add EURO</to><enabled>Y</enabled> </hop>
   <hop> <from>Veld volgorde</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add EURO</from><to>Add bron</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add bron</from><to>Veld volgorde</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add EURO</from><to>Set bron to &#x27;System generated&#x27;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set bron to &#x27;System generated&#x27;</from><to>Veld volgorde</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read currency reference table</from><to>Set bron to corperate rate BZ</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set bron to corperate rate BZ</from><to>Veld volgorde 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Veld volgorde 2</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Truncate and write currency table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read currency reference table</from><to>Veld volgorde 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add EURO</name>
@@ -246,40 +185,7 @@
       <max_value>2050</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>287</xloc>
-      <yloc>201</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add bron</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>Bron</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>System generated</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>395</xloc>
+      <xloc>255</xloc>
       <yloc>201</yloc>
       <draw>Y</draw>
       </GUI>
@@ -343,14 +249,14 @@
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <limit>50</limit>
+    <limit>1</limit>
     <never_ending>N</never_ending>
     <interval_in_ms>5000</interval_in_ms>
     <row_time_field>now</row_time_field>
     <last_time_field>FiveSecondsAgo</last_time_field>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>152</xloc>
+      <xloc>120</xloc>
       <yloc>200</yloc>
       <draw>Y</draw>
       </GUI>
@@ -368,7 +274,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_reference</connection>
-    <sql>SELECT&#xd;&#xa;  Jaar&#xd;&#xa;, Valuta&#xd;&#xa;, Koers&#xd;&#xa;FROM iatireference.&#x60;ref-currency-rates&#x60;&#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  Jaar&#xd;&#xa;, Valuta&#xd;&#xa;, Bron&#xd;&#xa;, Koers&#xd;&#xa;FROM iatireference.&#x60;ref-currency-rates&#x60;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -376,14 +282,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>153</xloc>
+      <xloc>121</xloc>
       <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Set bron to corperate rate BZ</name>
+    <name>Set bron to &#x27;System generated&#x27;</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -401,7 +307,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>Corporate rate BZ</nullif>
+        <nullif>System generated</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -409,8 +315,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>405</xloc>
-      <yloc>68</yloc>
+      <xloc>395</xloc>
+      <yloc>201</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -456,7 +362,7 @@
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Truncate and write currency table</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -503,8 +409,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>973</xloc>
-      <yloc>125</yloc>
+      <xloc>972</xloc>
+      <yloc>126</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
