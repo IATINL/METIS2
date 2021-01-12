@@ -70,3 +70,4 @@ Version 3.79 Added functionality to have multiple result references for one resu
 Version 3.80 Redesigned datamart layer refresh so that data will still be available if unexpected errors occur
 Version 3.81 Fixed bug where zero budgetlines are removed when there are non-zero disbursements or expenditures in the budget period
 Version 3.82 Added humanitarian flag and aidtype to the database and codelists
+Version 3.83 Added processing of currency year '9999' ('all future years') when updating the currency rate table
