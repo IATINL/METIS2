@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;07&#x2f;06 16&#x3a;28&#x3a;22.094</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;09 10&#x3a;09&#x3a;17.650</modified_date>
+  <modified_date>2021&#x2f;05&#x2f;26 15&#x3a;30&#x3a;42.458</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -352,7 +352,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>http&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;201&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;SectorCategory.xml</name>
+      <name>&#x7b;CODELIST_PATH&#x7d;SectorCategory.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -452,7 +452,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>http&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;201&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;ActivityDateType.xml</name>
+      <name>&#x24;&#x7b;CODELIST_PATH&#x7d;ActivityDateType.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -552,7 +552,12 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>https&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;reference_downloads&#x2f;203&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;AidType-category.xml</name>
+      <name>&#x24;&#x7b;CODELIST_PATH&#x7d;AidType-category.xml</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -652,7 +657,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>https&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;reference_downloads&#x2f;203&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;AidType.xml</name>
+      <name>&#x24;&#x7b;CODELIST_PATH&#x7d;AidType.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -767,7 +772,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>http&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;201&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;DescriptionType.xml</name>
+      <name>&#x24;&#x7b;CODELIST_PATH&#x7d;DescriptionType.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -867,7 +872,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>http&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;201&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;OrganisationType.xml</name>
+      <name>&#x24;&#x7b;CODELIST_PATH&#x7d;OrganisationType.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -952,7 +957,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>http&#x3a;&#x2f;&#x2f;iatistandard.org&#x2f;201&#x2f;codelists&#x2f;downloads&#x2f;clv3&#x2f;xml&#x2f;Sector.xml</name>
+      <name>&#x24;&#x7b;CODELIST_PATH&#x7d;Sector.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1036,7 +1041,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>88</xloc>
+      <xloc>87</xloc>
       <yloc>130</yloc>
       <draw>Y</draw>
       </GUI>
