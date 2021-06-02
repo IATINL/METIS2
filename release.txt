@@ -73,3 +73,4 @@ Version 3.82 Added humanitarian flag and aidtype to the database and codelists
 Version 3.83 Added processing of currency year '9999' ('all future years') when updating the currency rate table
 Version 3.84 Added country latitude and longitude to dim-country table
 Version 3.85 Fixed missing 'unspecified' record in dim-organisations
+Version 3.86 Added feature to replace ISO country names with BZ country names and getting codelists from github
