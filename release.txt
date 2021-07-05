@@ -74,3 +74,4 @@ Version 3.83 Added processing of currency year '9999' ('all future years') when 
 Version 3.84 Added country latitude and longitude to dim-country table
 Version 3.85 Fixed missing 'unspecified' record in dim-organisations
 Version 3.86 Added feature to replace ISO country names with BZ country names and getting codelists from github
+Version 3.87 Fixed generation of codelists by making use of github IATI codelist definitions
