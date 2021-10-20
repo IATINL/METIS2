@@ -76,3 +76,4 @@ Version 3.85 Fixed missing 'unspecified' record in dim-organisations
 Version 3.86 Added feature to replace ISO country names with BZ country names and getting codelists from github
 Version 3.87 Fixed generation of codelists by making use of github IATI codelist definitions
 Version 3.88 Fixed memory problem in link publishers by reducing the nr of lines in sort steps
+Version 3.89 Added support for the aggregation status flag on the indicator level
