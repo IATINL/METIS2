@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;08&#x2f;29 17&#x3a;54&#x3a;48.360</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019&#x2f;04&#x2f;15 15&#x3a;40&#x3a;09.083</modified_date>
+  <modified_date>2022&#x2f;01&#x2f;17 18&#x3a;00&#x3a;37.006</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -33,40 +33,6 @@
    <pass_batchid>N</pass_batchid>
    <shared_objects_file/>
   <entries>
-    <entry>
-      <name>Select IATI activity files  to validate</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Select IATI activity files  to validate</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>545</xloc>
-      <yloc>107</yloc>
-      </entry>
     <entry>
       <name>START</name>
       <description/>
@@ -94,40 +60,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1681</xloc>
-      <yloc>108</yloc>
-      </entry>
-    <entry>
-      <name>Extended validation of one file</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id/>
-      <filename/>
-      <jobname>Extended validation of one file</jobname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>926</xloc>
-      <yloc>108</yloc>
+      <xloc>1162</xloc>
+      <yloc>105</yloc>
       </entry>
     <entry>
       <name>Read config to set variables</name>
@@ -162,85 +96,6 @@
       <nr>0</nr>
       <xloc>166</xloc>
       <yloc>108</yloc>
-      </entry>
-    <entry>
-      <name>Purge publisher error log</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Purge publisher error log</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>739</xloc>
-      <yloc>108</yloc>
-      </entry>
-    <entry>
-      <name>Get valid SVRL MD5 list</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>Get valid SVRL MD5 list</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>352</xloc>
-      <yloc>108</yloc>
-      </entry>
-    <entry>
-      <name>Abort job&#x3a; missing MD5 filelist</name>
-      <description/>
-      <type>ABORT</type>
-      <message>Unable to retreive  data validator server MD5 list</message>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>351</xloc>
-      <yloc>232</yloc>
       </entry>
     <entry>
       <name>Abort job&#x3a; unable to read config</name>
@@ -284,7 +139,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1127</xloc>
+      <xloc>584</xloc>
       <yloc>108</yloc>
       </entry>
     <entry>
@@ -318,8 +173,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1332</xloc>
-      <yloc>108</yloc>
+      <xloc>779</xloc>
+      <yloc>107</yloc>
       </entry>
     <entry>
       <name>Mail notification to publishers</name>
@@ -352,7 +207,41 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1535</xloc>
+      <xloc>989</xloc>
+      <yloc>105</yloc>
+      </entry>
+    <entry>
+      <name>Official validator read publishers to process</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Official validator read publishers to process</transname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>382</xloc>
       <yloc>107</yloc>
       </entry>
   </entries>
@@ -367,51 +256,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Select IATI activity files  to validate</from>
-      <to>Purge publisher error log</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Purge publisher error log</from>
-      <to>Extended validation of one file</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Read config to set variables</from>
-      <to>Get valid SVRL MD5 list</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get valid SVRL MD5 list</from>
-      <to>Select IATI activity files  to validate</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get valid SVRL MD5 list</from>
-      <to>Abort job&#x3a; missing MD5 filelist</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Read config to set variables</from>
       <to>Abort job&#x3a; unable to read config</to>
       <from_nr>0</from_nr>
@@ -419,15 +263,6 @@
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Extended validation of one file</from>
-      <to>Aggregate publisher error log</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Aggregate publisher error log</from>
@@ -456,12 +291,30 @@
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Official validator read publishers to process</from>
+      <to>Aggregate publisher error log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Read config to set variables</from>
+      <to>Official validator read publishers to process</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
       <note>This job produces a detailed error analysis for each new IATI activity file,&#xd;&#xa;generates an error summery PDF report and subsequently sends an &#xd;&#xa;e-mail to the publisher. </note>
-      <xloc>31</xloc>
-      <yloc>25</yloc>
+      <xloc>37</xloc>
+      <yloc>0</yloc>
       <width>487</width>
       <heigth>70</heigth>
       <fontname>Segoe UI</fontname>
