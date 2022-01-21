@@ -68,16 +68,16 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;03&#x2f;08 17&#x3a;06&#x3a;01.290</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;01&#x2f;20 09&#x3a;57&#x3a;52.359</modified_date>
+  <modified_date>2022&#x2f;01&#x2f;21 17&#x3a;13&#x3a;51.182</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Select all publishers for which an error notification must be send &#xd;&#xa;to the author e-mail address as specified in the IATI registry&#x3a;&#xd;&#xa;1 - The day number equals the sequence number modulo 31 &#x28;split publishers by days in month&#x29;&#xd;&#xa;2 - The publisher is set  to send e-mail to&#xd;&#xa;3 - The publisher has not been send e-mail to within the notification period to avoid spamming</note>
+      <note>Select all publishers for which an error notification must be send &#xd;&#xa;to the author e-mail address as specified in the IATI registry&#x3a;&#xd;&#xa;1 - The day number equals the sequence number modulo 7 &#x28;split publishers by weekdays&#x29;&#xd;&#xa;2 - The publisher is set  to send e-mail to&#xd;&#xa;3 - The publisher has not been send e-mail to within the notification period to avoid spamming</note>
       <xloc>785</xloc>
       <yloc>364</yloc>
-      <width>513</width>
+      <width>512</width>
       <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -96,7 +96,7 @@
     </notepad>
     <notepad>
       <note>Check if e-mail address is active &#xd;&#xa;and if the email address is valid</note>
-      <xloc>1034</xloc>
+      <xloc>766</xloc>
       <yloc>13</yloc>
       <width>182</width>
       <heigth>42</heigth>
@@ -117,7 +117,7 @@
     </notepad>
     <notepad>
       <note>Log the date on which the notification message was send</note>
-      <xloc>2307</xloc>
+      <xloc>2047</xloc>
       <yloc>202</yloc>
       <width>313</width>
       <heigth>26</heigth>
@@ -208,11 +208,7 @@
   <hop> <from>Mail feedback</from><to>Log successful sending</to><enabled>Y</enabled> </hop>
   <hop> <from>Log successful sending</from><to>Get System Info</to><enabled>Y</enabled> </hop>
   <hop> <from>Weekly sequence numbers</from><to>Today</to><enabled>Y</enabled> </hop>
-  <hop> <from>Today</from><to>Current daynumber in week</to><enabled>Y</enabled> </hop>
   <hop> <from>Mail subject and msg text</from><to>Mail feedback</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select publishers to process</from><to>Lookup e-mail address</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select publishers to process</from><to>Off days sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Current daynumber in week</from><to>Select publishers to process</to><enabled>Y</enabled> </hop>
   <hop> <from>Get vars</from><to>Write variables to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write variables to log</from><to>Weekly sequence numbers</to><enabled>Y</enabled> </hop>
   <hop> <from>Calculate days since last email</from><to>Days passed &#x3e; notification period&#x3f;</to><enabled>Y</enabled> </hop>
@@ -220,6 +216,7 @@
   <hop> <from>Days passed &#x3e; notification period&#x3f;</from><to>Too recently send email sink</to><enabled>Y</enabled> </hop>
   <hop> <from>E-mail address active&#x3f;</from><to>If notification date is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If notification date is null</from><to>Calculate days since last email</to><enabled>Y</enabled> </hop>
+  <hop> <from>Today</from><to>Lookup e-mail address</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calc error file name</name>
@@ -241,7 +238,7 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1671</xloc>
+      <xloc>1403</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
@@ -274,41 +271,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1335</xloc>
+      <xloc>1067</xloc>
       <yloc>127</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Current daynumber in week</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>daynumber</field_name>
-<calc_type>DAY_OF_WEEK</calc_type>
-<field_a>today</field_a>
-<field_b/>
-<field_c/>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>624</xloc>
-      <yloc>129</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -336,7 +300,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1509</xloc>
+      <xloc>1241</xloc>
       <yloc>127</yloc>
       <draw>Y</draw>
       </GUI>
@@ -365,7 +329,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1054</xloc>
+      <xloc>786</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
@@ -389,7 +353,7 @@
     <addresultfilenames>N</addresultfilenames>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1794</xloc>
+      <xloc>1526</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
@@ -418,36 +382,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1909</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select publishers to process</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Lookup e-mail address</send_true_to>
-<send_false_to>Off days sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>daynumber</leftvalue>
- <function>&#x3d;</function>
- <rightvalue>seqnr</rightvalue>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>783</xloc>
+      <xloc>1641</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
@@ -472,7 +407,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2398</xloc>
+      <xloc>2138</xloc>
       <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
@@ -623,7 +558,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1188</xloc>
+      <xloc>920</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
@@ -642,7 +577,7 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1055</xloc>
+      <xloc>787</xloc>
       <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
@@ -704,7 +639,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2186</xloc>
+      <xloc>1918</xloc>
       <yloc>263</yloc>
       <draw>Y</draw>
       </GUI>
@@ -739,7 +674,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2288</xloc>
+      <xloc>2028</xloc>
       <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
@@ -793,7 +728,7 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>927</xloc>
+      <xloc>659</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
@@ -854,7 +789,7 @@
       </embeddedimages>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2185</xloc>
+      <xloc>1917</xloc>
       <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
@@ -899,7 +834,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2047</xloc>
+      <xloc>1779</xloc>
       <yloc>127</yloc>
       <draw>Y</draw>
       </GUI>
@@ -928,27 +863,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1910</xloc>
+      <xloc>1642</xloc>
       <yloc>270</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Off days sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>784</xloc>
-      <yloc>268</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -973,7 +889,7 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>924</xloc>
+      <xloc>656</xloc>
       <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1001,35 +917,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>40</xloc>
       <yloc>127</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Weekly sequence numbers</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>seqnr</valuename>
-      <use_database>N</use_database>
-      <connection/>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>7</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>392</xloc>
-      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1072,7 +959,7 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1511</xloc>
+      <xloc>1243</xloc>
       <yloc>269</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1111,8 +998,37 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2552</xloc>
+      <xloc>2292</xloc>
       <yloc>124</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Weekly sequence numbers</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>seqnr</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>7</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>392</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

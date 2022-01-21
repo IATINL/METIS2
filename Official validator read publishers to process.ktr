@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;01&#x2f;21 09&#x3a;54&#x3a;49.845</modified_date>
+  <modified_date>2022&#x2f;01&#x2f;21 17&#x3a;20&#x3a;09.481</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -133,21 +133,17 @@
   </connection>
   <order>
   <hop> <from>Select publisher flds</from><to>api call to get publisher file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get validator output</from><to>Header constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator output api call</from><to>Header constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Header constants</from><to>Build curl request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Execute curl request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Log file-ids</from><to>Get publisher file ids</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Get validator output</to><enabled>Y</enabled> </hop>
   <hop> <from>api call string</from><to>Log reg call</to><enabled>Y</enabled> </hop>
-  <hop> <from>Log reg call</from><to>Get organisation ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get publisher file ids</from><to>Abort publisher file read</to><enabled>Y</enabled> </hop>
-  <hop> <from>Execute curl request</from><to>Abort curl request</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get validator output</from><to>Abort curl request</to><enabled>Y</enabled> </hop>
   <hop> <from>Read organisation ids</from><to>No org sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Read publisher file ids</from><to>No package-id sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strings cut</from><to>Write validator results</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>Strings cut</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>No error id sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Validator meta info</from><to>No data sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator summary</from><to>No validator summry sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator summary</from><to>No validator summary sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Validator id and title</from><to>No validator id sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove leading bracket</from><to>Remove trailing bracket</to><enabled>Y</enabled> </hop>
   <hop> <from>Validator error details</from><to>No validator details sink</to><enabled>Y</enabled> </hop>
@@ -164,58 +160,71 @@
   <hop> <from>File has changed&#x3f;</from><to>Select publisher file ids</to><enabled>Y</enabled> </hop>
   <hop> <from>File has changed&#x3f;</from><to>Unchanged file sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup stored file hash</from><to>File has changed&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read stored has</from><to>Lookup stored file hash</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read stored hash for url</from><to>Lookup stored file hash</to><enabled>Y</enabled> </hop>
   <hop> <from>Read publisher file ids</from><to>Lookup stored file hash</to><enabled>Y</enabled> </hop>
   <hop> <from>Read organisation ids</from><to>Select publisher flds</to><enabled>Y</enabled> </hop>
   <hop> <from>Detect no orgs</from><to>Append streams</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams</from><to>Read organisation ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Detect no orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get publisher file ids</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29; 2</from><to>Detect no file ids</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue</from><to>Detect no orgs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue</from><to>Append streams</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 2</from><to>Detect no file ids</to><enabled>Y</enabled> </hop>
   <hop> <from>Detect no file ids</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams 2</from><to>Read publisher file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29; 2</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty stream</from><to>Append 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 2</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Detect empty output</from><to>Append 1</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 1</from><to>Validator meta info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Execute curl request</from><to>Dummy 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 1</from><to>Detect empty stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 1</from><to>Append 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator meta info</from><to>Dummy 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 2</from><to>Append 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 3</from><to>Detect empty output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 3</from><to>Append 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator meta info</from><to>Continue 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 4</from><to>Append 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 2</from><to>Validator summary</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 2</from><to>Detect empty stream 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty stream 2</from><to>Append 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator summary</from><to>Dummy 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 3</from><to>Append 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 3</from><to>Detect empty stream 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty stream 3</from><to>Append 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 4</from><to>Append streams 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 4</from><to>Detect empty stream 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty stream 4</from><to>Append streams 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator id and title</from><to>Dummy 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 4</from><to>Detect empty meta data stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Detect empty meta data stream</from><to>Append 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator summary</from><to>Continue 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 5</from><to>Append 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 5</from><to>Detect empty summary stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Detect empty summary stream</from><to>Append 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 6</from><to>Append streams 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 6</from><to>Detect empty title &#x26; id stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Detect empty title &#x26; id stream</from><to>Append streams 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator id and title</from><to>Continue 6</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams 4</from><to>Validator error details</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator error details</from><to>Dummy 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 5</from><to>Append streams 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator error details</from><to>Continue 7</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 7</from><to>Append streams 5</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams 5</from><to>Select validator output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 5</from><to>Detect empty stream 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty stream 5</from><to>Append streams 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read context text</from><to>Dummy 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 6</from><to>Detect no context</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 7</from><to>Detect empty deatils stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Detect empty deatils stream</from><to>Append streams 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read context text</from><to>Continue 8</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 8</from><to>Detect no context</to><enabled>Y</enabled> </hop>
   <hop> <from>Detect no context</from><to>Append 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append 6</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy 6</from><to>Append 6</to><enabled>Y</enabled> </hop>
+  <hop> <from>Continue 8</from><to>Append 6</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 3</from><to>Delete file from errorlog</to><enabled>Y</enabled> </hop>
   <hop> <from>Delete file from errorlog</from><to>Blocking Step</to><enabled>Y</enabled> </hop>
   <hop> <from>Blocking Step</from><to>Validator id and title</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read all active publishers</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read publishers with hash</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>api call string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select publisher file ids</from><to>Get validator output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get organisation ids</from><to>Log results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Log results</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select publisher file ids</from><to>Validator output api call</to><enabled>Y</enabled> </hop>
+  <hop> <from>Log reg call</from><to>Get org ids</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get org ids</from><to>Log results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get org ids</from><to>Abort getting org ids</to><enabled>Y</enabled> </hop>
+  <hop> <from>Log results</from><to>Check valid curl request</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check valid curl request</from><to>Continue</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check valid curl request</from><to>Invalid curl request</to><enabled>Y</enabled> </hop>
+  <hop> <from>Log file-ids</from><to>Get publisher file ids</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get publisher file ids</from><to>Abort publisher file read</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get publisher file ids</from><to>Valid curl file id response&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Valid curl file id response&#x3f;</from><to>Continue 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Valid curl file id response&#x3f;</from><to>Invalid curl response sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get validator output</from><to>Valid curl validator output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Valid curl validator output</from><to>Continue 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Valid curl validator output</from><to>Invalid validator output request</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read all active publishers</from><to>api call string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Unique rows</from><to>Update hash on url</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Unique rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append 6</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Strings cut</from><to>Write validator results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Filter empty rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter empty rows</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter empty rows</from><to>Empty row sink</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort curl request</name>
@@ -240,6 +249,28 @@
     </step>
 
   <step>
+    <name>Abort getting org ids</name>
+    <type>Abort</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <row_threshold>0</row_threshold>
+      <message>Unexpected error when retreiving organisation ids</message>
+      <always_log_rows>Y</always_log_rows>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>633</xloc>
+      <yloc>136</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Abort publisher file read</name>
     <type>Abort</type>
     <description/>
@@ -255,8 +286,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>630</xloc>
-      <yloc>336</yloc>
+      <xloc>625</xloc>
+      <yloc>351</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -272,12 +303,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy 1</head_name>
-<tail_name>Detect empty stream</tail_name>
+<head_name>Continue 3</head_name>
+<tail_name>Detect empty output</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>933</xloc>
-      <yloc>476</yloc>
+      <xloc>1115</xloc>
+      <yloc>473</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,12 +324,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy 2</head_name>
-<tail_name>Detect empty stream 2</tail_name>
+<head_name>Continue 4</head_name>
+<tail_name>Detect empty meta data stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1310</xloc>
-      <yloc>471</yloc>
+      <xloc>1503</xloc>
+      <yloc>470</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -314,12 +345,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy 3</head_name>
-<tail_name>Detect empty stream 3</tail_name>
+<head_name>Continue 5</head_name>
+<tail_name>Detect empty summary stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1698</xloc>
-      <yloc>475</yloc>
+      <xloc>1880</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -335,7 +366,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy 6</head_name>
+<head_name>Continue 8</head_name>
 <tail_name>Detect no context</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -356,12 +387,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy &#x28;do nothing&#x29;</head_name>
+<head_name>Continue</head_name>
 <tail_name>Detect no orgs</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1154</xloc>
-      <yloc>51</yloc>
+      <xloc>1197</xloc>
+      <yloc>52</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -377,12 +408,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy &#x28;do nothing&#x29; 2</head_name>
+<head_name>Continue 2</head_name>
 <tail_name>Detect no file ids</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1004</xloc>
-      <yloc>262</yloc>
+      <xloc>1185</xloc>
+      <yloc>257</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -398,12 +429,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy 4</head_name>
-<tail_name>Detect empty stream 4</tail_name>
+<head_name>Continue 6</head_name>
+<tail_name>Detect empty title &#x26; id stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>907</xloc>
-      <yloc>672</yloc>
+      <xloc>1095</xloc>
+      <yloc>663</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -419,12 +450,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<head_name>Dummy 5</head_name>
-<tail_name>Detect empty stream 5</tail_name>
+<head_name>Continue 7</head_name>
+<tail_name>Detect empty deatils stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1277</xloc>
-      <yloc>671</yloc>
+      <xloc>1499</xloc>
+      <yloc>662</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -480,6 +511,187 @@
     </step>
 
   <step>
+    <name>Check valid curl request</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Continue</send_true_to>
+<send_false_to>Invalid curl request</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>curl-exit-value</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>828</xloc>
+      <yloc>50</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>968</xloc>
+      <yloc>53</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>956</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 3</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>910</xloc>
+      <yloc>471</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 4</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1301</xloc>
+      <yloc>471</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 5</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1699</xloc>
+      <yloc>470</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 6</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>907</xloc>
+      <yloc>665</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 7</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1302</xloc>
+      <yloc>666</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Continue 8</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>752</xloc>
+      <yloc>869</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Delete file from errorlog</name>
     <type>Delete</type>
     <description/>
@@ -511,7 +723,7 @@
     </step>
 
   <step>
-    <name>Detect empty stream</name>
+    <name>Detect empty deatils stream</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
@@ -523,14 +735,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>836</xloc>
-      <yloc>552</yloc>
+      <xloc>1407</xloc>
+      <yloc>758</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Detect empty stream 2</name>
+    <name>Detect empty meta data stream</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
@@ -542,14 +754,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1210</xloc>
-      <yloc>544</yloc>
+      <xloc>1402</xloc>
+      <yloc>559</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Detect empty stream 3</name>
+    <name>Detect empty output</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
@@ -561,14 +773,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1621</xloc>
-      <yloc>565</yloc>
+      <xloc>1014</xloc>
+      <yloc>569</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Detect empty stream 4</name>
+    <name>Detect empty summary stream</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
@@ -580,14 +792,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>830</xloc>
-      <yloc>762</yloc>
+      <xloc>1795</xloc>
+      <yloc>561</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Detect empty stream 5</name>
+    <name>Detect empty title &#x26; id stream</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
@@ -599,8 +811,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1197</xloc>
-      <yloc>766</yloc>
+      <xloc>1003</xloc>
+      <yloc>764</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -637,8 +849,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>884</xloc>
-      <yloc>327</yloc>
+      <xloc>1058</xloc>
+      <yloc>350</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -656,160 +868,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1036</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>925</xloc>
-      <yloc>52</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29; 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>775</xloc>
-      <yloc>261</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy 1</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>728</xloc>
-      <yloc>474</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1108</xloc>
-      <yloc>472</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy 3</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1549</xloc>
-      <yloc>472</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy 4</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>758</xloc>
-      <yloc>669</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy 5</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1112</xloc>
-      <yloc>671</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy 6</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>869</yloc>
+      <xloc>1079</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -853,31 +913,6 @@
     </step>
 
   <step>
-    <name>Execute curl request</name>
-    <type>ExecProcess</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <processfield>curl-request</processfield>
-    <resultfieldname>curl-result</resultfieldname>
-    <errorfieldname>curl-error-value</errorfieldname>
-    <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
-    <failwhennotsuccess>Y</failwhennotsuccess>
-    <outputlinedelimiter/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>628</xloc>
-      <yloc>473</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>File has changed&#x3f;</name>
     <type>FilterRows</type>
     <description/>
@@ -900,8 +935,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1404</xloc>
-      <yloc>264</yloc>
+      <xloc>1585</xloc>
+      <yloc>259</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -929,15 +964,15 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1069</xloc>
-      <yloc>868</yloc>
+      <xloc>1578</xloc>
+      <yloc>865</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get organisation ids</name>
-    <type>Rest</type>
+    <name>Get org ids</name>
+    <type>ExecProcess</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -946,43 +981,23 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <applicationType>JSON</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>api-call</urlField>
-    <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <matrixParameters>
-      </matrixParameters>
-    <result>
-      <name>json-result</name>
-      <code>http-status</code>
-      <response_time/>
-      </result>
+    <processfield>api-call</processfield>
+    <resultfieldname>json-result</resultfieldname>
+    <errorfieldname>curl-error-value</errorfieldname>
+    <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
+    <failwhennotsuccess>Y</failwhennotsuccess>
+    <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>592</xloc>
-      <yloc>52</yloc>
+      <xloc>634</xloc>
+      <yloc>50</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
     <name>Get publisher file ids</name>
-    <type>Rest</type>
+    <type>ExecProcess</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -991,43 +1006,23 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <applicationType>JSON</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>api-call-publisher-files</urlField>
-    <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <matrixParameters>
-      </matrixParameters>
-    <result>
-      <name>result-json-pfiles</name>
-      <code>http-status</code>
-      <response_time/>
-      </result>
+    <processfield>api-call-publisher-files</processfield>
+    <resultfieldname>result-json-pfiles</resultfieldname>
+    <errorfieldname>curl-error-value</errorfieldname>
+    <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
+    <failwhennotsuccess>Y</failwhennotsuccess>
+    <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>632</xloc>
-      <yloc>257</yloc>
+      <xloc>628</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
     <name>Get validator output</name>
-    <type>Formula</type>
+    <type>ExecProcess</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1036,17 +1031,16 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-       <formula><field_name>api-call-validator</field_name>
-<formula_string>&#x22;https&#x3a;&#x2f;&#x2f;api.iatistandard.org&#x2f;validator&#x2f;report&#x3f;id&#x3d;&#x22;&#x26;&#x5b;publisher-package-id&#x5d;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
+    <processfield>curl-request</processfield>
+    <resultfieldname>curl-result</resultfieldname>
+    <errorfieldname>curl-error-value</errorfieldname>
+    <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
+    <failwhennotsuccess>Y</failwhennotsuccess>
+    <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>76</xloc>
-      <yloc>472</yloc>
+      <xloc>628</xloc>
+      <yloc>473</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1143,6 +1137,63 @@
     </step>
 
   <step>
+    <name>Invalid curl request</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>826</xloc>
+      <yloc>141</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Invalid curl response sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>793</xloc>
+      <yloc>348</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Invalid validator output request</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>780</xloc>
+      <yloc>573</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Log file-ids</name>
     <type>WriteToLog</type>
     <description/>
@@ -1174,7 +1225,7 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>523</xloc>
+      <xloc>524</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1219,6 +1270,44 @@
     </step>
 
   <step>
+    <name>Log results</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Org read result log</logmessage>
+    <fields>
+      <field>
+        <name>api-call</name>
+        </field>
+      <field>
+        <name>json-result</name>
+        </field>
+      <field>
+        <name>curl-error-value</name>
+        </field>
+      <field>
+        <name>curl-exit-value</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>724</xloc>
+      <yloc>51</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Lookup stored file hash</name>
     <type>StreamLookup</type>
     <description/>
@@ -1229,7 +1318,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <from>Read stored has</from>
+    <from>Read stored hash for url</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -1248,36 +1337,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1275</xloc>
-      <yloc>262</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Sort rows</step1>
-<step2>Sort rows 2</step2>
-    <keys_1>
-      <key>publisher</key>
-    </keys_1>
-    <keys_2>
-      <key>publisher</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>287</xloc>
-      <yloc>50</yloc>
+      <xloc>1456</xloc>
+      <yloc>257</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1295,8 +1356,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1027</xloc>
-      <yloc>565</yloc>
+      <xloc>1209</xloc>
+      <yloc>562</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1314,8 +1375,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1068</xloc>
-      <yloc>960</yloc>
+      <xloc>1577</xloc>
+      <yloc>936</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1333,8 +1394,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1266</xloc>
-      <yloc>133</yloc>
+      <xloc>1309</xloc>
+      <yloc>134</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1352,8 +1413,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1141</xloc>
-      <yloc>341</yloc>
+      <xloc>1322</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1371,8 +1432,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1017</xloc>
-      <yloc>768</yloc>
+      <xloc>1206</xloc>
+      <yloc>766</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1390,14 +1451,14 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>630</xloc>
-      <yloc>766</yloc>
+      <xloc>779</xloc>
+      <yloc>762</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>No validator summry sink</name>
+    <name>No validator summary sink</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1409,8 +1470,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1426</xloc>
-      <yloc>569</yloc>
+      <xloc>1608</xloc>
+      <yloc>566</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1568,8 +1629,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1265</xloc>
-      <yloc>52</yloc>
+      <xloc>1308</xloc>
+      <yloc>53</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1658,40 +1719,14 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1141</xloc>
-      <yloc>262</yloc>
+      <xloc>1322</xloc>
+      <yloc>257</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Read publishers with hash</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;FROM iatidatamart.&#x60;dim-url&#x60;&#xd;&#xa;WHERE hash IS NOT NULL&#xd;&#xa;GROUP BY publisher&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>78</xloc>
-      <yloc>124</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Read stored has</name>
+    <name>Read stored hash for url</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1710,8 +1745,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1275</xloc>
-      <yloc>190</yloc>
+      <xloc>1456</xloc>
+      <yloc>153</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1900,8 +1935,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1699</xloc>
-      <yloc>261</yloc>
+      <xloc>1880</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2036,76 +2071,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1699</xloc>
-      <yloc>659</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>publisher</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>188</xloc>
-      <yloc>50</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>publisher</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>186</xloc>
-      <yloc>123</yloc>
+      <xloc>1881</xloc>
+      <yloc>657</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2137,8 +2104,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1204</xloc>
-      <yloc>868</yloc>
+      <xloc>1713</xloc>
+      <yloc>865</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2156,8 +2123,66 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1403</xloc>
-      <yloc>346</yloc>
+      <xloc>1584</xloc>
+      <yloc>341</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Valid curl file id response&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Continue 2</send_true_to>
+<send_false_to>Invalid curl response sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>curl-exit-value</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>794</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Valid curl validator output</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Continue 3</send_true_to>
+<send_false_to>Invalid validator output request</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>curl-exit-value</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>784</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2259,8 +2284,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1018</xloc>
-      <yloc>672</yloc>
+      <xloc>1206</xloc>
+      <yloc>663</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2336,8 +2361,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>629</xloc>
-      <yloc>669</yloc>
+      <xloc>778</xloc>
+      <yloc>665</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2439,8 +2464,34 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1029</xloc>
-      <yloc>475</yloc>
+      <xloc>1211</xloc>
+      <yloc>472</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Validator output api call</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>api-call-validator</field_name>
+<formula_string>&#x22;https&#x3a;&#x2f;&#x2f;api.iatistandard.org&#x2f;validator&#x2f;report&#x3f;id&#x3d;&#x22;&#x26;&#x5b;publisher-package-id&#x5d;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>76</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2581,8 +2632,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1425</xloc>
-      <yloc>472</yloc>
+      <xloc>1607</xloc>
+      <yloc>469</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2732,8 +2783,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1709</xloc>
-      <yloc>861</yloc>
+      <xloc>1875</xloc>
+      <yloc>867</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2750,7 +2801,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>api-call</field_name>
-<formula_string>&#x22;https&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;action&#x2f;organization_show&#x3f;id&#x3d;&#x22;&#x26;&#x5b;publisher&#x5d;</formula_string>
+<formula_string>&#x22;curl https&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;action&#x2f;organization_show&#x3f;id&#x3d;&#x22;&#x26;&#x5b;publisher&#x5d;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -2776,7 +2827,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>api-call-publisher-files</field_name>
-<formula_string>&#x22;https&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;action&#x2f;package_search&#x3f;fq&#x3d;owner_org&#x3a;&#x22;&#x26;&#x5b;publisher-organisation-id&#x5d;</formula_string>
+<formula_string>&#x22;curl https&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;action&#x2f;package_search&#x3f;fq&#x3d;owner_org&#x3a;&#x22;&#x26;&#x5b;publisher-organisation-id&#x5d;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -2791,8 +2842,27 @@
     </step>
 
   <step>
-    <name>Log results</name>
-    <type>WriteToLog</type>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1069</xloc>
+      <yloc>867</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Update hash on url</name>
+    <type>Update</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2801,46 +2871,153 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Org read result log</logmessage>
-    <fields>
-      <field>
-        <name>api-call</name>
-        </field>
-      <field>
-        <name>json-result</name>
-        </field>
-      <field>
-        <name>http-status</name>
-        </field>
-      </fields>
+    <connection>IATI_datamart</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>dim-url</table>
+      <key>
+        <name>publisher-file-url</name>
+        <field>url</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>hash</name>
+        <rename>publisher-file-registry-hash</rename>
+        </value>
+      </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>719</xloc>
-      <yloc>51</yloc>
+      <xloc>1877</xloc>
+      <yloc>999</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <count_rows>N</count_rows>
+      <count_field/>
+      <reject_duplicate_row>N</reject_duplicate_row>
+      <error_description/>
+    <fields>      <field>        <name>publisher-file-url</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      <field>        <name>publisher-file-registry-hash</name>
+        <case_insensitive>N</case_insensitive>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1715</xloc>
+      <yloc>1002</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>publisher-file-url</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>publisher-file-registry-hash</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1578</xloc>
+      <yloc>1006</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter empty rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Sort rows</send_true_to>
+<send_false_to>Empty row sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>publisher</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1349</xloc>
+      <yloc>1006</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Empty row sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1351</xloc>
+      <yloc>1090</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
       <error>
-        <source_step>Execute curl request</source_step>
-        <target_step>Abort curl request</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Get organisation ids</source_step>
-        <target_step>Abort org read</target_step>
+        <source_step>Get org ids</source_step>
+        <target_step>Abort getting org ids</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -2853,6 +3030,18 @@
       <error>
         <source_step>Get publisher file ids</source_step>
         <target_step>Abort publisher file read</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Get validator output</source_step>
+        <target_step>Abort curl request</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -2924,7 +3113,7 @@
       </error>
       <error>
         <source_step>Validator summary</source_step>
-        <target_step>No validator summry sink</target_step>
+        <target_step>No validator summary sink</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
