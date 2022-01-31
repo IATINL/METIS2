@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;01&#x2f;31 16&#x3a;05&#x3a;58.712</modified_date>
+  <modified_date>2022&#x2f;01&#x2f;31 16&#x3a;44&#x3a;07.105</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -222,13 +222,15 @@
   <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Filter empty rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter empty rows</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter empty rows</from><to>Empty row sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read all active publishers</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
   <hop> <from>Get validator authorization key</from><to>api call string</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 6</from><to>If error messages&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>If error messages&#x3f;</from><to>Append no errors found</to><enabled>Y</enabled> </hop>
   <hop> <from>If error messages&#x3f;</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
   <hop> <from>Append streams 3</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   <hop> <from>Append no errors found</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read all active publishers</from><to>Get OS name</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get OS name</from><to>Set OS specific quote char</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set OS specific quote char</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort getting org ids</name>
@@ -246,8 +248,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>633</xloc>
-      <yloc>136</yloc>
+      <xloc>879</xloc>
+      <yloc>134</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -419,8 +421,8 @@
 <tail_name>Detect no orgs</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1197</xloc>
-      <yloc>52</yloc>
+      <xloc>1443</xloc>
+      <yloc>50</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -545,7 +547,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>curl-request</field_name>
-<formula_string>&#x22;curl -s -S &#x22;&#x26;&#x5b;api-call-validator&#x5d;&#x26;&#x22; -H &#x22;&#x26;&#x22;&#x22;&#x22;Ocp-Apim-Subscription-Key&#x3a; &#x22;&#x26;&#x5b;authorization-key&#x5d;&#x26;&#x22;&#x22;&#x22;&#x22;</formula_string>
+<formula_string>&#x22;curl -s -S &#x22;&#x26;&#x5b;api-call-validator&#x5d;&#x26;&#x22; -H &#x22;&#x26;&#x5b;quote&#x5d;&#x26;&#x22;Ocp-Apim-Subscription-Key&#x3a; &#x22;&#x26;&#x5b;authorization-key&#x5d;&#x26;&#x5b;quote&#x5d;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -582,8 +584,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>828</xloc>
-      <yloc>50</yloc>
+      <xloc>1074</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -601,8 +603,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>968</xloc>
-      <yloc>53</yloc>
+      <xloc>1214</xloc>
+      <yloc>51</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -917,8 +919,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1079</xloc>
-      <yloc>123</yloc>
+      <xloc>1325</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1105,8 +1107,8 @@
     <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>634</xloc>
-      <yloc>50</yloc>
+      <xloc>880</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1187,8 +1189,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>241</xloc>
-      <yloc>51</yloc>
+      <xloc>539</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1358,8 +1360,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>826</xloc>
-      <yloc>141</yloc>
+      <xloc>1072</xloc>
+      <yloc>139</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1472,8 +1474,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>481</xloc>
-      <yloc>50</yloc>
+      <xloc>795</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1504,8 +1506,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>724</xloc>
-      <yloc>51</yloc>
+      <xloc>970</xloc>
+      <yloc>49</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1597,8 +1599,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1309</xloc>
-      <yloc>134</yloc>
+      <xloc>1555</xloc>
+      <yloc>132</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1832,8 +1834,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1308</xloc>
-      <yloc>53</yloc>
+      <xloc>1554</xloc>
+      <yloc>51</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2143,6 +2145,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>quote</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -2180,6 +2186,10 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>validator-root</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>quote</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -3142,8 +3152,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>386</xloc>
-      <yloc>50</yloc>
+      <xloc>700</xloc>
+      <yloc>47</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3170,6 +3180,65 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>78</xloc>
       <yloc>257</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get OS name</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>osName</name>
+        <variable>&#x24;&#x7b;os.name&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>190</xloc>
+      <yloc>50</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set OS specific quote char</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>quote</field_name>
+<formula_string>IF&#x28;&#x5b;osName&#x5d;&#x3d;&#x22;Windows 10&#x22;&#x3b;&#x22;&#x22;&#x22;&#x22;&#x3b;&#x22;&#x27;&#x22;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>352</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
