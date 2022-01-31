@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;01&#x2f;31 15&#x3a;09&#x3a;04.893</modified_date>
+  <modified_date>2022&#x2f;01&#x2f;31 16&#x3a;05&#x3a;58.712</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -545,7 +545,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>curl-request</field_name>
-<formula_string>&#x22;curl -s -S &#x22;&#x26;&#x22;&#x22;&#x22;&#x22;&#x26;&#x5b;api-call-validator&#x5d;&#x26;&#x22;&#x22;&#x22;&#x22;&#x26;&#x22; -H &#x22;&#x26;&#x22;&#x22;&#x22;&#x22;&#x26;&#x22;Ocp-Apim-Subscription-Key&#x3a; &#x22;&#x26;&#x5b;authorization-key&#x5d;&#x26;&#x22;&#x22;&#x22;&#x22;</formula_string>
+<formula_string>&#x22;curl -s -S &#x22;&#x26;&#x5b;api-call-validator&#x5d;&#x26;&#x22; -H &#x22;&#x26;&#x22;&#x22;&#x22;Ocp-Apim-Subscription-Key&#x3a; &#x22;&#x26;&#x5b;authorization-key&#x5d;&#x26;&#x22;&#x22;&#x22;&#x22;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -3201,7 +3201,7 @@
       </error>
       <error>
         <source_step>Get validator output</source_step>
-        <target_step>Abort curl request</target_step>
+        <target_step/>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
