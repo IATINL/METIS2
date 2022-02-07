@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;02&#x2f;01 09&#x3a;35&#x3a;11.995</modified_date>
+  <modified_date>2022&#x2f;02&#x2f;07 14&#x3a;58&#x3a;20.271</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -174,7 +174,6 @@
   <hop> <from>Append 1</from><to>Validator meta info</to><enabled>Y</enabled> </hop>
   <hop> <from>Continue 3</from><to>Detect empty output</to><enabled>Y</enabled> </hop>
   <hop> <from>Continue 3</from><to>Append 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator meta info</from><to>Continue 4</to><enabled>Y</enabled> </hop>
   <hop> <from>Continue 4</from><to>Append 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Append 2</from><to>Validator summary</to><enabled>Y</enabled> </hop>
   <hop> <from>Continue 4</from><to>Detect empty meta data stream</to><enabled>Y</enabled> </hop>
@@ -229,6 +228,8 @@
   <hop> <from>Append streams 3</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   <hop> <from>Append no errors found</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
   <hop> <from>Read all active publishers</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
+  <hop> <from>Validator meta info</from><to>Database lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup</from><to>Continue 4</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort getting org ids</name>
@@ -310,8 +311,8 @@
 <tail_name>Detect empty meta data stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1503</xloc>
-      <yloc>470</yloc>
+      <xloc>1669</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -331,8 +332,8 @@
 <tail_name>Detect empty summary stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1928</xloc>
-      <yloc>470</yloc>
+      <xloc>302</xloc>
+      <yloc>659</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -503,8 +504,8 @@
 <tail_name>Detect empty deatils stream</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1499</xloc>
-      <yloc>662</yloc>
+      <xloc>1661</xloc>
+      <yloc>663</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -527,8 +528,8 @@
       <compress>Y</compress>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>180</xloc>
-      <yloc>670</yloc>
+      <xloc>627</xloc>
+      <yloc>663</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -658,8 +659,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1301</xloc>
-      <yloc>471</yloc>
+      <xloc>1467</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -677,8 +678,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1699</xloc>
-      <yloc>470</yloc>
+      <xloc>73</xloc>
+      <yloc>659</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -715,8 +716,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1302</xloc>
-      <yloc>666</yloc>
+      <xloc>1464</xloc>
+      <yloc>661</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -765,8 +766,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>69</xloc>
-      <yloc>670</yloc>
+      <xloc>481</xloc>
+      <yloc>660</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -784,8 +785,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1407</xloc>
-      <yloc>758</yloc>
+      <xloc>1569</xloc>
+      <yloc>753</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -803,8 +804,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1402</xloc>
-      <yloc>559</yloc>
+      <xloc>1568</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -841,8 +842,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1795</xloc>
-      <yloc>561</yloc>
+      <xloc>169</xloc>
+      <yloc>750</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1673,8 +1674,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1608</xloc>
-      <yloc>566</yloc>
+      <xloc>1930</xloc>
+      <yloc>569</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2965,8 +2966,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1607</xloc>
-      <yloc>469</yloc>
+      <xloc>1929</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3170,6 +3171,48 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>78</xloc>
       <yloc>257</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>dim-url</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>publisher-file-url</name>
+        <field>url</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>hash</name>
+        <rename>exists</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1339</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
