@@ -80,3 +80,4 @@ Version 3.89 Added support for the aggregation status flag on the indicator leve
 Version 3.90 Technical migration of the publisher feedback software to the IATI data validator API
 Version 3.91 Changed validator mail message text and added safeguard to ignore non existing URL's of IATI files
 Version 3.92 Fixed bug updating the URL dimension 
+Version 3.93 Fixed bug causing e-mail to be send too frequently
