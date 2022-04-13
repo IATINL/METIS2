@@ -10,7 +10,7 @@
     <parameters>
         <parameter>
             <name>nrofblocks</name>
-            <default_value/>
+            <default_value>1</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -73,7 +73,7 @@
   <created_user>-</created_user>
   <created_date>2022&#x2f;02&#x2f;15 15&#x3a;47&#x3a;26.277</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;03&#x2f;07 11&#x3a;52&#x3a;40.032</modified_date>
+  <modified_date>2022&#x2f;04&#x2f;08 14&#x3a;54&#x3a;11.836</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -110,27 +110,29 @@
   <order>
   <hop> <from>Select paging parameters</from><to>Calculate page starting row</to><enabled>Y</enabled> </hop>
   <hop> <from>Calculate page starting row</from><to>Adjust blocksize</to><enabled>Y</enabled> </hop>
-  <hop> <from>Adjust blocksize</from><to>Curl request to retrieve IATI identifiers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Curl request to retrieve IATI identifiers</from><to>Delay row</to><enabled>Y</enabled> </hop>
-  <hop> <from>Execute a process</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Write error log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read IATI identifiers</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select json result</from><to>Read IATI identifiers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strings cut</from><to>Write all IATI identifers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write error log</from><to>Abort</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log 3</from><to>Select json result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter errors from stream</from><to>Write cURL error log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Max length IATI identifier</from><to>Write all IATI identifers</to><enabled>Y</enabled> </hop>
   <hop> <from>Get Variables</from><to>Add sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Add sequence</from><to>Select paging parameters</to><enabled>Y</enabled> </hop>
   <hop> <from>Generate Rows</from><to>Get Variables</to><enabled>Y</enabled> </hop>
-  <hop> <from>Delay row</from><to>Execute a process</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>If IATI identifier is not NULL</to><enabled>Y</enabled> </hop>
-  <hop> <from>If IATI identifier is not NULL</from><to>Strings cut</to><enabled>Y</enabled> </hop>
-  <hop> <from>If IATI identifier is not NULL</from><to>NULL sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write all IATI identifers</from><to>Duplicate identifier sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Execute cURL request on host</from><to>Filter errors from stream</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write cURL error log</from><to>Abort due to unexpected cURL return code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Curl request to retrieve IATI identifiers</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log</from><to>Execute cURL request on host</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select json result</from><to>Read IATI identifiers</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter errors from stream</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to log 2</from><to>Select json result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read IATI identifiers</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Remove opening and closing brackets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove opening and closing brackets</from><to>Split field to rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Adjust blocksize</from><to>Curl request to retrieve IATI identifiers</to><enabled>Y</enabled> </hop>
+  <hop> <from>Split field to rows</from><to>Split Fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Split Fields</from><to>Select values 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 3</from><to>Replace in string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace in string</from><to>Max length IATI identifier</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Abort</name>
+    <name>Abort due to unexpected cURL return code</name>
     <type>Abort</type>
     <description/>
     <distribute>Y</distribute>
@@ -141,12 +143,12 @@
            <schema_name/>
            </partitioning>
       <row_threshold>0</row_threshold>
-      <message>Non zero curl exit value</message>
+      <message>Unexpected cURL return code</message>
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1288</xloc>
-      <yloc>308</yloc>
+      <xloc>1411</xloc>
+      <yloc>284</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -174,8 +176,8 @@
       <max_value>&#x24;&#x7b;NROFBLOCKS&#x7d;</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>305</xloc>
-      <yloc>80</yloc>
+      <xloc>315</xloc>
+      <yloc>79</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -200,8 +202,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>83</yloc>
+      <xloc>762</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -226,8 +228,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>607</xloc>
-      <yloc>83</yloc>
+      <xloc>617</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -244,7 +246,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>api-call</field_name>
-<formula_string>&#x22;curl -S -s  &#x22;&#x22;https&#x3a;&#x2f;&#x2f;api.iatistandard.org&#x2f;datastore&#x2f;activity&#x2f;select&#x3f;q&#x3d;iati_identifier&#x3a;&#x2a;&#x26;start&#x3d;&#x22;&#x26;&#x5b;rowstart&#x5d;&#x26;&#x22;&#x26;rows&#x3d;&#x22;&#x26;&#x5b;blocksize&#x5d;&#x26;&#x22;&#x26;fl&#x3d;iati_identifier&#x26;wt&#x3d;json&#x22;&#x22; -H &#x22;&#x22;Cache-Control&#x3a;no-cache&#x22;&#x22; -H &#x22;&#x22;Ocp-Apim-Subscription-Key&#x3a;bc01a607f1e847f9a2da4c19bb117c0c&#x22;&#x22;&#x22;&#xd;&#xa;</formula_string>
+<formula_string>&#x22;curl --location --request GET &#x22;&#x22;https&#x3a;&#x2f;&#x2f;api.iatistandard.org&#x2f;datastore&#x2f;activity&#x2f;select&#x3f;q&#x3d;&#x2a;&#x3a;&#x2a;&#x26;rows&#x3d;0&#x26;facet&#x3d;true&#x26;facet.field&#x3d;iati_identifier&#x26;facet.mincount&#x3d;1&#x26;facet.sort&#x3d;index&#x26;facet.limit&#x3d;&#x22;&#x26;&#x5b;blocksize&#x5d;&#x26;&#x22;&#x26;facet.offset&#x3d;&#x22;&#x26;&#x5b;rowstart&#x5d;&#x26;&#x22;&#x22;&#x22; -H &#x22;&#x22;Cache-Control&#x3a;no-cache&#x22;&#x22; -H &#x22;&#x22;Ocp-Apim-Subscription-Key&#x3a;bc01a607f1e847f9a2da4c19bb117c0c&#x22;&#x22;&#x22;&#xd;&#xa;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -252,35 +254,14 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>906</xloc>
+      <xloc>941</xloc>
       <yloc>84</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Delay row</name>
-    <type>Delay</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <timeout>0.5</timeout>
-    <scaletime>seconds</scaletime>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1054</xloc>
-      <yloc>84</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Execute a process</name>
+    <name>Execute cURL request on host</name>
     <type>ExecProcess</type>
     <description/>
     <distribute>Y</distribute>
@@ -294,18 +275,18 @@
     <resultfieldname>json-result</resultfieldname>
     <errorfieldname>Error output</errorfieldname>
     <exitvaluefieldname>Exit value</exitvaluefieldname>
-    <failwhennotsuccess>Y</failwhennotsuccess>
+    <failwhennotsuccess>N</failwhennotsuccess>
     <outputlinedelimiter>&#x24;&#x5b;0D,0A&#x5d; </outputlinedelimiter>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1176</xloc>
-      <yloc>83</yloc>
+      <xloc>1259</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Filter rows</name>
+    <name>Filter errors from stream</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -315,8 +296,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Write to log 3</send_true_to>
-<send_false_to>Write error log</send_false_to>
+<send_true_to>Write to log 2</send_true_to>
+<send_false_to>Write cURL error log</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -327,7 +308,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1289</xloc>
+      <xloc>1409</xloc>
       <yloc>84</yloc>
       <draw>Y</draw>
       </GUI>
@@ -365,8 +346,8 @@
     <last_time_field>FiveSecondsAgo</last_time_field>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>74</xloc>
-      <yloc>82</yloc>
+      <xloc>84</xloc>
+      <yloc>81</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -410,8 +391,35 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>186</xloc>
-      <yloc>81</yloc>
+      <xloc>196</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Max length IATI identifier</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>iati-identifier</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>100</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1678</xloc>
+      <yloc>484</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -448,7 +456,7 @@
     <fields>
       <field>
         <name>iati-identifiers</name>
-        <path>&#x24;.response.docs..iati_identifier</path>
+        <path>&#x24;.facet_counts.facet_fields.iati_identifier</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -474,8 +482,66 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1651</xloc>
-      <yloc>86</yloc>
+      <xloc>1828</xloc>
+      <yloc>84</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove opening and closing brackets</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>tmp</field_name>
+<formula_string>MID&#x28;&#x5b;iati-identifiers&#x5d;&#x3b;2&#x3b;LEN&#x28;&#x5b;iati-identifiers&#x5d;&#x29;-2&#x29;&#xd;&#xa;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field>iati-identifiers</replace_field>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>300</xloc>
+      <yloc>492</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>iati-identifier</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>921</xloc>
+      <yloc>489</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -495,11 +561,23 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>rowseq</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Exit value</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Error output</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1532</xloc>
-      <yloc>86</yloc>
+      <xloc>1690</xloc>
+      <yloc>84</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -560,14 +638,14 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>444</xloc>
-      <yloc>82</yloc>
+      <xloc>454</xloc>
+      <yloc>81</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values</name>
+    <name>Select values 2</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -584,15 +662,15 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1775</xloc>
-      <yloc>87</yloc>
+      <xloc>77</xloc>
+      <yloc>494</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Strings cut</name>
-    <type>StringCut</type>
+    <name>Split field to rows</name>
+    <type>SplitFieldToRows3</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -601,18 +679,17 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>iati-identifiers</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>100</cut_to>
-      </field>
-    </fields>
+   <splitfield>iati-identifiers</splitfield>
+   <delimiter>,&#x22;</delimiter>
+   <newfield>iati-identifiers-normalised</newfield>
+   <rownum>Y</rownum>
+   <rownum_field>rownumber</rownum_field>
+   <resetrownumber>N</resetrownumber>
+   <delimiter_is_regex>N</delimiter_is_regex>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2044</xloc>
-      <yloc>88</yloc>
+      <xloc>477</xloc>
+      <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -648,19 +725,23 @@
     <fields>
         <field>
           <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifiers</stream_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>id-count</column_name>
+          <stream_name>id-count</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2163</xloc>
-      <yloc>88</yloc>
+      <xloc>1815</xloc>
+      <yloc>484</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write error log</name>
+    <name>Write cURL error log</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -674,7 +755,7 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Curl error</logmessage>
+      <logmessage>cURL error</logmessage>
     <fields>
       <field>
         <name>nrofrows</name>
@@ -703,14 +784,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1287</xloc>
-      <yloc>204</yloc>
+      <xloc>1409</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write to log 3</name>
+    <name>Write to log</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -724,7 +805,7 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Curl valid result</logmessage>
+      <logmessage>cURL facet call</logmessage>
     <fields>
       <field>
         <name>nrofrows</name>
@@ -739,6 +820,50 @@
         <name>rowstart</name>
         </field>
       <field>
+        <name>api-call</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1123</xloc>
+      <yloc>83</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>Y</limitRows>
+      <limitRowsNumber>50</limitRowsNumber>
+      <logmessage/>
+    <fields>
+      <field>
+        <name>nrofrows</name>
+        </field>
+      <field>
+        <name>blocksize</name>
+        </field>
+      <field>
+        <name>rowseq</name>
+        </field>
+      <field>
+        <name>rowstart</name>
+        </field>
+      <field>
+        <name>api-call</name>
+        </field>
+      <field>
         <name>Error output</name>
         </field>
       <field>
@@ -747,15 +872,15 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1407</xloc>
-      <yloc>84</yloc>
+      <xloc>1546</xloc>
+      <yloc>83</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>If IATI identifier is not NULL</name>
-    <type>FilterRows</type>
+    <name>Split Fields</name>
+    <type>FieldSplitter</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -764,27 +889,46 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Strings cut</send_true_to>
-<send_false_to>NULL sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>iati-identifiers</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
-    </compare>
-     <cluster_schema/>
+   <splitfield>iati-identifiers-normalised</splitfield>
+   <delimiter>&#x22;,</delimiter>
+   <enclosure/>
+    <fields>      <field>        <name>iati-identifier</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>id-count</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1896</xloc>
-      <yloc>89</yloc>
+      <xloc>618</xloc>
+      <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>NULL sink</name>
-    <type>Dummy</type>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -793,29 +937,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-     <cluster_schema/>
+    <fields>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>id-count</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1892</xloc>
-      <yloc>306</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Duplicate identifier sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2163</xloc>
-      <yloc>312</yloc>
+      <xloc>754</xloc>
+      <yloc>491</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -823,7 +957,7 @@
   <step_error_handling>
       <error>
         <source_step>Write all IATI identifers</source_step>
-        <target_step>Duplicate identifier sink</target_step>
+        <target_step/>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
