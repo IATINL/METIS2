@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;03&#x2f;08 17&#x3a;06&#x3a;01.290</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;06&#x2f;13 14&#x3a;56&#x3a;03.954</modified_date>
+  <modified_date>2022&#x2f;06&#x2f;14 15&#x3a;13&#x3a;51.677</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -212,7 +212,6 @@
   <hop> <from>Execute a process</from><to>Log successful sending</to><enabled>Y</enabled> </hop>
   <hop> <from>Feedback file exists&#x3f;</from><to>Add mail template text to stream</to><enabled>Y</enabled> </hop>
   <hop> <from>Load mail template</from><to>Add mail template text to stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add mail template text to stream</from><to>Replace in string</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc error file name</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log</from><to>Feedback file exists</to><enabled>Y</enabled> </hop>
   <hop> <from>Formula</from><to>Log mail parameters</to><enabled>Y</enabled> </hop>
@@ -220,6 +219,8 @@
   <hop> <from>Save mail text for publisher</from><to>Formula</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace in string</from><to>Set outgoing publisher file name</to><enabled>Y</enabled> </hop>
   <hop> <from>Set outgoing publisher file name</from><to>Save mail text for publisher</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add mail template text to stream</from><to>Set url</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set url</from><to>Replace in string</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add mail template text to stream</name>
@@ -359,8 +360,8 @@
     <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1158</xloc>
-      <yloc>475</yloc>
+      <xloc>1089</xloc>
+      <yloc>474</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -463,8 +464,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1419</xloc>
-      <yloc>477</yloc>
+      <xloc>1350</xloc>
+      <yloc>476</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -722,6 +723,9 @@
       <field>
         <name>api-call</name>
         </field>
+      <field>
+        <name>url</name>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -760,8 +764,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1309</xloc>
-      <yloc>477</yloc>
+      <xloc>1240</xloc>
+      <yloc>476</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -840,7 +844,7 @@
         <replace_string>&#x3c;url&#x3e;</replace_string>
         <replace_by_string/>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string>htmlfilename</replace_field_by_string>
+        <replace_field_by_string>url</replace_field_by_string>
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
       </field>
@@ -855,11 +859,22 @@
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
       </field>
+      <field>
+        <in_stream_name>mailtext</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x3c;publisher-name&#x3e;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string>publisher-name</replace_field_by_string>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>41</xloc>
-      <yloc>480</yloc>
+      <xloc>293</xloc>
+      <yloc>476</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -891,8 +906,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1520</xloc>
-      <yloc>477</yloc>
+      <xloc>1451</xloc>
+      <yloc>476</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -926,7 +941,7 @@
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>Y</do_not_open_new_file_init>
-      <extention>txt</extention>
+      <extention/>
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
@@ -955,8 +970,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>559</xloc>
-      <yloc>476</yloc>
+      <xloc>642</xloc>
+      <yloc>474</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -981,8 +996,34 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>477</yloc>
+      <xloc>475</xloc>
+      <yloc>475</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set url</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <formula><field_name>url</field_name>
+<formula_string>&#x22;http&#x3a;&#x2f;&#x2f;&#x22;&#x26;&#x5b;mail-smtp-server&#x5d;&#x26;&#x22;&#x2f;&#x22;&#x26;RIGHT&#x28;&#x5b;htmlfilename&#x5d;&#x3b;LEN&#x28;&#x5b;htmlfilename&#x5d;&#x29;-LEN&#x28;&#x5b;htmlpath&#x5d;&#x29;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>107</xloc>
+      <yloc>476</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1068,8 +1109,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1682</xloc>
-      <yloc>476</yloc>
+      <xloc>1613</xloc>
+      <yloc>475</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
