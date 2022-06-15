@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;03&#x2f;08 17&#x3a;06&#x3a;01.290</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;06&#x2f;15 15&#x3a;05&#x3a;50.925</modified_date>
+  <modified_date>2022&#x2f;06&#x2f;15 15&#x3a;51&#x3a;15.241</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -220,8 +220,8 @@
   <hop> <from>Set url. send and publishername</from><to>Set outgoing publisher file name</to><enabled>Y</enabled> </hop>
   <hop> <from>Set outgoing publisher file name</from><to>Save mail text for publisher</to><enabled>Y</enabled> </hop>
   <hop> <from>Add mail template text to stream</from><to>Set url</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set url</from><to>Replace in string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace in string</from><to>Set url. send and publishername</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set url</from><to>Add escape character for space</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add escape character for space</from><to>Set url. send and publishername</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add mail template text to stream</name>
@@ -361,8 +361,8 @@
     <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1089</xloc>
-      <yloc>474</yloc>
+      <xloc>1134</xloc>
+      <yloc>470</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -440,8 +440,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>761</xloc>
-      <yloc>473</yloc>
+      <xloc>806</xloc>
+      <yloc>469</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -465,8 +465,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1350</xloc>
-      <yloc>476</yloc>
+      <xloc>1395</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -730,8 +730,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>923</xloc>
-      <yloc>475</yloc>
+      <xloc>968</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -765,8 +765,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1240</xloc>
-      <yloc>476</yloc>
+      <xloc>1285</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -827,7 +827,7 @@
     </step>
 
   <step>
-    <name>Set url. send and publishername</name>
+    <name>Add escape character for space</name>
     <type>ReplaceString</type>
     <description/>
     <distribute>Y</distribute>
@@ -839,43 +839,21 @@
            </partitioning>
     <fields>
       <field>
-        <in_stream_name>mailtext</in_stream_name>
+        <in_stream_name>datapath</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>&#x3c;url&#x3e;</replace_string>
-        <replace_by_string/>
+        <replace_string>IATI Publishers</replace_string>
+        <replace_by_string>IATI&#x5c; Publishers</replace_by_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string>url</replace_field_by_string>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-      </field>
-      <field>
-        <in_stream_name>mailtext</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>&#x3c;sender&#x3e;</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string>mail-address-sender</replace_field_by_string>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-      </field>
-      <field>
-        <in_stream_name>mailtext</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>&#x3c;publisher-name&#x3e;</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string>publisher-name</replace_field_by_string>
+        <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>294</xloc>
-      <yloc>475</yloc>
+      <xloc>141</xloc>
+      <yloc>474</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -907,8 +885,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1451</xloc>
-      <yloc>476</yloc>
+      <xloc>1496</xloc>
+      <yloc>472</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -971,8 +949,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>642</xloc>
-      <yloc>474</yloc>
+      <xloc>687</xloc>
+      <yloc>470</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -997,8 +975,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>475</xloc>
-      <yloc>475</yloc>
+      <xloc>520</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1025,6 +1003,60 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>18</xloc>
       <yloc>474</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set url. send and publishername</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>mailtext</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x3c;url&#x3e;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string>url</replace_field_by_string>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>mailtext</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x3c;sender&#x3e;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string>mail-address-sender</replace_field_by_string>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>mailtext</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x3c;publisher-name&#x3e;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string>publisher-name</replace_field_by_string>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>339</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1110,8 +1142,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1613</xloc>
-      <yloc>475</yloc>
+      <xloc>1658</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1241,38 +1273,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>260</xloc>
       <yloc>128</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Replace in string</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>datapath</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>IATI&#x5c;</replace_string>
-        <replace_by_string>IATI&#x5c;&#x5c;</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>141</xloc>
-      <yloc>474</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
