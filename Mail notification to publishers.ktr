@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2018&#x2f;03&#x2f;08 17&#x3a;06&#x3a;01.290</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;06&#x2f;15 15&#x3a;51&#x3a;15.241</modified_date>
+  <modified_date>2022&#x2f;06&#x2f;16 09&#x3a;49&#x3a;14.202</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -214,15 +214,47 @@
   <hop> <from>Load mail template</from><to>Add mail template text to stream</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc error file name</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log</from><to>Feedback file exists</to><enabled>Y</enabled> </hop>
-  <hop> <from>Formula</from><to>Log mail parameters</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set api-call</from><to>Log mail parameters</to><enabled>Y</enabled> </hop>
   <hop> <from>Log mail parameters</from><to>Execute a process</to><enabled>Y</enabled> </hop>
-  <hop> <from>Save mail text for publisher</from><to>Formula</to><enabled>Y</enabled> </hop>
+  <hop> <from>Save mail text for publisher</from><to>Set api-call</to><enabled>Y</enabled> </hop>
   <hop> <from>Set url. send and publishername</from><to>Set outgoing publisher file name</to><enabled>Y</enabled> </hop>
   <hop> <from>Set outgoing publisher file name</from><to>Save mail text for publisher</to><enabled>Y</enabled> </hop>
   <hop> <from>Add mail template text to stream</from><to>Set url</to><enabled>Y</enabled> </hop>
   <hop> <from>Set url</from><to>Add escape character for space</to><enabled>Y</enabled> </hop>
   <hop> <from>Add escape character for space</from><to>Set url. send and publishername</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Add escape character for space</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>datapath</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>IATI Publishers</replace_string>
+        <replace_by_string>IATI&#x5c; Publishers</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>141</xloc>
+      <yloc>474</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Add mail template text to stream</name>
     <type>JoinRows</type>
@@ -421,7 +453,7 @@
     </step>
 
   <step>
-    <name>Formula</name>
+    <name>Set api-call</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -432,7 +464,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>api-call</field_name>
-<formula_string>&#x22;sendmail &#x22;&#x26;&#x5b;email&#x5d;&#x26;&#x22; &#x3c; &#x22;&#x26;&#x5b;outfile&#x5d;</formula_string>
+<formula_string>&#x22;sendmail &#x22;&#x26;&#x5b;email&#x5d;&#x26;&#x22; &#x3c; &#x27;&#x22;&#x26;&#x5b;outfile&#x5d;&#x26;&#x22;&#x27;&#x22;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -822,38 +854,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>40</xloc>
       <yloc>127</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add escape character for space</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>datapath</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>IATI Publishers</replace_string>
-        <replace_by_string>IATI&#x5c; Publishers</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>141</xloc>
-      <yloc>474</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
