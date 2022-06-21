@@ -68,14 +68,13 @@
   <created_user>-</created_user>
   <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;04&#x2f;08 15&#x3a;01&#x3a;39.055</modified_date>
+  <modified_date>2022&#x2f;06&#x2f;03 12&#x3a;01&#x3a;02.507</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <order>
-  <hop> <from>Generate Rows</from><to>Curl request</to><enabled>Y</enabled> </hop>
   <hop> <from>Get IATI identifiers</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Read nr of rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Curl request</from><to>Set blocksize to 0</to><enabled>Y</enabled> </hop>
@@ -86,6 +85,8 @@
   <hop> <from>Curl request to get nr of rows</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log</from><to>Get IATI identifiers</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc nr of blocks</from><to>Set Variables</to><enabled>Y</enabled> </hop>
+  <hop> <from>Generate Rows</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get validator authorization key</from><to>Curl request</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calc nr of blocks</name>
@@ -107,8 +108,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1477</xloc>
-      <yloc>64</yloc>
+      <xloc>1537</xloc>
+      <yloc>65</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -152,8 +153,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>224</xloc>
-      <yloc>67</yloc>
+      <xloc>284</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -170,7 +171,7 @@
            <schema_name/>
            </partitioning>
        <formula><field_name>api-call</field_name>
-<formula_string>&#x22;curl --location --request GET &#x22;&#x22;https&#x3a;&#x2f;&#x2f;api.iatistandard.org&#x2f;datastore&#x2f;activity&#x2f;select&#x3f;q&#x3d;&#x2a;&#x3a;&#x2a;&#x26;rows&#x3d;0&#x22;&#x22; -H &#x22;&#x22;Cache-Control&#x3a; no-cache&#x22;&#x22; -H &#x22;&#x22;Ocp-Apim-Subscription-Key&#x3a; bc01a607f1e847f9a2da4c19bb117c0c&#x22;&#x22;&#x22;</formula_string>
+<formula_string>&#x22;curl -s -S https&#x3a;&#x2f;&#x2f;api.iatistandard.org&#x2f;datastore&#x2f;activity&#x2f;select&#x3f;q&#x3d;&#x2a;&#x3a;&#x2a;&#x26;rows&#x3d;0 -H Cache-Control&#x3a;no-cache -H Ocp-Apim-Subscription-Key&#x3a;&#x22;&#x26;&#x5b;authorization-key&#x5d;</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -178,8 +179,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>67</yloc>
+      <xloc>556</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -216,7 +217,7 @@
     <last_time_field>FiveSecondsAgo</last_time_field>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>105</xloc>
+      <xloc>39</xloc>
       <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
@@ -241,8 +242,65 @@
     <outputlinedelimiter/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>853</xloc>
-      <yloc>66</yloc>
+      <xloc>913</xloc>
+      <yloc>67</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get validator authorization key</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>authorization-key</name>
+        <variable>&#x24;&#x7b;VALIDATOR_APIKEY&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>validator-root</name>
+        <variable>&#x24;&#x7b;VALIDATORROOT&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>registry-root</name>
+        <variable>&#x24;&#x7b;IATIREGISTRY&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>167</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -305,8 +363,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1120</xloc>
-      <yloc>67</yloc>
+      <xloc>1180</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -337,8 +395,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>982</xloc>
-      <yloc>66</yloc>
+      <xloc>1042</xloc>
+      <yloc>67</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -384,8 +442,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1231</xloc>
-      <yloc>67</yloc>
+      <xloc>1291</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -430,8 +488,8 @@
     <use_formatting>Y</use_formatting>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1598</xloc>
-      <yloc>64</yloc>
+      <xloc>1658</xloc>
+      <yloc>65</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -458,8 +516,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>360</xloc>
-      <yloc>68</yloc>
+      <xloc>420</xloc>
+      <yloc>69</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -486,8 +544,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1361</xloc>
-      <yloc>63</yloc>
+      <xloc>1421</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -515,8 +573,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>655</xloc>
-      <yloc>66</yloc>
+      <xloc>715</xloc>
+      <yloc>67</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
