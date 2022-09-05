@@ -54,7 +54,7 @@
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
     <shared_objects_file/>
-    <capture_step_performance>N</capture_step_performance>
+    <capture_step_performance>Y</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
     <dependencies>
@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2022&#x2f;03&#x2f;07 13&#x3a;30&#x3a;23.732</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;03&#x2f;15 16&#x3a;26&#x3a;11.093</modified_date>
+  <modified_date>2022&#x2f;08&#x2f;12 16&#x3a;10&#x3a;25.975</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -131,9 +131,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Read IATI activity transactions</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Unique rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique rows</from><to>Filter specified provider activities</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read IATI activity transactions</from><to>Sort unique rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter specified provider activities</from><to>Unspecified sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>Valid provider activity sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>Add constants</to><enabled>Y</enabled> </hop>
@@ -143,6 +141,7 @@
   <hop> <from>Lookup valid iati identifier</from><to>Lookup activity title</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup activity title</from><to>Filter rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Set error message</from><to>Write error messages</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort unique rows</from><to>Filter specified provider activities</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -479,7 +478,7 @@
     </step>
 
   <step>
-    <name>Sort rows</name>
+    <name>Sort unique rows</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -491,87 +490,52 @@
            </partitioning>
       <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
       <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
+      <sort_size>100000</sort_size>
+      <free_memory>70</free_memory>
       <compress>N</compress>
       <compress_variable/>
-      <unique_rows>N</unique_rows>
+      <unique_rows>Y</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
         <name>provider-org-activity-id</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
         <name>receiver-org-activity-id</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher-name</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
       <field>
         <name>url-id</name>
         <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
+        <case_sensitive>Y</case_sensitive>
         <presorted>N</presorted>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>323</xloc>
-      <yloc>120</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>iati-identifier</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>provider-org-activity-id</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>receiver-org-activity-id</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>publisher</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>publisher-name</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>url-id</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>487</xloc>
       <yloc>120</yloc>
       <draw>Y</draw>
       </GUI>
