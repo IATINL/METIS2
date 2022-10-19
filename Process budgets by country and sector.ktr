@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;20 09&#x3a;50&#x3a;47.288</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017&#x2f;07&#x2f;26 12&#x3a;17&#x3a;33.717</modified_date>
+  <modified_date>2022&#x2f;10&#x2f;19 14&#x3a;53&#x3a;25.820</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -189,7 +189,7 @@
   <hop> <from>EUR rate is 1</from><to>Select valid currencies</to><enabled>Y</enabled> </hop>
   <hop> <from>Select valid currencies</from><to>Sort budgets</to><enabled>Y</enabled> </hop>
   <hop> <from>Get jobnr</from><to>Set currency error type</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set currency error type</from><to>Log currency erros</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set currency error type</from><to>Log currency errors</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>By sector &#x26; country</name>
@@ -517,6 +517,39 @@
     </step>
 
   <step>
+    <name>Get jobnr</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>job-number</name>
+        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>924</xloc>
+      <yloc>106</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>If field value is null</name>
     <type>IfNull</type>
     <description/>
@@ -626,6 +659,129 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1170</xloc>
       <yloc>306</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Log currency errors</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_datamart</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>log-currency-errors</table>
+      <key>
+        <name>job-number</name>
+        <field>job-number</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>publisher-id</name>
+        <field>publisher-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>url-id</name>
+        <field>url-id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>currency</name>
+        <field>currency</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>iso-date</name>
+        <field>iso-date</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>type</name>
+        <field>type</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>job-number</name>
+        <rename>job-number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>url-id</name>
+        <rename>url-id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iati-identifier</name>
+        <rename>iati-identifier</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>value</name>
+        <rename>value</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>currency</name>
+        <rename>currency</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>iso-date</name>
+        <rename>iso-date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>exchange-rate</name>
+        <rename>exchange-rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>publisher</name>
+        <rename>publisher</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>generated-datetime</name>
+        <rename>generated-datetime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>type</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1141</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -906,6 +1062,62 @@
     </step>
 
   <step>
+    <name>Select currency error log fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>iati-identifier</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>budget-value</name>
+        <rename>value</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>budget-value-date</name>
+        <rename>iso-date</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>budget-value-currency</name>
+        <rename>currency</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>exchange-rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>generated-datetime</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>804</xloc>
+      <yloc>107</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Select sector fields</name>
     <type>SelectValues</type>
     <description/>
@@ -937,6 +1149,54 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>351</xloc>
       <yloc>376</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select valid currencies</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Sort budgets</send_true_to>
+<send_false_to>Select currency error log fields</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>exchange-rate</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>budget-value-currency</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>budget-value-year</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>806</xloc>
+      <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1044,6 +1304,39 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1266</xloc>
       <yloc>307</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set currency error type</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>type</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>budget</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1026</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1334,299 +1627,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2308</xloc>
       <yloc>305</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select valid currencies</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Sort budgets</send_true_to>
-<send_false_to>Select currency error log fields</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>exchange-rate</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>budget-value-currency</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>budget-value-year</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>806</xloc>
-      <yloc>225</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get jobnr</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>job-number</name>
-        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>924</xloc>
-      <yloc>106</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Log currency erros</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_datamart</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>log-currency-errors</table>
-      <key>
-        <name>job-number</name>
-        <field>job-number</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>publisher-id</name>
-        <field>publisher-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>url-id</name>
-        <field>url-id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>currency</name>
-        <field>currency</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>iso-date</name>
-        <field>iso-date</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>type</name>
-        <field>type</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>job-number</name>
-        <rename>job-number</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>publisher-id</name>
-        <rename>publisher-id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>url-id</name>
-        <rename>url-id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>iati-identifier</name>
-        <rename>iati-identifier</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>value</name>
-        <rename>value</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>currency</name>
-        <rename>currency</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>iso-date</name>
-        <rename>iso-date</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>exchange-rate</name>
-        <rename>exchange-rate</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>publisher</name>
-        <rename>publisher</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>generated-datetime</name>
-        <rename>generated-datetime</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>type</name>
-        <rename>type</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1141</xloc>
-      <yloc>108</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select currency error log fields</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>budget-value</name>
-        <rename>value</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>budget-value-date</name>
-        <rename>iso-date</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>budget-value-currency</name>
-        <rename>currency</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>exchange-rate</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>804</xloc>
-      <yloc>107</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Set currency error type</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>type</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>budget</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1026</xloc>
-      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
