@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;01&#x2f;27 16&#x3a;38&#x3a;40.060</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;11&#x2f;26 17&#x3a;30&#x3a;44.043</modified_date>
+  <modified_date>2022&#x2f;12&#x2f;02 09&#x3a;39&#x3a;06.386</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -109,6 +109,30 @@
   <hop> <from>Delete all source and staging records</from><to>Blocking Step</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>Blocking Step</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <pass_all_rows>Y</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>658</xloc>
+      <yloc>50</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Delete all source and staging records</name>
     <type>ExecSQL</type>
     <description/>
@@ -124,7 +148,7 @@
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>DELETE FROM iatistaging.&#x60;src-act-sectors&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-countries&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-regions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-locations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-data&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-dates&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-descriptions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-organisations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-results&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-results-nrefs&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-budgets&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-transactions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-documents&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-policy-markers&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-related&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-sectors&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-countries&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-regions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-locations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-data&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-dates&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-descriptions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-organisations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-results&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-result-refs&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-budgets&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-result-nrefs&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-transactions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-documents&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-policy-markers&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-related&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;stg-act-country-region&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;stg-act-sectors&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;stg-act-transactions&#x60;&#x3b;</sql>
+    <sql>DELETE FROM iatistaging.&#x60;src-act-sectors&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-countries&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-regions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-locations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-data&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-dates&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-descriptions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-organisations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-results&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-results-nrefs&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-budgets&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-transactions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-documents&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-policy-markers&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;src-act-related&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-sectors&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-countries&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-regions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-locations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-data&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-dates&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-descriptions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-organisations&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-results&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-budgets&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-result-nrefs&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-transactions&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-documents&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-policy-markers&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;xml-act-related&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;stg-act-country-region&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;stg-act-sectors&#x60;&#x3b;&#xd;&#xa;DELETE FROM iatistaging.&#x60;stg-act-transactions&#x60;&#x3b;</sql>
     <set_params>N</set_params>
     <insert_field/>
     <update_field/>
@@ -202,30 +226,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>274</xloc>
-      <yloc>50</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Blocking Step</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>658</xloc>
       <yloc>50</yloc>
       <draw>Y</draw>
       </GUI>
