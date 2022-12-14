@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;02&#x2f;04 13&#x3a;53&#x3a;05.512</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;12&#x2f;13 11&#x3a;50&#x3a;22.929</modified_date>
+  <modified_date>2022&#x2f;12&#x2f;14 10&#x3a;09&#x3a;30.506</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -81,48 +81,6 @@
       <heigth>48</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Add result reference to the &#xd;&#xa;front of the indicator title.</note>
-      <xloc>1205</xloc>
-      <yloc>2425</yloc>
-      <width>192</width>
-      <heigth>50</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Determine for each BZ indicator code if the code is part of&#xd;&#xa;the indicator title and&#x2f;or indicator description. If so, fill the &#xd;&#xa;reference code field with the BZ code for each unique result.</note>
-      <xloc>1121</xloc>
-      <yloc>2559</yloc>
-      <width>327</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -363,11 +321,6 @@
   <hop> <from>Lookup part orgs</from><to>Fill part org</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill part org</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
   <hop> <from>Read part organisations</from><to>Lookup part orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select found BZ ind</from><to>Non BZ indicator sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Compose search string</from><to>Find BZ indicator in search string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort results 2</from><to>Lookup refs from searchstring</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort refs in searchstring</from><to>Lookup refs from searchstring</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup refs from searchstring</from><to>Select table fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Read results</from><to>Select result fields</to><enabled>Y</enabled> </hop>
   <hop> <from>If result flds null</from><to>Remove CRLF from keys</to><enabled>Y</enabled> </hop>
   <hop> <from>Result refs sequence</from><to>Unique result nrefs&#x3f;</to><enabled>Y</enabled> </hop>
@@ -378,24 +331,10 @@
   <hop> <from>Select result fields</from><to>If result flds null</to><enabled>Y</enabled> </hop>
   <hop> <from>Remove CRLF from keys</from><to>Sort results on indicator code</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort results on indicator code</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get BZ indicator list 3</from><to>Sort results on BZ indicator code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get BZ indicator list</from><to>Sort results on BZ indicator code</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort results on BZ indicator code</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get BZ indicator list 3</from><to>Combine all BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Select fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select fields</from><to>Add sequence to use for later rejoin</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Memory Group by</to><enabled>Y</enabled> </hop>
-  <hop> <from>Memory Group by</from><to>Sort refs in searchstring</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sequence to use for later rejoin</from><to>Sort results 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sequence to use for later rejoin</from><to>Combine all BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select found BZ ind</from><to>Select BZ indicator in search string if found</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select table fields</from><to>Select ind. code from string if no code specified</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select ind. code from string if no code specified</from><to>Write results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select BZ indicator in search string if found</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Find BZ indicator in search string</from><to>Select found BZ ind</to><enabled>Y</enabled> </hop>
-  <hop> <from>Combine all BZ indicators</from><to>Indicator length</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort most specific first</from><to>Compose search string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Indicator length</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Sort most specific first</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select table fields</from><to>Write results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Select table fields</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Activity seq</name>
@@ -558,35 +497,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1300</xloc>
       <yloc>463</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add sequence to use for later rejoin</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>sequence</valuename>
-      <use_database>N</use_database>
-      <connection/>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1175</xloc>
-      <yloc>2281</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -842,58 +752,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2499</xloc>
       <yloc>304</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Combine all BZ indicators</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Add sequence to use for later rejoin</step1>
-<step2>Get BZ indicator list 3</step2>
-    <keys_1>
-    </keys_1>
-    <keys_2>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1174</xloc>
-      <yloc>2500</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Compose search string</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>searchstring</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;indicator-title&#x5d;&#x29;&#x3b;&#x22;&#x22;&#x3b;&#x5b;indicator-title&#x5d;&#x29;&#x26;&#x22; &#x22;&#x26;IF&#x28;ISBLANK&#x28;&#x5b;indicator-description&#x5d;&#x29;&#x3b;&#x22;&#x22;&#x3b;&#x5b;indicator-description&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1729</xloc>
-      <yloc>2501</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1594,32 +1452,6 @@
     </step>
 
   <step>
-    <name>Find BZ indicator in search string</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>found</field_name>
-<formula_string>NOT&#x28;ISERROR&#x28;FIND&#x28;&#x5b;BZ-indicator-code_1&#x5d;&#x3b;&#x5b;searchstring&#x5d;&#x29;&#x29;&#x29;</formula_string>
-<value_type>Boolean</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1896</xloc>
-      <yloc>2502</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Find duplicate budgets</name>
     <type>StreamLookup</type>
     <description/>
@@ -1692,10 +1524,10 @@
     </step>
 
   <step>
-    <name>Get BZ indicator list 3</name>
+    <name>Get BZ indicator list</name>
     <type>TableInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1940,32 +1772,6 @@
     </step>
 
   <step>
-    <name>Indicator length</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>indicator-length</field_name>
-<formula_string>LEN&#x28;&#x5b;BZ-indicator-code_1&#x5d;&#x29;</formula_string>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1302</xloc>
-      <yloc>2500</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Location sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
@@ -2122,42 +1928,6 @@
     </step>
 
   <step>
-    <name>Lookup refs from searchstring</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Sort refs in searchstring</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>sequence</name>
-        <field>sequence</field>
-      </key>
-      <value>
-        <name>BZ-indicator-code</name>
-        <rename>BZ-indicator-code</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2643</xloc>
-      <yloc>2290</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Marker sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
@@ -2191,39 +1961,6 @@
     </step>
 
   <step>
-    <name>Memory Group by</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>sequence</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>BZ-indicator-code</aggregate>
-          <subject>BZ-indicator-code-in-search-string</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2503</xloc>
-      <yloc>2504</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Merge Join</name>
     <type>MergeJoin</type>
     <description/>
@@ -2247,25 +1984,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>779</xloc>
       <yloc>2279</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Non BZ indicator sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2063</xloc>
-      <yloc>2606</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3056,227 +2774,6 @@
     </step>
 
   <step>
-    <name>Select BZ indicator in search string if found</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>BZ-indicator-code-in-search-string</field_name>
-<formula_string>IF&#x28;&#x5b;found&#x5d;&#x3b;&#x5b;BZ-indicator-code_1&#x5d;&#x3b;&#x5b;BZ-indicator-code&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2236</xloc>
-      <yloc>2504</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select fields</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>reference-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BZ-indicator-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>actual-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>actual-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-year</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-measure-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-actual-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-baseline-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-target-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-end</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-start</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-aggregation-status</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>target-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>target-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>887</xloc>
-      <yloc>2280</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select found BZ ind</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Select BZ indicator in search string if found</send_true_to>
-<send_false_to>Non BZ indicator sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>found</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2061</xloc>
-      <yloc>2503</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select ind. code from string if no code specified</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;BZ-indicator-code&#x5d;&#x29;&#x3b;&#x5b;BZ-indicator-code_1&#x5d;&#x3b;&#x5b;BZ-indicator-code&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>BZ-indicator-code</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2987</xloc>
-      <yloc>2291</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Select result fields</name>
     <type>SelectValues</type>
     <description/>
@@ -3425,51 +2922,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>BZ-indicator-code_1</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2781</xloc>
-      <yloc>2292</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>BZ-indicator-code-in-search-string</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sequence</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BZ-indicator-code_1</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>searchstring</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2401</xloc>
-      <yloc>2505</yloc>
+      <xloc>909</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3899,46 +3356,6 @@
     </step>
 
   <step>
-    <name>Sort most specific first</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>indicator-length</name>
-        <ascending>N</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>BZ-indicator-code_1</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1604</xloc>
-      <yloc>2502</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Sort orgs</name>
     <type>SortRows</type>
     <description/>
@@ -3998,46 +3415,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>494</xloc>
       <yloc>1261</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort refs in searchstring</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>sequence</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>BZ-indicator-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2645</xloc>
-      <yloc>2503</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -4142,94 +3519,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>271</xloc>
       <yloc>1744</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort results 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-actual-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-baseline-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-indicator-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-indicator-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-result-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-result-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-target-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-end</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-start</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2486</xloc>
-      <yloc>2290</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -6154,8 +5443,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3169</xloc>
-      <yloc>2290</yloc>
+      <xloc>1034</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -6553,59 +5842,7 @@
       </GUI>
     </step>
 
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-length</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BZ-indicator-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BZ-indicator-code_1</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1448</xloc>
-      <yloc>2501</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step_error_handling>
-      <error>
-        <source_step>Select fields</source_step>
-        <target_step/>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
