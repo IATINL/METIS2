@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;06&#x2f;12 14&#x3a;13&#x3a;37.097</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;09&#x2f;27 16&#x3a;32&#x3a;13.489</modified_date>
+  <modified_date>2023&#x2f;02&#x2f;01 11&#x3a;51&#x3a;30.288</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -157,6 +157,21 @@
         <decimal/>
         <group/>
         <length>100</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>transaction-reference</name>
+        <xpath>&#x40;ref</xpath>
+        <element_type>attribut</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -925,6 +940,12 @@
         <cut_to>100</cut_to>
       </field>
       <field>
+        <in_stream_name>transaction-reference</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>50</cut_to>
+      </field>
+      <field>
         <in_stream_name>provider-org</in_stream_name>
         <out_stream_name/>
         <cut_from>0</cut_from>
@@ -1162,6 +1183,10 @@
         <field>
           <column_name>iati-identifier</column_name>
           <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-reference</column_name>
+          <stream_name>transaction-reference</stream_name>
         </field>
         <field>
           <column_name>transaction-type-code</column_name>
