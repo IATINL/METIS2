@@ -78,15 +78,15 @@
   <created_user>-</created_user>
   <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2023&#x2f;01&#x2f;24 14&#x3a;17&#x3a;04.734</modified_date>
+  <modified_date>2023&#x2f;06&#x2f;09 14&#x3a;38&#x3a;43.652</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Write validator results to error file, update registry hash for processed XML file &#x26;&#xd;&#xa;mark publisher as changed since new XML data has been processed. This triggers &#xd;&#xa;the e-mail process in a following step.</note>
-      <xloc>1718</xloc>
-      <yloc>925</yloc>
+      <xloc>1496</xloc>
+      <yloc>922</yloc>
       <width>440</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -247,15 +247,9 @@
   <hop> <from>Valid curl validator output</from><to>Invalid validator output request</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique url&#x27;s</from><to>Update hash on url</to><enabled>Y</enabled> </hop>
   <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strings cut</from><to>Write validator results</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter empty rows</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter empty rows</from><to>Empty row sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Get validator authorization key</from><to>api call string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append 6</from><to>If error messages&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>If error messages&#x3f;</from><to>Append no errors found</to><enabled>Y</enabled> </hop>
-  <hop> <from>If error messages&#x3f;</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 3</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append no errors found</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
   <hop> <from>Validator meta info</from><to>Database lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup</from><to>Continue 4</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Unique url&#x27;s</to><enabled>Y</enabled> </hop>
@@ -263,8 +257,13 @@
   <hop> <from>Select values</from><to>Filter empty rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Unique publishers</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique publishers</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get rows from result</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Update publisher XML changed flag</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read all active publishers</from><to>Publishers to proces</to><enabled>Y</enabled> </hop>
+  <hop> <from>Publishers to proces</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort context</from><to>Add value fields changing sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Strings cut</from><to>Sort context</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add value fields changing sequence</from><to>Write validator results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Append 6</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort getting org ids</name>
@@ -337,8 +336,41 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1837</xloc>
-      <yloc>1094</yloc>
+      <xloc>1615</xloc>
+      <yloc>1091</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add value fields changing sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <start>1</start>
+      <increment>1</increment>
+      <resultfieldName>context-seq</resultfieldName>
+    <fields>
+      <field>
+        <name>publisher</name>
+        </field>
+      <field>
+        <name>publisher-file-url</name>
+        </field>
+      <field>
+        <name>error-id</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1775</xloc>
+      <yloc>862</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -428,52 +460,6 @@
     </step>
 
   <step>
-    <name>Append no errors found</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>error-id</name>
-        <value>NMFA-1</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>error-severity</name>
-        <value>Information</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>error-message</name>
-        <value>No problems detected. Congratulations&#x21;</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1178</xloc>
-      <yloc>966</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Append streams</name>
     <type>Append</type>
     <description/>
@@ -511,27 +497,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1185</xloc>
       <yloc>257</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams 3</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>If error messages&#x3f;</head_name>
-<tail_name>Append no errors found</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1284</xloc>
-      <yloc>872</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1047,8 +1012,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1402</xloc>
-      <yloc>872</yloc>
+      <xloc>1180</xloc>
+      <yloc>869</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1104,8 +1069,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1504</xloc>
-      <yloc>1099</yloc>
+      <xloc>1282</xloc>
+      <yloc>1096</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1162,8 +1127,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1502</xloc>
-      <yloc>1015</yloc>
+      <xloc>1280</xloc>
+      <yloc>1012</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1191,8 +1156,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1625</xloc>
-      <yloc>869</yloc>
+      <xloc>1403</xloc>
+      <yloc>866</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1243,37 +1208,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>628</xloc>
       <yloc>255</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get rows from result</name>
-    <type>RowsFromResult</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>publisher</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        </field>      <field>        <name>publisher-id</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        </field>      <field>        <name>publisher-name</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>86</xloc>
-      <yloc>51</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1401,54 +1335,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>192</xloc>
       <yloc>469</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If error messages&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Append streams 3</send_true_to>
-<send_false_to>Append no errors found</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>report-summary-critical</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>report-summary-error</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>report-summary-warning</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1054</xloc>
-      <yloc>870</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1720,8 +1606,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1624</xloc>
-      <yloc>940</yloc>
+      <xloc>1402</xloc>
+      <yloc>937</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1817,6 +1703,64 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1930</xloc>
       <yloc>569</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Publishers to proces</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>publisher</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>publisher-name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>295</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Read all active publishers</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_database</connection>
+    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, active&#xd;&#xa;, &#x60;force-processing&#x60;&#xd;&#xa;, &#x60;testfile-location&#x60;&#xd;&#xa;, &#x60;is-testfile&#x60;&#xd;&#xa;, &#x60;publisher-name&#x60;&#xd;&#xa;, email&#xd;&#xa;, &#x60;email-active&#x60;&#xd;&#xa;, &#x60;notification-date&#x60;&#xd;&#xa;, &#x60;notification-period&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;WHERE active&#x3d;True and &#x60;email-active&#x60;&#x3d;True</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>72</xloc>
+      <yloc>49</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2446,8 +2390,54 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1405</xloc>
-      <yloc>1018</yloc>
+      <xloc>1183</xloc>
+      <yloc>1015</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort context</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>publisher</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>publisher-file-url</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>error-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1642</xloc>
+      <yloc>863</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2486,8 +2476,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1627</xloc>
-      <yloc>1012</yloc>
+      <xloc>1405</xloc>
+      <yloc>1009</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2508,19 +2498,19 @@
         <in_stream_name>error-message</in_stream_name>
         <out_stream_name/>
         <cut_from>0</cut_from>
-        <cut_to>2000</cut_to>
+        <cut_to>1000</cut_to>
       </field>
       <field>
         <in_stream_name>error-context-text</in_stream_name>
         <out_stream_name/>
         <cut_from>0</cut_from>
-        <cut_to>8000</cut_to>
+        <cut_to>4000</cut_to>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1802</xloc>
-      <yloc>865</yloc>
+      <xloc>1545</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2563,8 +2553,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1742</xloc>
-      <yloc>1095</yloc>
+      <xloc>1520</xloc>
+      <yloc>1092</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2590,8 +2580,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1737</xloc>
-      <yloc>1009</yloc>
+      <xloc>1515</xloc>
+      <yloc>1006</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2629,8 +2619,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1968</xloc>
-      <yloc>1006</yloc>
+      <xloc>1746</xloc>
+      <yloc>1003</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2668,8 +2658,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1973</xloc>
-      <yloc>1091</yloc>
+      <xloc>1751</xloc>
+      <yloc>1088</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3325,11 +3315,15 @@
           <column_name>error-context</column_name>
           <stream_name>error-context-text</stream_name>
         </field>
+        <field>
+          <column_name>context-seq</column_name>
+          <stream_name>context-seq</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1964</xloc>
-      <yloc>867</yloc>
+      <xloc>1937</xloc>
+      <yloc>861</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
