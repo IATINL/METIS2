@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2016/07/27 17:12:54.006</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/07/28 09:23:30.858</modified_date>
+    <modified_date>2023/08/11 12:25:22.085</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -803,7 +803,7 @@ WHERE `publisher`='minbuza_nl' AND `Is-parent`='Y'
     </partitioning>
     <formula>
       <field_name>reportname</field_name>
-      <formula_string>"ResultSummary"&amp;IF(LEFT([kettle-version];3)="6.1";"";"PDI94v3")&amp;".prpt"</formula_string>
+      <formula_string>"ResultSummary"&amp;IF(LEFT([kettle-version];3)="6.1";"";"PDI94")&amp;".prpt"</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
