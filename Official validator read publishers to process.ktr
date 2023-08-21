@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2021/09/22 16:41:29.625</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/08/18 11:59:22.931</modified_date>
+    <modified_date>2023/08/21 09:56:32.101</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1111,13 +1111,23 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Append 6</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Add value fields changing sequence</from>
+      <to>Only the first 40 context rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only the first 40 context rows</from>
       <to>Write validator results</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Append 6</from>
-      <to>Dummy (do nothing)</to>
+      <from>Only the first 40 context rows</from>
+      <to>Too much context sink</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1252,8 +1262,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1775</xloc>
-      <yloc>862</yloc>
+      <xloc>1776</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3773,8 +3783,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1642</xloc>
-      <yloc>863</yloc>
+      <xloc>1632</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3862,7 +3872,7 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1545</xloc>
+      <xloc>1536</xloc>
       <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4792,8 +4802,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1937</xloc>
-      <yloc>861</yloc>
+      <xloc>2144</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4860,6 +4870,75 @@ FROM iatidatamart.`dim-url`
     <GUI>
       <xloc>78</xloc>
       <yloc>257</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Only the first 40 context rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Write validator results</send_true_to>
+    <send_false_to>Too much context sink</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>context-seq</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>40</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1968</xloc>
+      <yloc>864</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Too much context sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1968</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2018/03/06 15:17:43.332</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/07/25 11:56:24.192</modified_date>
+    <modified_date>2023/08/21 13:07:02.574</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -510,6 +510,15 @@ PDF error reports are only generated when the following conditions are met:
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
         <code>STREAM_RESULTS</code>
         <attribute>Y</attribute>
       </attribute>
@@ -577,7 +586,7 @@ PDF error reports are only generated when the following conditions are met:
     </partitioning>
     <formula>
       <field_name>reportname</field_name>
-      <formula_string>"PublisherFeedback_IATI_validator"&amp;IF(LEFT([kettle-version];3)="6.1";"";"PDI94")&amp;".prpt"</formula_string>
+      <formula_string>"PublisherFeedback_IATI_validator"&amp;IF(LEFT([kettle-version];3)="6.1";"";"PDI94 rebuild v2")&amp;".prpt"</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -592,8 +601,8 @@ PDF error reports are only generated when the following conditions are met:
       </output>
     </remotesteps>
     <GUI>
-      <xloc>626</xloc>
-      <yloc>150</yloc>
+      <xloc>624</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -643,8 +652,8 @@ PDF error reports are only generated when the following conditions are met:
       </output>
     </remotesteps>
     <GUI>
-      <xloc>379</xloc>
-      <yloc>151</yloc>
+      <xloc>368</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -674,8 +683,8 @@ PDF error reports are only generated when the following conditions are met:
       </output>
     </remotesteps>
     <GUI>
-      <xloc>504</xloc>
-      <yloc>150</yloc>
+      <xloc>496</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -724,8 +733,8 @@ PDF error reports are only generated when the following conditions are met:
       </output>
     </remotesteps>
     <GUI>
-      <xloc>947</xloc>
-      <yloc>150</yloc>
+      <xloc>944</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -765,8 +774,8 @@ PDF error reports are only generated when the following conditions are met:
       </output>
     </remotesteps>
     <GUI>
-      <xloc>787</xloc>
-      <yloc>151</yloc>
+      <xloc>784</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -804,7 +813,7 @@ PDF error reports are only generated when the following conditions are met:
     </remotesteps>
     <GUI>
       <xloc>1104</xloc>
-      <yloc>150</yloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -821,16 +830,13 @@ PDF error reports are only generated when the following conditions are met:
     </partitioning>
     <connection>IATI_datamart</connection>
     <sql>SELECT
-  	err.publisher,
+  	ctl.publisher,
 	ctl.`active`,
 	ctl.`email-active`,
 	ctl.`xml-changed`
-	FROM iatidatamart.`log-publisher-errors` err
-
-	INNER JOIN iatischema.`ctl-publishers` ctl ON err.publisher = ctl.publisher
-
+	FROM iatischema.`ctl-publishers` ctl
 WHERE ctl.active = True and ctl.`email-active` = True and ctl.`xml-changed` = True
-GROUP BY err.publisher
+GROUP BY ctl.publisher
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -838,7 +844,100 @@ GROUP BY err.publisher
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta/>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>publisher</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Read publisher error log</origin>
+        <comments>publisher</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>active</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Read publisher error log</origin>
+        <comments>active</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>email-active</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Read publisher error log</origin>
+        <comments>email-active</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>xml-changed</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Read publisher error log</origin>
+        <comments>xml-changed</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -848,8 +947,8 @@ GROUP BY err.publisher
       </output>
     </remotesteps>
     <GUI>
-      <xloc>84</xloc>
-      <yloc>152</yloc>
+      <xloc>96</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -889,8 +988,8 @@ GROUP BY err.publisher
       </output>
     </remotesteps>
     <GUI>
-      <xloc>251</xloc>
-      <yloc>150</yloc>
+      <xloc>240</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
