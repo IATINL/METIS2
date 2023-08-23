@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2021/09/22 16:41:29.625</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/08/21 09:56:32.101</modified_date>
+    <modified_date>2023/08/23 16:38:35.414</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -438,8 +438,8 @@
       <note>Write validator results to error file, update registry hash for processed XML file &amp;
 mark publisher as changed since new XML data has been processed. This triggers 
 the e-mail process in a following step.</note>
-      <xloc>1496</xloc>
-      <yloc>922</yloc>
+      <xloc>1504</xloc>
+      <yloc>944</yloc>
       <width>440</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -648,11 +648,6 @@ SET SESSION sql_mode = "";
     <hop>
       <from>Read publisher file ids</from>
       <to>No package-id sink</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Strings cut</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -916,11 +911,6 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Read context text</from>
-      <to>Continue 8</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Continue 8</from>
       <to>Detect no context</to>
       <enabled>Y</enabled>
@@ -1037,11 +1027,6 @@ SET SESSION sql_mode = "";
     </hop>
     <hop>
       <from>Filter empty rows</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter empty rows</from>
       <to>Empty row sink</to>
       <enabled>Y</enabled>
     </hop>
@@ -1091,11 +1076,6 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Read all active publishers</from>
-      <to>Publishers to proces</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Publishers to proces</from>
       <to>Get validator authorization key</to>
       <enabled>Y</enabled>
@@ -1103,16 +1083,6 @@ SET SESSION sql_mode = "";
     <hop>
       <from>Sort context</from>
       <to>Add value fields changing sequence</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Strings cut</from>
-      <to>Sort context</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Append 6</from>
-      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1128,6 +1098,46 @@ SET SESSION sql_mode = "";
     <hop>
       <from>Only the first 40 context rows</from>
       <to>Too much context sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Sort context</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read context text</from>
+      <to>Truncate long error msg</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Truncate long error msg</from>
+      <to>Continue 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get rows from result</from>
+      <to>Lookup publishet info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all active publishers</from>
+      <to>Lookup publishet info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup publishet info</from>
+      <to>Publishers to proces</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append 6</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter empty rows</from>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1223,8 +1233,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1615</xloc>
-      <yloc>1091</yloc>
+      <xloc>2048</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1262,8 +1272,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>864</yloc>
+      <xloc>1808</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1370,8 +1380,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>968</xloc>
-      <yloc>870</yloc>
+      <xloc>1056</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1785,8 +1795,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
-      <yloc>869</yloc>
+      <xloc>848</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2020,8 +2030,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>850</xloc>
-      <yloc>957</yloc>
+      <xloc>944</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2095,8 +2105,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1180</xloc>
-      <yloc>869</yloc>
+      <xloc>1200</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2170,8 +2180,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1282</xloc>
-      <yloc>1096</yloc>
+      <xloc>1312</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2240,8 +2250,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>1012</yloc>
+      <xloc>1312</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2256,7 +2266,7 @@ SET SESSION sql_mode = "";
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Strings cut</send_true_to>
+    <send_true_to>Sort context</send_true_to>
     <send_false_to>No error id sink</send_false_to>
     <compare>
       <condition>
@@ -2275,8 +2285,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1403</xloc>
-      <yloc>866</yloc>
+      <xloc>1424</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2345,6 +2355,39 @@ SET SESSION sql_mode = "";
     <GUI>
       <xloc>628</xloc>
       <yloc>255</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get rows from result</name>
+    <type>RowsFromResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2531,8 +2574,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>511</xloc>
-      <yloc>869</yloc>
+      <xloc>512</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2738,6 +2781,54 @@ SET SESSION sql_mode = "";
     </GUI>
   </step>
   <step>
+    <name>Lookup publishet info</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Read all active publishers</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>publisher</name>
+        <field>publisher</field>
+      </key>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>publisher-name</name>
+        <rename>publisher-name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Lookup stored file hash</name>
     <type>StreamLookup</type>
     <description/>
@@ -2824,8 +2915,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1402</xloc>
-      <yloc>937</yloc>
+      <xloc>1424</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2955,6 +3046,50 @@ SET SESSION sql_mode = "";
     </GUI>
   </step>
   <step>
+    <name>Only the first 40 context rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Write validator results</send_true_to>
+    <send_false_to>Too much context sink</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>context-seq</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>40</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2000</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Publishers to proces</name>
     <type>SelectValues</type>
     <description/>
@@ -2986,7 +3121,7 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>295</xloc>
+      <xloc>320</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3033,8 +3168,8 @@ WHERE active=True and `email-active`=True</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>72</xloc>
-      <yloc>49</yloc>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3082,9 +3217,9 @@ WHERE active=True and `email-active`=True</sql>
         <currency/>
         <decimal/>
         <group/>
-        <length>-1</length>
+        <length>4000</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -3109,8 +3244,8 @@ WHERE active=True and `email-active`=True</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>666</xloc>
-      <yloc>869</yloc>
+      <xloc>624</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3424,8 +3559,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>83</xloc>
-      <yloc>875</yloc>
+      <xloc>80</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3463,8 +3598,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>230</xloc>
-      <yloc>874</yloc>
+      <xloc>224</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3502,8 +3637,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>371</xloc>
-      <yloc>872</yloc>
+      <xloc>368</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3725,8 +3860,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1183</xloc>
-      <yloc>1015</yloc>
+      <xloc>1200</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3743,8 +3878,8 @@ FROM iatidatamart.`dim-url`
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
+    <sort_size>100000</sort_size>
+    <free_memory>40</free_memory>
     <compress>N</compress>
     <compress_variable/>
     <unique_rows>N</unique_rows>
@@ -3784,7 +3919,7 @@ FROM iatidatamart.`dim-url`
     </remotesteps>
     <GUI>
       <xloc>1632</xloc>
-      <yloc>864</yloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3801,8 +3936,8 @@ FROM iatidatamart.`dim-url`
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
+    <sort_size>500000</sort_size>
+    <free_memory>50%</free_memory>
     <compress>N</compress>
     <compress_variable/>
     <unique_rows>N</unique_rows>
@@ -3833,13 +3968,38 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1405</xloc>
-      <yloc>1009</yloc>
+      <xloc>1824</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Strings cut</name>
+    <name>Too much context sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2000</xloc>
+      <yloc>976</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Truncate long error msg</name>
     <type>StringCut</type>
     <description/>
     <distribute>Y</distribute>
@@ -3872,8 +4032,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>864</yloc>
+      <xloc>736</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3932,8 +4092,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>1092</yloc>
+      <xloc>1936</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3971,8 +4131,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1515</xloc>
-      <yloc>1006</yloc>
+      <xloc>1936</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4016,8 +4176,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1746</xloc>
-      <yloc>1003</yloc>
+      <xloc>2176</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4061,8 +4221,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1751</xloc>
-      <yloc>1088</yloc>
+      <xloc>2176</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4219,7 +4379,7 @@ FROM iatidatamart.`dim-url`
         <currency/>
         <decimal/>
         <group/>
-        <length>-1</length>
+        <length>1000</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -4802,8 +4962,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>864</yloc>
+      <xloc>2176</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4870,75 +5030,6 @@ FROM iatidatamart.`dim-url`
     <GUI>
       <xloc>78</xloc>
       <yloc>257</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Only the first 40 context rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Write validator results</send_true_to>
-    <send_false_to>Too much context sink</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>context-seq</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>40</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>####0;-####0</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1968</xloc>
-      <yloc>864</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Too much context sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1968</xloc>
-      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
