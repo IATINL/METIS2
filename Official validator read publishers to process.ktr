@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2021/09/22 16:41:29.625</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/08/23 16:38:35.414</modified_date>
+    <modified_date>2023/08/25 15:58:38.225</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -438,8 +438,8 @@
       <note>Write validator results to error file, update registry hash for processed XML file &amp;
 mark publisher as changed since new XML data has been processed. This triggers 
 the e-mail process in a following step.</note>
-      <xloc>1504</xloc>
-      <yloc>944</yloc>
+      <xloc>1488</xloc>
+      <yloc>1024</yloc>
       <width>440</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -666,38 +666,8 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Validator id and title</from>
+      <from>Validator error header</from>
       <to>No validator id sink</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remove leading bracket</from>
-      <to>Remove trailing bracket</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Validator error details</from>
-      <to>No validator details sink</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>If no context info</from>
-      <to>Read context text</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select validator output</from>
-      <to>Remove leading bracket</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remove trailing bracket</from>
-      <to>Replace in string</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Replace in string</from>
-      <to>If no context info</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -867,62 +837,17 @@ SET SESSION sql_mode = "";
     </hop>
     <hop>
       <from>Continue 6</from>
-      <to>Detect empty title &amp; id stream</to>
+      <to>Detect empty validator header</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Detect empty title &amp; id stream</from>
+      <from>Detect empty validator header</from>
       <to>Append streams 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Validator id and title</from>
+      <from>Validator error header</from>
       <to>Continue 6</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Append streams 4</from>
-      <to>Validator error details</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Validator error details</from>
-      <to>Continue 7</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Continue 7</from>
-      <to>Append streams 5</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Append streams 5</from>
-      <to>Select validator output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Continue 7</from>
-      <to>Detect empty deatils stream</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Detect empty deatils stream</from>
-      <to>Append streams 5</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Continue 8</from>
-      <to>Detect no context</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Detect no context</from>
-      <to>Append 6</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Continue 8</from>
-      <to>Append 6</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -937,7 +862,7 @@ SET SESSION sql_mode = "";
     </hop>
     <hop>
       <from>Blocking Step</from>
-      <to>Validator id and title</to>
+      <to>Validator error header</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1081,46 +1006,6 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort context</from>
-      <to>Add value fields changing sequence</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add value fields changing sequence</from>
-      <to>Only the first 40 context rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Only the first 40 context rows</from>
-      <to>Write validator results</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Only the first 40 context rows</from>
-      <to>Too much context sink</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Sort context</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Read context text</from>
-      <to>Truncate long error msg</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Truncate long error msg</from>
-      <to>Continue 8</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get rows from result</from>
-      <to>Lookup publishet info</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Read all active publishers</from>
       <to>Lookup publishet info</to>
       <enabled>Y</enabled>
@@ -1131,13 +1016,118 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Filter empty rows</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 8</from>
+      <to>Append 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 8</from>
+      <to>Detect no context</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect no context</from>
+      <to>Append 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If no context info</from>
+      <to>Read context text</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read context text</from>
+      <to>Continue 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove leading bracket</from>
+      <to>Remove trailing bracket</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove trailing bracket</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string</from>
+      <to>If no context info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Append 6</from>
       <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter empty rows</from>
-      <to>Sort rows</to>
+      <from>Filter rows</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Add value fields changing sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add value fields changing sequence</from>
+      <to>Write validator results</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
+      <to>Select validator output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator error details</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 4</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 4</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Validator error details</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select validator output</from>
+      <to>Unique rows (HashSet)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet)</from>
+      <to>Remove leading bracket</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get rows from result</from>
+      <to>Lookup publishet info</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1233,8 +1223,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2048</xloc>
-      <yloc>1120</yloc>
+      <xloc>1792</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1254,10 +1244,10 @@ SET SESSION sql_mode = "";
     <resultfieldName>context-seq</resultfieldName>
     <fields>
       <field>
-        <name>publisher</name>
+        <name>publisher-file-url</name>
       </field>
       <field>
-        <name>publisher-file-url</name>
+        <name>report-activity-identifier</name>
       </field>
       <field>
         <name>error-id</name>
@@ -1272,8 +1262,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1808</xloc>
-      <yloc>880</yloc>
+      <xloc>1680</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1353,8 +1343,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>302</xloc>
-      <yloc>659</yloc>
+      <xloc>288</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1380,8 +1370,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>880</yloc>
+      <xloc>1072</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1443,7 +1433,7 @@ SET SESSION sql_mode = "";
     <name>Append streams 4</name>
     <type>Append</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1451,7 +1441,7 @@ SET SESSION sql_mode = "";
       <schema_name/>
     </partitioning>
     <head_name>Continue 6</head_name>
-    <tail_name>Detect empty title &amp; id stream</tail_name>
+    <tail_name>Detect empty validator header</tail_name>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1461,35 +1451,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1095</xloc>
-      <yloc>663</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Append streams 5</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <head_name>Continue 7</head_name>
-    <tail_name>Detect empty deatils stream</tail_name>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1661</xloc>
-      <yloc>663</yloc>
+      <xloc>1136</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1497,7 +1460,7 @@ SET SESSION sql_mode = "";
     <name>Blocking Step</name>
     <type>BlockingStep</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1518,8 +1481,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>627</xloc>
-      <yloc>663</yloc>
+      <xloc>608</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1720,8 +1683,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>73</xloc>
-      <yloc>659</yloc>
+      <xloc>64</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1745,33 +1708,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>907</xloc>
-      <yloc>665</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Continue 7</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1464</xloc>
-      <yloc>661</yloc>
+      <xloc>944</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1795,8 +1733,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>880</yloc>
+      <xloc>864</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1880,33 +1818,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>481</xloc>
-      <yloc>660</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Detect empty deatils stream</name>
-    <type>DetectEmptyStream</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1569</xloc>
-      <yloc>753</yloc>
+      <xloc>464</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1980,13 +1893,13 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>169</xloc>
-      <yloc>750</yloc>
+      <xloc>160</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Detect empty title &amp; id stream</name>
+    <name>Detect empty validator header</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
@@ -2005,8 +1918,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1003</xloc>
-      <yloc>764</yloc>
+      <xloc>1040</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2030,8 +1943,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>960</yloc>
+      <xloc>960</xloc>
+      <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2105,8 +2018,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>880</yloc>
+      <xloc>1184</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2180,8 +2093,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1312</xloc>
-      <yloc>1120</yloc>
+      <xloc>1296</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2250,8 +2163,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1312</xloc>
-      <yloc>1040</yloc>
+      <xloc>1296</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2266,7 +2179,7 @@ SET SESSION sql_mode = "";
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort context</send_true_to>
+    <send_true_to>Sort rows 2</send_true_to>
     <send_false_to>No error id sink</send_false_to>
     <compare>
       <condition>
@@ -2285,8 +2198,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1424</xloc>
-      <yloc>880</yloc>
+      <xloc>1296</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2574,8 +2487,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>880</yloc>
+      <xloc>608</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2915,8 +2828,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1424</xloc>
-      <yloc>960</yloc>
+      <xloc>1296</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2971,31 +2884,6 @@ SET SESSION sql_mode = "";
     </GUI>
   </step>
   <step>
-    <name>No validator details sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1206</xloc>
-      <yloc>766</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>No validator id sink</name>
     <type>Dummy</type>
     <description/>
@@ -3015,8 +2903,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>779</xloc>
-      <yloc>762</yloc>
+      <xloc>816</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3042,50 +2930,6 @@ SET SESSION sql_mode = "";
     <GUI>
       <xloc>1930</xloc>
       <yloc>569</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Only the first 40 context rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Write validator results</send_true_to>
-    <send_false_to>Too much context sink</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>context-seq</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>40</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>####0;-####0</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2000</xloc>
-      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3217,9 +3061,9 @@ WHERE active=True and `email-active`=True</sql>
         <currency/>
         <decimal/>
         <group/>
-        <length>4000</length>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -3244,8 +3088,8 @@ WHERE active=True and `email-active`=True</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>880</yloc>
+      <xloc>752</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3265,7 +3109,7 @@ WHERE active=True and `email-active`=True</sql>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
@@ -3336,7 +3180,7 @@ WHERE active=True and `email-active`=True</sql>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
@@ -3559,8 +3403,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>880</yloc>
+      <xloc>176</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3598,8 +3442,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>880</yloc>
+      <xloc>320</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3637,8 +3481,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>880</yloc>
+      <xloc>464</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3745,72 +3589,91 @@ FROM iatidatamart.`dim-url`
     <fields>
       <field>
         <name>publisher</name>
+        <rename/>
       </field>
       <field>
         <name>publisher-name</name>
+        <rename/>
       </field>
       <field>
         <name>publisher-organisation-id</name>
+        <rename/>
       </field>
       <field>
         <name>publisher-package-id</name>
-      </field>
-      <field>
-        <name>publisher-file-url</name>
+        <rename/>
       </field>
       <field>
         <name>publisher-file-registry-hash</name>
+        <rename/>
       </field>
       <field>
         <name>publisher-file-registry-id</name>
+        <rename/>
+      </field>
+      <field>
+        <name>publisher-file-url</name>
+        <rename/>
       </field>
       <field>
         <name>publisher-file-valid</name>
-      </field>
-      <field>
-        <name>report-valid</name>
-      </field>
-      <field>
-        <name>report-activity-identifier</name>
-      </field>
-      <field>
-        <name>report-activity-title</name>
+        <rename/>
       </field>
       <field>
         <name>report-filetype</name>
+        <rename/>
       </field>
       <field>
         <name>report-iati-version</name>
+        <rename/>
       </field>
       <field>
         <name>report-api-version</name>
+        <rename/>
       </field>
       <field>
         <name>report-summary-critical</name>
+        <rename/>
       </field>
       <field>
         <name>report-summary-error</name>
+        <rename/>
       </field>
       <field>
         <name>report-summary-warning</name>
+        <rename/>
+      </field>
+      <field>
+        <name>report-activity-identifier</name>
+        <rename/>
+      </field>
+      <field>
+        <name>report-activity-title</name>
+        <rename/>
+      </field>
+      <field>
+        <name>report-valid</name>
+        <rename/>
       </field>
       <field>
         <name>error-id</name>
-      </field>
-      <field>
-        <name>error-severity</name>
+        <rename/>
       </field>
       <field>
         <name>error-message</name>
+        <rename/>
+      </field>
+      <field>
+        <name>error-severity</name>
+        <rename/>
       </field>
       <field>
         <name>error-context</name>
+        <rename/>
       </field>
       <field>
-        <name>authorization-key</name>
-      </field>
-      <field>
-        <name>validator-root</name>
+        <name>row-number</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -3823,8 +3686,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1929</xloc>
-      <yloc>655</yloc>
+      <xloc>1776</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3860,66 +3723,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>1040</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort context</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>100000</sort_size>
-    <free_memory>40</free_memory>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>publisher</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>publisher-file-url</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>error-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1632</xloc>
-      <yloc>880</yloc>
+      <xloc>1184</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3936,7 +3741,7 @@ FROM iatidatamart.`dim-url`
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
-    <sort_size>500000</sort_size>
+    <sort_size>100000</sort_size>
     <free_memory>50%</free_memory>
     <compress>N</compress>
     <compress_variable/>
@@ -3968,14 +3773,14 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>1040</yloc>
+      <xloc>1456</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Too much context sink</name>
-    <type>Dummy</type>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3984,43 +3789,37 @@ FROM iatidatamart.`dim-url`
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2000</xloc>
-      <yloc>976</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Truncate long error msg</name>
-    <type>StringCut</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>100000</sort_size>
+    <free_memory>50%</free_memory>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <in_stream_name>error-message</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>1000</cut_to>
+        <name>publisher-file-url</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
       <field>
-        <in_stream_name>error-context-text</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>4000</cut_to>
+        <name>report-activity-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>error-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
     <attributes/>
@@ -4032,8 +3831,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>880</yloc>
+      <xloc>1456</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4092,8 +3891,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1936</xloc>
-      <yloc>1120</yloc>
+      <xloc>1680</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4131,8 +3930,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1936</xloc>
-      <yloc>1040</yloc>
+      <xloc>1680</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4176,8 +3975,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2176</xloc>
-      <yloc>1040</yloc>
+      <xloc>1920</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4221,8 +4020,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2176</xloc>
-      <yloc>1120</yloc>
+      <xloc>1920</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4315,7 +4114,7 @@ FROM iatidatamart.`dim-url`
     </GUI>
   </step>
   <step>
-    <name>Validator error details</name>
+    <name>Validator error header</name>
     <type>JsonInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -4327,126 +4126,16 @@ FROM iatidatamart.`dim-url`
     </partitioning>
     <include>N</include>
     <include_field/>
-    <rownum>N</rownum>
+    <rownum>Y</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
-    <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
     <includeNulls>N</includeNulls>
-    <rownum_field/>
-    <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>error-id</name>
-        <path>$.report.errors[*].errors[*].errors[*].id</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>error-severity</name>
-        <path>$.report.errors[*].errors[*].errors[*].severity</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>error-message</name>
-        <path>$.report.errors[*].errors[*].errors[*].message</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>1000</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>error-context</name>
-        <path>$.report.errors[*].errors[*].errors[*].context</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <IsInFields>Y</IsInFields>
-    <IsAFile>N</IsAFile>
-    <valueField>curl-result</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1206</xloc>
-      <yloc>663</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Validator id and title</name>
-    <type>JsonInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
-    <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <ignoreMissingPath>Y</ignoreMissingPath>
-    <defaultPathLeafToNull>N</defaultPathLeafToNull>
-    <includeNulls>N</includeNulls>
-    <rownum_field/>
+    <rownum_field>row-number</rownum_field>
     <file>
       <name/>
       <filemask/>
@@ -4481,6 +4170,19 @@ FROM iatidatamart.`dim-url`
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>report-errors</name>
+        <path>$.report.errors[*].errors</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <IsInFields>Y</IsInFields>
@@ -4503,8 +4205,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>778</xloc>
-      <yloc>665</yloc>
+      <xloc>816</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4962,8 +4664,8 @@ FROM iatidatamart.`dim-url`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2176</xloc>
-      <yloc>880</yloc>
+      <xloc>1920</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5033,6 +4735,299 @@ FROM iatidatamart.`dim-url`
       <draw>Y</draw>
     </GUI>
   </step>
+  <step>
+    <name>Validator error details</name>
+    <type>JsonInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <readurl>N</readurl>
+    <removeSourceField>Y</removeSourceField>
+    <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <ignoreMissingPath>Y</ignoreMissingPath>
+    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
+    <rownum_field/>
+    <file>
+      <name>P:\Metis\iati_working_dir\jsontest3.txt</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>error-id</name>
+        <path>$..[*]..id</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>error-context</name>
+        <path>$..[*]..context</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>error-message</name>
+        <path>$..[*]..message</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>error-severity</name>
+        <path>$..[*]..severity</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <IsInFields>Y</IsInFields>
+    <IsAFile>N</IsAFile>
+    <valueField>report-errors</valueField>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows 3</step1>
+    <step2>Sort rows 4</step2>
+    <keys_1>
+      <key>row-number</key>
+    </keys_1>
+    <keys_2>
+      <key>row-number</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>row-number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>row-number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>report-errors</name>
+        <rename/>
+      </field>
+      <field>
+        <name>row-number</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows (HashSet)</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>N</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1920</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step_error_handling>
     <error>
       <source_step>Get org ids</source_step>
@@ -5095,19 +5090,7 @@ FROM iatidatamart.`dim-url`
       <min_pct_rows/>
     </error>
     <error>
-      <source_step>Validator error details</source_step>
-      <target_step>No validator details sink</target_step>
-      <is_enabled>Y</is_enabled>
-      <nr_valuename/>
-      <descriptions_valuename/>
-      <fields_valuename/>
-      <codes_valuename/>
-      <max_errors/>
-      <max_pct_errors/>
-      <min_pct_rows/>
-    </error>
-    <error>
-      <source_step>Validator id and title</source_step>
+      <source_step>Validator error header</source_step>
       <target_step>No validator id sink</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
