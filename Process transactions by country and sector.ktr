@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;02&#x2f;10 17&#x3a;17&#x3a;53.430</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;11 16&#x3a;35&#x3a;23.094</modified_date>
+  <modified_date>2023&#x2f;02&#x2f;07 12&#x3a;46&#x3a;53.539</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Calculate the transaction value for each combination&#xd;&#xa;of country or region en sector. Remove all zero percentages first to avoid &#xd;&#xa;introducing confusing zero transactions.</note>
+      <xloc>74</xloc>
+      <yloc>16</yloc>
+      <width>396</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_database</name>
@@ -95,87 +116,6 @@
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
       <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_datamart</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatidatamart</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_logging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatilogging</database>
-    <port>3307</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3307</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>IATI_reference</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>iatireference</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatireference</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
@@ -215,9 +155,6 @@
   <order>
   <hop> <from>Read sectors from DB</from><to>Select sector fields</to><enabled>Y</enabled> </hop>
   <hop> <from>Read country region from DB</from><to>Select country &#x26; region fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>If null sector or loc &#x25;</from><to>Calc trx value</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select sector fields</from><to>Sort sector</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select country &#x26; region fields</from><to>Sort country&#x26; region</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort trx</from><to>Join trx and sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort sector</from><to>Join trx and sector</to><enabled>Y</enabled> </hop>
   <hop> <from>Join trx and sector</from><to>Select values</to><enabled>Y</enabled> </hop>
@@ -231,6 +168,13 @@
   <hop> <from>Replace missing codes</from><to>Write transaction facts</to><enabled>Y</enabled> </hop>
   <hop> <from>Read trx from stg</from><to>Select transactions</to><enabled>Y</enabled> </hop>
   <hop> <from>Calc trx value</from><to>Missing codes</to><enabled>Y</enabled> </hop>
+  <hop> <from>If null sector or loc &#x25;</from><to>Calc trx value</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select country &#x26; region fields</from><to>Select non-zero country region &#x25;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select non-zero country region &#x25;</from><to>Sort country&#x26; region</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select non-zero country region &#x25;</from><to>Zero country or region &#x25; sink</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select sector fields</from><to>Select non-zero sector &#x25;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select non-zero sector &#x25;</from><to>Sort sector</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select non-zero sector &#x25;</from><to>Zero sector &#x25; sink</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calc trx value</name>
@@ -259,8 +203,8 @@
 </formula>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1028</xloc>
-      <yloc>106</yloc>
+      <xloc>1242</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -407,8 +351,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1404</xloc>
-      <yloc>4</yloc>
+      <xloc>1618</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -447,8 +391,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>918</xloc>
-      <yloc>107</yloc>
+      <xloc>1111</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -475,8 +419,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>517</xloc>
-      <yloc>106</yloc>
+      <xloc>710</xloc>
+      <yloc>203</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -503,8 +447,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>805</xloc>
-      <yloc>107</yloc>
+      <xloc>998</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -560,8 +504,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1134</xloc>
-      <yloc>106</yloc>
+      <xloc>1348</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -586,8 +530,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>75</xloc>
-      <yloc>322</yloc>
+      <xloc>85</xloc>
+      <yloc>473</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -612,8 +556,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>182</yloc>
+      <xloc>86</xloc>
+      <yloc>281</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -630,7 +574,7 @@
            <schema_name/>
            </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, &#x60;transaction-value&#x60;&#xd;&#xa;, &#x60;transaction-value-eur&#x60;&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, currency&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, &#x60;exchange-rate&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;receiver-org-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;stg-act-transactions&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;transaction-reference&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, &#x60;transaction-value&#x60;&#xd;&#xa;, &#x60;transaction-value-eur&#x60;&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, currency&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, &#x60;exchange-rate&#x60;&#xd;&#xa;, &#x60;provider-org-id&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;receiver-org-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;stg-act-transactions&#x60;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -638,8 +582,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>75</xloc>
-      <yloc>26</yloc>
+      <xloc>89</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -699,8 +643,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1258</xloc>
-      <yloc>106</yloc>
+      <xloc>1472</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -735,8 +679,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>256</xloc>
-      <yloc>322</yloc>
+      <xloc>266</xloc>
+      <yloc>473</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -767,8 +711,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>257</xloc>
-      <yloc>181</yloc>
+      <xloc>271</xloc>
+      <yloc>280</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -786,6 +730,10 @@
            </partitioning>
     <fields>      <field>        <name>iati-identifier</name>
         <rename>iati-identifier-1</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-reference</name>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>provider-org</name>
@@ -871,8 +819,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>257</xloc>
-      <yloc>24</yloc>
+      <xloc>271</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -929,6 +877,10 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>sector-percentage</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>transaction-reference</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -990,8 +942,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>613</xloc>
-      <yloc>107</yloc>
+      <xloc>806</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1024,8 +976,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>415</xloc>
-      <yloc>322</yloc>
+      <xloc>604</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1058,8 +1010,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>708</xloc>
-      <yloc>106</yloc>
+      <xloc>901</xloc>
+      <yloc>203</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1092,8 +1044,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>415</xloc>
-      <yloc>181</yloc>
+      <xloc>608</xloc>
+      <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1126,8 +1078,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>411</xloc>
-      <yloc>25</yloc>
+      <xloc>604</xloc>
+      <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1164,6 +1116,10 @@
         <field>
           <column_name>iati-identifier</column_name>
           <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>transaction-reference</column_name>
+          <stream_name>transaction-reference</stream_name>
         </field>
         <field>
           <column_name>recipient-country-code</column_name>
@@ -1256,8 +1212,104 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1406</xloc>
-      <yloc>106</yloc>
+      <xloc>1619</xloc>
+      <yloc>205</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select non-zero country region &#x25;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Sort country&#x26; region</send_true_to>
+<send_false_to>Zero country or region &#x25; sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>country-region-percentage</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>449</xloc>
+      <yloc>472</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Zero country or region &#x25; sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>446</xloc>
+      <yloc>583</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select non-zero sector &#x25;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Sort sector</send_true_to>
+<send_false_to>Zero sector &#x25; sink</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sector-percentage</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>454</xloc>
+      <yloc>277</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Zero sector &#x25; sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>452</xloc>
+      <yloc>377</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -6,38 +6,399 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection/>
-<schema/>
-<table/>
-<size_limit_lines/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
-<perf-log-table><connection/>
-<schema/>
-<table/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
-<channel-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
-<step-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -65,18 +426,20 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user>-</created_user>
-  <created_date>2021&#x2f;09&#x2f;22 16&#x3a;41&#x3a;29.625</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;02&#x2f;23 14&#x3a;51&#x3a;04.116</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <created_user>-</created_user>
+    <created_date>2021/09/22 16:41:29.625</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2023/08/28 09:41:10.098</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Write validator results to error file, update registry hash for processed XML file &#x26;&#xd;&#xa;mark publisher as changed since new XML data has been processed. This triggers &#xd;&#xa;the e-mail process in a following step.</note>
-      <xloc>1718</xloc>
-      <yloc>925</yloc>
+      <note>Write validator results to error file, update registry hash for processed XML file &amp;
+mark publisher as changed since new XML data has been processed. This triggers 
+the e-mail process in a following step.</note>
+      <xloc>1488</xloc>
+      <yloc>1024</yloc>
       <width>440</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -108,20 +471,71 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.Database type</code><attribute>Innodb</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.Database type</code>
+        <attribute>Innodb</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatischema</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <connection>
@@ -137,124 +551,585 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatidatamart</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>Select publisher flds</from><to>api call to get publisher file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator output api call</from><to>Header constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Header constants</from><to>Build curl request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write to log</from><to>Get validator output</to><enabled>Y</enabled> </hop>
-  <hop> <from>api call string</from><to>Log reg call</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read organisation ids</from><to>No org sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read publisher file ids</from><to>No package-id sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Strings cut</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>No error id sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator meta info</from><to>No data sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator summary</from><to>No validator summary sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator id and title</from><to>No validator id sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove leading bracket</from><to>Remove trailing bracket</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator error details</from><to>No validator details sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>If no context info</from><to>Read context text</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select validator output</from><to>Remove leading bracket</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove trailing bracket</from><to>Replace in string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace in string</from><to>If no context info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Build curl request</from><to>Remove empty calls</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove empty calls</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove empty calls</from><to>Empty call sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove empty org-id</from><to>Empty org-id sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>api call to get publisher file ids</from><to>Remove empty org-id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove empty org-id</from><to>Log file-ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>File has changed&#x3f;</from><to>Select publisher file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>File has changed&#x3f;</from><to>Unchanged file sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup stored file hash</from><to>File has changed&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read stored hash for url</from><to>Lookup stored file hash</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read publisher file ids</from><to>Lookup stored file hash</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read organisation ids</from><to>Select publisher flds</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect no orgs</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams</from><to>Read organisation ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue</from><to>Detect no orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 2</from><to>Detect no file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect no file ids</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 2</from><to>Read publisher file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 2</from><to>Append streams 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty output</from><to>Append 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append 1</from><to>Validator meta info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 3</from><to>Detect empty output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 3</from><to>Append 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 4</from><to>Append 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append 2</from><to>Validator summary</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 4</from><to>Detect empty meta data stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty meta data stream</from><to>Append 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator summary</from><to>Continue 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 5</from><to>Append 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 5</from><to>Detect empty summary stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty summary stream</from><to>Append 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 6</from><to>Append streams 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 6</from><to>Detect empty title &#x26; id stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty title &#x26; id stream</from><to>Append streams 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator id and title</from><to>Continue 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 4</from><to>Validator error details</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator error details</from><to>Continue 7</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 7</from><to>Append streams 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 5</from><to>Select validator output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 7</from><to>Detect empty deatils stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect empty deatils stream</from><to>Append streams 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read context text</from><to>Continue 8</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 8</from><to>Detect no context</to><enabled>Y</enabled> </hop>
-  <hop> <from>Detect no context</from><to>Append 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>Continue 8</from><to>Append 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append 3</from><to>Delete file from errorlog</to><enabled>Y</enabled> </hop>
-  <hop> <from>Delete file from errorlog</from><to>Blocking Step</to><enabled>Y</enabled> </hop>
-  <hop> <from>Blocking Step</from><to>Validator id and title</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select publisher file ids</from><to>Validator output api call</to><enabled>Y</enabled> </hop>
-  <hop> <from>Log reg call</from><to>Get org ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get org ids</from><to>Log results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get org ids</from><to>Abort getting org ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Log results</from><to>Check valid curl request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Check valid curl request</from><to>Continue</to><enabled>Y</enabled> </hop>
-  <hop> <from>Check valid curl request</from><to>Invalid curl request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Log file-ids</from><to>Get publisher file ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get publisher file ids</from><to>Abort publisher file read</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get publisher file ids</from><to>Valid curl file id response&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Valid curl file id response&#x3f;</from><to>Continue 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Valid curl file id response&#x3f;</from><to>Invalid curl response sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get validator output</from><to>Valid curl validator output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Valid curl validator output</from><to>Continue 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Valid curl validator output</from><to>Invalid validator output request</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique url&#x27;s</from><to>Update hash on url</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strings cut</from><to>Write validator results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter empty rows</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter empty rows</from><to>Empty row sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get validator authorization key</from><to>api call string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append 6</from><to>If error messages&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>If error messages&#x3f;</from><to>Append no errors found</to><enabled>Y</enabled> </hop>
-  <hop> <from>If error messages&#x3f;</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams 3</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append no errors found</from><to>Append streams 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read all active publishers</from><to>Get validator authorization key</to><enabled>Y</enabled> </hop>
-  <hop> <from>Validator meta info</from><to>Database lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup</from><to>Continue 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Unique url&#x27;s</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Filter empty rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Unique publishers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique publishers</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add constants</from><to>Update publisher XML changed flag</to><enabled>Y</enabled> </hop>
+    <hop>
+      <from>Select publisher flds</from>
+      <to>api call to get publisher file ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator output api call</from>
+      <to>Header constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Header constants</from>
+      <to>Build curl request</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log</from>
+      <to>Get validator output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>api call string</from>
+      <to>Log reg call</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read organisation ids</from>
+      <to>No org sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read publisher file ids</from>
+      <to>No package-id sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>No error id sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator meta info</from>
+      <to>No data sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator summary</from>
+      <to>No validator summary sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator error header</from>
+      <to>No validator id sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Build curl request</from>
+      <to>Remove empty calls</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove empty calls</from>
+      <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove empty calls</from>
+      <to>Empty call sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove empty org-id</from>
+      <to>Empty org-id sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>api call to get publisher file ids</from>
+      <to>Remove empty org-id</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove empty org-id</from>
+      <to>Log file-ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>File has changed?</from>
+      <to>Select publisher file ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>File has changed?</from>
+      <to>Unchanged file sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup stored file hash</from>
+      <to>File has changed?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read stored hash for url</from>
+      <to>Lookup stored file hash</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read publisher file ids</from>
+      <to>Lookup stored file hash</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read organisation ids</from>
+      <to>Select publisher flds</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect no orgs</from>
+      <to>Append streams</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams</from>
+      <to>Read organisation ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue</from>
+      <to>Detect no orgs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue</from>
+      <to>Append streams</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 2</from>
+      <to>Detect no file ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect no file ids</from>
+      <to>Append streams 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 2</from>
+      <to>Read publisher file ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 2</from>
+      <to>Append streams 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect empty output</from>
+      <to>Append 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append 1</from>
+      <to>Validator meta info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 3</from>
+      <to>Detect empty output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 3</from>
+      <to>Append 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 4</from>
+      <to>Append 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append 2</from>
+      <to>Validator summary</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 4</from>
+      <to>Detect empty meta data stream</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect empty meta data stream</from>
+      <to>Append 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator summary</from>
+      <to>Continue 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 5</from>
+      <to>Append 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 5</from>
+      <to>Detect empty summary stream</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect empty summary stream</from>
+      <to>Append 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 6</from>
+      <to>Append streams 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 6</from>
+      <to>Detect empty validator header</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect empty validator header</from>
+      <to>Append streams 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator error header</from>
+      <to>Continue 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append 3</from>
+      <to>Delete file from errorlog</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Delete file from errorlog</from>
+      <to>Blocking Step</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Blocking Step</from>
+      <to>Validator error header</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select publisher file ids</from>
+      <to>Validator output api call</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Log reg call</from>
+      <to>Get org ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get org ids</from>
+      <to>Log results</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get org ids</from>
+      <to>Abort getting org ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Log results</from>
+      <to>Check valid curl request</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Check valid curl request</from>
+      <to>Continue</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Check valid curl request</from>
+      <to>Invalid curl request</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Log file-ids</from>
+      <to>Get publisher file ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get publisher file ids</from>
+      <to>Abort publisher file read</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get publisher file ids</from>
+      <to>Valid curl file id response?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid curl file id response?</from>
+      <to>Continue 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid curl file id response?</from>
+      <to>Invalid curl response sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get validator output</from>
+      <to>Valid curl validator output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid curl validator output</from>
+      <to>Continue 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid curl validator output</from>
+      <to>Invalid validator output request</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique url's</from>
+      <to>Update hash on url</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter empty rows</from>
+      <to>Empty row sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get validator authorization key</from>
+      <to>api call string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator meta info</from>
+      <to>Database lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup</from>
+      <to>Continue 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Unique url's</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Filter empty rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Unique publishers</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique publishers</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Update publisher XML changed flag</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Publishers to proces</from>
+      <to>Get validator authorization key</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all active publishers</from>
+      <to>Lookup publishet info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup publishet info</from>
+      <to>Publishers to proces</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter empty rows</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 8</from>
+      <to>Append 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Continue 8</from>
+      <to>Detect no context</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect no context</from>
+      <to>Append 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If no context info</from>
+      <to>Read context text</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read context text</from>
+      <to>Continue 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove leading bracket</from>
+      <to>Remove trailing bracket</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove trailing bracket</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string</from>
+      <to>If no context info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append 6</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Add value fields changing sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add value fields changing sequence</from>
+      <to>Write validator results</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
+      <to>Select validator output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validator error details</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 4</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 4</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Validator error details</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select validator output</from>
+      <to>Unique rows (HashSet)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet)</from>
+      <to>Remove leading bracket</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get rows from result</from>
+      <to>Lookup publishet info</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Abort getting org ids</name>
@@ -263,21 +1138,28 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <row_threshold>0</row_threshold>
-      <message>Unexpected error when retreiving organisation ids</message>
-      <always_log_rows>Y</always_log_rows>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <row_threshold>0</row_threshold>
+    <message>Unexpected error when retreiving organisation ids</message>
+    <always_log_rows>Y</always_log_rows>
+    <abort_option>ABORT_WITH_ERROR</abort_option>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>879</xloc>
       <yloc>134</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Abort publisher file read</name>
     <type>Abort</type>
@@ -285,21 +1167,103 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <row_threshold>0</row_threshold>
-      <message>Abort when reading publisher files from IATI regsitry</message>
-      <always_log_rows>Y</always_log_rows>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <row_threshold>0</row_threshold>
+    <message>Abort when reading publisher files from IATI regsitry</message>
+    <always_log_rows>Y</always_log_rows>
+    <abort_option>ABORT_WITH_ERROR</abort_option>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>625</xloc>
       <yloc>351</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>changed</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Y</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1792</xloc>
+      <yloc>1200</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add value fields changing sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>context-seq</resultfieldName>
+    <fields>
+      <field>
+        <name>publisher-file-url</name>
+      </field>
+      <field>
+        <name>error-id</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1680</xloc>
+      <yloc>960</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Append 1</name>
     <type>Append</type>
@@ -307,20 +1271,26 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 3</head_name>
-<tail_name>Detect empty output</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue 3</head_name>
+    <tail_name>Detect empty output</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1115</xloc>
       <yloc>473</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append 2</name>
     <type>Append</type>
@@ -328,20 +1298,26 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 4</head_name>
-<tail_name>Detect empty meta data stream</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue 4</head_name>
+    <tail_name>Detect empty meta data stream</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1669</xloc>
       <yloc>471</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append 3</name>
     <type>Append</type>
@@ -349,20 +1325,26 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 5</head_name>
-<tail_name>Detect empty summary stream</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>302</xloc>
-      <yloc>659</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue 5</head_name>
+    <tail_name>Detect empty summary stream</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append 6</name>
     <type>Append</type>
@@ -370,66 +1352,26 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 8</head_name>
-<tail_name>Detect no context</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>968</xloc>
-      <yloc>870</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue 8</head_name>
+    <tail_name>Detect no context</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append no errors found</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>error-id</name>
-        <value>NMFA-1</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>error-severity</name>
-        <value>Information</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>error-message</name>
-        <value>No problems detected. Congratulations&#x21;</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1178</xloc>
-      <yloc>966</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append streams</name>
     <type>Append</type>
@@ -437,20 +1379,26 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue</head_name>
-<tail_name>Detect no orgs</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue</head_name>
+    <tail_name>Detect no orgs</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1443</xloc>
       <yloc>50</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append streams 2</name>
     <type>Append</type>
@@ -458,107 +1406,83 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 2</head_name>
-<tail_name>Detect no file ids</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue 2</head_name>
+    <tail_name>Detect no file ids</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1185</xloc>
       <yloc>257</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams 3</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>If error messages&#x3f;</head_name>
-<tail_name>Append no errors found</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1284</xloc>
-      <yloc>872</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append streams 4</name>
     <type>Append</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 6</head_name>
-<tail_name>Detect empty title &#x26; id stream</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1095</xloc>
-      <yloc>663</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Continue 6</head_name>
+    <tail_name>Detect empty validator header</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1136</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams 5</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Continue 7</head_name>
-<tail_name>Detect empty deatils stream</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1661</xloc>
-      <yloc>663</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Blocking Step</name>
     <type>BlockingStep</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>627</xloc>
-      <yloc>663</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <pass_all_rows>Y</pass_all_rows>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>block</prefix>
+    <cache_size>5000</cache_size>
+    <compress>Y</compress>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Build curl request</name>
     <type>Formula</type>
@@ -566,25 +1490,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>curl-request</field_name>
-<formula_string>&#x22;curl -s -S &#x22;&#x26;&#x5b;api-call-validator&#x5d;&#x26;&#x22; -H &#x22;&#x26;&#x22;Ocp-Apim-Subscription-Key&#x3a;&#x22;&#x26;&#x5b;authorization-key&#x5d;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>curl-request</field_name>
+      <formula_string>"curl -s -S "&amp;[api-call-validator]&amp;" -H "&amp;"Ocp-Apim-Subscription-Key:"&amp;[authorization-key]</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>313</xloc>
       <yloc>470</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Check valid curl request</name>
     <type>FilterRows</type>
@@ -592,28 +1523,43 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Continue</send_true_to>
-<send_false_to>Invalid curl request</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Continue</send_true_to>
+    <send_false_to>Invalid curl request</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>curl-exit-value</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>curl-exit-value</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>0</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>#;-#</mask>
+        </value>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1074</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue</name>
     <type>Dummy</type>
@@ -621,18 +1567,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1214</xloc>
       <yloc>51</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue 2</name>
     <type>Dummy</type>
@@ -640,18 +1592,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>956</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue 3</name>
     <type>Dummy</type>
@@ -659,18 +1617,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>910</xloc>
       <yloc>471</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue 4</name>
     <type>Dummy</type>
@@ -678,18 +1642,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1467</xloc>
       <yloc>472</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue 5</name>
     <type>Dummy</type>
@@ -697,18 +1667,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>73</xloc>
-      <yloc>659</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue 6</name>
     <type>Dummy</type>
@@ -716,37 +1692,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>907</xloc>
-      <yloc>665</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Continue 7</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1464</xloc>
-      <yloc>661</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Continue 8</name>
     <type>Dummy</type>
@@ -754,18 +1717,24 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>869</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Database lookup</name>
     <type>DBLookup</type>
@@ -773,10 +1742,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
@@ -790,7 +1759,7 @@
       <key>
         <name>publisher-file-url</name>
         <field>url</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
@@ -800,14 +1769,20 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1339</xloc>
       <yloc>472</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Delete file from errorlog</name>
     <type>Delete</type>
@@ -815,10 +1790,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
     <commit>100</commit>
     <lookup>
@@ -827,37 +1802,24 @@
       <key>
         <name>publisher-file-registry-id</name>
         <field>publisher-file-registry-id</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>481</xloc>
-      <yloc>660</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Detect empty deatils stream</name>
-    <type>DetectEmptyStream</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1569</xloc>
-      <yloc>753</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Detect empty meta data stream</name>
     <type>DetectEmptyStream</type>
@@ -865,18 +1827,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1568</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Detect empty output</name>
     <type>DetectEmptyStream</type>
@@ -884,18 +1852,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1014</xloc>
       <yloc>569</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Detect empty summary stream</name>
     <type>DetectEmptyStream</type>
@@ -903,37 +1877,49 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>169</xloc>
-      <yloc>750</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Detect empty title &#x26; id stream</name>
+    <name>Detect empty validator header</name>
     <type>DetectEmptyStream</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1003</xloc>
-      <yloc>764</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1040</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Detect no context</name>
     <type>DetectEmptyStream</type>
@@ -941,18 +1927,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>850</xloc>
-      <yloc>957</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>1056</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Detect no file ids</name>
     <type>DetectEmptyStream</type>
@@ -960,18 +1952,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1058</xloc>
       <yloc>350</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Detect no orgs</name>
     <type>DetectEmptyStream</type>
@@ -979,37 +1977,49 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1325</xloc>
       <yloc>121</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1402</xloc>
-      <yloc>872</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Empty call sink</name>
     <type>Dummy</type>
@@ -1017,18 +2027,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>416</xloc>
       <yloc>568</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Empty org-id sink</name>
     <type>Dummy</type>
@@ -1036,18 +2052,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>425</xloc>
       <yloc>354</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Empty row sink</name>
     <type>Dummy</type>
@@ -1055,47 +2077,59 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1504</xloc>
-      <yloc>1099</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>File has changed&#x3f;</name>
+    <name>File has changed?</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Select publisher file ids</send_true_to>
-<send_false_to>Unchanged file sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select publisher file ids</send_true_to>
+    <send_false_to>Unchanged file sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>hash</leftvalue>
- <function>&#x3c;&#x3e;</function>
- <rightvalue>stored-hash</rightvalue>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>hash</leftvalue>
+        <function>&lt;></function>
+        <rightvalue>stored-hash</rightvalue>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1585</xloc>
       <yloc>259</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Filter empty rows</name>
     <type>FilterRows</type>
@@ -1103,28 +2137,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Sort rows</send_true_to>
-<send_false_to>Empty row sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort rows</send_true_to>
+    <send_false_to>Empty row sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>publisher</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>publisher</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1502</xloc>
-      <yloc>1015</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
@@ -1132,28 +2172,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Strings cut</send_true_to>
-<send_false_to>No error id sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort rows 2</send_true_to>
+    <send_false_to>No error id sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>error-id</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>error-id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1625</xloc>
-      <yloc>869</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get org ids</name>
     <type>ExecProcess</type>
@@ -1161,24 +2207,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <processfield>api-call</processfield>
     <resultfieldname>json-result</resultfieldname>
     <errorfieldname>curl-error-value</errorfieldname>
     <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
     <failwhennotsuccess>Y</failwhennotsuccess>
     <outputlinedelimiter/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <argumentsInFields>N</argumentsInFields>
+    <argumentFields>
+    </argumentFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>880</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get publisher file ids</name>
     <type>ExecProcess</type>
@@ -1186,24 +2241,66 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <processfield>api-call-publisher-files</processfield>
     <resultfieldname>result-json-pfiles</resultfieldname>
     <errorfieldname>curl-error-value</errorfieldname>
     <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
     <failwhennotsuccess>Y</failwhennotsuccess>
     <outputlinedelimiter/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <argumentsInFields>N</argumentsInFields>
+    <argumentFields>
+    </argumentFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>628</xloc>
       <yloc>255</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Get rows from result</name>
+    <type>RowsFromResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Get validator authorization key</name>
     <type>GetVariable</type>
@@ -1211,14 +2308,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>authorization-key</name>
-        <variable>&#x24;&#x7b;VALIDATOR_APIKEY&#x7d;</variable>
+        <variable>${VALIDATOR_APIKEY}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1230,7 +2327,7 @@
       </field>
       <field>
         <name>validator-root</name>
-        <variable>&#x24;&#x7b;VALIDATORROOT&#x7d;</variable>
+        <variable>${VALIDATORROOT}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1242,7 +2339,7 @@
       </field>
       <field>
         <name>registry-root</name>
-        <variable>&#x24;&#x7b;IATIREGISTRY&#x7d;</variable>
+        <variable>${IATIREGISTRY}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1253,14 +2350,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>539</xloc>
       <yloc>47</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get validator output</name>
     <type>ExecProcess</type>
@@ -1268,24 +2371,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <processfield>curl-request</processfield>
     <resultfieldname>curl-result</resultfieldname>
     <errorfieldname>curl-error-value</errorfieldname>
     <exitvaluefieldname>curl-exit-value</exitvaluefieldname>
     <failwhennotsuccess>Y</failwhennotsuccess>
     <outputlinedelimiter/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <argumentsInFields>N</argumentsInFields>
+    <argumentFields>
+    </argumentFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>628</xloc>
       <yloc>473</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Header constants</name>
     <type>Constant</type>
@@ -1293,10 +2405,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>cache-control</name>
@@ -1317,68 +2429,26 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>application&#x2f;json</nullif>
+        <nullif>application/json</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>192</xloc>
       <yloc>469</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If error messages&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Append streams 3</send_true_to>
-<send_false_to>Append no errors found</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>report-summary-critical</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>report-summary-error</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>report-summary-warning</leftvalue>
-   <function>&#x3c;&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1054</xloc>
-      <yloc>870</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If no context info</name>
     <type>IfNull</type>
@@ -1386,33 +2456,39 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
       <field>
         <name>error-context</name>
-        <value>&#x7b;&#x22;text&#x22;&#x3a; &#x22;&#x22;&#x7d;</value>
+        <value>{"text": ""}</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>511</xloc>
-      <yloc>869</yloc>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Invalid curl request</name>
     <type>Dummy</type>
@@ -1420,18 +2496,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1072</xloc>
       <yloc>139</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Invalid curl response sink</name>
     <type>Dummy</type>
@@ -1439,18 +2521,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>793</xloc>
       <yloc>348</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Invalid validator output request</name>
     <type>Dummy</type>
@@ -1458,18 +2546,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>780</xloc>
       <yloc>573</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Log file-ids</name>
     <type>WriteToLog</type>
@@ -1477,37 +2571,43 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage/>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
     <fields>
       <field>
         <name>publisher</name>
-        </field>
+      </field>
       <field>
         <name>publisher-name</name>
-        </field>
+      </field>
       <field>
         <name>publisher-organisation-id</name>
-        </field>
+      </field>
       <field>
         <name>api-call-publisher-files</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>524</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Log reg call</name>
     <type>WriteToLog</type>
@@ -1515,37 +2615,43 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage/>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>------------- process one publisher for error feedback -------------------</logmessage>
     <fields>
       <field>
         <name>publisher</name>
-        </field>
+      </field>
       <field>
         <name>publisher-id</name>
-        </field>
+      </field>
       <field>
         <name>publisher-name</name>
-        </field>
+      </field>
       <field>
         <name>api-call</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>795</xloc>
       <yloc>47</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Log results</name>
     <type>WriteToLog</type>
@@ -1553,31 +2659,85 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Org read result log</logmessage>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>Org read result log</logmessage>
     <fields>
       <field>
         <name>api-call</name>
-        </field>
+      </field>
       <field>
         <name>curl-exit-value</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>970</xloc>
       <yloc>49</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup publishet info</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Read all active publishers</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>publisher</name>
+        <field>publisher</field>
+      </key>
+      <value>
+        <name>publisher-id</name>
+        <rename>publisher-id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>publisher-name</name>
+        <rename>publisher-name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Lookup stored file hash</name>
     <type>StreamLookup</type>
@@ -1585,10 +2745,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <from>Read stored hash for url</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
@@ -1606,14 +2766,54 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1456</xloc>
       <yloc>257</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows 3</step1>
+    <step2>Sort rows 4</step2>
+    <keys_1>
+      <key>row-number</key>
+    </keys_1>
+    <keys_2>
+      <key>row-number</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>No data sink</name>
     <type>Dummy</type>
@@ -1621,18 +2821,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1209</xloc>
       <yloc>562</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>No error id sink</name>
     <type>Dummy</type>
@@ -1640,18 +2846,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1624</xloc>
-      <yloc>940</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>No org sink</name>
     <type>Dummy</type>
@@ -1659,18 +2871,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1555</xloc>
       <yloc>132</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>No package-id sink</name>
     <type>Dummy</type>
@@ -1678,37 +2896,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1322</xloc>
       <yloc>336</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>No validator details sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1206</xloc>
-      <yloc>766</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>No validator id sink</name>
     <type>Dummy</type>
@@ -1716,18 +2921,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>779</xloc>
-      <yloc>762</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>No validator summary sink</name>
     <type>Dummy</type>
@@ -1735,18 +2946,61 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1930</xloc>
       <yloc>569</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Publishers to proces</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>publisher-name</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Read all active publishers</name>
     <type>TableInput</type>
@@ -1754,25 +3008,46 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, active&#xd;&#xa;, &#x60;force-processing&#x60;&#xd;&#xa;, &#x60;testfile-location&#x60;&#xd;&#xa;, &#x60;is-testfile&#x60;&#xd;&#xa;, &#x60;publisher-name&#x60;&#xd;&#xa;, email&#xd;&#xa;, &#x60;email-active&#x60;&#xd;&#xa;, &#x60;notification-date&#x60;&#xd;&#xa;, &#x60;notification-period&#x60;&#xd;&#xa;FROM iatischema.&#x60;ctl-publishers&#x60;&#xd;&#xa;WHERE active&#x3d;True and &#x60;email-active&#x60;&#x3d;True&#xd;&#xa;</sql>
+    <sql>SELECT
+  publisher
+, `publisher-id`
+, active
+, `force-processing`
+, `testfile-location`
+, `is-testfile`
+, `publisher-name`
+, email
+, `email-active`
+, `notification-date`
+, `notification-period`
+FROM iatischema.`ctl-publishers`
+WHERE active=True and `email-active`=True</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>85</xloc>
-      <yloc>50</yloc>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read context text</name>
     <type>JsonInput</type>
@@ -1780,10 +3055,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -1794,6 +3069,7 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -1801,7 +3077,7 @@
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
-      <name>C&#x3a;&#x5c;Users&#x5c;Herman&#x5c;Downloads&#x5c;testjson.json</name>
+      <name>C:\Users\Herman\Downloads\testjson.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1834,14 +3110,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>666</xloc>
-      <yloc>869</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read organisation ids</name>
     <type>JsonInput</type>
@@ -1849,20 +3131,21 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
-    <readurl>Y</readurl>
-    <removeSourceField>N</removeSourceField>
+    <readurl>N</readurl>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -1874,7 +3157,7 @@
     <fields>
       <field>
         <name>publisher-organisation-id</name>
-        <path>&#x24;.result.id</path>
+        <path>$.result.id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -1898,14 +3181,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1554</xloc>
       <yloc>51</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read publisher file ids</name>
     <type>JsonInput</type>
@@ -1913,20 +3202,21 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -1938,7 +3228,7 @@
     <fields>
       <field>
         <name>publisher-package-id</name>
-        <path>&#x24;.result.results&#x5b;&#x2a;&#x5d;.resources&#x5b;&#x2a;&#x5d;.package_id</path>
+        <path>$.result.results[*].resources[*].package_id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -1951,7 +3241,7 @@
       </field>
       <field>
         <name>hash</name>
-        <path>&#x24;.result.results&#x5b;&#x2a;&#x5d;.resources&#x5b;&#x2a;&#x5d;.hash</path>
+        <path>$.result.results[*].resources[*].hash</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -1964,7 +3254,7 @@
       </field>
       <field>
         <name>document-url</name>
-        <path>&#x24;.result.results&#x5b;&#x2a;&#x5d;.resources&#x5b;&#x2a;&#x5d;.url</path>
+        <path>$.result.results[*].resources[*].url</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -1988,14 +3278,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1322</xloc>
       <yloc>257</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read stored hash for url</name>
     <type>TableInput</type>
@@ -2003,25 +3299,37 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;  url&#xd;&#xa;, hash&#xd;&#xa;FROM iatidatamart.&#x60;dim-url&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT
+  url
+, hash
+FROM iatidatamart.`dim-url`
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1456</xloc>
       <yloc>153</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove empty calls</name>
     <type>FilterRows</type>
@@ -2029,28 +3337,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Write to log</send_true_to>
-<send_false_to>Empty call sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Write to log</send_true_to>
+    <send_false_to>Empty call sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>api-call-validator</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>api-call-validator</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>417</xloc>
       <yloc>470</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove empty org-id</name>
     <type>FilterRows</type>
@@ -2058,28 +3372,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Log file-ids</send_true_to>
-<send_false_to>Empty org-id sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Log file-ids</send_true_to>
+    <send_false_to>Empty org-id sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>publisher-organisation-id</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>publisher-organisation-id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>426</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove leading bracket</name>
     <type>ReplaceString</type>
@@ -2087,31 +3407,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>error-context</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>&#x5b;&#x7b;</replace_string>
-        <replace_by_string>&#x7b;</replace_by_string>
+        <replace_string>[{</replace_string>
+        <replace_by_string>{</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>83</xloc>
-      <yloc>875</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove trailing bracket</name>
     <type>ReplaceString</type>
@@ -2119,31 +3446,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>error-context</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>&#x7d;&#x5d;</replace_string>
-        <replace_by_string>&#x7d;</replace_by_string>
+        <replace_string>}]</replace_string>
+        <replace_by_string>}</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>230</xloc>
-      <yloc>874</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace in string</name>
     <type>ReplaceString</type>
@@ -2151,31 +3485,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>error-context</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>&#x5b;&#x5d;</replace_string>
+        <replace_string>[]</replace_string>
         <replace_by_string/>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>371</xloc>
-      <yloc>872</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select publisher file ids</name>
     <type>SelectValues</type>
@@ -2183,43 +3524,45 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-organisation-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-package-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>authorization-key</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>validator-root</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-name</name>
+      </field>
+      <field>
+        <name>publisher-organisation-id</name>
+      </field>
+      <field>
+        <name>publisher-package-id</name>
+      </field>
+      <field>
+        <name>authorization-key</name>
+      </field>
+      <field>
+        <name>validator-root</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1928</xloc>
       <yloc>254</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select publisher flds</name>
     <type>SelectValues</type>
@@ -2227,39 +3570,42 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-organisation-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>authorization-key</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>validator-root</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-name</name>
+      </field>
+      <field>
+        <name>publisher-organisation-id</name>
+      </field>
+      <field>
+        <name>authorization-key</name>
+      </field>
+      <field>
+        <name>validator-root</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1930</xloc>
       <yloc>43</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select validator output</name>
     <type>SelectValues</type>
@@ -2267,111 +3613,164 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-organisation-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-package-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-file-url</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-file-registry-hash</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-file-registry-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-file-valid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-valid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-activity-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-activity-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-filetype</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-iati-version</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-api-version</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-summary-critical</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-summary-error</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>report-summary-warning</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>error-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>error-severity</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>error-message</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>error-context</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>authorization-key</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>validator-root</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1929</xloc>
-      <yloc>655</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-name</name>
+      </field>
+      <field>
+        <name>publisher-organisation-id</name>
+      </field>
+      <field>
+        <name>publisher-package-id</name>
+      </field>
+      <field>
+        <name>publisher-file-registry-hash</name>
+      </field>
+      <field>
+        <name>publisher-file-registry-id</name>
+      </field>
+      <field>
+        <name>publisher-file-url</name>
+      </field>
+      <field>
+        <name>publisher-file-valid</name>
+      </field>
+      <field>
+        <name>report-filetype</name>
+      </field>
+      <field>
+        <name>report-iati-version</name>
+      </field>
+      <field>
+        <name>report-api-version</name>
+      </field>
+      <field>
+        <name>report-summary-critical</name>
+      </field>
+      <field>
+        <name>report-summary-error</name>
+      </field>
+      <field>
+        <name>report-summary-warning</name>
+      </field>
+      <field>
+        <name>report-activity-identifier</name>
+      </field>
+      <field>
+        <name>report-activity-title</name>
+      </field>
+      <field>
+        <name>report-valid</name>
+      </field>
+      <field>
+        <name>error-id</name>
+      </field>
+      <field>
+        <name>error-message</name>
+      </field>
+      <field>
+        <name>error-severity</name>
+      </field>
+      <field>
+        <name>error-context</name>
+      </field>
+      <field>
+        <name>row-number</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-file-url</name>
+      </field>
+      <field>
+        <name>publisher-file-registry-hash</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>1120</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>report-errors</name>
+      </field>
+      <field>
+        <name>row-number</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Sort rows</name>
     <type>SortRows</type>
@@ -2379,72 +3778,183 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>100000</sort_size>
+    <free_memory>50%</free_memory>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>publisher-file-url</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher-file-registry-hash</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1627</xloc>
-      <yloc>1012</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Strings cut</name>
-    <type>StringCut</type>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>100000</sort_size>
+    <free_memory>50%</free_memory>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <in_stream_name>error-message</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>2000</cut_to>
+        <name>publisher-file-url</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
       <field>
-        <in_stream_name>error-context-text</in_stream_name>
-        <out_stream_name/>
-        <cut_from>0</cut_from>
-        <cut_to>8000</cut_to>
+        <name>error-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1802</xloc>
-      <yloc>865</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>row-number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>row-number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Unchanged file sink</name>
     <type>Dummy</type>
@@ -2452,45 +3962,127 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1584</xloc>
       <yloc>341</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Unique url&#x27;s</name>
+    <name>Unique publishers</name>
     <type>Unique</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>publisher-file-url</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>publisher</name>
         <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>publisher-file-registry-hash</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1737</xloc>
-      <yloc>1009</yloc>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1680</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows (HashSet)</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>N</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1920</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique url's</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>publisher-file-url</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>publisher-file-registry-hash</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1680</xloc>
+      <yloc>1120</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Update hash on url</name>
     <type>Update</type>
@@ -2498,10 +4090,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
@@ -2514,51 +4106,117 @@
       <key>
         <name>publisher-file-url</name>
         <field>url</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
-        </key>
+      </key>
       <value>
         <name>hash</name>
         <rename>publisher-file-registry-hash</rename>
-        </value>
-      </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1968</xloc>
-      <yloc>1006</yloc>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1920</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Valid curl file id response&#x3f;</name>
+    <name>Update publisher XML changed flag</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>IATI_database</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>ctl-publishers</table>
+      <key>
+        <name>publisher</name>
+        <field>publisher</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>xml-changed</name>
+        <rename>changed</rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1920</xloc>
+      <yloc>1200</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valid curl file id response?</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Continue 2</send_true_to>
-<send_false_to>Invalid curl response sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Continue 2</send_true_to>
+    <send_false_to>Invalid curl response sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>curl-exit-value</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>curl-exit-value</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>0</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>#;-#</mask>
+        </value>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>794</xloc>
       <yloc>255</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Valid curl validator output</name>
     <type>FilterRows</type>
@@ -2566,28 +4224,43 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Continue 3</send_true_to>
-<send_false_to>Invalid validator output request</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Continue 3</send_true_to>
+    <send_false_to>Invalid validator output request</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>curl-exit-value</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>curl-exit-value</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>0</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>#;-#</mask>
+        </value>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>784</xloc>
       <yloc>471</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Validator error details</name>
     <type>JsonInput</type>
@@ -2595,23 +4268,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
-    <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name/>
+      <name>P:\Metis\iati_working_dir\jsontest3.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2620,33 +4294,7 @@
     <fields>
       <field>
         <name>error-id</name>
-        <path>&#x24;.report.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.id</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>error-severity</name>
-        <path>&#x24;.report.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.severity</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>error-message</name>
-        <path>&#x24;.report.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.message</path>
+        <path>$..[*]..id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2659,7 +4307,33 @@
       </field>
       <field>
         <name>error-context</name>
-        <path>&#x24;.report.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.errors&#x5b;&#x2a;&#x5d;.context</path>
+        <path>$..[*]..context</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>error-message</name>
+        <path>$..[*]..message</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>error-severity</name>
+        <path>$..[*]..severity</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2674,7 +4348,7 @@
     <limit>0</limit>
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
-    <valueField>curl-result</valueField>
+    <valueField>report-errors</valueField>
     <shortFileFieldName/>
     <pathFieldName/>
     <hiddenFieldName/>
@@ -2683,36 +4357,43 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1206</xloc>
-      <yloc>663</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Validator id and title</name>
+    <name>Validator error header</name>
     <type>JsonInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
-    <rownum>N</rownum>
+    <rownum>Y</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
-    <defaultPathLeafToNull>N</defaultPathLeafToNull>
-    <rownum_field/>
+    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
+    <rownum_field>row-number</rownum_field>
     <file>
       <name/>
       <filemask/>
@@ -2723,7 +4404,7 @@
     <fields>
       <field>
         <name>report-activity-identifier</name>
-        <path>&#x24;.report.errors&#x5b;&#x2a;&#x5d;.identifier</path>
+        <path>$.report.errors[*].identifier</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2736,7 +4417,20 @@
       </field>
       <field>
         <name>report-activity-title</name>
-        <path>&#x24;.report.errors&#x5b;&#x2a;&#x5d;.title</path>
+        <path>$.report.errors[*].title</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>report-errors</name>
+        <path>$.report.errors[*].errors</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2760,14 +4454,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>778</xloc>
-      <yloc>665</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Validator meta info</name>
     <type>JsonInput</type>
@@ -2775,10 +4475,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -2789,6 +4489,7 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -2800,7 +4501,7 @@
     <fields>
       <field>
         <name>publisher-file-registry-hash</name>
-        <path>&#x24;.registry_hash</path>
+        <path>$.registry_hash</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2813,7 +4514,7 @@
       </field>
       <field>
         <name>publisher-file-registry-id</name>
-        <path>&#x24;.registry_id</path>
+        <path>$.registry_id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2826,7 +4527,7 @@
       </field>
       <field>
         <name>publisher-file-url</name>
-        <path>&#x24;.document_url</path>
+        <path>$.document_url</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2839,7 +4540,7 @@
       </field>
       <field>
         <name>publisher-file-valid</name>
-        <path>&#x24;.valid</path>
+        <path>$.valid</path>
         <type>Boolean</type>
         <format/>
         <currency/>
@@ -2863,14 +4564,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1211</xloc>
       <yloc>472</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Validator output api call</name>
     <type>Formula</type>
@@ -2878,25 +4585,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>api-call-validator</field_name>
-<formula_string>&#x5b;validator-root&#x5d;&#x26;&#x22;report&#x3f;id&#x3d;&#x22;&#x26;&#x5b;publisher-package-id&#x5d;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>api-call-validator</field_name>
+      <formula_string>[validator-root]&amp;"report?id="&amp;[publisher-package-id]</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>76</xloc>
       <yloc>472</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Validator summary</name>
     <type>JsonInput</type>
@@ -2904,10 +4618,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -2918,6 +4632,7 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>N</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -2929,7 +4644,7 @@
     <fields>
       <field>
         <name>report-valid</name>
-        <path>&#x24;.report.valid</path>
+        <path>$.report.valid</path>
         <type>Boolean</type>
         <format/>
         <currency/>
@@ -2942,7 +4657,7 @@
       </field>
       <field>
         <name>report-filetype</name>
-        <path>&#x24;.report.fileType</path>
+        <path>$.report.fileType</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2955,7 +4670,7 @@
       </field>
       <field>
         <name>report-iati-version</name>
-        <path>&#x24;.report.iatiVersion</path>
+        <path>$.report.iatiVersion</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2968,7 +4683,7 @@
       </field>
       <field>
         <name>report-api-version</name>
-        <path>&#x24;.report.apiVersion</path>
+        <path>$.report.apiVersion</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -2981,7 +4696,7 @@
       </field>
       <field>
         <name>report-summary-critical</name>
-        <path>&#x24;.report.summary.critical</path>
+        <path>$.report.summary.critical</path>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -2994,7 +4709,7 @@
       </field>
       <field>
         <name>report-summary-error</name>
-        <path>&#x24;.report.summary.error</path>
+        <path>$.report.summary.error</path>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -3007,7 +4722,7 @@
       </field>
       <field>
         <name>report-summary-warning</name>
-        <path>&#x24;.report.summary.warning</path>
+        <path>$.report.summary.warning</path>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -3031,14 +4746,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1929</xloc>
       <yloc>472</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write to log</name>
     <type>WriteToLog</type>
@@ -3046,28 +4767,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage/>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
     <fields>
       <field>
         <name>curl-request</name>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>517</xloc>
       <yloc>472</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write validator results</name>
     <type>TableOutput</type>
@@ -3075,10 +4802,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
     <schema/>
     <table>log-publisher-errors</table>
@@ -3097,99 +4824,109 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-name</column_name>
-          <stream_name>publisher-name</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-organisation-id</column_name>
-          <stream_name>publisher-organisation-id</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-package-id</column_name>
-          <stream_name>publisher-package-id</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-file-url</column_name>
-          <stream_name>publisher-file-url</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-file-registry-hash</column_name>
-          <stream_name>publisher-file-registry-hash</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-file-registry-id</column_name>
-          <stream_name>publisher-file-registry-id</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-file-valid</column_name>
-          <stream_name>publisher-file-valid</stream_name>
-        </field>
-        <field>
-          <column_name>report-valid</column_name>
-          <stream_name>report-valid</stream_name>
-        </field>
-        <field>
-          <column_name>report-activity-identifier</column_name>
-          <stream_name>report-activity-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>report-activity-title</column_name>
-          <stream_name>report-activity-title</stream_name>
-        </field>
-        <field>
-          <column_name>report-filetype</column_name>
-          <stream_name>report-filetype</stream_name>
-        </field>
-        <field>
-          <column_name>report-iati-version</column_name>
-          <stream_name>report-iati-version</stream_name>
-        </field>
-        <field>
-          <column_name>report-api-version</column_name>
-          <stream_name>report-api-version</stream_name>
-        </field>
-        <field>
-          <column_name>report-summary-critical</column_name>
-          <stream_name>report-summary-critical</stream_name>
-        </field>
-        <field>
-          <column_name>report-summary-error</column_name>
-          <stream_name>report-summary-error</stream_name>
-        </field>
-        <field>
-          <column_name>report-summary-warning</column_name>
-          <stream_name>report-summary-warning</stream_name>
-        </field>
-        <field>
-          <column_name>error-id</column_name>
-          <stream_name>error-id</stream_name>
-        </field>
-        <field>
-          <column_name>error-severity</column_name>
-          <stream_name>error-severity</stream_name>
-        </field>
-        <field>
-          <column_name>error-message</column_name>
-          <stream_name>error-message</stream_name>
-        </field>
-        <field>
-          <column_name>error-context</column_name>
-          <stream_name>error-context-text</stream_name>
-        </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-name</column_name>
+        <stream_name>publisher-name</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-organisation-id</column_name>
+        <stream_name>publisher-organisation-id</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-package-id</column_name>
+        <stream_name>publisher-package-id</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-file-url</column_name>
+        <stream_name>publisher-file-url</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-file-registry-hash</column_name>
+        <stream_name>publisher-file-registry-hash</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-file-registry-id</column_name>
+        <stream_name>publisher-file-registry-id</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-file-valid</column_name>
+        <stream_name>publisher-file-valid</stream_name>
+      </field>
+      <field>
+        <column_name>report-valid</column_name>
+        <stream_name>report-valid</stream_name>
+      </field>
+      <field>
+        <column_name>report-activity-identifier</column_name>
+        <stream_name>report-activity-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>report-activity-title</column_name>
+        <stream_name>report-activity-title</stream_name>
+      </field>
+      <field>
+        <column_name>report-filetype</column_name>
+        <stream_name>report-filetype</stream_name>
+      </field>
+      <field>
+        <column_name>report-iati-version</column_name>
+        <stream_name>report-iati-version</stream_name>
+      </field>
+      <field>
+        <column_name>report-api-version</column_name>
+        <stream_name>report-api-version</stream_name>
+      </field>
+      <field>
+        <column_name>report-summary-critical</column_name>
+        <stream_name>report-summary-critical</stream_name>
+      </field>
+      <field>
+        <column_name>report-summary-error</column_name>
+        <stream_name>report-summary-error</stream_name>
+      </field>
+      <field>
+        <column_name>report-summary-warning</column_name>
+        <stream_name>report-summary-warning</stream_name>
+      </field>
+      <field>
+        <column_name>error-id</column_name>
+        <stream_name>error-id</stream_name>
+      </field>
+      <field>
+        <column_name>error-severity</column_name>
+        <stream_name>error-severity</stream_name>
+      </field>
+      <field>
+        <column_name>error-message</column_name>
+        <stream_name>error-message</stream_name>
+      </field>
+      <field>
+        <column_name>error-context</column_name>
+        <stream_name>error-context-text</stream_name>
+      </field>
+      <field>
+        <column_name>context-seq</column_name>
+        <stream_name>context-seq</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1964</xloc>
-      <yloc>867</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1920</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>api call string</name>
     <type>Formula</type>
@@ -3197,25 +4934,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>api-call</field_name>
-<formula_string>&#x22;curl https&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;action&#x2f;organization_show&#x3f;id&#x3d;&#x22;&#x26;&#x5b;publisher&#x5d;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>api-call</field_name>
+      <formula_string>"curl https://iatiregistry.org/api/action/organization_show?id="&amp;[publisher]</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>700</xloc>
       <yloc>47</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>api call to get publisher file ids</name>
     <type>Formula</type>
@@ -3223,266 +4967,132 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>api-call-publisher-files</field_name>
-<formula_string>&#x22;curl https&#x3a;&#x2f;&#x2f;iatiregistry.org&#x2f;api&#x2f;action&#x2f;package_search&#x3f;fq&#x3d;owner_org&#x3a;&#x22;&#x26;&#x5b;publisher-organisation-id&#x5d;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>api-call-publisher-files</field_name>
+      <formula_string>"curl https://iatiregistry.org/api/action/package_search?fq=owner_org:"&amp;[publisher-organisation-id]</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>78</xloc>
       <yloc>257</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-file-url</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-file-registry-hash</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1405</xloc>
-      <yloc>1018</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique publishers</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>publisher</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1742</xloc>
-      <yloc>1095</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Update publisher XML changed flag</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_database</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>ctl-publishers</table>
-      <key>
-        <name>publisher</name>
-        <field>publisher</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-        </key>
-      <value>
-        <name>xml-changed</name>
-        <rename>changed</rename>
-        </value>
-      </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1973</xloc>
-      <yloc>1091</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>changed</name>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Y</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1837</xloc>
-      <yloc>1094</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step_error_handling>
-      <error>
-        <source_step>Get org ids</source_step>
-        <target_step>Abort getting org ids</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Get publisher file ids</source_step>
-        <target_step>Abort publisher file read</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Get validator output</source_step>
-        <target_step/>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Read organisation ids</source_step>
-        <target_step>No org sink</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Read publisher file ids</source_step>
-        <target_step>No package-id sink</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Validator error details</source_step>
-        <target_step>No validator details sink</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Validator id and title</source_step>
-        <target_step>No validator id sink</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Validator meta info</source_step>
-        <target_step>No data sink</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Validator summary</source_step>
-        <target_step>No validator summary sink</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
+    <error>
+      <source_step>Get org ids</source_step>
+      <target_step>Abort getting org ids</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Get publisher file ids</source_step>
+      <target_step>Abort publisher file read</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Get validator output</source_step>
+      <target_step/>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Read organisation ids</source_step>
+      <target_step>No org sink</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Read publisher file ids</source_step>
+      <target_step>No package-id sink</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Validator error header</source_step>
+      <target_step>No validator id sink</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Validator meta info</source_step>
+      <target_step>No data sink</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Validator summary</source_step>
+      <target_step>No validator summary sink</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
-   <slave-step-copy-partition-distribution>
-</slave-step-copy-partition-distribution>
-   <slave_transformation>N</slave_transformation>
-
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>

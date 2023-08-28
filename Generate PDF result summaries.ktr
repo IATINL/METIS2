@@ -1,7 +1,7 @@
 <transformation>
   <info>
-    <name>Generate publisher error reports</name>
-    <description>Mail the IATI data errors for one publisher</description>
+    <name>Generate PDF result summaries</name>
+    <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
@@ -427,23 +427,20 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/03/06 15:17:43.332</created_date>
+    <created_date>2016/07/27 17:12:54.006</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/08/28 10:45:38.526</modified_date>
+    <modified_date>2023/08/11 12:25:22.085</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Generate error reports for each publisher's file which has valid datavalidator output.
-PDF error reports are only generated when the following conditions are met:
-- the publisher is active
-- the publisher is set to receive an error report by e-mail
-- at least one of the publishers xml files has changed </note>
-      <xloc>112</xloc>
-      <yloc>16</yloc>
-      <width>448</width>
-      <heigth>90</heigth>
+      <note>Calculate reportname based on Pentaha PDI version. Different report versions are used 
+depending on the Pentaho PDI version</note>
+      <xloc>331</xloc>
+      <yloc>126</yloc>
+      <width>467</width>
+      <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -538,63 +535,38 @@ SET SESSION sql_mode = "";
   </connection>
   <order>
     <hop>
-      <from>Write to log</from>
+      <from>Read all BZ parent activities</from>
       <to>Get Variables</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Output filename &amp; report def file</from>
-      <to>Log report parameters</to>
+      <from>Write to log</from>
+      <to>Produce result summaries</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Log report parameters</from>
-      <to>Pentaho Reporting Output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get kettle version</from>
-      <to>Define report name</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Define report name</from>
-      <to>Output filename &amp; report def file</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get Variables</from>
-      <to>Get kettle version</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Read publishers to receive validation report</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Read all existing publishers in error log</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup</from>
-      <to>Only publsihers with data in the error log</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Only publsihers with data in the error log</from>
+      <from>Calc full path filenames</from>
       <to>Write to log</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Only publsihers with data in the error log</from>
-      <to>Publishers without errors</to>
+      <from>Get Variables</from>
+      <to>Get system info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get system info</from>
+      <to>Version dependant report names</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Version dependant report names</from>
+      <to>Calc full path filenames</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Define report name</name>
+    <name>Calc full path filenames</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -605,8 +577,16 @@ SET SESSION sql_mode = "";
       <schema_name/>
     </partitioning>
     <formula>
-      <field_name>reportname</field_name>
-      <formula_string>"PublisherFeedback_IATI_validator"&amp;IF(LEFT([kettle-version];3)="6.1";"";"PDI94")&amp;".prpt"</formula_string>
+      <field_name>htmlfilename</field_name>
+      <formula_string>[htmlpath]&amp;"/ResultSummary-"&amp;[iati-identifier]&amp;".pdf"</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <formula>
+      <field_name>reportdef</field_name>
+      <formula_string>[reportpath]&amp;"/"&amp;[reportname]</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -621,8 +601,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>304</yloc>
+      <xloc>704</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -639,8 +619,8 @@ SET SESSION sql_mode = "";
     </partitioning>
     <fields>
       <field>
-        <name>htmlpath</name>
-        <variable>${HTMLPATH}</variable>
+        <name>reportpath</name>
+        <variable>${RPDPATH}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -651,8 +631,8 @@ SET SESSION sql_mode = "";
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>reportpath</name>
-        <variable>${RPDPATH}</variable>
+        <name>htmlpath</name>
+        <variable>${HTMLPATH}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -672,13 +652,13 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>304</yloc>
+      <xloc>240</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Get kettle version</name>
+    <name>Get system info</name>
     <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
@@ -703,139 +683,13 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
-      <yloc>304</yloc>
+      <xloc>384</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Log report parameters</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>Report parameters for</logmessage>
-    <fields>
-      <field>
-        <name>publisher</name>
-      </field>
-      <field>
-        <name>htmlpath</name>
-      </field>
-      <field>
-        <name>reportpath</name>
-      </field>
-      <field>
-        <name>reportname</name>
-      </field>
-      <field>
-        <name>htmlfilename</name>
-      </field>
-      <field>
-        <name>reportdef</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1360</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Only publsihers with data in the error log</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Write to log</send_true_to>
-    <send_false_to>Publishers without errors</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>publisher-from-log</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Output filename &amp; report def file</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formula>
-      <field_name>htmlfilename</field_name>
-      <formula_string>[htmlpath]&amp;"/Publisherfeedback-"&amp;[publisher]&amp;".pdf"</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <formula>
-      <field_name>reportdef</field_name>
-      <formula_string>[reportpath]&amp;"/"&amp;[reportname]</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1200</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Pentaho Reporting Output</name>
+    <name>Produce result summaries</name>
     <type>PentahoReportingOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -853,8 +707,8 @@ SET SESSION sql_mode = "";
     <use_values_from_fields>Y</use_values_from_fields>
     <parameters>
       <parameter>
-        <name>publisher</name>
-        <field>publisher</field>
+        <name>MYPARAM</name>
+        <field>iati-identifier</field>
       </parameter>
     </parameters>
     <processor_type>PDF</processor_type>
@@ -867,38 +721,13 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>304</yloc>
+      <xloc>1024</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Publishers without errors</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Read all existing publishers in error log</name>
+    <name>Read all BZ parent activities</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -910,9 +739,11 @@ SET SESSION sql_mode = "";
     </partitioning>
     <connection>IATI_datamart</connection>
     <sql>SELECT
-  publisher
-FROM iatidatamart.`log-publisher-errors`
-GROUP BY publisher
+  `iati-identifier`
+FROM `dim-activity`
+WHERE `publisher`='minbuza_nl' AND `Is-parent`='Y' 
+
+-- AND `iati-identifier`='XM-DAC-7-PPR-4000004332'
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -924,11 +755,11 @@ GROUP BY publisher
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>publisher</name>
+        <name>iati-identifier</name>
         <length>100</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>publisher</comments>
+        <origin>Read all BZ parent activities</origin>
+        <comments>iati-identifier</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -954,14 +785,14 @@ GROUP BY publisher
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>160</yloc>
+      <xloc>80</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Read publishers to receive validation report</name>
-    <type>TableInput</type>
+    <name>Version dependant report names</name>
+    <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -970,116 +801,14 @@ GROUP BY publisher
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>IATI_datamart</connection>
-    <sql>SELECT
-  	ctl.publisher,
-	ctl.`active`,
-	ctl.`email-active`,
-	ctl.`xml-changed`
-	FROM iatischema.`ctl-publishers` ctl
-WHERE ctl.active = True and ctl.`email-active` = True and ctl.`xml-changed` = True
-GROUP BY ctl.publisher
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>publisher</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Read publisher error log</origin>
-        <comments>publisher</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Boolean</type>
-        <storagetype>normal</storagetype>
-        <name>active</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Read publisher error log</origin>
-        <comments>active</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Boolean</type>
-        <storagetype>normal</storagetype>
-        <name>email-active</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Read publisher error log</origin>
-        <comments>email-active</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Boolean</type>
-        <storagetype>normal</storagetype>
-        <name>xml-changed</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Read publisher error log</origin>
-        <comments>xml-changed</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
+    <formula>
+      <field_name>reportname</field_name>
+      <formula_string>"ResultSummary"&amp;IF(LEFT([kettle-version];3)="6.1";"";"PDI94")&amp;".prpt"</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1089,50 +818,8 @@ GROUP BY ctl.publisher
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Read all existing publishers in error log</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>publisher</name>
-        <field>publisher</field>
-      </key>
-      <value>
-        <name>publisher</name>
-        <rename>publisher-from-log</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>304</yloc>
+      <xloc>544</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1151,16 +838,16 @@ GROUP BY ctl.publisher
     <displayHeader>Y</displayHeader>
     <limitRows>N</limitRows>
     <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>Processing publishers to format PDF error report</logmessage>
+    <logmessage/>
     <fields>
       <field>
-        <name>publisher</name>
+        <name>iati-identifier</name>
       </field>
       <field>
-        <name>active</name>
+        <name>reportdef</name>
       </field>
       <field>
-        <name>email-active</name>
+        <name>htmlfilename</name>
       </field>
     </fields>
     <attributes/>
@@ -1172,8 +859,8 @@ GROUP BY ctl.publisher
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>304</yloc>
+      <xloc>864</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -68,11 +68,32 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;04 16&#x3a;03&#x3a;44.279</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;11&#x2f;26 15&#x3a;13&#x3a;38.906</modified_date>
+  <modified_date>2023&#x2f;06&#x2f;02 15&#x3a;10&#x3a;02.439</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Only select the last version of a specific &#xd;&#xa;budget within a period and or currency.</note>
+      <xloc>1341</xloc>
+      <yloc>246</yloc>
+      <width>220</width>
+      <heigth>42</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>IATI_reference</name>
@@ -152,9 +173,12 @@
   <hop> <from>Sort markers</from><to>Filter rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Get relact vars</from><to>Sort related act</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort related act</from><to>Filter parents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Change value to number</from><to>Write xml activity budgets</to><enabled>Y</enabled> </hop>
   <hop> <from>Replace NL-1 in budget</from><to>Trim spaces</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim spaces</from><to>Change value to number</to><enabled>Y</enabled> </hop>
+  <hop> <from>Trim spaces</from><to>Strings cut</to><enabled>Y</enabled> </hop>
+  <hop> <from>Strings cut</from><to>Change value to number</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select most recent budgetline per period and currency</from><to>Write xml activity budgets</to><enabled>Y</enabled> </hop>
+  <hop> <from>Change value to number</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Select most recent budgetline per period and currency</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add 1.x date type code</name>
@@ -221,8 +245,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>956</xloc>
-      <yloc>194</yloc>
+      <xloc>1054</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1255,6 +1279,75 @@
     </step>
 
   <step>
+    <name>Select most recent budgetline per period and currency</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>iati-identifier</name>
+        </field>
+        <field>
+          <name>budget-period-start</name>
+        </field>
+        <field>
+          <name>budget-period-end</name>
+        </field>
+        <field>
+          <name>budget-value-currency</name>
+        </field>
+        <field>
+          <name>default-currency</name>
+        </field>
+        <field>
+          <name>publisher</name>
+        </field>
+        <field>
+          <name>publisher-id</name>
+        </field>
+        <field>
+          <name>generated-datetime</name>
+        </field>
+        <field>
+          <name>url-id</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>budget-value</aggregate>
+          <subject>budget-value</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>budget-type</aggregate>
+          <subject>budget-type</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>budget-value-date</aggregate>
+          <subject>budget-value-date</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1436</xloc>
+      <yloc>190</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Sort budgets</name>
     <type>SortRows</type>
     <description/>
@@ -1457,6 +1550,39 @@
     </step>
 
   <step>
+    <name>Strings cut</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>budget-value-currency</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>3</cut_to>
+      </field>
+      <field>
+        <in_stream_name>default-currency</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>3</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>931</xloc>
+      <yloc>194</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Trim spaces</name>
     <type>StringOperations</type>
     <description/>
@@ -1494,77 +1620,24 @@
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
+      <field>
+        <in_stream_name>budget-value</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>839</xloc>
       <yloc>194</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write xml related activities</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <schema/>
-    <table>xml-act-related</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>related-activity-ref</column_name>
-          <stream_name>related-activity-ref</stream_name>
-        </field>
-        <field>
-          <column_name>related-activity-type</column_name>
-          <stream_name>related-activity-type</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1109</xloc>
-      <yloc>440</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1649,8 +1722,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1108</xloc>
-      <yloc>195</yloc>
+      <xloc>1681</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1719,8 +1792,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1107</xloc>
-      <yloc>121</yloc>
+      <xloc>1205</xloc>
+      <yloc>120</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1789,8 +1862,168 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1107</xloc>
-      <yloc>275</yloc>
+      <xloc>1205</xloc>
+      <yloc>274</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write xml related activities</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>xml-act-related</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>iati-identifier</column_name>
+          <stream_name>iati-identifier</stream_name>
+        </field>
+        <field>
+          <column_name>related-activity-ref</column_name>
+          <stream_name>related-activity-ref</stream_name>
+        </field>
+        <field>
+          <column_name>related-activity-type</column_name>
+          <stream_name>related-activity-type</stream_name>
+        </field>
+        <field>
+          <column_name>publisher</column_name>
+          <stream_name>publisher</stream_name>
+        </field>
+        <field>
+          <column_name>publisher-id</column_name>
+          <stream_name>publisher-id</stream_name>
+        </field>
+        <field>
+          <column_name>generated-datetime</column_name>
+          <stream_name>generated-datetime</stream_name>
+        </field>
+        <field>
+          <column_name>url-id</column_name>
+          <stream_name>url-id</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1207</xloc>
+      <yloc>439</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-period-start</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-period-end</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-value-currency</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-type</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>budget-value-date</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>default-currency</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>publisher</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>publisher-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>url-id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1203</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

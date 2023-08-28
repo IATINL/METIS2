@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;02&#x2f;04 13&#x3a;53&#x3a;05.512</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;11&#x2f;26 16&#x3a;51&#x3a;55.791</modified_date>
+  <modified_date>2023&#x2f;02&#x2f;01 11&#x3a;57&#x3a;25.634</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -81,132 +81,6 @@
       <heigth>48</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Add result reference to the &#xd;&#xa;front of the indicator title.</note>
-      <xloc>1420</xloc>
-      <yloc>2474</yloc>
-      <width>192</width>
-      <heigth>50</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Read all result references and subsequently select &#xd;&#xa;only the unique BZ relevant references for each activity.</note>
-      <xloc>128</xloc>
-      <yloc>2367</yloc>
-      <width>376</width>
-      <heigth>50</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Read all results and determine all unique results.</note>
-      <xloc>123</xloc>
-      <yloc>2217</yloc>
-      <width>263</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Determine for each BZ indicator code if the code is part of&#xd;&#xa;the indicator title and&#x2f;or indicator description. If so, fill the &#xd;&#xa;reference code field with the BZ code for each unique result. </note>
-      <xloc>1536</xloc>
-      <yloc>2614</yloc>
-      <width>414</width>
-      <heigth>70</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Lookup reference. This streamlookup assumes that there is only 1 reference code per indicator.&#xd;&#xa;The number of result records is therefore not changed. This lookup has to be replaced with a&#xd;&#xa;left outer merge join to support multiple ref codes per indicator. In that case METIS and other &#xd;&#xa;result dashboards, need to be changed.</note>
-      <xloc>985</xloc>
-      <yloc>2154</yloc>
-      <width>634</width>
-      <heigth>90</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>See previous note about streamlookup.</note>
-      <xloc>2409</xloc>
-      <yloc>2230</yloc>
-      <width>270</width>
-      <heigth>30</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -348,8 +222,6 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Select found BZ ind</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Unique BZ references</to><enabled>Y</enabled> </hop>
   <hop> <from>Read activities</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>Activity seq</to><enabled>Y</enabled> </hop>
   <hop> <from>Read act sector</from><to>Sort sector rows</to><enabled>Y</enabled> </hop>
@@ -449,43 +321,20 @@
   <hop> <from>Lookup part orgs</from><to>Fill part org</to><enabled>Y</enabled> </hop>
   <hop> <from>Fill part org</from><to>Sort orgs</to><enabled>Y</enabled> </hop>
   <hop> <from>Read part organisations</from><to>Lookup part orgs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add ref code to title</from><to>Merge BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add ref code to title</from><to>Sort results 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Existing BZ indicator</from><to>Fill ref code with found BZ indicator</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select found BZ ind</from><to>Non BZ indicator sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fill ref code with found BZ indicator</from><to>Select found BZ ind</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get BZ indicator list</from><to>Lookup BZ indicator code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup BZ indicator code</from><to>Only select existing BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Only select existing BZ indicators</from><to>Non BZ indicator ref sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge BZ indicators</from><to>Compose search string</to><enabled>Y</enabled> </hop>
-  <hop> <from>Compose search string</from><to>Existing BZ indicator</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort results</from><to>Unique results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read result references</from><to>Lookup BZ indicator code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get BZ indicator list</from><to>Merge BZ indicators</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique BZ references</from><to>Sort refs in searchstring</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select table fields</from><to>Write results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort results 2</from><to>Lookup refs from searchstring</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort refs in searchstring</from><to>Lookup refs from searchstring</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup refs from searchstring</from><to>Select table fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort result refs</from><to>Unique result refs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique result refs</from><to>If ref flds are null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Only select existing BZ indicators</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Sort result refs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup 2</from><to>Select fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Memory Group by</from><to>Stream lookup 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique results</from><to>If result flds null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read results</from><to>Select values 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 3</from><to>Sort results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select fields</from><to>Add ref code to title</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read results</from><to>Select result fields</to><enabled>Y</enabled> </hop>
   <hop> <from>If result flds null</from><to>Remove CRLF from keys</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove CRLF from keys</from><to>Stream lookup 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>If ref flds are null</from><to>Remove CRLF from keys 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove CRLF from keys 2</from><to>Memory Group by</to><enabled>Y</enabled> </hop>
   <hop> <from>Result refs sequence</from><to>Unique result nrefs&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort results nrefs</from><to>Result refs sequence</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique result nrefs&#x3f;</from><to>Duplicate result nrefs sink</to><enabled>Y</enabled> </hop>
   <hop> <from>Read results nrefs</from><to>Sort results nrefs</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique result nrefs&#x3f;</from><to>Write src result nrefs</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select result fields</from><to>If result flds null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove CRLF from keys</from><to>Sort results on indicator code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort results on indicator code</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get BZ indicator list</from><to>Sort results on BZ indicator code</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort results on BZ indicator code</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select table fields</from><to>Write results</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Select table fields</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Activity seq</name>
@@ -648,32 +497,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1300</xloc>
       <yloc>463</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add ref code to title</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;reference-code&#x5d;&#x29;&#x3b;&#x5b;indicator-title&#x5d;&#x3b;&#x5b;reference-code&#x5d;&#x26;&#x22; &#x22;&#x26;&#x5b;Indicator-title&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>indicator-title</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1388</xloc>
-      <yloc>2278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -929,32 +752,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2499</xloc>
       <yloc>304</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Compose search string</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>searchstring</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;indicator-title&#x5d;&#x29;&#x3b;&#x22;&#x22;&#x3b;&#x5b;indicator-title&#x5d;&#x29;&#x26;&#x22; &#x22;&#x26;IF&#x28;ISBLANK&#x28;&#x5b;indicator-description&#x5d;&#x29;&#x3b;&#x22;&#x22;&#x3b;&#x5b;indicator-description&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1590</xloc>
-      <yloc>2551</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1570,32 +1367,6 @@
     </step>
 
   <step>
-    <name>Existing BZ indicator</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>found</field_name>
-<formula_string>NOT&#x28;ISERROR&#x28;FIND&#x28;&#x5b;BZ-indicator-code&#x5d;&#x3b;&#x5b;searchstring&#x5d;&#x29;&#x29;&#x29;</formula_string>
-<value_type>Boolean</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1744</xloc>
-      <yloc>2549</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Fill official org names</name>
     <type>Formula</type>
     <description/>
@@ -1681,32 +1452,6 @@
     </step>
 
   <step>
-    <name>Fill ref code with found BZ indicator</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;&#x5b;found&#x5d;&#x3b;&#x5b;BZ-indicator-code&#x5d;&#x3b;&#x5b;reference-code&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>reference-code</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1910</xloc>
-      <yloc>2550</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Find duplicate budgets</name>
     <type>StreamLookup</type>
     <description/>
@@ -1782,7 +1527,7 @@
     <name>Get BZ indicator list</name>
     <type>TableInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1798,8 +1543,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>131</xloc>
-      <yloc>2552</yloc>
+      <xloc>779</xloc>
+      <yloc>2497</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1975,58 +1720,6 @@
     </step>
 
   <step>
-    <name>If ref flds are null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>result-title</name>
-        <value>Unspecified</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>result-description</name>
-        <value>Unspecified</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>indicator-title</name>
-        <value>Unspecified</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>indicator-description</name>
-        <value>Unspecified</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>887</xloc>
-      <yloc>2448</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>If result flds null</name>
     <type>IfNull</type>
     <description/>
@@ -2072,8 +1765,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>884</xloc>
-      <yloc>2279</yloc>
+      <xloc>379</xloc>
+      <yloc>2278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2122,42 +1815,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>399</xloc>
       <yloc>1094</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup BZ indicator code</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Get BZ indicator list</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>reference-code</name>
-        <field>BZ-indicator-code</field>
-      </key>
-      <value>
-        <name>BZ-indicator-code</name>
-        <rename>BZ-indicator-code</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>286</xloc>
-      <yloc>2450</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2271,66 +1928,6 @@
     </step>
 
   <step>
-    <name>Lookup refs from searchstring</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Sort refs in searchstring</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <key>
-        <name>key-result-title</name>
-        <field>key-result-title</field>
-      </key>
-      <key>
-        <name>key-result-description</name>
-        <field>key-result-description</field>
-      </key>
-      <key>
-        <name>key-indicator-title</name>
-        <field>key-indicator-title</field>
-      </key>
-      <key>
-        <name>key-indicator-description</name>
-        <field>key-indicator-description</field>
-      </key>
-      <key>
-        <name>period-start</name>
-        <field>period-start</field>
-      </key>
-      <key>
-        <name>period-end</name>
-        <field>period-end</field>
-      </key>
-      <value>
-        <name>BZ-indicator-code</name>
-        <rename>BZ-indicator-code</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2499</xloc>
-      <yloc>2278</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Marker sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
@@ -2364,91 +1961,7 @@
     </step>
 
   <step>
-    <name>Memory Group by</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>iati-identifier</name>
-        </field>
-        <field>
-          <name>result-title</name>
-        </field>
-        <field>
-          <name>result-description</name>
-        </field>
-        <field>
-          <name>key-result-title</name>
-        </field>
-        <field>
-          <name>key-result-description</name>
-        </field>
-        <field>
-          <name>result-type-code</name>
-        </field>
-        <field>
-          <name>result-aggregation-status</name>
-        </field>
-        <field>
-          <name>indicator-title</name>
-        </field>
-        <field>
-          <name>indicator-description</name>
-        </field>
-        <field>
-          <name>key-indicator-title</name>
-        </field>
-        <field>
-          <name>key-indicator-description</name>
-        </field>
-        <field>
-          <name>indicator-measure-code</name>
-        </field>
-        <field>
-          <name>reference-vocabulary</name>
-        </field>
-        <field>
-          <name>reference-uri</name>
-        </field>
-        <field>
-          <name>publisher</name>
-        </field>
-        <field>
-          <name>publisher-id</name>
-        </field>
-        <field>
-          <name>generated-datetime</name>
-        </field>
-        <field>
-          <name>url-id</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>reference-code</aggregate>
-          <subject>reference-code</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1175</xloc>
-      <yloc>2447</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge BZ indicators</name>
+    <name>Merge Join</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -2458,96 +1971,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<join_type>INNER</join_type>
-<step1>Add ref code to title</step1>
-<step2>Get BZ indicator list</step2>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort results on indicator code</step1>
+<step2>Sort results on BZ indicator code</step2>
     <keys_1>
+      <key>reference-code</key>
     </keys_1>
     <keys_2>
+      <key>BZ-indicator-code</key>
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1385</xloc>
-      <yloc>2550</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Non BZ indicator ref sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>446</xloc>
-      <yloc>2516</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Non BZ indicator sink</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2069</xloc>
-      <yloc>2653</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Only select existing BZ indicators</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Select values 2</send_true_to>
-<send_false_to>Non BZ indicator ref sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>BZ-indicator-code</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>DD1&#x3b;DD2&#x3b;DD3&#x3b;DD4&#x3b;DD5&#x3b;DD6</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>reference-vocabulary</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>99</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>445</xloc>
-      <yloc>2448</yloc>
+      <xloc>779</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2956,32 +2392,6 @@
     </step>
 
   <step>
-    <name>Read result references</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <sql>SELECT &#x2a;&#xd;&#xa;FROM iatistaging.&#x60;xml-act-result-refs&#x60;&#xd;&#xa;&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>134</xloc>
-      <yloc>2450</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Read results</name>
     <type>TableInput</type>
     <description/>
@@ -3186,30 +2596,9 @@
         <digits>none</digits>
         <remove_special_characters>crlf</remove_special_characters>
       </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1018</xloc>
-      <yloc>2279</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Remove CRLF from keys 2</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
       <field>
-        <in_stream_name>result-title</in_stream_name>
-        <out_stream_name>key-result-title</out_stream_name>
+        <in_stream_name>actual-comment</in_stream_name>
+        <out_stream_name>key-actual-comment</out_stream_name>
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
@@ -3221,8 +2610,8 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
       <field>
-        <in_stream_name>result-description</in_stream_name>
-        <out_stream_name>key-result-description</out_stream_name>
+        <in_stream_name>target-comment</in_stream_name>
+        <out_stream_name>key-target-comment</out_stream_name>
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
@@ -3234,21 +2623,8 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
       <field>
-        <in_stream_name>indicator-title</in_stream_name>
-        <out_stream_name>key-indicator-title</out_stream_name>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>crlf</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>indicator-description</in_stream_name>
-        <out_stream_name>key-indicator-description</out_stream_name>
+        <in_stream_name>baseline-comment</in_stream_name>
+        <out_stream_name>key-baseline-comment</out_stream_name>
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
@@ -3262,8 +2638,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1021</xloc>
-      <yloc>2447</yloc>
+      <xloc>513</xloc>
+      <yloc>2278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3398,7 +2774,7 @@
     </step>
 
   <step>
-    <name>Select fields</name>
+    <name>Select result fields</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -3408,144 +2784,41 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>period-start</name>
+        <rename>period-start</rename>
+        <type>Date</type>
+        <length>0</length>
         <precision>-2</precision>
-      </field>      <field>        <name>reference-code</name>
-        <rename/>
-        <length>-2</length>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>period-end</name>
+        <rename>period-end</rename>
+        <type>Date</type>
+        <length>0</length>
         <precision>-2</precision>
-      </field>      <field>        <name>result-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-aggregation-status</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-measure-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-start</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-end</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>actual-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>target-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-year</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>actual-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>target-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1276</xloc>
-      <yloc>2278</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select found BZ ind</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Select values</send_true_to>
-<send_false_to>Non BZ indicator sink</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>found</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2067</xloc>
-      <yloc>2550</yloc>
+      <xloc>257</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3652,491 +2925,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2661</xloc>
-      <yloc>2276</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>key-indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-start</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-end</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BZ-indicator-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2181</xloc>
-      <yloc>2549</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>aggregation-status</name>
-        <rename>result-aggregation-status</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-measure-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-vocabulary</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-uri</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>583</xloc>
-      <yloc>2448</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>iati-identifier</name>
-        <rename>iati-identifier</rename>
-        <type>None</type>
-        <length>100</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>result-type-code</name>
-        <rename>result-type-code</rename>
-        <type>None</type>
-        <length>9</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>result-aggregation-status</name>
-        <rename>result-aggregation-status</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>result-title</name>
-        <rename>result-title</rename>
-        <type>None</type>
-        <length>512</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>result-description</name>
-        <rename>result-description</rename>
-        <type>None</type>
-        <length>5000</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>indicator-measure-code</name>
-        <rename>indicator-measure-code</rename>
-        <type>None</type>
-        <length>3</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>indicator-title</name>
-        <rename>indicator-title</rename>
-        <type>None</type>
-        <length>512</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>indicator-description</name>
-        <rename>indicator-description</rename>
-        <type>None</type>
-        <length>4000</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>period-start</name>
-        <rename>period-start</rename>
-        <type>Date</type>
-        <length>0</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>period-end</name>
-        <rename>period-end</rename>
-        <type>Date</type>
-        <length>0</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>actual-comment</name>
-        <rename>actual-comment</rename>
-        <type>None</type>
-        <length>2000</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>target-comment</name>
-        <rename>target-comment</rename>
-        <type>None</type>
-        <length>2000</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>baseline-year</name>
-        <rename>baseline-year</rename>
-        <type>None</type>
-        <length>9</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>baseline-value</name>
-        <rename>baseline-value</rename>
-        <type>None</type>
-        <length>255</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>actual-value</name>
-        <rename>actual-value</rename>
-        <type>None</type>
-        <length>255</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>target-value</name>
-        <rename>target-value</rename>
-        <type>None</type>
-        <length>255</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>publisher</name>
-        <rename>publisher</rename>
-        <type>None</type>
-        <length>50</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>publisher-id</name>
-        <rename>publisher-id</rename>
-        <type>None</type>
-        <length>9</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>generated-datetime</name>
-        <rename>generated-datetime</rename>
-        <type>None</type>
-        <length>24</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>url-id</name>
-        <rename>url-id</rename>
-        <type>None</type>
-        <length>9</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>baseline-comment</name>
-        <rename>baseline-comment</rename>
-        <type>None</type>
-        <length>5500</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>581</xloc>
-      <yloc>2280</yloc>
+      <xloc>909</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -4630,76 +3420,6 @@
     </step>
 
   <step>
-    <name>Sort refs in searchstring</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-result-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-result-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-indicator-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-indicator-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-start</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-end</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2432</xloc>
-      <yloc>2546</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Sort region rows</name>
     <type>SortRows</type>
     <description/>
@@ -4799,348 +3519,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>271</xloc>
       <yloc>1744</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort result refs</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-type-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-aggregation-status</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-measure-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>reference-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>reference-vocabulary</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>reference-uri</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>publisher</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>publisher-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>generated-datetime</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>url-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>678</xloc>
-      <yloc>2448</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort results</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>actual-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>actual-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>baseline-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>baseline-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>baseline-year</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-measure-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>indicator-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-end</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-start</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-aggregation-status</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>result-type-code</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>target-comment</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>target-value</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>publisher</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>publisher-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>generated-datetime</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>url-id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>683</xloc>
-      <yloc>2279</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort results 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>iati-identifier</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-result-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-result-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-indicator-title</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>key-indicator-description</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-start</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>period-end</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2342</xloc>
-      <yloc>2278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -5313,6 +3691,74 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>272</xloc>
       <yloc>2696</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort results on BZ indicator code</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>BZ-indicator-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>780</xloc>
+      <yloc>2383</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort results on indicator code</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>reference-code</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>663</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -5541,120 +3987,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>493</xloc>
       <yloc>282</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Stream lookup 2</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Memory Group by</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>iati-identifier</name>
-        <field>iati-identifier</field>
-      </key>
-      <key>
-        <name>result-type-code</name>
-        <field>result-type-code</field>
-      </key>
-      <key>
-        <name>result-aggregation-status</name>
-        <field>result-aggregation-status</field>
-      </key>
-      <key>
-        <name>key-result-title</name>
-        <field>key-result-title</field>
-      </key>
-      <key>
-        <name>key-result-description</name>
-        <field>key-result-description</field>
-      </key>
-      <key>
-        <name>indicator-measure-code</name>
-        <field>indicator-measure-code</field>
-      </key>
-      <key>
-        <name>key-indicator-title</name>
-        <field>key-indicator-title</field>
-      </key>
-      <key>
-        <name>key-indicator-description</name>
-        <field>key-indicator-description</field>
-      </key>
-      <key>
-        <name>publisher</name>
-        <field>publisher</field>
-      </key>
-      <key>
-        <name>publisher-id</name>
-        <field>publisher-id</field>
-      </key>
-      <key>
-        <name>generated-datetime</name>
-        <field>generated-datetime</field>
-      </key>
-      <key>
-        <name>url-id</name>
-        <field>url-id</field>
-      </key>
-      <value>
-        <name>reference-vocabulary</name>
-        <rename>reference-vocabulary</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>reference-uri</name>
-        <rename>reference-uri</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>reference-code</name>
-        <rename>reference-code</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1175</xloc>
-      <yloc>2278</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique BZ references</name>
-    <type>UniqueRowsByHashSet</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <store_values>N</store_values>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2288</xloc>
-      <yloc>2548</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -5974,94 +4306,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>521</xloc>
       <yloc>2695</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique result refs</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>782</xloc>
-      <yloc>2448</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique results</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>actual-comment</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>actual-value</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>baseline-comment</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>baseline-value</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>baseline-year</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>iati-identifier</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>indicator-description</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>indicator-measure-code</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>indicator-title</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>period-end</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>period-start</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>result-aggregation-status</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>result-description</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>result-title</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>result-type-code</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>target-comment</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>target-value</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>publisher</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>publisher-id</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>generated-datetime</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>url-id</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>779</xloc>
-      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -6911,6 +5155,10 @@
           <stream_name>participating-org-type-code</stream_name>
         </field>
         <field>
+          <column_name>participating-org-activity-id</column_name>
+          <stream_name>participating-org-activity-id</stream_name>
+        </field>
+        <field>
           <column_name>publisher</column_name>
           <stream_name>publisher</stream_name>
         </field>
@@ -7199,8 +5447,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2774</xloc>
-      <yloc>2275</yloc>
+      <xloc>1034</xloc>
+      <yloc>2279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -7407,8 +5655,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>718</xloc>
-      <yloc>2693</yloc>
+      <xloc>710</xloc>
+      <yloc>2695</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -7506,6 +5754,10 @@
           <stream_name>iati-identifier</stream_name>
         </field>
         <field>
+          <column_name>transaction-reference</column_name>
+          <stream_name>transaction-reference</stream_name>
+        </field>
+        <field>
           <column_name>transaction-type-code</column_name>
           <stream_name>transaction-type-code</stream_name>
         </field>
@@ -7599,18 +5851,6 @@
     </step>
 
   <step_error_handling>
-      <error>
-        <source_step>Select fields</source_step>
-        <target_step/>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>

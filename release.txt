@@ -84,3 +84,11 @@ Version 3.93 Fixed bug causing e-mail to be send too frequently
 Version 3.94 Optimized joining actuals to budgetlines
 Version 3.95 Simplified split budgets by calculating budget actuals seperately in its own transformation
 Version 3.96 Fixed bug in IATI publisher feedback
+Version 3.97 Added URL decoding before encoding and debugged the processing result indicator descriptions with a CRLF
+Version 3.98 Added additional columns to the result reference table and updated codelist generation
+Version 3.99 Forced width of budget currency codes to three positions when reading XML 
+Version 4.00 Remove leading and trailing blanks from budget value
+Version 4.01 Split feedback processing in chunks per publisher and simplified reading of results from XML
+Version 4.02 Fixed device full on sort when processing large XML result files
+Version 4.03 Removed reading of indicator reference code from the indicator title or indicator description
+Version 4.04 Technical upgrade to Pentaho 9.4 Community Edition
