@@ -92,3 +92,4 @@ Version 4.01 Split feedback processing in chunks per publisher and simplified re
 Version 4.02 Fixed device full on sort when processing large XML result files
 Version 4.03 Removed reading of indicator reference code from the indicator title or indicator description
 Version 4.04 Technical upgrade to Pentaho 9.4 Community Edition
+Version 4.05 Increased MariaDB connection timeout
