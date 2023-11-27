@@ -428,8 +428,8 @@
     <created_user>-</created_user>
     <created_date>2023/08/23 14:11:02.307</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/08/23 14:15:51.269</modified_date>
-    <key_for_session_key/>
+    <modified_date>2023/11/27 14:17:39.841</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -489,7 +489,8 @@
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>SET SESSION wait_timeout = 28800;
+        <attribute>SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
 SET SESSION interactive_timeout = 7200;
 SET SESSION net_read_timeout = 240;
 SET SESSION net_write_timeout =  480;
@@ -522,6 +523,31 @@ SET SESSION sql_mode = "";
     </hop>
   </order>
   <step>
+    <name>Copy rows to result</name>
+    <type>RowsToResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Read all active publishers with an feedback e-mail address</name>
     <type>TableInput</type>
     <description/>
@@ -536,7 +562,7 @@ SET SESSION sql_mode = "";
     <sql>SELECT
   publisher
 FROM iatischema.`ctl-publishers`
-WHERE active=True and `email-active`=True</sql>
+WHERE active=True and `email-active`=True AND email IS NOT NULL</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -550,7 +576,7 @@ WHERE active=True and `email-active`=True</sql>
         <name>publisher</name>
         <length>50</length>
         <precision>-1</precision>
-        <origin>Read all active publishers with an active feedback e-mail address</origin>
+        <origin>Read all active publishers with an feedback e-mail address</origin>
         <comments>publisher</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
@@ -578,31 +604,6 @@ WHERE active=True and `email-active`=True</sql>
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Copy rows to result</name>
-    <type>RowsToResult</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
       <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
