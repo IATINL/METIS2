@@ -94,3 +94,4 @@ Version 4.03 Removed reading of indicator reference code from the indicator titl
 Version 4.04 Technical upgrade to Pentaho 9.4 Community Edition
 Version 4.05 Increased MariaDB connection timeout
 Version 4.06 Added logic to convert reimbursements from child to parent into negative disbursements from parent to child
+Version 4.07 Added check on empty e-mail addresses for the publishers feedback
