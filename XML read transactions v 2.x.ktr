@@ -6,38 +6,399 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection/>
-<schema/>
-<table/>
-<size_limit_lines/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
-<perf-log-table><connection/>
-<schema/>
-<table/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
-<channel-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
-<step-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -65,11 +426,11 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user>-</created_user>
-  <created_date>2015&#x2f;06&#x2f;12 14&#x3a;13&#x3a;37.097</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2023&#x2f;02&#x2f;01 11&#x3a;51&#x3a;30.288</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <created_user>-</created_user>
+    <created_date>2015/06/12 14:13:37.097</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2024/02/28 10:47:18.277</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -87,32 +448,121 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatistaging</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>Map 2.x codes to 1.x</from><to>Trim organisation names</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim organisation names</from><to>Replace NL-1 in identifiers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in identifiers</from><to>If fields are null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get transactions from XML 2.x</from><to>Get trx vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get trx vars</from><to>Sort transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort transactions</from><to>Map 2.x codes to 1.x</to><enabled>Y</enabled> </hop>
-  <hop> <from>If fields are null</from><to>Replace other missing values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strings cut</from><to>Write xml transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace other missing values</from><to>Trim spaces</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim spaces</from><to>Strings cut</to><enabled>Y</enabled> </hop>
+    <hop>
+      <from>Map 2.x codes to 1.x</from>
+      <to>Trim organisation names</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim organisation names</from>
+      <to>Replace NL-1 in identifiers</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NL-1 in identifiers</from>
+      <to>If fields are null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get transactions from XML 2.x</from>
+      <to>Get trx vars</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get trx vars</from>
+      <to>Sort transactions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort transactions</from>
+      <to>Map 2.x codes to 1.x</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If fields are null</from>
+      <to>Replace other missing values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Strings cut</from>
+      <to>Write xml transactions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace other missing values</from>
+      <to>Trim spaces</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim spaces</from>
+      <to>Strings cut</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Get transactions from XML 2.x</name>
@@ -121,10 +571,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -139,7 +589,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</name>
+      <name>${DATAPATH}\activities.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -148,7 +598,7 @@
     <fields>
       <field>
         <name>iati-identifier</name>
-        <xpath>..&#x2f;iati-identifier</xpath>
+        <xpath>../iati-identifier</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -163,7 +613,7 @@
       </field>
       <field>
         <name>transaction-reference</name>
-        <xpath>&#x40;ref</xpath>
+        <xpath>@ref</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -178,7 +628,7 @@
       </field>
       <field>
         <name>transaction-description</name>
-        <xpath>description&#x2f;narrative</xpath>
+        <xpath>description/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -193,7 +643,7 @@
       </field>
       <field>
         <name>transaction-type-code</name>
-        <xpath>transaction-type&#x2f;&#x40;code</xpath>
+        <xpath>transaction-type/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -208,7 +658,7 @@
       </field>
       <field>
         <name>transaction-currency</name>
-        <xpath>value&#x2f;&#x40;currency</xpath>
+        <xpath>value/@currency</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -223,7 +673,7 @@
       </field>
       <field>
         <name>transaction-flow-type-code</name>
-        <xpath>flow-type&#x2f;&#x40;code</xpath>
+        <xpath>flow-type/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -238,7 +688,7 @@
       </field>
       <field>
         <name>transaction-finance-type-code</name>
-        <xpath>finance-type&#x2f;&#x40;code</xpath>
+        <xpath>finance-type/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -253,7 +703,7 @@
       </field>
       <field>
         <name>transaction-aid-type-code</name>
-        <xpath>aid-type&#x2f;&#x40;code</xpath>
+        <xpath>aid-type/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -268,7 +718,7 @@
       </field>
       <field>
         <name>transaction-tied-status-code</name>
-        <xpath>tied-status&#x2f;&#x40;code</xpath>
+        <xpath>tied-status/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -283,7 +733,7 @@
       </field>
       <field>
         <name>provider-org</name>
-        <xpath>provider-org&#x2f;narrative</xpath>
+        <xpath>provider-org/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -298,7 +748,7 @@
       </field>
       <field>
         <name>provider-org-reference</name>
-        <xpath>provider-org&#x2f;&#x40;ref</xpath>
+        <xpath>provider-org/@ref</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -313,7 +763,7 @@
       </field>
       <field>
         <name>provider-org-activity-id</name>
-        <xpath>provider-org&#x2f;&#x40;provider-activity-id</xpath>
+        <xpath>provider-org/@provider-activity-id</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -328,7 +778,7 @@
       </field>
       <field>
         <name>receiver-org</name>
-        <xpath>receiver-org&#x2f;narrative</xpath>
+        <xpath>receiver-org/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -343,7 +793,7 @@
       </field>
       <field>
         <name>receiver-org-reference</name>
-        <xpath>receiver-org&#x2f;&#x40;ref</xpath>
+        <xpath>receiver-org/@ref</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -358,7 +808,7 @@
       </field>
       <field>
         <name>receiver-org-activity-id</name>
-        <xpath>receiver-org&#x2f;&#x40;receiver-activity-id</xpath>
+        <xpath>receiver-org/@receiver-activity-id</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -388,7 +838,7 @@
       </field>
       <field>
         <name>transaction-value-date</name>
-        <xpath>value&#x2f;&#x40;value-date</xpath>
+        <xpath>value/@value-date</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -403,7 +853,7 @@
       </field>
       <field>
         <name>transaction-iso-date</name>
-        <xpath>transaction-date&#x2f;&#x40;iso-date</xpath>
+        <xpath>transaction-date/@iso-date</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -418,7 +868,7 @@
       </field>
       <field>
         <name>default-currency</name>
-        <xpath>..&#x2f;&#x40;default-currency</xpath>
+        <xpath>../@default-currency</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -433,7 +883,7 @@
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;transaction</loopxpath>
+    <loopxpath>/iati-activities/iati-activity/transaction</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField>jsonURL</XmlField>
@@ -446,14 +896,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>77</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get trx vars</name>
     <type>GetVariable</type>
@@ -461,14 +917,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>publisher</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER&#x7d;</variable>
+        <variable>${PAR-PUBLISHER}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -480,7 +936,7 @@
       </field>
       <field>
         <name>publisher-id</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER-ID&#x7d;</variable>
+        <variable>${PAR-PUBLISHER-ID}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -492,7 +948,7 @@
       </field>
       <field>
         <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;PAR-ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <variable>${PAR-ARCHIVE-TIMESTAMP}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -504,7 +960,7 @@
       </field>
       <field>
         <name>url-id</name>
-        <variable>&#x24;&#x7b;PAR-URL-ID&#x7d;</variable>
+        <variable>${PAR-URL-ID}</variable>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -515,14 +971,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>208</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If fields are null</name>
     <type>IfNull</type>
@@ -530,15 +992,15 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
@@ -547,52 +1009,64 @@
         <value>Unknown organisation name</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>provider-org-reference</name>
         <value>Unknown organisation reference</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>receiver-org</name>
         <value>Unknown organisation name</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>receiver-org-reference</name>
         <value>Unknown organisation reference</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>transaction-currency</name>
         <value/>
         <mask/>
         <set_empty_string>Y</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>provider-org-activity-id</name>
         <value>Unspecified</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>receiver-org-activity-id</name>
         <value>Unspecified</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+      <field>
+        <name>transaction-reference</name>
+        <value>Unspecified</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>915</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Map 2.x codes to 1.x</name>
     <type>ValueMapper</type>
@@ -600,10 +1074,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <field_to_use>transaction-type-code</field_to_use>
     <target_field/>
     <non_match_default>XX</non_match_default>
@@ -697,14 +1171,20 @@
         <target_value>IC</target_value>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>436</xloc>
       <yloc>97</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace NL-1 in identifiers</name>
     <type>ReplaceString</type>
@@ -712,21 +1192,22 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>iati-identifier</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>^NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
       <field>
         <in_stream_name>provider-org-reference</in_stream_name>
@@ -738,6 +1219,7 @@
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
       <field>
         <in_stream_name>receiver-org-reference</in_stream_name>
@@ -749,27 +1231,35 @@
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
       <field>
         <in_stream_name>provider-org-activity-id</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>^NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>759</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace other missing values</name>
     <type>Formula</type>
@@ -777,32 +1267,40 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>transaction-currency</field_name>
-<formula_string>IF&#x28;LEN&#x28;&#x5b;transaction-currency&#x5d;&#x29;&#x3d;0&#x3b;&#x5b;default-currency&#x5d;&#x3b;&#x5b;transaction-currency&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>transaction-currency</replace_field>
-</formula>
-       <formula><field_name>transaction-iso-date</field_name>
-<formula_string>IF&#x28;LEN&#x28;&#x5b;transaction-iso-date&#x5d;&#x29;&#x3d;0&#x3b;&#x5b;transaction-value-date&#x5d;&#x3b;&#x5b;transaction-iso-date&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>transaction-iso-date</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>transaction-currency</field_name>
+      <formula_string>IF(LEN([transaction-currency])=0;[default-currency];[transaction-currency])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>transaction-currency</replace_field>
+    </formula>
+    <formula>
+      <field_name>transaction-iso-date</field_name>
+      <formula_string>IF(LEN([transaction-iso-date])=0;[transaction-value-date];[transaction-iso-date])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>transaction-iso-date</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1077</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort transactions</name>
     <type>SortRows</type>
@@ -810,117 +1308,153 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>provider-org</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>provider-org-reference</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>provider-org-activity-id</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>receiver-org</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>receiver-org-reference</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-iso-date</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>default-currency</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-currency</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-description</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-flow-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-finance-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-aid-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-tied-status-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>315</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Strings cut</name>
     <type>StringCut</type>
@@ -928,10 +1462,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>iati-identifier</in_stream_name>
@@ -1036,14 +1570,20 @@
         <cut_to>24</cut_to>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1355</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Trim organisation names</name>
     <type>StringOperations</type>
@@ -1051,10 +1591,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>provider-org</in_stream_name>
@@ -1109,14 +1649,20 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>585</xloc>
       <yloc>97</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Trim spaces</name>
     <type>StringOperations</type>
@@ -1124,10 +1670,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>transaction-currency</in_stream_name>
@@ -1143,14 +1689,20 @@
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1227</xloc>
       <yloc>97</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write xml transactions</name>
     <type>TableOutput</type>
@@ -1158,10 +1710,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
     <schema/>
     <table>xml-act-transactions</table>
@@ -1180,107 +1732,113 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-reference</column_name>
-          <stream_name>transaction-reference</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-type-code</column_name>
-          <stream_name>transaction-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-currency</column_name>
-          <stream_name>transaction-currency</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-description</column_name>
-          <stream_name>transaction-description</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-flow-type-code</column_name>
-          <stream_name>transaction-flow-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-finance-type-code</column_name>
-          <stream_name>transaction-finance-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-aid-type-code</column_name>
-          <stream_name>transaction-aid-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-tied-status-code</column_name>
-          <stream_name>transaction-tied-status-code</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org</column_name>
-          <stream_name>provider-org</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org-reference</column_name>
-          <stream_name>provider-org-reference</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org-activity-id</column_name>
-          <stream_name>provider-org-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>receiver-org</column_name>
-          <stream_name>receiver-org</stream_name>
-        </field>
-        <field>
-          <column_name>receiver-org-reference</column_name>
-          <stream_name>receiver-org-reference</stream_name>
-        </field>
-        <field>
-          <column_name>receiver-org-activity-id</column_name>
-          <stream_name>receiver-org-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-iso-date</column_name>
-          <stream_name>transaction-iso-date</stream_name>
-        </field>
-        <field>
-          <column_name>value</column_name>
-          <stream_name>value</stream_name>
-        </field>
-        <field>
-          <column_name>default-currency</column_name>
-          <stream_name>default-currency</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-reference</column_name>
+        <stream_name>transaction-reference</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-type-code</column_name>
+        <stream_name>transaction-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-currency</column_name>
+        <stream_name>transaction-currency</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-description</column_name>
+        <stream_name>transaction-description</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-flow-type-code</column_name>
+        <stream_name>transaction-flow-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-finance-type-code</column_name>
+        <stream_name>transaction-finance-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-aid-type-code</column_name>
+        <stream_name>transaction-aid-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-tied-status-code</column_name>
+        <stream_name>transaction-tied-status-code</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org</column_name>
+        <stream_name>provider-org</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org-reference</column_name>
+        <stream_name>provider-org-reference</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org-activity-id</column_name>
+        <stream_name>provider-org-activity-id</stream_name>
+      </field>
+      <field>
+        <column_name>receiver-org</column_name>
+        <stream_name>receiver-org</stream_name>
+      </field>
+      <field>
+        <column_name>receiver-org-reference</column_name>
+        <stream_name>receiver-org-reference</stream_name>
+      </field>
+      <field>
+        <column_name>receiver-org-activity-id</column_name>
+        <stream_name>receiver-org-activity-id</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-iso-date</column_name>
+        <stream_name>transaction-iso-date</stream_name>
+      </field>
+      <field>
+        <column_name>value</column_name>
+        <stream_name>value</stream_name>
+      </field>
+      <field>
+        <column_name>default-currency</column_name>
+        <stream_name>default-currency</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1471</xloc>
       <yloc>100</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step_error_handling>
   </step_error_handling>
-   <slave-step-copy-partition-distribution>
-</slave-step-copy-partition-distribution>
-   <slave_transformation>N</slave_transformation>
-
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>
