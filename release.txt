@@ -96,3 +96,4 @@ Version 4.05 Increased MariaDB connection timeout
 Version 4.06 Added logic to convert reimbursements from child to parent into negative disbursements from parent to child
 Version 4.07 Added check on empty e-mail addresses for the publishers feedback
 Version 4.08 Added scan to monitor if there are new publishers refering to the NMFA
+Version 4.09 Excluded organisation files from processing and fixed a bug in reimbursement processing for transactions with an empty transaction reference
