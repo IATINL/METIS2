@@ -6,38 +6,399 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection/>
-<schema/>
-<table/>
-<size_limit_lines/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
-<perf-log-table><connection/>
-<schema/>
-<table/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
-<channel-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
-<step-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -65,18 +426,19 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user>-</created_user>
-  <created_date>2015&#x2f;06&#x2f;12 14&#x3a;10&#x3a;38.027</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2022&#x2f;12&#x2f;02 09&#x3a;11&#x3a;46.683</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <created_user>-</created_user>
+    <created_date>2015/06/12 14:10:38.027</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2024/06/17 16:07:05.248</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>This version reads all result fields including every result reference in the IATI file.&#xd;&#xa;The indicator is replicated for each reference code.</note>
-      <xloc>1455</xloc>
-      <yloc>462</yloc>
+      <note>This version reads all result fields including every result reference in the IATI file.
+The indicator is replicated for each reference code.</note>
+      <xloc>1497</xloc>
+      <yloc>461</yloc>
       <width>426</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -95,9 +457,11 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>This version only reads result reference fields &#x28;legacy soloution&#x29;. &#xd;&#xa;This functionality is superseded with the handling of multiple result references for an indicator.&#xd;&#xa;</note>
-      <xloc>1399</xloc>
-      <yloc>277</yloc>
+      <note>This version only reads result reference fields (legacy soloution). 
+This functionality is superseded with the handling of multiple result references for an indicator.
+</note>
+      <xloc>1531</xloc>
+      <yloc>272</yloc>
       <width>508</width>
       <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
@@ -116,9 +480,12 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Aggregation status on &#xd;&#xa;indicator level takes &#xd;&#xa;precedence over result&#xd;&#xa;level. Code tested for FCAM.</note>
-      <xloc>192</xloc>
-      <yloc>346</yloc>
+      <note>Aggregation status on 
+indicator level takes 
+precedence over result
+level. Code tested for FCAM.</note>
+      <xloc>389</xloc>
+      <yloc>287</yloc>
       <width>160</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -150,52 +517,221 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatistaging</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get descriptions from XML v 2.x</from><to>Get desc vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get documents from XML 2.x</from><to>Get doccat vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get desc vars</from><to>Sort descriptions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort descriptions</from><to>Replace NL-1 in desc src</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get doccat vars</from><to>Sort documents</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort documents</from><to>Replace NL-1 in doc cat link src</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in result src</from><to>Trim result desc</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim result desc</from><to>Cut comments and values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in doc cat link src</from><to>Cut document title &#x26; code</to><enabled>Y</enabled> </hop>
-  <hop> <from>Cut document title &#x26; code</from><to>Write xml document link category</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in desc src</from><to>Cut too long desc</to><enabled>Y</enabled> </hop>
-  <hop> <from>Cut too long desc</from><to>Write xml descriptions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Cut comments and values</from><to>Write xml activity results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace NL-1 in multiple nrefs</from><to>Trim multiple resrefs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows results</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Select fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows results</from><to>Replace NL-1 in result src</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows results nrefs</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get multiple result references from XML 2.x</from><to>Get nrefs vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select fields</from><to>Replace NL-1 in multiple nrefs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove CRLF from result keys</from><to>Sort rows results</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove CRLF from nref keys</from><to>Sort rows results nrefs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get result vars</from><to>Calc aggr status</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc aggr status</from><to>Remove CRLF from result keys</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get nrefs vars</from><to>Calc aggr status 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc aggr status 3</from><to>Remove CRLF from nref keys</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim multiple resrefs</from><to>Cut comments and values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get results from XML 2.x</from><to>Add sequence</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sequence</from><to>Get result vars</to><enabled>Y</enabled> </hop>
-  <hop> <from>Cut comments and values 2</from><to>Write xml activity results nrefs</to><enabled>Y</enabled> </hop>
+    <hop>
+      <from>Get descriptions from XML v 2.x</from>
+      <to>Get desc vars</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get documents from XML 2.x</from>
+      <to>Get doccat vars</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get desc vars</from>
+      <to>Sort descriptions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort descriptions</from>
+      <to>Replace NL-1 in desc src</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get doccat vars</from>
+      <to>Sort documents</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort documents</from>
+      <to>Replace NL-1 in doc cat link src</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NL-1 in result src</from>
+      <to>Trim result desc</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim result desc</from>
+      <to>Cut comments and values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NL-1 in doc cat link src</from>
+      <to>Cut document title &amp; code</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cut document title &amp; code</from>
+      <to>Write xml document link category</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NL-1 in desc src</from>
+      <to>Cut too long desc</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cut too long desc</from>
+      <to>Write xml descriptions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cut comments and values</from>
+      <to>Write xml activity results</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NL-1 in multiple nrefs</from>
+      <to>Trim multiple resrefs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows results</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join</from>
+      <to>Select fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows results</from>
+      <to>Replace NL-1 in result src</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows results nrefs</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get multiple result references from XML 2.x</from>
+      <to>Get nrefs vars</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select fields</from>
+      <to>Replace NL-1 in multiple nrefs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove CRLF from nref keys</from>
+      <to>Sort rows results nrefs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get result vars</from>
+      <to>Calc aggr status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calc aggr status</from>
+      <to>Remove CRLF from result keys</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get nrefs vars</from>
+      <to>Calc aggr status 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calc aggr status 3</from>
+      <to>Remove CRLF from nref keys</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim multiple resrefs</from>
+      <to>Cut comments and values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get results from XML 2.x</from>
+      <to>Add sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add sequence</from>
+      <to>Get result vars</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cut comments and values 2</from>
+      <to>Write xml activity results nrefs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove CRLF from result keys</from>
+      <to>Sort rows results</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add sequence</name>
@@ -204,28 +740,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>seq</valuename>
-      <use_database>N</use_database>
-      <connection/>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>seq</valuename>
+    <use_database>N</use_database>
+    <connection/>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>246</xloc>
       <yloc>215</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Calc aggr status</name>
     <type>Formula</type>
@@ -233,25 +775,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;NOT&#x28;ISBLANK&#x28;&#x5b;indicator-aggregation-status&#x5d;&#x29;&#x29;&#x3b;&#x5b;indicator-aggregation-status&#x5d;&#x3b;&#x5b;aggregation-status&#x5d;&#x29;</formula_string>
-<value_type>Boolean</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>aggregation-status</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF(NOT(ISBLANK([indicator-aggregation-status]));[indicator-aggregation-status];[aggregation-status])</formula_string>
+      <value_type>Boolean</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>aggregation-status</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>474</xloc>
       <yloc>215</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Calc aggr status 3</name>
     <type>Formula</type>
@@ -259,25 +808,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;NOT&#x28;ISBLANK&#x28;&#x5b;indicator-aggregation-status&#x5d;&#x29;&#x29;&#x3b;&#x5b;indicator-aggregation-status&#x5d;&#x3b;&#x5b;aggregation-status&#x5d;&#x29;</formula_string>
-<value_type>Boolean</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>aggregation-status</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF(NOT(ISBLANK([indicator-aggregation-status]));[indicator-aggregation-status];[aggregation-status])</formula_string>
+      <value_type>Boolean</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>aggregation-status</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>466</xloc>
       <yloc>580</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Cut comments and values</name>
     <type>StringCut</type>
@@ -285,10 +841,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>actual-comment</in_stream_name>
@@ -351,14 +907,20 @@
         <cut_to>3998</cut_to>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1656</xloc>
-      <yloc>216</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1698</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Cut comments and values 2</name>
     <type>StringCut</type>
@@ -366,10 +928,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>actual-comment</in_stream_name>
@@ -432,25 +994,31 @@
         <cut_to>3998</cut_to>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1450</xloc>
-      <yloc>397</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1492</xloc>
+      <yloc>396</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Cut document title &#x26; code</name>
+    <name>Cut document title &amp; code</name>
     <type>StringCut</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>document-title</in_stream_name>
@@ -465,14 +1033,20 @@
         <cut_to>3</cut_to>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>861</xloc>
       <yloc>102</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Cut too long desc</name>
     <type>StringCut</type>
@@ -480,10 +1054,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>description</in_stream_name>
@@ -492,14 +1066,20 @@
         <cut_to>16382</cut_to>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>860</xloc>
       <yloc>35</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get desc vars</name>
     <type>GetVariable</type>
@@ -507,14 +1087,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>publisher</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER&#x7d;</variable>
+        <variable>${PAR-PUBLISHER}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -526,7 +1106,7 @@
       </field>
       <field>
         <name>publisher-id</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER-ID&#x7d;</variable>
+        <variable>${PAR-PUBLISHER-ID}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -538,7 +1118,7 @@
       </field>
       <field>
         <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;PAR-ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <variable>${PAR-ARCHIVE-TIMESTAMP}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -550,7 +1130,7 @@
       </field>
       <field>
         <name>url-id</name>
-        <variable>&#x24;&#x7b;PAR-URL-ID&#x7d;</variable>
+        <variable>${PAR-URL-ID}</variable>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -561,14 +1141,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>298</xloc>
       <yloc>34</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get descriptions from XML v 2.x</name>
     <type>getXMLData</type>
@@ -576,10 +1162,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -594,7 +1180,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</name>
+      <name>${DATAPATH}\activities.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -603,7 +1189,7 @@
     <fields>
       <field>
         <name>iati-identifier</name>
-        <xpath>..&#x2f;iati-identifier</xpath>
+        <xpath>../iati-identifier</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -618,7 +1204,7 @@
       </field>
       <field>
         <name>description-type-code</name>
-        <xpath>&#x40;type</xpath>
+        <xpath>@type</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -648,7 +1234,7 @@
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;description</loopxpath>
+    <loopxpath>/iati-activities/iati-activity/description</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField>jsonURL</XmlField>
@@ -661,14 +1247,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>114</xloc>
       <yloc>34</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get doccat vars</name>
     <type>GetVariable</type>
@@ -676,14 +1268,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>publisher</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER&#x7d;</variable>
+        <variable>${PAR-PUBLISHER}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -695,7 +1287,7 @@
       </field>
       <field>
         <name>publisher-id</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER-ID&#x7d;</variable>
+        <variable>${PAR-PUBLISHER-ID}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -707,7 +1299,7 @@
       </field>
       <field>
         <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;PAR-ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <variable>${PAR-ARCHIVE-TIMESTAMP}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -719,7 +1311,7 @@
       </field>
       <field>
         <name>url-id</name>
-        <variable>&#x24;&#x7b;PAR-URL-ID&#x7d;</variable>
+        <variable>${PAR-URL-ID}</variable>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -730,14 +1322,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>298</xloc>
       <yloc>102</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get documents from XML 2.x</name>
     <type>getXMLData</type>
@@ -745,10 +1343,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -763,7 +1361,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x2f;activities.xml</name>
+      <name>${DATAPATH}/activities.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -772,7 +1370,7 @@
     <fields>
       <field>
         <name>iati-identifier</name>
-        <xpath>..&#x2f;iati-identifier</xpath>
+        <xpath>../iati-identifier</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -787,7 +1385,7 @@
       </field>
       <field>
         <name>document-type-code</name>
-        <xpath>category&#x2f;&#x40;code</xpath>
+        <xpath>category/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -802,7 +1400,7 @@
       </field>
       <field>
         <name>document-url</name>
-        <xpath>.&#x2f;&#x40;url</xpath>
+        <xpath>./@url</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -817,7 +1415,7 @@
       </field>
       <field>
         <name>document-title</name>
-        <xpath>.&#x2f;title&#x2f;narrative</xpath>
+        <xpath>./title/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -832,7 +1430,7 @@
       </field>
       <field>
         <name>document-language</name>
-        <xpath>.&#x2f;language&#x2f;&#x40;code</xpath>
+        <xpath>./language/@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -847,7 +1445,7 @@
       </field>
       <field>
         <name>document-format</name>
-        <xpath>.&#x2f;&#x40;format</xpath>
+        <xpath>./@format</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -862,7 +1460,7 @@
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;document-link</loopxpath>
+    <loopxpath>/iati-activities/iati-activity/document-link</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField/>
@@ -875,14 +1473,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>115</xloc>
       <yloc>103</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get multiple result references from XML 2.x</name>
     <type>getXMLData</type>
@@ -890,10 +1494,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -908,7 +1512,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</name>
+      <name>${DATAPATH}\activities.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -917,7 +1521,7 @@
     <fields>
       <field>
         <name>iati-identifier</name>
-        <xpath>..&#x2f;..&#x2f;..&#x2f;iati-identifier</xpath>
+        <xpath>../../../iati-identifier</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -932,7 +1536,7 @@
       </field>
       <field>
         <name>result-type-code</name>
-        <xpath>..&#x2f;..&#x2f;&#x40;type</xpath>
+        <xpath>../../@type</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -947,7 +1551,7 @@
       </field>
       <field>
         <name>aggregation-status</name>
-        <xpath>..&#x2f;..&#x2f;&#x40;aggregation-status</xpath>
+        <xpath>../../@aggregation-status</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Boolean</type>
@@ -962,7 +1566,7 @@
       </field>
       <field>
         <name>result-title</name>
-        <xpath>..&#x2f;..&#x2f;title&#x2f;narrative</xpath>
+        <xpath>../../title/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -977,7 +1581,7 @@
       </field>
       <field>
         <name>result-description</name>
-        <xpath>..&#x2f;..&#x2f;description&#x2f;narrative</xpath>
+        <xpath>../../description/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -992,7 +1596,7 @@
       </field>
       <field>
         <name>indicator-measure-code</name>
-        <xpath>..&#x2f;&#x40;measure</xpath>
+        <xpath>../@measure</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1007,7 +1611,7 @@
       </field>
       <field>
         <name>indicator-title</name>
-        <xpath>..&#x2f;title&#x2f;narrative</xpath>
+        <xpath>../title/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1022,7 +1626,7 @@
       </field>
       <field>
         <name>indicator-description</name>
-        <xpath>..&#x2f;description&#x2f;narrative</xpath>
+        <xpath>../description/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1037,7 +1641,7 @@
       </field>
       <field>
         <name>reference-code</name>
-        <xpath>&#x40;code</xpath>
+        <xpath>@code</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1052,7 +1656,7 @@
       </field>
       <field>
         <name>reference-vocabulary</name>
-        <xpath>&#x40;vocabulary</xpath>
+        <xpath>@vocabulary</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1067,7 +1671,7 @@
       </field>
       <field>
         <name>reference-uri</name>
-        <xpath>&#x40;uri</xpath>
+        <xpath>@uri</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1082,7 +1686,7 @@
       </field>
       <field>
         <name>indicator-aggregation-status</name>
-        <xpath>..&#x2f;&#x40;aggregation-status</xpath>
+        <xpath>../@aggregation-status</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Boolean</type>
@@ -1097,7 +1701,7 @@
       </field>
       <field>
         <name>period-start</name>
-        <xpath>..&#x2f;period&#x2f;period-start&#x2f;&#x40;iso-date</xpath>
+        <xpath>../period/period-start/@iso-date</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Date</type>
@@ -1112,7 +1716,7 @@
       </field>
       <field>
         <name>period-end</name>
-        <xpath>..&#x2f;period&#x2f;period-end&#x2f;&#x40;iso-date</xpath>
+        <xpath>../period/period-end/@iso-date</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Date</type>
@@ -1127,7 +1731,7 @@
       </field>
       <field>
         <name>baseline-comment</name>
-        <xpath>..&#x2f;baseline&#x2f;comment&#x2f;narrative</xpath>
+        <xpath>../baseline/comment/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1142,7 +1746,7 @@
       </field>
       <field>
         <name>actual-comment</name>
-        <xpath>..&#x2f;period&#x2f;actual&#x2f;comment&#x2f;narrative</xpath>
+        <xpath>../period/actual/comment/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1157,7 +1761,7 @@
       </field>
       <field>
         <name>target-comment</name>
-        <xpath>..&#x2f;period&#x2f;target&#x2f;comment&#x2f;narrative</xpath>
+        <xpath>../period/target/comment/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1172,7 +1776,7 @@
       </field>
       <field>
         <name>baseline-value</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;value</xpath>
+        <xpath>../baseline/@value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1187,7 +1791,7 @@
       </field>
       <field>
         <name>target-value</name>
-        <xpath>..&#x2f;period&#x2f;target&#x2f;&#x40;value</xpath>
+        <xpath>../period/target/@value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1202,7 +1806,7 @@
       </field>
       <field>
         <name>actual-value</name>
-        <xpath>..&#x2f;period&#x2f;actual&#x2f;&#x40;value</xpath>
+        <xpath>../period/actual/@value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1217,7 +1821,7 @@
       </field>
       <field>
         <name>baseline-year</name>
-        <xpath>..&#x2f;..&#x2f;baseline&#x2f;&#x40;year</xpath>
+        <xpath>../../baseline/@year</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -1227,12 +1831,12 @@
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;result&#x2f;indicator&#x2f;reference</loopxpath>
+    <loopxpath>/iati-activities/iati-activity/result/indicator/reference</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField>jsonURL</XmlField>
@@ -1245,14 +1849,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>108</xloc>
       <yloc>577</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get nrefs vars</name>
     <type>GetVariable</type>
@@ -1260,14 +1870,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>publisher</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER&#x7d;</variable>
+        <variable>${PAR-PUBLISHER}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1279,7 +1889,7 @@
       </field>
       <field>
         <name>publisher-id</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER-ID&#x7d;</variable>
+        <variable>${PAR-PUBLISHER-ID}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1291,7 +1901,7 @@
       </field>
       <field>
         <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;PAR-ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <variable>${PAR-ARCHIVE-TIMESTAMP}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1303,7 +1913,7 @@
       </field>
       <field>
         <name>url-id</name>
-        <variable>&#x24;&#x7b;PAR-URL-ID&#x7d;</variable>
+        <variable>${PAR-URL-ID}</variable>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1314,14 +1924,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>376</xloc>
       <yloc>579</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get result vars</name>
     <type>GetVariable</type>
@@ -1329,14 +1945,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>publisher</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER&#x7d;</variable>
+        <variable>${PAR-PUBLISHER}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1348,7 +1964,7 @@
       </field>
       <field>
         <name>publisher-id</name>
-        <variable>&#x24;&#x7b;PAR-PUBLISHER-ID&#x7d;</variable>
+        <variable>${PAR-PUBLISHER-ID}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1360,7 +1976,7 @@
       </field>
       <field>
         <name>generated-datetime</name>
-        <variable>&#x24;&#x7b;PAR-ARCHIVE-TIMESTAMP&#x7d;</variable>
+        <variable>${PAR-ARCHIVE-TIMESTAMP}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1372,7 +1988,7 @@
       </field>
       <field>
         <name>url-id</name>
-        <variable>&#x24;&#x7b;PAR-URL-ID&#x7d;</variable>
+        <variable>${PAR-URL-ID}</variable>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1383,14 +1999,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>368</xloc>
       <yloc>214</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get results from XML 2.x</name>
     <type>getXMLData</type>
@@ -1398,10 +2020,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
@@ -1416,7 +2038,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>&#x24;&#x7b;DATAPATH&#x7d;&#x5c;activities.xml</name>
+      <name>${DATAPATH}\activities.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1425,7 +2047,7 @@
     <fields>
       <field>
         <name>iati-identifier</name>
-        <xpath>..&#x2f;..&#x2f;..&#x2f;iati-identifier</xpath>
+        <xpath>../../../iati-identifier</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1440,7 +2062,7 @@
       </field>
       <field>
         <name>result-type-code</name>
-        <xpath>..&#x2f;..&#x2f;.&#x2f;&#x40;type</xpath>
+        <xpath>../.././@type</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -1455,7 +2077,7 @@
       </field>
       <field>
         <name>aggregation-status</name>
-        <xpath>..&#x2f;..&#x2f;.&#x2f;&#x40;aggregation-status</xpath>
+        <xpath>../.././@aggregation-status</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Boolean</type>
@@ -1470,7 +2092,7 @@
       </field>
       <field>
         <name>result-title</name>
-        <xpath>..&#x2f;..&#x2f;title&#x2f;narrative</xpath>
+        <xpath>../../title/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1485,7 +2107,7 @@
       </field>
       <field>
         <name>result-description</name>
-        <xpath>..&#x2f;..&#x2f;description&#x2f;narrative</xpath>
+        <xpath>../../description/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1500,7 +2122,7 @@
       </field>
       <field>
         <name>indicator-measure-code</name>
-        <xpath>..&#x2f;.&#x2f;&#x40;measure</xpath>
+        <xpath>.././@measure</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1515,7 +2137,7 @@
       </field>
       <field>
         <name>indicator-title</name>
-        <xpath>..&#x2f;title&#x2f;narrative</xpath>
+        <xpath>../title/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1530,7 +2152,7 @@
       </field>
       <field>
         <name>indicator-description</name>
-        <xpath>..&#x2f;description&#x2f;narrative</xpath>
+        <xpath>../description/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1545,7 +2167,7 @@
       </field>
       <field>
         <name>period-start</name>
-        <xpath>period-start&#x2f;&#x40;iso-date</xpath>
+        <xpath>period-start/@iso-date</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Date</type>
@@ -1560,7 +2182,7 @@
       </field>
       <field>
         <name>period-end</name>
-        <xpath>period-end&#x2f;&#x40;iso-date</xpath>
+        <xpath>period-end/@iso-date</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Date</type>
@@ -1575,7 +2197,7 @@
       </field>
       <field>
         <name>baseline-value</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;value</xpath>
+        <xpath>../baseline/@value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1590,7 +2212,7 @@
       </field>
       <field>
         <name>baseline-year</name>
-        <xpath>..&#x2f;baseline&#x2f;&#x40;year</xpath>
+        <xpath>../baseline/@year</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -1600,12 +2222,12 @@
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>actual-value</name>
-        <xpath>actual&#x2f;&#x40;value</xpath>
+        <xpath>actual/@value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1620,7 +2242,7 @@
       </field>
       <field>
         <name>actual-comment</name>
-        <xpath>actual&#x2f;comment&#x2f;narrative</xpath>
+        <xpath>actual/comment/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1635,7 +2257,7 @@
       </field>
       <field>
         <name>target-value</name>
-        <xpath>target&#x2f;&#x40;value</xpath>
+        <xpath>target/@value</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1650,7 +2272,7 @@
       </field>
       <field>
         <name>target-comment</name>
-        <xpath>target&#x2f;comment&#x2f;narrative</xpath>
+        <xpath>target/comment/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1665,7 +2287,7 @@
       </field>
       <field>
         <name>baseline-comment</name>
-        <xpath>..&#x2f;baseline&#x2f;comment&#x2f;narrative</xpath>
+        <xpath>../baseline/comment/narrative</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1680,7 +2302,7 @@
       </field>
       <field>
         <name>indicator-aggregation-status</name>
-        <xpath>..&#x2f;.&#x2f;&#x40;aggregation-status</xpath>
+        <xpath>.././@aggregation-status</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>Boolean</type>
@@ -1695,7 +2317,7 @@
       </field>
       <field>
         <name>reference-code</name>
-        <xpath>..&#x2f;reference&#x2f;&#x40;code&#x5b;1&#x5d;</xpath>
+        <xpath>../reference/@code[1]</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1710,7 +2332,7 @@
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>&#x2f;iati-activities&#x2f;iati-activity&#x2f;result&#x2f;indicator&#x2f;period</loopxpath>
+    <loopxpath>/iati-activities/iati-activity/result/indicator/period</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField>jsonURL</XmlField>
@@ -1723,14 +2345,20 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>118</xloc>
       <yloc>215</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join</name>
     <type>MergeJoin</type>
@@ -1738,13 +2366,13 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort rows results</step1>
-<step2>Sort rows results nrefs</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort rows results</step1>
+    <step2>Sort rows results nrefs</step2>
     <keys_1>
       <key>actual-value</key>
       <key>aggregation-status</key>
@@ -1793,14 +2421,20 @@
       <key>indicator-aggregation-status</key>
       <key>baseline-year</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>909</xloc>
-      <yloc>400</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>951</xloc>
+      <yloc>399</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove CRLF from nref keys</name>
     <type>StringOperations</type>
@@ -1808,10 +2442,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>result-title</in_stream_name>
@@ -1905,25 +2539,31 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>603</xloc>
       <yloc>578</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove CRLF from result keys</name>
     <type>StringOperations</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>result-title</in_stream_name>
@@ -2017,14 +2657,20 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>602</xloc>
-      <yloc>218</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>619</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace NL-1 in desc src</name>
     <type>ReplaceString</type>
@@ -2032,31 +2678,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>iati-identifier</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>^NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>589</xloc>
       <yloc>34</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace NL-1 in doc cat link src</name>
     <type>ReplaceString</type>
@@ -2064,31 +2717,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>iati-identifier</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>^NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>590</xloc>
       <yloc>102</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace NL-1 in multiple nrefs</name>
     <type>ReplaceString</type>
@@ -2096,31 +2756,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>iati-identifier</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>^NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1166</xloc>
-      <yloc>398</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1208</xloc>
+      <yloc>397</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace NL-1 in result src</name>
     <type>ReplaceString</type>
@@ -2128,31 +2795,38 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>iati-identifier</in_stream_name>
         <out_stream_name/>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;NL-1</replace_string>
+        <replace_string>^NL-1</replace_string>
         <replace_by_string>XM-DAC-7</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
         <whole_word>no</whole_word>
         <case_sensitive>yes</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1378</xloc>
-      <yloc>215</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1420</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select fields</name>
     <type>SelectValues</type>
@@ -2160,119 +2834,102 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>seq</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>aggregation-status</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>result-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-measure-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>indicator-description</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-start</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>period-end</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-year</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>actual-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>actual-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>target-value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>target-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>baseline-comment</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-vocabulary</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>reference-uri</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1036</xloc>
-      <yloc>400</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>seq</name>
+      </field>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>result-type-code</name>
+      </field>
+      <field>
+        <name>aggregation-status</name>
+      </field>
+      <field>
+        <name>result-title</name>
+      </field>
+      <field>
+        <name>result-description</name>
+      </field>
+      <field>
+        <name>indicator-measure-code</name>
+      </field>
+      <field>
+        <name>indicator-title</name>
+      </field>
+      <field>
+        <name>indicator-description</name>
+      </field>
+      <field>
+        <name>period-start</name>
+      </field>
+      <field>
+        <name>period-end</name>
+      </field>
+      <field>
+        <name>baseline-value</name>
+      </field>
+      <field>
+        <name>baseline-year</name>
+      </field>
+      <field>
+        <name>actual-value</name>
+      </field>
+      <field>
+        <name>actual-comment</name>
+      </field>
+      <field>
+        <name>target-value</name>
+      </field>
+      <field>
+        <name>target-comment</name>
+      </field>
+      <field>
+        <name>baseline-comment</name>
+      </field>
+      <field>
+        <name>reference-code</name>
+      </field>
+      <field>
+        <name>reference-vocabulary</name>
+      </field>
+      <field>
+        <name>reference-uri</name>
+      </field>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+      </field>
+      <field>
+        <name>url-id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1078</xloc>
+      <yloc>399</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort descriptions</name>
     <type>SortRows</type>
@@ -2280,45 +2937,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>description-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>description</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>421</xloc>
       <yloc>34</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort documents</name>
     <type>SortRows</type>
@@ -2326,63 +2995,81 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>document-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>document-url</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>document-title</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>document-language</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>document-format</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>420</xloc>
       <yloc>102</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort rows results</name>
     <type>SortRows</type>
@@ -2390,159 +3077,209 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>actual-value</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>aggregation-status</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>baseline-value</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>generated-datetime</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>indicator-measure-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-actual-comment</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-baseline-comment</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-indicator-description</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-indicator-title</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-result-description</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-result-title</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-target-comment</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>period-end</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>period-start</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>result-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>target-value</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>url-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>indicator-aggregation-status</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>baseline-year</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>749</xloc>
-      <yloc>216</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>791</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort rows results nrefs</name>
     <type>SortRows</type>
@@ -2550,159 +3287,209 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>actual-value</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>aggregation-status</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>baseline-value</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>generated-datetime</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>indicator-measure-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-actual-comment</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-baseline-comment</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-indicator-description</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-indicator-title</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-result-description</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-result-title</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>key-target-comment</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>period-end</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>period-start</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>publisher-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>result-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>target-value</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>url-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>indicator-aggregation-status</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>baseline-year</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>739</xloc>
-      <yloc>578</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>781</xloc>
+      <yloc>577</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Trim multiple resrefs</name>
     <type>StringOperations</type>
@@ -2710,10 +3497,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>indicator-title</in_stream_name>
@@ -2742,14 +3529,20 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1311</xloc>
-      <yloc>397</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1353</xloc>
+      <yloc>396</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Trim result desc</name>
     <type>StringOperations</type>
@@ -2757,10 +3550,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>result-title</in_stream_name>
@@ -2841,14 +3634,20 @@
         <remove_special_characters>crlf</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1505</xloc>
-      <yloc>216</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1547</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write xml activity results</name>
     <type>TableOutput</type>
@@ -2856,10 +3655,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
     <schema/>
     <table>xml-act-results</table>
@@ -2878,103 +3677,109 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>result-type-code</column_name>
-          <stream_name>result-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>result-aggregation-status</column_name>
-          <stream_name>aggregation-status</stream_name>
-        </field>
-        <field>
-          <column_name>result-title</column_name>
-          <stream_name>result-title</stream_name>
-        </field>
-        <field>
-          <column_name>result-description</column_name>
-          <stream_name>result-description</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-measure-code</column_name>
-          <stream_name>indicator-measure-code</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-title</column_name>
-          <stream_name>indicator-title</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-description</column_name>
-          <stream_name>indicator-description</stream_name>
-        </field>
-        <field>
-          <column_name>period-start</column_name>
-          <stream_name>period-start</stream_name>
-        </field>
-        <field>
-          <column_name>period-end</column_name>
-          <stream_name>period-end</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-value</column_name>
-          <stream_name>baseline-value</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-comment</column_name>
-          <stream_name>baseline-comment</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-year</column_name>
-          <stream_name>baseline-year</stream_name>
-        </field>
-        <field>
-          <column_name>actual-value</column_name>
-          <stream_name>actual-value</stream_name>
-        </field>
-        <field>
-          <column_name>actual-comment</column_name>
-          <stream_name>actual-comment</stream_name>
-        </field>
-        <field>
-          <column_name>target-value</column_name>
-          <stream_name>target-value</stream_name>
-        </field>
-        <field>
-          <column_name>target-comment</column_name>
-          <stream_name>target-comment</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
-        <field>
-          <column_name>reference-code</column_name>
-          <stream_name>reference-code</stream_name>
-        </field>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>result-type-code</column_name>
+        <stream_name>result-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>result-aggregation-status</column_name>
+        <stream_name>aggregation-status</stream_name>
+      </field>
+      <field>
+        <column_name>result-title</column_name>
+        <stream_name>result-title</stream_name>
+      </field>
+      <field>
+        <column_name>result-description</column_name>
+        <stream_name>result-description</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-measure-code</column_name>
+        <stream_name>indicator-measure-code</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-title</column_name>
+        <stream_name>indicator-title</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-description</column_name>
+        <stream_name>indicator-description</stream_name>
+      </field>
+      <field>
+        <column_name>period-start</column_name>
+        <stream_name>period-start</stream_name>
+      </field>
+      <field>
+        <column_name>period-end</column_name>
+        <stream_name>period-end</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-value</column_name>
+        <stream_name>baseline-value</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-comment</column_name>
+        <stream_name>baseline-comment</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-year</column_name>
+        <stream_name>baseline-year</stream_name>
+      </field>
+      <field>
+        <column_name>actual-value</column_name>
+        <stream_name>actual-value</stream_name>
+      </field>
+      <field>
+        <column_name>actual-comment</column_name>
+        <stream_name>actual-comment</stream_name>
+      </field>
+      <field>
+        <column_name>target-value</column_name>
+        <stream_name>target-value</stream_name>
+      </field>
+      <field>
+        <column_name>target-comment</column_name>
+        <stream_name>target-comment</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
+      <field>
+        <column_name>reference-code</column_name>
+        <stream_name>reference-code</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1830</xloc>
-      <yloc>218</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1872</xloc>
+      <yloc>217</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write xml activity results nrefs</name>
     <type>TableOutput</type>
@@ -2982,10 +3787,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
     <schema/>
     <table>xml-act-result-nrefs</table>
@@ -3004,111 +3809,117 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>result-description</column_name>
-          <stream_name>result-description</stream_name>
-        </field>
-        <field>
-          <column_name>result-title</column_name>
-          <stream_name>result-title</stream_name>
-        </field>
-        <field>
-          <column_name>result-type-code</column_name>
-          <stream_name>result-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>result-aggregation-status</column_name>
-          <stream_name>aggregation-status</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-title</column_name>
-          <stream_name>indicator-title</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-description</column_name>
-          <stream_name>indicator-description</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-measure-code</column_name>
-          <stream_name>indicator-measure-code</stream_name>
-        </field>
-        <field>
-          <column_name>period-start</column_name>
-          <stream_name>period-start</stream_name>
-        </field>
-        <field>
-          <column_name>period-end</column_name>
-          <stream_name>period-end</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-value</column_name>
-          <stream_name>baseline-value</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-year</column_name>
-          <stream_name>baseline-year</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-comment</column_name>
-          <stream_name>baseline-comment</stream_name>
-        </field>
-        <field>
-          <column_name>actual-value</column_name>
-          <stream_name>actual-value</stream_name>
-        </field>
-        <field>
-          <column_name>actual-comment</column_name>
-          <stream_name>actual-comment</stream_name>
-        </field>
-        <field>
-          <column_name>target-value</column_name>
-          <stream_name>target-value</stream_name>
-        </field>
-        <field>
-          <column_name>target-comment</column_name>
-          <stream_name>target-comment</stream_name>
-        </field>
-        <field>
-          <column_name>reference-code</column_name>
-          <stream_name>reference-code</stream_name>
-        </field>
-        <field>
-          <column_name>reference-vocabulary</column_name>
-          <stream_name>reference-vocabulary</stream_name>
-        </field>
-        <field>
-          <column_name>reference-uri</column_name>
-          <stream_name>reference-uri</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>result-description</column_name>
+        <stream_name>result-description</stream_name>
+      </field>
+      <field>
+        <column_name>result-title</column_name>
+        <stream_name>result-title</stream_name>
+      </field>
+      <field>
+        <column_name>result-type-code</column_name>
+        <stream_name>result-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>result-aggregation-status</column_name>
+        <stream_name>aggregation-status</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-title</column_name>
+        <stream_name>indicator-title</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-description</column_name>
+        <stream_name>indicator-description</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-measure-code</column_name>
+        <stream_name>indicator-measure-code</stream_name>
+      </field>
+      <field>
+        <column_name>period-start</column_name>
+        <stream_name>period-start</stream_name>
+      </field>
+      <field>
+        <column_name>period-end</column_name>
+        <stream_name>period-end</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-value</column_name>
+        <stream_name>baseline-value</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-year</column_name>
+        <stream_name>baseline-year</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-comment</column_name>
+        <stream_name>baseline-comment</stream_name>
+      </field>
+      <field>
+        <column_name>actual-value</column_name>
+        <stream_name>actual-value</stream_name>
+      </field>
+      <field>
+        <column_name>actual-comment</column_name>
+        <stream_name>actual-comment</stream_name>
+      </field>
+      <field>
+        <column_name>target-value</column_name>
+        <stream_name>target-value</stream_name>
+      </field>
+      <field>
+        <column_name>target-comment</column_name>
+        <stream_name>target-comment</stream_name>
+      </field>
+      <field>
+        <column_name>reference-code</column_name>
+        <stream_name>reference-code</stream_name>
+      </field>
+      <field>
+        <column_name>reference-vocabulary</column_name>
+        <stream_name>reference-vocabulary</stream_name>
+      </field>
+      <field>
+        <column_name>reference-uri</column_name>
+        <stream_name>reference-uri</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1838</xloc>
-      <yloc>398</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1880</xloc>
+      <yloc>397</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write xml descriptions</name>
     <type>TableOutput</type>
@@ -3116,10 +3927,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
     <schema/>
     <table>xml-act-descriptions</table>
@@ -3138,43 +3949,49 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>description-type-code</column_name>
-          <stream_name>description-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>description</column_name>
-          <stream_name>description</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>description-type-code</column_name>
+        <stream_name>description-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>description</column_name>
+        <stream_name>description</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1050</xloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1867</xloc>
       <yloc>36</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write xml document link category</name>
     <type>TableOutput</type>
@@ -3182,10 +3999,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
     <schema/>
     <table>xml-act-documents</table>
@@ -3204,59 +4021,65 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>document-type-code</column_name>
-          <stream_name>document-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>document-url</column_name>
-          <stream_name>document-url</stream_name>
-        </field>
-        <field>
-          <column_name>document-title</column_name>
-          <stream_name>document-title</stream_name>
-        </field>
-        <field>
-          <column_name>document-language</column_name>
-          <stream_name>document-language</stream_name>
-        </field>
-        <field>
-          <column_name>document-format</column_name>
-          <stream_name>document-format</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>document-type-code</column_name>
+        <stream_name>document-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>document-url</column_name>
+        <stream_name>document-url</stream_name>
+      </field>
+      <field>
+        <column_name>document-title</column_name>
+        <stream_name>document-title</stream_name>
+      </field>
+      <field>
+        <column_name>document-language</column_name>
+        <stream_name>document-language</stream_name>
+      </field>
+      <field>
+        <column_name>document-format</column_name>
+        <stream_name>document-format</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1052</xloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1869</xloc>
       <yloc>103</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step_error_handling>
   </step_error_handling>
-   <slave-step-copy-partition-distribution>
-</slave-step-copy-partition-distribution>
-   <slave_transformation>N</slave_transformation>
-
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>
