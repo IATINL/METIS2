@@ -2,42 +2,414 @@
   <info>
     <name>Preprocess transactions </name>
     <description>Lookup transaction provider and add currency rate for all foreign currencies and calculate corresponding Euro transaction value.</description>
-    <extended_description>This transformation fullfills two functions&#x3a;&#xd;&#xa;&#xd;&#xa;1 - finding the organisation-iad and name for those transactions which have no specified name and reference code&#xd;&#xa;&#xd;&#xa;No lookup is performed if both the organisation name and reference code are specified&#xd;&#xa;A lookup based on the providing activity is performed in all other cases. If the lookup fails the original &#x28;imcomplete&#x29; data is&#xd;&#xa;left unchanged. &#xd;&#xa;&#xd;&#xa;2 - calculating the EUR value of the transactions based on the yearly exchange rate table&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</extended_description>
+    <extended_description>This transformation fullfills two functions:
+
+1 - finding the organisation-iad and name for those transactions which have no specified name and reference code
+
+No lookup is performed if both the organisation name and reference code are specified
+A lookup based on the providing activity is performed in all other cases. If the lookup fails the original (imcomplete) data is
+left unchanged. 
+
+2 - calculating the EUR value of the transactions based on the yearly exchange rate table
+
+
+</extended_description>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection/>
-<schema/>
-<table/>
-<size_limit_lines/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
-<perf-log-table><connection/>
-<schema/>
-<table/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
-<channel-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
-<step-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -65,11 +437,11 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user>-</created_user>
-  <created_date>2015&#x2f;08&#x2f;10 10&#x3a;30&#x3a;11.953</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2023&#x2f;02&#x2f;28 16&#x3a;05&#x3a;31.351</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <created_user>-</created_user>
+    <created_date>2015/08/10 10:30:11.953</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2024/03/11 16:58:01.639</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -116,7 +488,17 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>In case no explicit incoming transactions have been specified by the publisher, the incoming transactions are generated. &#xd;&#xa;This links the activities with the parent activities. For alle transactions the Euro value is calculated. Trivial small transactions &#xd;&#xa;less than 1 euro are removed.&#xd;&#xa;&#xd;&#xa;Per activity per currency incoming transactions are generated as follows&#x3a;&#xd;&#xa;  - one incoming fund and&#x2f;or incoming commitment transaction &#xd;&#xa;  - with a total value equal to the sum of all outgoing disbursement or expenditure and&#x2f;or outgoing commitment transactions&#xd;&#xa;  - with the minimum iso-date per transaction type&#xd;&#xa;&#xd;&#xa;For all activities&#x3a;&#xd;&#xa;  - who have &#x28;at least&#x29; a related parent activity &#x28;type &#x3d; 1&#x29;</note>
+      <note>In case no explicit incoming transactions have been specified by the publisher, the incoming transactions are generated. 
+This links the activities with the parent activities. For alle transactions the Euro value is calculated. Trivial small transactions 
+less than 1 euro are removed.
+
+Per activity per currency incoming transactions are generated as follows:
+  - one incoming fund and/or incoming commitment transaction 
+  - with a total value equal to the sum of all outgoing disbursement or expenditure and/or outgoing commitment transactions
+  - with the minimum iso-date per transaction type
+
+For all activities:
+  - who have (at least) a related parent activity (type = 1)</note>
       <xloc>14</xloc>
       <yloc>7</yloc>
       <width>674</width>
@@ -137,7 +519,13 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Branch to determine if an activity only has a related activity and no &#xd;&#xa;incoming funds or commitments. The related activity of the result plays &#xd;&#xa;the role of providing actvity id in the incoming transaction which is &#xd;&#xa;generated later on. For transactions with incoming funds and a related &#xd;&#xa;activity no incoming funds or commitments have to be generated. &#xd;&#xa;Therefore only transactions are selected with related activities without &#xd;&#xa;any incoming funds or commitments from other activities. </note>
+      <note>Branch to determine if an activity only has a related activity and no 
+incoming funds or commitments. The related activity of the result plays 
+the role of providing actvity id in the incoming transaction which is 
+generated later on. For transactions with incoming funds and a related 
+activity no incoming funds or commitments have to be generated. 
+Therefore only transactions are selected with related activities without 
+any incoming funds or commitments from other activities. </note>
       <xloc>1934</xloc>
       <yloc>566</yloc>
       <width>391</width>
@@ -158,7 +546,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>For activities with incoming funds and a related activity, no incoming funds &#xd;&#xa;or commitments have to be generated. Therefore only transactions are selected &#xd;&#xa;with related activities without any incoming funds or commitments from other &#xd;&#xa;activities. </note>
+      <note>For activities with incoming funds and a related activity, no incoming funds 
+or commitments have to be generated. Therefore only transactions are selected 
+with related activities without any incoming funds or commitments from other 
+activities. </note>
       <xloc>1427</xloc>
       <yloc>296</yloc>
       <width>431</width>
@@ -179,7 +570,9 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Branch in which the outgoing transactions are aggregated by acctivity and currency. The first transaction date will&#xd;&#xa;become the transaction date of the generated incoming transaction. The transaction value will be sum of all transaction&#xd;&#xa;values for each currency and transaction type.</note>
+      <note>Branch in which the outgoing transactions are aggregated by acctivity and currency. The first transaction date will
+become the transaction date of the generated incoming transaction. The transaction value will be sum of all transaction
+values for each currency and transaction type.</note>
       <xloc>1149</xloc>
       <yloc>874</yloc>
       <width>639</width>
@@ -200,7 +593,8 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Get all related parent activities and in case&#xd;&#xa;there are multiple ones only select the first.</note>
+      <note>Get all related parent activities and in case
+there are multiple ones only select the first.</note>
       <xloc>1094</xloc>
       <yloc>297</yloc>
       <width>236</width>
@@ -221,7 +615,9 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>When an incoming transaction has an unspecified providing activity id&#xd;&#xa;and there is a related activity parent activity specified  &#xd;&#xa;then assume that the incoming transaction has the related activity as a parent.</note>
+      <note>When an incoming transaction has an unspecified providing activity id
+and there is a related activity parent activity specified  
+then assume that the incoming transaction has the related activity as a parent.</note>
       <xloc>18</xloc>
       <yloc>379</yloc>
       <width>421</width>
@@ -242,7 +638,9 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Small transactions are defined as transactions with an abosolute EUR&#xd;&#xa;value of less then 1 Euro. Those small transactions are ignored unless they&#xd;&#xa;are zero transaction generated by METIS.</note>
+      <note>Small transactions are defined as transactions with an abosolute EUR
+value of less then 1 Euro. Those small transactions are ignored unless they
+are zero transaction generated by METIS.</note>
       <xloc>3931</xloc>
       <yloc>302</yloc>
       <width>397</width>
@@ -263,7 +661,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Join the generated incoming transactions with the set of&#xd;&#xa;activities with a reference to a related activity but without &#xd;&#xa;any incoming transaction. If this set is empty the result will&#xd;&#xa;be empty and no incoming transactions are generated.</note>
+      <note>Join the generated incoming transactions with the set of
+activities with a reference to a related activity but without 
+any incoming transaction. If this set is empty the result will
+be empty and no incoming transactions are generated.</note>
       <xloc>2326</xloc>
       <yloc>408</yloc>
       <width>319</width>
@@ -284,7 +685,10 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Append the generated incoming transactions.&#xd;&#xa;This links the child activities with the parent activities &#xd;&#xa;later on, even if no explicit incoming transactions have &#xd;&#xa;been specified by the publisher.</note>
+      <note>Append the generated incoming transactions.
+This links the child activities with the parent activities 
+later on, even if no explicit incoming transactions have 
+been specified by the publisher.</note>
       <xloc>2653</xloc>
       <yloc>129</yloc>
       <width>302</width>
@@ -305,7 +709,8 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>This sub-branch aggregates all transactions which have&#xd;&#xa;no related activity. </note>
+      <note>This sub-branch aggregates all transactions which have
+no related activity. </note>
       <xloc>1344</xloc>
       <yloc>715</yloc>
       <width>302</width>
@@ -326,7 +731,8 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Calculate the own contribution&#x3a; substract co-financing amounts from the&#xd;&#xa;generated incoming funds. A negative contribution wil be maxed to zero.</note>
+      <note>Calculate the own contribution: substract co-financing amounts from the
+generated incoming funds. A negative contribution wil be maxed to zero.</note>
       <xloc>1937</xloc>
       <yloc>791</yloc>
       <width>399</width>
@@ -360,20 +766,72 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.Database type</code><attribute>Innodb</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.Database type</code>
+        <attribute>Innodb</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatischema</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <connection>
@@ -389,19 +847,68 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatidatamart</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <connection>
@@ -417,92 +924,421 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatistaging</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatistaging</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>Convert types</from><to>Derive transaction year</to><enabled>Y</enabled> </hop>
-  <hop> <from>If prov. org act. is null</from><to>Calc euro trx amount</to><enabled>Y</enabled> </hop>
-  <hop> <from>Rel act without incoming trx&#x3f;</from><to>Rel act with inc trx sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append generated IF trx</from><to>Convert types</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fill missing fields</from><to>Build incoming transaction</to><enabled>Y</enabled> </hop>
-  <hop> <from>Build incoming transaction</from><to>Append generated IF trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>If rel act is found</from><to>No rel act sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Write transactions to stg</from><to>Error log write transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort incoming trx</from><to>Unique trx ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rel act</from><to>Merge trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge trx</from><to>Rel act without incoming trx&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Rel act without incoming trx&#x3f;</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique trx ids</from><to>Sort trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort trx</from><to>Merge trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Derive transaction year</from><to>Lookup currency rate</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup currency rate</from><to>EUR rate is 1</to><enabled>Y</enabled> </hop>
-  <hop> <from>EUR rate is 1</from><to>Select valid currencies</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select valid currencies</from><to>If prov. org act. is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select valid currencies</from><to>Select currency error log fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select currency error log fields</from><to>Get Variables</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get Variables</from><to>Set currency error type</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set currency error type</from><to>Log currency error</to><enabled>Y</enabled> </hop>
-  <hop> <from>If org name or ref is null</from><to>Only prov. act. for incoming trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Only prov. act. for incoming trx</from><to>Remove prov act self ref</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove prov act self ref</from><to>Write transactions to stg</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Sort related activities</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add constants</from><to>If rel act is found</to><enabled>Y</enabled> </hop>
-  <hop> <from>If rel act is found</from><to>Lookup provider info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read org name &#x26; reference</from><to>Lookup provider info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup provider info</from><to>Lookup receiver info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup receiver info</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read org name &#x26; reference</from><to>Lookup receiver info</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort related activities</from><to>Blocking Step</to><enabled>Y</enabled> </hop>
-  <hop> <from>Blocking Step</from><to>Merge aggregated outgoing trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort aggregated amounts</from><to>Blocking Step 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Blocking Step 2</from><to>Merge aggregated outgoing trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Map outgoing to incoming trx</from><to>Sort outgoing trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort outgoing trx</from><to>Aggregate detail amounts by activity and currency</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trx key fields only</from><to>Switch &#x2f; Case</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>Other trx sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>All outgoing</to><enabled>Y</enabled> </hop>
-  <hop> <from>All outgoing</from><to>Map outgoing to incoming trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read related parent act</from><to>Get first related parent</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get first related parent</from><to>Sort rel act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Append generated IF trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Trx key fields only</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read all non-zero transactions</from><to>Find related parent act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read related parent activity</from><to>Find related parent act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select trx flds</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc euro trx amount</from><to>Ignore small transactions</to><enabled>Y</enabled> </hop>
-  <hop> <from>Ignore small transactions</from><to>If org name or ref is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>Ignore small transactions</from><to>Small transaction sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace unspecified prov act</from><to>Incoming trx has related activity&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>Has rel act&#x3f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Has rel act&#x3f;</from><to>Sort incoming trx</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Group by</to><enabled>Y</enabled> </hop>
-  <hop> <from>Has rel act&#x3f;</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Group by</from><to>Sort cofinancing rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Aggregate detail amounts by activity and currency</from><to>Sort generated rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort generated rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort cofinancing rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Incoming trx has related activity&#x3f;</from><to>Derive currency</to><enabled>Y</enabled> </hop>
-  <hop> <from>Derive currency</from><to>Select trx flds</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculate own contribution</from><to>Sort aggregated amounts</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>If values are null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If values are null</from><to>Calculate own contribution</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge aggregated outgoing trx</from><to>Fill missing fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Find related parent act</from><to>Trim ids</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim ids</from><to>Replace unspecified prov act</to><enabled>Y</enabled> </hop>
+    <hop>
+      <from>Convert types</from>
+      <to>Derive transaction year</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If prov. org act. is null</from>
+      <to>Calc euro trx amount</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rel act without incoming trx?</from>
+      <to>Rel act with inc trx sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append generated IF trx</from>
+      <to>Convert types</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Fill missing fields</from>
+      <to>Build incoming transaction</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Build incoming transaction</from>
+      <to>Append generated IF trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If rel act is found</from>
+      <to>No rel act sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write transactions to stg</from>
+      <to>Error log write transactions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort incoming trx</from>
+      <to>Unique trx ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rel act</from>
+      <to>Merge trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge trx</from>
+      <to>Rel act without incoming trx?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rel act without incoming trx?</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique trx ids</from>
+      <to>Sort trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort trx</from>
+      <to>Merge trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Derive transaction year</from>
+      <to>Lookup currency rate</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup currency rate</from>
+      <to>EUR rate is 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EUR rate is 1</from>
+      <to>Select valid currencies</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select valid currencies</from>
+      <to>If prov. org act. is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select valid currencies</from>
+      <to>Select currency error log fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select currency error log fields</from>
+      <to>Get Variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get Variables</from>
+      <to>Set currency error type</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set currency error type</from>
+      <to>Log currency error</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If org name or ref is null</from>
+      <to>Only prov. act. for incoming trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only prov. act. for incoming trx</from>
+      <to>Remove prov act self ref</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove prov act self ref</from>
+      <to>Write transactions to stg</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Sort related activities</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>If rel act is found</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If rel act is found</from>
+      <to>Lookup provider info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read org name &amp; reference</from>
+      <to>Lookup provider info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup provider info</from>
+      <to>Lookup receiver info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup receiver info</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read org name &amp; reference</from>
+      <to>Lookup receiver info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort related activities</from>
+      <to>Blocking Step</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Blocking Step</from>
+      <to>Merge aggregated outgoing trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort aggregated amounts</from>
+      <to>Blocking Step 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Blocking Step 2</from>
+      <to>Merge aggregated outgoing trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Map outgoing to incoming trx</from>
+      <to>Sort outgoing trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort outgoing trx</from>
+      <to>Aggregate detail amounts by activity and currency</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trx key fields only</from>
+      <to>Switch / Case</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>Other trx sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>All outgoing</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>All outgoing</from>
+      <to>Map outgoing to incoming trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read related parent act</from>
+      <to>Get first related parent</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get first related parent</from>
+      <to>Sort rel act</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Append generated IF trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Trx key fields only</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all non-zero transactions</from>
+      <to>Find related parent act</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read related parent activity</from>
+      <to>Find related parent act</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select trx flds</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calc euro trx amount</from>
+      <to>Ignore small transactions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ignore small transactions</from>
+      <to>If org name or ref is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ignore small transactions</from>
+      <to>Small transaction sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace unspecified prov act</from>
+      <to>Incoming trx has related activity?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>Has rel act?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Has rel act?</from>
+      <to>Sort incoming trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Has rel act?</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>Sort cofinancing rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Aggregate detail amounts by activity and currency</from>
+      <to>Sort generated rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort generated rows</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort cofinancing rows</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Incoming trx has related activity?</from>
+      <to>Derive currency</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Derive currency</from>
+      <to>Select trx flds</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate own contribution</from>
+      <to>Sort aggregated amounts</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>If values are null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If values are null</from>
+      <to>Calculate own contribution</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge aggregated outgoing trx</from>
+      <to>Fill missing fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Find related parent act</from>
+      <to>Trim ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim ids</from>
+      <to>Replace unspecified prov act</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -511,10 +1347,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>transaction-reference</name>
@@ -529,14 +1365,20 @@
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1670</xloc>
       <yloc>505</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Aggregate detail amounts by activity and currency</name>
     <type>GroupBy</type>
@@ -544,51 +1386,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>iati-identifier</name>
-        </field>
-        <field>
-          <name>transaction-type-code</name>
-        </field>
-        <field>
-          <name>calculated-transaction-currency</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>value</aggregate>
-          <subject>value</subject>
-          <type>SUM</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>transaction-iso-date</aggregate>
-          <subject>transaction-iso-date</subject>
-          <type>MIN</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>value</aggregate>
+        <subject>value</subject>
+        <type>SUM</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-iso-date</aggregate>
+        <subject>transaction-iso-date</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1545</xloc>
       <yloc>813</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>All outgoing</name>
     <type>Dummy</type>
@@ -596,18 +1444,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1071</xloc>
       <yloc>814</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Append generated IF trx</name>
     <type>Append</type>
@@ -615,20 +1469,26 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Dummy &#x28;do nothing&#x29;</head_name>
-<tail_name>Build incoming transaction</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Dummy (do nothing)</head_name>
+    <tail_name>Build incoming transaction</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2789</xloc>
       <yloc>236</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Blocking Step</name>
     <type>BlockingStep</type>
@@ -636,23 +1496,29 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <pass_all_rows>Y</pass_all_rows>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>block</prefix>
+    <cache_size>5000</cache_size>
+    <compress>Y</compress>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2328</xloc>
       <yloc>510</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Blocking Step 2</name>
     <type>BlockingStep</type>
@@ -660,23 +1526,29 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <pass_all_rows>Y</pass_all_rows>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>block</prefix>
+    <cache_size>5000</cache_size>
+    <compress>Y</compress>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2465</xloc>
       <yloc>620</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Build incoming transaction</name>
     <type>SelectValues</type>
@@ -684,95 +1556,87 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>related-activity-ref</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-reference</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>provider-org</name>
+      </field>
+      <field>
+        <name>provider-org-reference</name>
+      </field>
+      <field>
+        <name>related-activity-ref</name>
         <rename>provider-org-activity-id</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>iati-identifier_1</name>
+      </field>
+      <field>
+        <name>receiver-org</name>
+      </field>
+      <field>
+        <name>receiver-org-reference</name>
+      </field>
+      <field>
+        <name>iati-identifier_1</name>
         <rename>receiver-org-activity-id</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>has-rel-act</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-iso-date</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>default-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
+      </field>
+      <field>
+        <name>has-rel-act</name>
+      </field>
+      <field>
+        <name>value</name>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
+      </field>
+      <field>
+        <name>default-currency</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
         <rename>transaction-currency</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+      </field>
+      <field>
+        <name>url-id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2793</xloc>
       <yloc>344</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Calc euro trx amount</name>
     <type>Formula</type>
@@ -780,25 +1644,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>transaction-value-eur</field_name>
-<formula_string>IF&#x28;&#x5b;exchange-rate&#x5d;&#x3c;&#x3e;0&#x3b;&#x28;1.0&#x2f;&#x5b;exchange-rate&#x5d;&#x29;&#x2a;&#x5b;transaction-value&#x5d;&#x3b;0&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>transaction-value-eur</field_name>
+      <formula_string>IF([exchange-rate]&lt;&gt;0;(1.0/[exchange-rate])*[transaction-value];0)</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3727</xloc>
       <yloc>238</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Calculate own contribution</name>
     <type>Formula</type>
@@ -806,25 +1677,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>MAX&#x28;&#x5b;value&#x5d;-&#x5b;cofinancing-value&#x5d;&#x3b;0&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>value</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>MAX([value]-[cofinancing-value];0)</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>value</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2307</xloc>
       <yloc>727</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Convert types</name>
     <type>SelectValues</type>
@@ -832,84 +1710,68 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-activity-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-activity-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-iso-date</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>default-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>transaction-iso-date</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-reference</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>provider-org</name>
+      </field>
+      <field>
+        <name>provider-org-reference</name>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+      </field>
+      <field>
+        <name>receiver-org</name>
+      </field>
+      <field>
+        <name>receiver-org-reference</name>
+      </field>
+      <field>
+        <name>receiver-org-activity-id</name>
+      </field>
+      <field>
+        <name>value</name>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
+      </field>
+      <field>
+        <name>default-currency</name>
+      </field>
+      <field>
+        <name>transaction-currency</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+      </field>
+      <field>
+        <name>url-id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>transaction-iso-date</name>
         <rename>transaction-iso-date</rename>
         <type>Date</type>
         <length>-2</length>
@@ -924,7 +1786,9 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>value</name>
+      </meta>
+      <meta>
+        <name>value</name>
         <rename>transaction-value</rename>
         <type>Number</type>
         <length>20</length>
@@ -939,14 +1803,22 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2900</xloc>
       <yloc>235</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Derive currency</name>
     <type>Calculator</type>
@@ -954,32 +1826,40 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>calculated-transaction-currency</field_name>
-<calc_type>NVL</calc_type>
-<field_a>transaction-currency</field_a>
-<field_b>default-currency</field_b>
-<field_c/>
-<value_type>String</value_type>
-<value_length>3</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>N</failIfNoFile>
+    <calculation>
+      <field_name>calculated-transaction-currency</field_name>
+      <calc_type>NVL</calc_type>
+      <field_a>transaction-currency</field_a>
+      <field_b>default-currency</field_b>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>3</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>774</xloc>
       <yloc>235</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Derive transaction year</name>
     <type>Calculator</type>
@@ -987,51 +1867,65 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>calculated-transaction-year</field_name>
-<calc_type>YEAR_OF_DATE</calc_type>
-<field_a>transaction-iso-date</field_a>
-<field_b/>
-<field_c/>
-<value_type>Integer</value_type>
-<value_length>4</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>N</failIfNoFile>
+    <calculation>
+      <field_name>calculated-transaction-year</field_name>
+      <calc_type>YEAR_OF_DATE</calc_type>
+      <field_a>transaction-iso-date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>4</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3025</xloc>
       <yloc>235</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>988</xloc>
       <yloc>234</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>EUR rate is 1</name>
     <type>Formula</type>
@@ -1039,25 +1933,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>exchange-rate</field_name>
-<formula_string>IF&#x28;&#x5b;calculated-transaction-currency&#x5d;&#x3d;&#x22;EUR&#x22;&#x3b;1&#x3b;&#x5b;exchange-rate&#x5d;&#x29;</formula_string>
-<value_type>Number</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>exchange-rate</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>exchange-rate</field_name>
+      <formula_string>IF([calculated-transaction-currency]="EUR";1;[exchange-rate])</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>exchange-rate</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3320</xloc>
       <yloc>236</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Error log write transactions</name>
     <type>TextFileOutput</type>
@@ -1065,12 +1966,12 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
     <enclosure_forced>N</enclosure_forced>
     <enclosure_fix_disabled>N</enclosure_fix_disabled>
     <header>Y</header>
@@ -1083,8 +1984,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>&#x24;&#x7b;LOGPATH&#x7d;&#x5c;log - duplicate IATI identifiers</name>
-      <is_command>N</is_command>
+      <name>${LOGPATH}\log - duplicate IATI identifiers</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1150,14 +2050,20 @@
         <precision>-1</precision>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>4474</xloc>
       <yloc>135</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Fill missing fields</name>
     <type>IfNull</type>
@@ -1165,15 +2071,15 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
@@ -1182,16 +2088,22 @@
         <value>Unspecified</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2795</xloc>
       <yloc>508</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Find related parent act</name>
     <type>StreamLookup</type>
@@ -1199,10 +2111,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <from>Read related parent activity</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
@@ -1220,14 +2132,20 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>212</xloc>
       <yloc>236</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get Variables</name>
     <type>GetVariable</type>
@@ -1235,14 +2153,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>job-number</name>
-        <variable>&#x24;&#x7b;JOBNUMBER&#x7d;</variable>
+        <variable>${JOBNUMBER}</variable>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1253,14 +2171,20 @@
         <trim_type>none</trim_type>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3599</xloc>
       <yloc>93</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get first related parent</name>
     <type>MemoryGroupBy</type>
@@ -1268,56 +2192,62 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>iati-identifier</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>related-activity-ref</aggregate>
-          <subject>related-activity-ref</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>publisher</aggregate>
-          <subject>publisher</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>publisher-id</aggregate>
-          <subject>publisher-id</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>generated-datetime</aggregate>
-          <subject>generated-datetime</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>url-id</aggregate>
-          <subject>url-id</subject>
-          <type>FIRST_INCL_NULL</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>related-activity-ref</aggregate>
+        <subject>related-activity-ref</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>publisher</aggregate>
+        <subject>publisher</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>publisher-id</aggregate>
+        <subject>publisher-id</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>generated-datetime</aggregate>
+        <subject>generated-datetime</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>url-id</aggregate>
+        <subject>url-id</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1260</xloc>
       <yloc>394</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Group by</name>
     <type>GroupBy</type>
@@ -1325,80 +2255,101 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>iati-identifier</name>
-        </field>
-        <field>
-          <name>transaction-type-code</name>
-        </field>
-        <field>
-          <name>calculated-transaction-currency</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>value</aggregate>
-          <subject>value</subject>
-          <type>SUM</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>transaction-iso-date</aggregate>
-          <subject>transaction-iso-date</subject>
-          <type>MIN</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>value</aggregate>
+        <subject>value</subject>
+        <type>SUM</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-iso-date</aggregate>
+        <subject>transaction-iso-date</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1544</xloc>
       <yloc>654</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Has rel act&#x3f;</name>
+    <name>Has rel act?</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Sort incoming trx</send_true_to>
-<send_false_to>Sort rows</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort incoming trx</send_true_to>
+    <send_false_to>Sort rows</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>has-rel-act</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>has-rel-act</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Y</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1068</xloc>
       <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If org name or ref is null</name>
     <type>IfNull</type>
@@ -1406,15 +2357,15 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
@@ -1423,34 +2374,40 @@
         <value>Unknown organisation name</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>provider-org-reference</name>
         <value>Unknown organisation reference</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>receiver-org</name>
         <value>Unknown organisation name</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>receiver-org-reference</name>
         <value>Unknown organisation reference</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>4035</xloc>
       <yloc>237</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If prov. org act. is null</name>
     <type>IfNull</type>
@@ -1458,15 +2415,15 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
@@ -1475,16 +2432,22 @@
         <value>Unspecified</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3596</xloc>
       <yloc>236</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If rel act is found</name>
     <type>FilterRows</type>
@@ -1492,28 +2455,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Lookup provider info</send_true_to>
-<send_false_to>No rel act sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Lookup provider info</send_true_to>
+    <send_false_to>No rel act sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>related-activity-ref</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>related-activity-ref</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1758</xloc>
       <yloc>505</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If values are null</name>
     <type>IfNull</type>
@@ -1521,15 +2490,15 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
@@ -1538,22 +2507,28 @@
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
+      </field>
       <field>
         <name>cofinancing-value</name>
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2160</xloc>
       <yloc>728</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Ignore small transactions</name>
     <type>FilterRows</type>
@@ -1561,90 +2536,139 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>If org name or ref is null</send_true_to>
-<send_false_to>Small transaction sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>If org name or ref is null</send_true_to>
+    <send_false_to>Small transaction sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <conditions>
-    <condition>
-     <negated>N</negated>
-     <leftvalue>transaction-value-eur</leftvalue>
-     <function>&#x3e;&#x3d;</function>
-     <rightvalue/>
-     <value><name>constant</name><type>Number</type><text>1.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
-    <condition>
-     <negated>N</negated>
-     <operator>OR</operator>
-     <leftvalue>transaction-value-eur</leftvalue>
-     <function>&#x3c;&#x3d;</function>
-     <rightvalue/>
-     <value><name>constant</name><type>Number</type><text>-1.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
-    </conditions>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <conditions>
-    <condition>
-     <negated>N</negated>
-     <leftvalue>transaction-value-eur</leftvalue>
-     <function>&#x3d;</function>
-     <rightvalue/>
-     <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
-    <condition>
-     <negated>N</negated>
-     <operator>AND</operator>
-     <leftvalue>transaction-reference</leftvalue>
-     <function>&#x3d;</function>
-     <rightvalue/>
-     <value><name>constant</name><type>String</type><text>Generated by METIS</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>     </condition>
-    </conditions>
-   </condition>
-  </conditions>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <conditions>
+              <condition>
+                <negated>N</negated>
+                <leftvalue>transaction-value-eur</leftvalue>
+                <function>&gt;=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>Number</type>
+                  <text>1.0</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask>#.#;-#.#</mask>
+                </value>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>transaction-value-eur</leftvalue>
+                <function>&lt;=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>Number</type>
+                  <text>-1.0</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask>#.#;-#.#</mask>
+                </value>
+              </condition>
+            </conditions>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <conditions>
+              <condition>
+                <negated>N</negated>
+                <leftvalue>transaction-value-eur</leftvalue>
+                <function>=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>Number</type>
+                  <text>0.0</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask>#.#;-#.#</mask>
+                </value>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>AND</operator>
+                <leftvalue>transaction-reference</leftvalue>
+                <function>=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>String</type>
+                  <text>Generated by METIS</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask/>
+                </value>
+              </condition>
+            </conditions>
+          </condition>
+        </conditions>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3878</xloc>
       <yloc>238</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Incoming trx has related activity&#x3f;</name>
+    <name>Incoming trx has related activity?</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>has-rel-act</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IC&#x22;&#x3b;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IF&#x22;&#x29;&#x3b;IF&#x28;&#x5b;provider-org-activity-id&#x5d;&#x3d;&#x5b;related-activity-ref&#x5d;&#x3b;&#x22;Y&#x22;&#x3b;&#x22;N&#x22;&#x29;&#x3b;&#x22;&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field/>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>has-rel-act</field_name>
+      <formula_string>IF(OR([transaction-type-code]="IC";[transaction-type-code]="IF");IF([provider-org-activity-id]=[related-activity-ref];"Y";"N");"")</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>646</xloc>
       <yloc>234</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Log currency error</name>
     <type>InsertUpdate</type>
@@ -1652,10 +2676,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
@@ -1665,43 +2689,43 @@
       <key>
         <name>job-number</name>
         <field>job-number</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>publisher-id</name>
         <field>publisher-id</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>url-id</name>
         <field>url-id</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>iati-identifier</name>
         <field>iati-identifier</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>iso-date</name>
         <field>iso-date</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>currency</name>
         <field>currency</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>type</name>
         <field>type</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
@@ -1760,14 +2784,20 @@
         <update>Y</update>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3899</xloc>
       <yloc>94</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Lookup currency rate</name>
     <type>DBLookup</type>
@@ -1775,10 +2805,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_database</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
@@ -1792,13 +2822,13 @@
       <key>
         <name>calculated-transaction-currency</name>
         <field>Valuta</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <key>
         <name>calculated-transaction-year</name>
         <field>Jaar</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
@@ -1808,14 +2838,20 @@
         <type>Number</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3180</xloc>
       <yloc>235</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Lookup provider info</name>
     <type>StreamLookup</type>
@@ -1823,11 +2859,11 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Read org name &#x26; reference</from>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Read org name &amp; reference</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -1850,14 +2886,20 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1873</xloc>
       <yloc>505</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Lookup receiver info</name>
     <type>StreamLookup</type>
@@ -1865,11 +2907,11 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Read org name &#x26; reference</from>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Read org name &amp; reference</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -1892,14 +2934,20 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2004</xloc>
       <yloc>506</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Map outgoing to incoming trx</name>
     <type>ValueMapper</type>
@@ -1907,10 +2955,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <field_to_use>transaction-type-code</field_to_use>
     <target_field/>
     <non_match_default/>
@@ -1928,14 +2976,20 @@
         <target_value>IF</target_value>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1198</xloc>
       <yloc>814</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join</name>
     <type>MergeJoin</type>
@@ -1943,13 +2997,13 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort generated rows</step1>
-<step2>Sort cofinancing rows</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort generated rows</step1>
+    <step2>Sort cofinancing rows</step2>
     <keys_1>
       <key>iati-identifier</key>
       <key>transaction-type-code</key>
@@ -1960,14 +3014,20 @@
       <key>transaction-type-code</key>
       <key>calculated-transaction-currency</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1919</xloc>
       <yloc>726</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge aggregated outgoing trx</name>
     <type>MergeJoin</type>
@@ -1975,27 +3035,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Blocking Step</step1>
-<step2>Blocking Step 2</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Blocking Step</step1>
+    <step2>Blocking Step 2</step2>
     <keys_1>
       <key>iati-identifier</key>
     </keys_1>
     <keys_2>
       <key>iati-identifier</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2463</xloc>
       <yloc>509</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge trx</name>
     <type>MergeJoin</type>
@@ -2003,13 +3069,13 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort rel act</step1>
-<step2>Sort trx</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort rel act</step1>
+    <step2>Sort trx</step2>
     <keys_1>
       <key>iati-identifier</key>
       <key>related-activity-ref</key>
@@ -2018,14 +3084,20 @@
       <key>iati-identifier</key>
       <key>provider-org-activity-id</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1437</xloc>
       <yloc>505</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>No rel act sink</name>
     <type>Dummy</type>
@@ -2033,18 +3105,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1756</xloc>
       <yloc>589</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Only prov. act. for incoming trx</name>
     <type>Formula</type>
@@ -2052,25 +3130,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;OR&#x28;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IC&#x22;&#x3b;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IF&#x22;&#x29;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x22;Unspecified&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>provider-org-activity-id</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF(OR([transaction-type-code]="IC";[transaction-type-code]="IF");[provider-org-activity-id];"Unspecified")</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>provider-org-activity-id</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>4190</xloc>
       <yloc>237</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Other trx sink</name>
     <type>Dummy</type>
@@ -2078,18 +3163,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>985</xloc>
       <yloc>813</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read all non-zero transactions</name>
     <type>TableInput</type>
@@ -2097,51 +3188,93 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;transaction-reference&#x60;&#xd;&#xa;, &#x60;transaction-type-code&#x60;&#xd;&#xa;, &#x60;provider-org&#x60;&#xd;&#xa;, &#x60;provider-org-reference&#x60;&#xd;&#xa;, &#x60;provider-org-activity-id&#x60;&#xd;&#xa;, &#x60;receiver-org&#x60;&#xd;&#xa;, &#x60;receiver-org-reference&#x60;&#xd;&#xa;, &#x60;receiver-org-activity-id&#x60;&#xd;&#xa;, value&#xd;&#xa;, &#x60;transaction-iso-date&#x60;&#xd;&#xa;, &#x60;default-currency&#x60;&#xd;&#xa;, &#x60;transaction-currency&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM &#x60;src-act-transactions&#x60;&#xd;&#xa;WHERE value &#x3c;&#x3e; 0</sql>
+    <sql>SELECT
+  `iati-identifier`
+, `transaction-reference`
+, `transaction-type-code`
+, `provider-org`
+, `provider-org-reference`
+, `provider-org-activity-id`
+, `receiver-org`
+, `receiver-org-reference`
+, `receiver-org-activity-id`
+, value
+, `transaction-iso-date`
+, `default-currency`
+, `transaction-currency`
+, publisher
+, `publisher-id`
+, `generated-datetime`
+, `url-id`
+FROM `src-act-transactions`
+WHERE value &lt;&gt; 0</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>66</xloc>
       <yloc>236</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Read org name &#x26; reference</name>
+    <name>Read org name &amp; reference</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;reporting-org-name&#x60;&#xd;&#xa;, &#x60;reporting-org-ref&#x60;&#xd;&#xa;, &#x60;reporting-org-type&#x60;&#xd;&#xa;, &#x60;reporting-org-type-name&#x60;&#xd;&#xa;FROM iatidatamart.&#x60;dim-activity&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT
+  `iati-identifier`
+, `reporting-org-name`
+, `reporting-org-ref`
+, `reporting-org-type`
+, `reporting-org-type-name`
+FROM iatidatamart.`dim-activity`
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1933</xloc>
       <yloc>313</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read related parent act</name>
     <type>TableInput</type>
@@ -2149,25 +3282,42 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;related-activity-ref&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;src-act-related&#x60;&#xd;&#xa;WHERE &#x60;related-activity-type&#x60;&#x3d;1&#xd;&#xa;</sql>
+    <sql>SELECT
+  `iati-identifier`
+, `related-activity-ref`
+, publisher
+, `publisher-id`
+, `generated-datetime`
+, `url-id`
+FROM iatistaging.`src-act-related`
+WHERE `related-activity-type`=1
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1067</xloc>
       <yloc>395</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read related parent activity</name>
     <type>TableInput</type>
@@ -2175,25 +3325,42 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_staging</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;related-activity-ref&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;FROM iatistaging.&#x60;src-act-related&#x60;&#xd;&#xa;WHERE &#x60;related-activity-type&#x60;&#x3d;1&#xd;&#xa;</sql>
+    <sql>SELECT
+  `iati-identifier`
+, `related-activity-ref`
+, publisher
+, `publisher-id`
+, `generated-datetime`
+, `url-id`
+FROM iatistaging.`src-act-related`
+WHERE `related-activity-type`=1
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>64</xloc>
       <yloc>310</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Rel act with inc trx sink</name>
     <type>Dummy</type>
@@ -2201,47 +3368,59 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1546</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Rel act without incoming trx&#x3f;</name>
+    <name>Rel act without incoming trx?</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Add constants</send_true_to>
-<send_false_to>Rel act with inc trx sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Add constants</send_true_to>
+    <send_false_to>Rel act with inc trx sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>provider-org-activity-id</leftvalue>
- <function>IS NULL</function>
- <rightvalue/>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>provider-org-activity-id</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue/>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1547</xloc>
       <yloc>505</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove prov act self ref</name>
     <type>Formula</type>
@@ -2249,25 +3428,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;&#x5b;iati-identifier&#x5d;&#x3c;&#x3e;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3b;&#x22;Unspecified&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>provider-org-activity-id</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF([iati-identifier]&lt;&gt;[provider-org-activity-id];[provider-org-activity-id];"Unspecified")</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>provider-org-activity-id</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>4342</xloc>
       <yloc>238</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Replace unspecified prov act</name>
     <type>Formula</type>
@@ -2275,25 +3461,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;AND&#x28;NOT&#x28;ISBLANK&#x28;&#x5b;related-activity-ref&#x5d;&#x29;&#x29;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x3d;&#x22;Unspecified&#x22;&#x3b;OR&#x28;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IF&#x22;&#x3b;&#x5b;transaction-type-code&#x5d;&#x3d;&#x22;IC&#x22;&#x29;&#x29;&#x3b;&#x5b;related-activity-ref&#x5d;&#x3b;&#x5b;provider-org-activity-id&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>provider-org-activity-id</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF(AND(NOT(ISBLANK([related-activity-ref]));[provider-org-activity-id]="Unspecified";OR([transaction-type-code]="IF";[transaction-type-code]="IC"));[related-activity-ref];[provider-org-activity-id])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>provider-org-activity-id</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>482</xloc>
       <yloc>235</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select currency error log fields</name>
     <type>SelectValues</type>
@@ -2301,55 +3494,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-value</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-value</name>
         <rename>value</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-iso-date</name>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
         <rename>iso-date</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-currency</name>
+      </field>
+      <field>
+        <name>transaction-currency</name>
         <rename>currency</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>exchange-rate</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+      <field>
+        <name>exchange-rate</name>
+      </field>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+      </field>
+      <field>
+        <name>url-id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3460</xloc>
       <yloc>93</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select trx flds</name>
     <type>SelectValues</type>
@@ -2357,95 +3552,84 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-activity-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-activity-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>has-rel-act</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-iso-date</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>default-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-reference</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>provider-org</name>
+      </field>
+      <field>
+        <name>provider-org-reference</name>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+      </field>
+      <field>
+        <name>receiver-org</name>
+      </field>
+      <field>
+        <name>receiver-org-reference</name>
+      </field>
+      <field>
+        <name>receiver-org-activity-id</name>
+      </field>
+      <field>
+        <name>has-rel-act</name>
+      </field>
+      <field>
+        <name>value</name>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
+      </field>
+      <field>
+        <name>default-currency</name>
+      </field>
+      <field>
+        <name>transaction-currency</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+      </field>
+      <field>
+        <name>url-id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>870</xloc>
       <yloc>235</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select valid currencies</name>
     <type>FilterRows</type>
@@ -2453,47 +3637,53 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>If prov. org act. is null</send_true_to>
-<send_false_to>Select currency error log fields</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>If prov. org act. is null</send_true_to>
+    <send_false_to>Select currency error log fields</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>exchange-rate</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>calculated-transaction-currency</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>calculated-transaction-year</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  </conditions>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>exchange-rate</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue/>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>calculated-transaction-currency</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue/>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>calculated-transaction-year</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue/>
+          </condition>
+        </conditions>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3460</xloc>
       <yloc>236</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select values</name>
     <type>SelectValues</type>
@@ -2501,71 +3691,66 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>has-rel-act</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>related-activity-ref</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>receiver-org-reference</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>default-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>publisher-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>generated-datetime</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-reference</name>
+      </field>
+      <field>
+        <name>has-rel-act</name>
+      </field>
+      <field>
+        <name>related-activity-ref</name>
+      </field>
+      <field>
+        <name>provider-org</name>
+      </field>
+      <field>
+        <name>provider-org-reference</name>
+      </field>
+      <field>
+        <name>receiver-org</name>
+      </field>
+      <field>
+        <name>receiver-org-reference</name>
+      </field>
+      <field>
+        <name>default-currency</name>
+      </field>
+      <field>
+        <name>publisher</name>
+      </field>
+      <field>
+        <name>publisher-id</name>
+      </field>
+      <field>
+        <name>generated-datetime</name>
+      </field>
+      <field>
+        <name>url-id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2123</xloc>
       <yloc>507</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Select values 2</name>
     <type>SelectValues</type>
@@ -2573,43 +3758,46 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-iso-date</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value_1</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
+      </field>
+      <field>
+        <name>value</name>
+      </field>
+      <field>
+        <name>value_1</name>
         <rename>cofinancing-value</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2053</xloc>
       <yloc>727</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Set currency error type</name>
     <type>Constant</type>
@@ -2617,10 +3805,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>type</name>
@@ -2635,14 +3823,20 @@
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3744</xloc>
       <yloc>94</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Small transaction sink</name>
     <type>Dummy</type>
@@ -2650,18 +3844,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3879</xloc>
       <yloc>370</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort aggregated amounts</name>
     <type>SortRows</type>
@@ -2669,33 +3869,41 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2467</xloc>
       <yloc>727</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort cofinancing rows</name>
     <type>SortRows</type>
@@ -2703,45 +3911,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>calculated-transaction-currency</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1754</xloc>
       <yloc>655</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort generated rows</name>
     <type>SortRows</type>
@@ -2749,45 +3969,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>calculated-transaction-currency</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1756</xloc>
       <yloc>814</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort incoming trx</name>
     <type>SortRows</type>
@@ -2795,39 +4027,49 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>provider-org-activity-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1168</xloc>
       <yloc>509</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort outgoing trx</name>
     <type>SortRows</type>
@@ -2835,45 +4077,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>calculated-transaction-currency</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1343</xloc>
       <yloc>814</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort rel act</name>
     <type>SortRows</type>
@@ -2881,39 +4135,49 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>related-activity-ref</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1351</xloc>
       <yloc>395</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort related activities</name>
     <type>SortRows</type>
@@ -2921,33 +4185,41 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2225</xloc>
       <yloc>508</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort rows</name>
     <type>SortRows</type>
@@ -2955,45 +4227,57 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>transaction-type-code</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>calculated-transaction-currency</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1342</xloc>
       <yloc>653</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort trx</name>
     <type>SortRows</type>
@@ -3001,276 +4285,103 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
       <field>
         <name>provider-org-activity-id</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1347</xloc>
       <yloc>508</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Switch &#x2f; Case</name>
+    <name>Switch / Case</name>
     <type>SwitchCase</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<fieldname>transaction-type-code</fieldname>
-<use_contains>N</use_contains>
-<case_value_type>String</case_value_type>
-<case_value_format/>
-<case_value_decimal/>
-<case_value_group/>
-<default_target_step>Other trx sink</default_target_step>
-<cases><case><value>IC</value>
-<target_step>Has rel act&#x3f;</target_step>
-</case><case><value>IF</value>
-<target_step>Has rel act&#x3f;</target_step>
-</case><case><value>C</value>
-<target_step>All outgoing</target_step>
-</case><case><value>D</value>
-<target_step>All outgoing</target_step>
-</case><case><value>E</value>
-<target_step>All outgoing</target_step>
-</case></cases>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>transaction-type-code</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>Other trx sink</default_target_step>
+    <cases>
+      <case>
+        <value>IC</value>
+        <target_step>Has rel act?</target_step>
+      </case>
+      <case>
+        <value>IF</value>
+        <target_step>Has rel act?</target_step>
+      </case>
+      <case>
+        <value>C</value>
+        <target_step>All outgoing</target_step>
+      </case>
+      <case>
+        <value>D</value>
+        <target_step>All outgoing</target_step>
+      </case>
+      <case>
+        <value>E</value>
+        <target_step>All outgoing</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>986</xloc>
       <yloc>648</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Trx key fields only</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>iati-identifier</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>provider-org-activity-id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-type-code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>has-rel-act</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>default-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>transaction-iso-date</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>calculated-transaction-currency</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>value</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>987</xloc>
-      <yloc>347</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique trx ids</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>iati-identifier</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      <field>        <name>provider-org-activity-id</name>
-        <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1262</xloc>
-      <yloc>508</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Write transactions to stg</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>IATI_staging</connection>
-    <schema/>
-    <table>stg-act-transactions</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-reference</column_name>
-          <stream_name>transaction-reference</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org</column_name>
-          <stream_name>provider-org</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org-reference</column_name>
-          <stream_name>provider-org-reference</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org-activity-id</column_name>
-          <stream_name>provider-org-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>receiver-org</column_name>
-          <stream_name>receiver-org</stream_name>
-        </field>
-        <field>
-          <column_name>receiver-org-reference</column_name>
-          <stream_name>receiver-org-reference</stream_name>
-        </field>
-        <field>
-          <column_name>receiver-org-activity-id</column_name>
-          <stream_name>receiver-org-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-value</column_name>
-          <stream_name>transaction-value</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-value-eur</column_name>
-          <stream_name>transaction-value-eur</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-iso-date</column_name>
-          <stream_name>transaction-iso-date</stream_name>
-        </field>
-        <field>
-          <column_name>currency</column_name>
-          <stream_name>transaction-currency</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-type-code</column_name>
-          <stream_name>transaction-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>default-currency</column_name>
-          <stream_name>default-currency</stream_name>
-        </field>
-        <field>
-          <column_name>transaction-currency</column_name>
-          <stream_name>transaction-currency</stream_name>
-        </field>
-        <field>
-          <column_name>exchange-rate</column_name>
-          <stream_name>exchange-rate</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>4473</xloc>
-      <yloc>238</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Trim ids</name>
     <type>StringOperations</type>
@@ -3278,10 +4389,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>provider-org-activity-id</in_stream_name>
@@ -3310,30 +4421,254 @@
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>334</xloc>
       <yloc>237</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Trx key fields only</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>transaction-currency</name>
+      </field>
+      <field>
+        <name>has-rel-act</name>
+      </field>
+      <field>
+        <name>default-currency</name>
+      </field>
+      <field>
+        <name>transaction-iso-date</name>
+      </field>
+      <field>
+        <name>calculated-transaction-currency</name>
+      </field>
+      <field>
+        <name>value</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>987</xloc>
+      <yloc>347</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique trx ids</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>provider-org-activity-id</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1262</xloc>
+      <yloc>508</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write transactions to stg</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>IATI_staging</connection>
+    <schema/>
+    <table>stg-act-transactions</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-reference</column_name>
+        <stream_name>transaction-reference</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org</column_name>
+        <stream_name>provider-org</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org-reference</column_name>
+        <stream_name>provider-org-reference</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org-activity-id</column_name>
+        <stream_name>provider-org-activity-id</stream_name>
+      </field>
+      <field>
+        <column_name>receiver-org</column_name>
+        <stream_name>receiver-org</stream_name>
+      </field>
+      <field>
+        <column_name>receiver-org-reference</column_name>
+        <stream_name>receiver-org-reference</stream_name>
+      </field>
+      <field>
+        <column_name>receiver-org-activity-id</column_name>
+        <stream_name>receiver-org-activity-id</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-value</column_name>
+        <stream_name>transaction-value</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-value-eur</column_name>
+        <stream_name>transaction-value-eur</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-iso-date</column_name>
+        <stream_name>transaction-iso-date</stream_name>
+      </field>
+      <field>
+        <column_name>currency</column_name>
+        <stream_name>transaction-currency</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-type-code</column_name>
+        <stream_name>transaction-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>default-currency</column_name>
+        <stream_name>default-currency</stream_name>
+      </field>
+      <field>
+        <column_name>transaction-currency</column_name>
+        <stream_name>transaction-currency</stream_name>
+      </field>
+      <field>
+        <column_name>exchange-rate</column_name>
+        <stream_name>exchange-rate</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4473</xloc>
+      <yloc>238</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step_error_handling>
-      <error>
-        <source_step>Write transactions to stg</source_step>
-        <target_step>Error log write transactions</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
+    <error>
+      <source_step>Write transactions to stg</source_step>
+      <target_step>Error log write transactions</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
-   <slave-step-copy-partition-distribution>
-</slave-step-copy-partition-distribution>
-   <slave_transformation>N</slave_transformation>
-
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>
