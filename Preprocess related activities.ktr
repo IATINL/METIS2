@@ -428,16 +428,16 @@
     <created_user>-</created_user>
     <created_date>2024/02/26 10:47:16.479</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2024/08/01 10:04:16.079</modified_date>
+    <modified_date>2024/09/04 16:07:16.276</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
       <note>Select all related parent activities and their children 
-without outgoing transactions.</note>
-      <xloc>345</xloc>
-      <yloc>511</yloc>
+without ingoing or outgoing transactions.</note>
+      <xloc>964</xloc>
+      <yloc>759</yloc>
       <width>281</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -457,8 +457,8 @@ without outgoing transactions.</note>
     </notepad>
     <notepad>
       <note>Join the outgoing trx to the children. </note>
-      <xloc>1196</xloc>
-      <yloc>521</yloc>
+      <xloc>1450</xloc>
+      <yloc>569</yloc>
       <width>207</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
@@ -479,8 +479,8 @@ without outgoing transactions.</note>
     <notepad>
       <note>Sum the outgoing children's trx by transaction type and currency.
 Choose the earliest transaction date.</note>
-      <xloc>1507</xloc>
-      <yloc>499</yloc>
+      <xloc>1761</xloc>
+      <yloc>547</yloc>
       <width>356</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -508,10 +508,31 @@ of the incoming transactions of the parent since the parent itself has no outgoi
 
 In order to solve this case, this process generates outflows for related activity parents. The outflows are the same as the outflows of the child activity. Once these transactions are generated, this preproces step is repeated to also 
 generate the outgoing transactions of the grant parent.  Etc.</note>
-      <xloc>12</xloc>
-      <yloc>15</yloc>
+      <xloc>10</xloc>
+      <yloc>9</yloc>
       <width>1199</width>
       <heigth>152</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Select all child activities with exactly 1 related parent activity.</note>
+      <xloc>289</xloc>
+      <yloc>779</yloc>
+      <width>329</width>
+      <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -533,7 +554,7 @@ generate the outgoing transactions of the grant parent.  Etc.</note>
     <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
-    <database>iatidatamart_mysql</database>
+    <database>iatidatamart</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -558,16 +579,8 @@ generate the outgoing transactions of the grant parent.  Etc.</note>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>0</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>200</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -587,7 +600,7 @@ generate the outgoing transactions of the grant parent.  Etc.</note>
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>-- SET GLOBAL connect_timeout = 240;
+        <attribute>SET GLOBAL connect_timeout = 240;
 SET SESSION wait_timeout = 28800;
 SET SESSION interactive_timeout = 7200;
 SET SESSION net_read_timeout = 240;
@@ -609,7 +622,7 @@ SET SESSION sql_mode = "";
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -618,7 +631,7 @@ SET SESSION sql_mode = "";
     <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
-    <database>iatistaging_mysql</database>
+    <database>iatistaging</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -643,16 +656,8 @@ SET SESSION sql_mode = "";
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>0</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>200</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -672,7 +677,7 @@ SET SESSION sql_mode = "";
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>-- SET GLOBAL connect_timeout = 240;
+        <attribute>SET GLOBAL connect_timeout = 240;
 SET SESSION wait_timeout = 28800;
 SET SESSION interactive_timeout = 7200;
 SET SESSION net_read_timeout = 240;
@@ -694,28 +699,18 @@ SET SESSION sql_mode = "";
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
   <order>
     <hop>
-      <from>Read all related activity references</from>
-      <to>Lookup related act outgoing trx</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Read all outgoing non-zero publisher trx</from>
-      <to>Lookup related act outgoing trx</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Lookup related act outgoing trx</from>
-      <to>Select related activity refs without outgoing trx</to>
+      <to>Select related activity refs without transactions</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select related activity refs without outgoing trx</from>
+      <from>Select related activity refs without transactions</from>
       <to>related activities with outgoing trx sink</to>
       <enabled>Y</enabled>
     </hop>
@@ -732,11 +727,6 @@ SET SESSION sql_mode = "";
     <hop>
       <from>Select values</from>
       <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select related activity refs without outgoing trx</from>
-      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -770,18 +760,98 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Read all outgoing non-zero publisher trx</from>
+      <from>Read activity org name and ref</from>
       <to>Lookup org name and ref</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Lookup org name and ref</from>
+      <from>Sum all outgoing trx by currency</from>
       <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Read activity org name and ref</from>
+      <from>Lookup org name and ref</from>
+      <to>Map alle expeditures to disbursements</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Map alle expeditures to disbursements</from>
+      <to>Sum all outgoing trx by currency</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all outgoing non-zero publisher trx</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Unique IATI ids</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique IATI ids</from>
+      <to>Lookup related act outgoing trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select related activity refs without transactions</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all related activity references</from>
+      <to>Memory group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all related activity references</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Memory group by</from>
+      <to>Blocking step 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Blocking step 2</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Exactly 1 parent</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Exactly 1 parent</from>
+      <to>Lookup related act outgoing trx</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Exactly 1 parent</from>
+      <to>Multiple parents sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all outgoing non-zero publisher trx</from>
+      <to>Only outgoing</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only outgoing</from>
       <to>Lookup org name and ref</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only outgoing</from>
+      <to>Other sink</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -908,8 +978,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2053</xloc>
-      <yloc>376</yloc>
+      <xloc>2307</xloc>
+      <yloc>424</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1019,8 +1089,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1550</xloc>
-      <yloc>379</yloc>
+      <xloc>1804</xloc>
+      <yloc>427</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1049,8 +1119,82 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1881</xloc>
-      <yloc>375</yloc>
+      <xloc>2135</xloc>
+      <yloc>423</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Blocking step 2</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <pass_all_rows>Y</pass_all_rows>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>block</prefix>
+    <cache_size>5000</cache_size>
+    <compress>Y</compress>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>492</xloc>
+      <yloc>705</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Exactly 1 parent</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Lookup related act outgoing trx</send_true_to>
+    <send_false_to>Multiple parents sink</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>nr-of-related-activities</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>697</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1082,8 +1226,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1417</xloc>
-      <yloc>380</yloc>
+      <xloc>1671</xloc>
+      <yloc>428</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1178,8 +1322,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1696</xloc>
-      <yloc>377</yloc>
+      <xloc>1950</xloc>
+      <yloc>425</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1212,8 +1356,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1283</xloc>
-      <yloc>379</yloc>
+      <xloc>1537</xloc>
+      <yloc>427</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1260,8 +1404,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>313</yloc>
+      <xloc>497</xloc>
+      <yloc>295</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1276,7 +1420,7 @@ SET SESSION sql_mode = "";
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Read all outgoing non-zero publisher trx</from>
+    <from>Unique IATI ids</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -1292,12 +1436,6 @@ SET SESSION sql_mode = "";
         <default/>
         <type>String</type>
       </value>
-      <value>
-        <name>transaction-type-code</name>
-        <rename>transaction-type-code</rename>
-        <default/>
-        <type>String</type>
-      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1308,8 +1446,236 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>468</xloc>
-      <yloc>444</yloc>
+      <xloc>879</xloc>
+      <yloc>540</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Map alle expeditures to disbursements</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>transaction-type-code</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>E</source_value>
+        <target_value>D</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>901</xloc>
+      <yloc>300</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Memory group by</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>nr-of-related-activities</aggregate>
+        <subject>related-activity-ref</subject>
+        <type>COUNT_ALL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>url-id</aggregate>
+        <subject>url-id</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>publisher</aggregate>
+        <subject>publisher</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>publisher-id</aggregate>
+        <subject>publisher-id</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>generated-datetime</aggregate>
+        <subject>generated-datetime</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>316</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiple parents sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>693</xloc>
+      <yloc>709</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Only outgoing</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Lookup org name and ref</send_true_to>
+    <send_false_to>Other sink</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>transaction-type-code</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>D</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>transaction-type-code</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>E</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>transaction-type-code</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>C</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>314</xloc>
+      <yloc>298</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>307</xloc>
+      <yloc>383</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1417,8 +1783,8 @@ FROM iatidatamart.`dim-activity`
       </output>
     </remotesteps>
     <GUI>
-      <xloc>470</xloc>
-      <yloc>207</yloc>
+      <xloc>503</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1459,8 +1825,9 @@ FROM iatidatamart.`dim-activity`
 , `url-id`
 , sequence
 FROM iatistaging.`src-act-transactions`
-WHERE value&lt;&gt;0 AND `transaction-type-code` IN ('E','D','C') 
+WHERE value&lt;&gt;0 
 
+-- AND `transaction-type-code` IN ('E','D','C') 
 -- AND `iati-identifier` IN ('NL-KVK-41150085-OKP','NL-KVK-41150085-OKP-GT','NL-KVK-41150085-OKP-RC')
 
 </sql>
@@ -1656,16 +2023,16 @@ WHERE value&lt;&gt;0 AND `transaction-type-code` IN ('E','D','C')
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
         <name>value</name>
-        <length>22</length>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>Read all outgoing non-zero publisher trx</origin>
         <comments>value</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
+        <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2010,8 +2377,8 @@ WHERE value&lt;&gt;0 AND `transaction-type-code` IN ('E','D','C')
       </output>
     </remotesteps>
     <GUI>
-      <xloc>145</xloc>
-      <yloc>366</yloc>
+      <xloc>147</xloc>
+      <yloc>413</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2019,7 +2386,7 @@ WHERE value&lt;&gt;0 AND `transaction-type-code` IN ('E','D','C')
     <name>Read all related activity references</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2035,7 +2402,6 @@ WHERE value&lt;&gt;0 AND `transaction-type-code` IN ('E','D','C')
 , `publisher-id`
 , `generated-datetime`
 , `url-id`
-, sequence
 FROM iatistaging.`src-act-related`
 WHERE `related-activity-type`=1 
 
@@ -2209,29 +2575,6 @@ WHERE `related-activity-type`=1
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>sequence</name>
-        <length>15</length>
-        <precision>0</precision>
-        <origin>Read all related activity references</origin>
-        <comments>sequence</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -2242,13 +2585,13 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>145</xloc>
-      <yloc>447</yloc>
+      <xloc>156</xloc>
+      <yloc>622</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select related activity refs without outgoing trx</name>
+    <name>Select related activity refs without transactions</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2259,7 +2602,7 @@ WHERE `related-activity-type`=1
       <schema_name/>
     </partitioning>
     <send_true_to>Select values 2</send_true_to>
-    <send_false_to>related activities with outgoing trx sink</send_false_to>
+    <send_false_to/>
     <compare>
       <condition>
         <negated>N</negated>
@@ -2277,8 +2620,8 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>689</xloc>
-      <yloc>444</yloc>
+      <xloc>1099</xloc>
+      <yloc>541</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2356,8 +2699,8 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>857</xloc>
-      <yloc>312</yloc>
+      <xloc>1286</xloc>
+      <yloc>300</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2379,8 +2722,36 @@ WHERE `related-activity-type`=1
       <field>
         <name>related-activity-ref</name>
       </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1286</xloc>
+      <yloc>543</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
       <field>
-        <name>related-activity-type</name>
+        <name>iati-identifier</name>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2393,8 +2764,8 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>861</xloc>
-      <yloc>445</yloc>
+      <xloc>314</xloc>
+      <yloc>541</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2435,8 +2806,8 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1157</xloc>
-      <yloc>447</yloc>
+      <xloc>1414</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2477,8 +2848,247 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1155</xloc>
-      <yloc>314</yloc>
+      <xloc>1411</xloc>
+      <yloc>299</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>394</xloc>
+      <yloc>540</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Blocking step 2</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>iati-identifier</name>
+        <field>iati-identifier</field>
+      </key>
+      <value>
+        <name>nr-of-related-activities</name>
+        <rename>nr-of-related-activities</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>564</xloc>
+      <yloc>625</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sum all outgoing trx by currency</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>transaction-type-code</name>
+      </field>
+      <field>
+        <name>default-currency</name>
+      </field>
+      <field>
+        <name>transaction-currency</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>transaction-iso-date</aggregate>
+        <subject>transaction-iso-date</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>value</aggregate>
+        <subject>value</subject>
+        <type>SUM</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-flow-type-code</aggregate>
+        <subject>transaction-flow-type-code</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-finance-type-code</aggregate>
+        <subject>transaction-finance-type-code</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-aid-type-code</aggregate>
+        <subject>transaction-aid-type-code</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-tied-status-code</aggregate>
+        <subject>transaction-tied-status-code</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>transaction-reference</aggregate>
+        <subject>transaction-reference</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>publisher</aggregate>
+        <subject>publisher</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>publisher-id</aggregate>
+        <subject>publisher-id</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>generated-datetime</aggregate>
+        <subject>generated-datetime</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>url-id</aggregate>
+        <subject>url-id</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>reporting-org-name</aggregate>
+        <subject>reporting-org-name</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>reporting-org-ref</aggregate>
+        <subject>reporting-org-ref</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1113</xloc>
+      <yloc>300</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique IATI ids</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>491</xloc>
+      <yloc>541</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2502,8 +3112,8 @@ WHERE `related-activity-type`=1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>566</yloc>
+      <xloc>1098</xloc>
+      <yloc>663</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
