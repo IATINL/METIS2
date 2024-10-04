@@ -99,3 +99,4 @@ Version 4.08 Added scan to monitor if there are new publishers refering to the N
 Version 4.09 Excluded organisation files from processing and fixed a bug in reimbursement processing for transactions with an empty transaction reference
 Version 4.10 Fixed variables read bug for reverse geocoding api
 Version 4.11 Fixed overflow of log messages and removed leading and trailing spaces from XML baseline year
+Version 4.12 Fixed partion statements for MySQL migration and support for two layers of related activities 
