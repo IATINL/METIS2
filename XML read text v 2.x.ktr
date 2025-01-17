@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2015/06/12 14:10:38.027</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2024/06/17 16:07:05.248</modified_date>
+    <modified_date>2025/01/10 12:13:47.317</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -437,8 +437,8 @@
     <notepad>
       <note>This version reads all result fields including every result reference in the IATI file.
 The indicator is replicated for each reference code.</note>
-      <xloc>1497</xloc>
-      <yloc>461</yloc>
+      <xloc>1308</xloc>
+      <yloc>553</yloc>
       <width>426</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -460,8 +460,8 @@ The indicator is replicated for each reference code.</note>
       <note>This version only reads result reference fields (legacy soloution). 
 This functionality is superseded with the handling of multiple result references for an indicator.
 </note>
-      <xloc>1531</xloc>
-      <yloc>272</yloc>
+      <xloc>1321</xloc>
+      <yloc>280</yloc>
       <width>508</width>
       <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
@@ -484,10 +484,56 @@ This functionality is superseded with the handling of multiple result references
 indicator level takes 
 precedence over result
 level. Code tested for FCAM.</note>
-      <xloc>389</xloc>
-      <yloc>287</yloc>
+      <xloc>1007</xloc>
+      <yloc>286</yloc>
       <width>160</width>
       <heigth>74</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Put the baseline information (baseline year, baseline value and baseline comment) on a seperate row 
+with a period start 1-1-&lt;baseline year> and period end &lt;31-12-baseline year>. This avoids replicating 
+the baseline value which results in double counting.</note>
+      <xloc>280</xloc>
+      <yloc>361</yloc>
+      <width>545</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Put the baseline information (baseline year, baseline value and baseline comment) on a seperate row 
+with a period start 1-1-&lt;baseline year> and period end &lt;31-12-baseline year>. This avoids replicating 
+the baseline value which results in double counting.</note>
+      <xloc>318</xloc>
+      <yloc>804</yloc>
+      <width>545</width>
+      <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -534,8 +580,16 @@ level. Code tested for FCAM.</note>
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>0</attribute>
+      </attribute>
+      <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>200</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -555,7 +609,7 @@ level. Code tested for FCAM.</note>
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>SET GLOBAL connect_timeout = 240;
+        <attribute>-- SET GLOBAL connect_timeout = 240;
 SET SESSION wait_timeout = 28800;
 SET SESSION interactive_timeout = 7200;
 SET SESSION net_read_timeout = 240;
@@ -577,7 +631,7 @@ SET SESSION sql_mode = "";
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
-        <attribute>N</attribute>
+        <attribute>Y</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -673,11 +727,6 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get multiple result references from XML 2.x</from>
-      <to>Get nrefs vars</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select fields</from>
       <to>Replace NL-1 in multiple nrefs</to>
       <enabled>Y</enabled>
@@ -713,11 +762,6 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get results from XML 2.x</from>
-      <to>Add sequence</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Add sequence</from>
       <to>Get result vars</to>
       <enabled>Y</enabled>
@@ -730,6 +774,106 @@ SET SESSION sql_mode = "";
     <hop>
       <from>Remove CRLF from result keys</from>
       <to>Sort rows results</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Nullify actual &amp; targets</from>
+      <to>Memory group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get results from XML 2.x</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Nullify actual &amp; targets</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Empty baseline sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Memory group by</from>
+      <to>Baseline period</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams</from>
+      <to>Add sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Baseline period</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Append streams</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get results from XML 2.x</from>
+      <to>Nullify baseline values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Nullify baseline values</from>
+      <to>Append streams</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Memory group by 2</from>
+      <to>Baseline period 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Nullify actual &amp; targets 2</from>
+      <to>Memory group by 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Nullify actual &amp; targets 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Empty baseline sink 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Baseline period 2</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Append streams 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 2</from>
+      <to>Get nrefs vars</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get multiple result references from XML 2.x</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get multiple result references from XML 2.x</from>
+      <to>Nullify baseline values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Nullify baseline values 2</from>
+      <to>Append streams 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -763,8 +907,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>246</xloc>
-      <yloc>215</yloc>
+      <xloc>864</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -796,8 +940,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>474</xloc>
-      <yloc>215</yloc>
+      <xloc>1092</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -829,8 +973,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>466</xloc>
-      <yloc>580</yloc>
+      <xloc>1068</xloc>
+      <yloc>661</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -916,8 +1060,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1698</xloc>
-      <yloc>215</yloc>
+      <xloc>1868</xloc>
+      <yloc>216</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1003,8 +1147,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1492</xloc>
-      <yloc>396</yloc>
+      <xloc>2102</xloc>
+      <yloc>436</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1491,7 +1635,7 @@ SET SESSION sql_mode = "";
     <name>Get multiple result references from XML 2.x</name>
     <type>getXMLData</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1858,8 +2002,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>108</xloc>
-      <yloc>577</yloc>
+      <xloc>92</xloc>
+      <yloc>659</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1933,8 +2077,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>376</xloc>
-      <yloc>579</yloc>
+      <xloc>978</xloc>
+      <yloc>660</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2008,8 +2152,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>214</yloc>
+      <xloc>986</xloc>
+      <yloc>213</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2017,7 +2161,7 @@ SET SESSION sql_mode = "";
     <name>Get results from XML 2.x</name>
     <type>getXMLData</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2430,8 +2574,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>951</xloc>
-      <yloc>399</yloc>
+      <xloc>1561</xloc>
+      <yloc>439</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2548,8 +2692,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>603</xloc>
-      <yloc>578</yloc>
+      <xloc>1205</xloc>
+      <yloc>659</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2666,8 +2810,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>619</xloc>
-      <yloc>214</yloc>
+      <xloc>1237</xloc>
+      <yloc>213</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2783,8 +2927,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1208</xloc>
-      <yloc>397</yloc>
+      <xloc>1818</xloc>
+      <yloc>437</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2822,8 +2966,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1420</xloc>
-      <yloc>214</yloc>
+      <xloc>1590</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2925,8 +3069,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1078</xloc>
-      <yloc>399</yloc>
+      <xloc>1688</xloc>
+      <yloc>439</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3275,8 +3419,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>791</xloc>
-      <yloc>215</yloc>
+      <xloc>1409</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3485,8 +3629,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>781</xloc>
-      <yloc>577</yloc>
+      <xloc>1383</xloc>
+      <yloc>658</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3538,8 +3682,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1353</xloc>
-      <yloc>396</yloc>
+      <xloc>1963</xloc>
+      <yloc>436</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3643,8 +3787,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1547</xloc>
-      <yloc>215</yloc>
+      <xloc>1717</xloc>
+      <yloc>216</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3775,7 +3919,7 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1872</xloc>
+      <xloc>2279</xloc>
       <yloc>217</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3915,8 +4059,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1880</xloc>
-      <yloc>397</yloc>
+      <xloc>2279</xloc>
+      <yloc>438</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4073,6 +4217,896 @@ SET SESSION sql_mode = "";
     <GUI>
       <xloc>1869</xloc>
       <yloc>103</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Memory group by</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>result-type-code</name>
+      </field>
+      <field>
+        <name>aggregation-status</name>
+      </field>
+      <field>
+        <name>result-title</name>
+      </field>
+      <field>
+        <name>result-description</name>
+      </field>
+      <field>
+        <name>indicator-measure-code</name>
+      </field>
+      <field>
+        <name>indicator-title</name>
+      </field>
+      <field>
+        <name>indicator-description</name>
+      </field>
+      <field>
+        <name>period-start</name>
+      </field>
+      <field>
+        <name>period-end</name>
+      </field>
+      <field>
+        <name>actual-value</name>
+      </field>
+      <field>
+        <name>actual-comment</name>
+      </field>
+      <field>
+        <name>target-value</name>
+      </field>
+      <field>
+        <name>target-comment</name>
+      </field>
+      <field>
+        <name>indicator-aggregation-status</name>
+      </field>
+      <field>
+        <name>reference-code</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>baseline-value</aggregate>
+        <subject>baseline-value</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>baseline-comment</aggregate>
+        <subject>baseline-comment</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>baseline-year</aggregate>
+        <subject>baseline-year</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>437</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Nullify actual &amp; targets</name>
+    <type>SetValueConstant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>actual-value</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>actual-comment</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>target-value</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>target-comment</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>period-start</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>period-end</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>317</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Nullify actual &amp; targets</send_true_to>
+    <send_false_to>Empty baseline sink</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>baseline-value</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>198</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Empty baseline sink</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>197</xloc>
+      <yloc>382</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Baseline period</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp1</field_name>
+      <formula_string>TEXT([baseline-year])&amp;"/01/01 00:00:00.000"</formula_string>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>period-start</replace_field>
+    </formula>
+    <formula>
+      <field_name>tmp2</field_name>
+      <formula_string>TEXT([baseline-year])&amp;"/12/31 00:00:00.000"</formula_string>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>period-end</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Nullify baseline values</head_name>
+    <tail_name>Select values</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>215</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <rename/>
+      </field>
+      <field>
+        <name>result-type-code</name>
+        <rename/>
+      </field>
+      <field>
+        <name>aggregation-status</name>
+        <rename/>
+      </field>
+      <field>
+        <name>result-title</name>
+        <rename/>
+      </field>
+      <field>
+        <name>result-description</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-measure-code</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-title</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-description</name>
+        <rename/>
+      </field>
+      <field>
+        <name>period-start</name>
+        <rename/>
+      </field>
+      <field>
+        <name>period-end</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseline-value</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseline-year</name>
+        <rename/>
+      </field>
+      <field>
+        <name>actual-value</name>
+        <rename/>
+      </field>
+      <field>
+        <name>actual-comment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>target-value</name>
+        <rename/>
+      </field>
+      <field>
+        <name>target-comment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseline-comment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-aggregation-status</name>
+        <rename/>
+      </field>
+      <field>
+        <name>reference-code</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>651</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Nullify baseline values</name>
+    <type>SetValueConstant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>baseline-value</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>baseline-comment</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>baseline-year</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>319</xloc>
+      <yloc>214</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Memory group by 2</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>iati-identifier</name>
+      </field>
+      <field>
+        <name>result-type-code</name>
+      </field>
+      <field>
+        <name>aggregation-status</name>
+      </field>
+      <field>
+        <name>result-title</name>
+      </field>
+      <field>
+        <name>result-description</name>
+      </field>
+      <field>
+        <name>indicator-measure-code</name>
+      </field>
+      <field>
+        <name>indicator-title</name>
+      </field>
+      <field>
+        <name>indicator-description</name>
+      </field>
+      <field>
+        <name>reference-code</name>
+      </field>
+      <field>
+        <name>reference-vocabulary</name>
+      </field>
+      <field>
+        <name>reference-uri</name>
+      </field>
+      <field>
+        <name>period-start</name>
+      </field>
+      <field>
+        <name>period-end</name>
+      </field>
+      <field>
+        <name>actual-value</name>
+      </field>
+      <field>
+        <name>actual-comment</name>
+      </field>
+      <field>
+        <name>target-value</name>
+      </field>
+      <field>
+        <name>target-comment</name>
+      </field>
+      <field>
+        <name>indicator-aggregation-status</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>baseline-value</aggregate>
+        <subject>baseline-value</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>baseline-comment</aggregate>
+        <subject>baseline-comment</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>baseline-year</aggregate>
+        <subject>baseline-year</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>472</xloc>
+      <yloc>738</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Nullify actual &amp; targets 2</name>
+    <type>SetValueConstant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>actual-value</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>actual-comment</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>target-value</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>target-comment</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>period-start</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>period-end</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>737</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Nullify actual &amp; targets</send_true_to>
+    <send_false_to>Empty baseline sink</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>baseline-value</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>233</xloc>
+      <yloc>737</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Empty baseline sink 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>232</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Baseline period 2</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp1</field_name>
+      <formula_string>TEXT([baseline-year])&amp;"/01/01 00:00:00.000"</formula_string>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>period-start</replace_field>
+    </formula>
+    <formula>
+      <field_name>tmp2</field_name>
+      <formula_string>TEXT([baseline-year])&amp;"/12/31 00:00:00.000"</formula_string>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>period-end</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>579</xloc>
+      <yloc>737</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Append streams 2</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Nullify baseline values 2</head_name>
+    <tail_name>Select values 2</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>790</xloc>
+      <yloc>661</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>iati-identifier</name>
+        <rename/>
+      </field>
+      <field>
+        <name>result-type-code</name>
+        <rename/>
+      </field>
+      <field>
+        <name>aggregation-status</name>
+        <rename/>
+      </field>
+      <field>
+        <name>result-title</name>
+        <rename/>
+      </field>
+      <field>
+        <name>result-description</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-measure-code</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-title</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-description</name>
+        <rename/>
+      </field>
+      <field>
+        <name>reference-code</name>
+        <rename/>
+      </field>
+      <field>
+        <name>reference-vocabulary</name>
+        <rename/>
+      </field>
+      <field>
+        <name>reference-uri</name>
+        <rename/>
+      </field>
+      <field>
+        <name>period-start</name>
+        <rename/>
+      </field>
+      <field>
+        <name>period-end</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseline-value</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseline-year</name>
+        <rename/>
+      </field>
+      <field>
+        <name>actual-value</name>
+        <rename/>
+      </field>
+      <field>
+        <name>actual-comment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>target-value</name>
+        <rename/>
+      </field>
+      <field>
+        <name>target-comment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseline-comment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicator-aggregation-status</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>686</xloc>
+      <yloc>737</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Nullify baseline values 2</name>
+    <type>SetValueConstant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>baseline-value</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>baseline-comment</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>baseline-year</name>
+        <value/>
+        <mask/>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>359</xloc>
+      <yloc>661</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
