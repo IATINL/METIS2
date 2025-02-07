@@ -101,3 +101,4 @@ Version 4.10 Fixed variables read bug for reverse geocoding api
 Version 4.11 Fixed overflow of log messages and removed leading and trailing spaces from XML baseline year
 Version 4.12 Fixed partion statements for MySQL migration and support for two layers of related activities 
 Version 4.13 Fixed replication of baseline values
+Version 4.14 Debugged baseline replication fix
