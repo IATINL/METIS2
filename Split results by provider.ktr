@@ -6,38 +6,399 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection/>
-<schema/>
-<table/>
-<size_limit_lines/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
-<perf-log-table><connection/>
-<schema/>
-<table/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
-<channel-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
-<step-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -65,18 +426,19 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user>-</created_user>
-  <created_date>2015&#x2f;11&#x2f;23 15&#x3a;38&#x3a;28.911</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2021&#x2f;10&#x2f;05 10&#x3a;14&#x3a;05.487</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <created_user>-</created_user>
+    <created_date>2015/11/23 15:38:28.911</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2025/03/28 12:02:28.431</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Calculate if an activity has childs &#x28;Y&#x29; or not &#x28;N&#x29;. An activity has childs when it is used as an providing activity. &#xd;&#xa;So when an activity occurs at least one time as a providing activity it has childs.</note>
-      <xloc>904</xloc>
-      <yloc>56</yloc>
+      <note>Calculate if an activity has childs (Y) or not (N). An activity has childs when it is used as an providing activity. 
+So when an activity occurs at least one time as a providing activity it has childs.</note>
+      <xloc>1024</xloc>
+      <yloc>48</yloc>
       <width>640</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
@@ -100,7 +462,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>JNDI</access>
-    <database>iatimariadb</database>
+    <database>iatischema_mysql</database>
     <port>3306</port>
     <username/>
     <password>Encrypted </password>
@@ -108,20 +470,80 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.Database type</code><attribute>Innodb</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatischema</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.Database type</code>
+        <attribute>Innodb</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>0</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>200</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatischema</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>-- SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>Y</attribute>
+      </attribute>
     </attributes>
   </connection>
   <connection>
@@ -129,7 +551,7 @@
     <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
-    <database>iatidatamart</database>
+    <database>iatidatamart_mysql</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -137,43 +559,189 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>iatidatamart</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>0</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>200</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PREFERRED_SCHEMA_NAME</code>
+        <attribute>iatidatamart</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>-- SET GLOBAL connect_timeout = 240;
+SET SESSION wait_timeout = 28800;
+SET SESSION interactive_timeout = 7200;
+SET SESSION net_read_timeout = 240;
+SET SESSION net_write_timeout =  480;
+SET SESSION sql_mode = "";
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>Y</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get activity results</from><to>Sort on iati identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get child parent list</from><to>Sort on child identifier</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort on child identifier</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort on iati identifier</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Missing link fields</from><to>Missing ancestor id</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read all provider act</from><to>Remove unspecified prov</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove unspecified prov</from><to>Sort prov act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove unspecified prov</from><to>Unspecified sink</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort prov act</from><to>Unique prov act</to><enabled>Y</enabled> </hop>
-  <hop> <from>Unique prov act</from><to>Rename</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add child indicator</from><to>Calc has childs</to><enabled>Y</enabled> </hop>
-  <hop> <from>Rename</from><to>Add child indicator</to><enabled>Y</enabled> </hop>
-  <hop> <from>Missing ancestor id</from><to>Add child indicator</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calc has childs</from><to>Lookup publisher name</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup publisher name</from><to>Write results by providers</to><enabled>Y</enabled> </hop>
-  <hop> <from>Baseline number</from><to>Actual number</to><enabled>Y</enabled> </hop>
-  <hop> <from>Actual number</from><to>Target number</to><enabled>Y</enabled> </hop>
-  <hop> <from>Target number</from><to>If agg status is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If agg status is null</from><to>Missing link fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Trim spaces from values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Trim spaces from values</from><to>Baseline number</to><enabled>Y</enabled> </hop>
+    <hop>
+      <from>Get activity results</from>
+      <to>Sort on iati identifier</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get child parent list</from>
+      <to>Sort on child identifier</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort on child identifier</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort on iati identifier</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Missing link fields</from>
+      <to>Missing ancestor id</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read all provider act</from>
+      <to>Remove unspecified prov</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove unspecified prov</from>
+      <to>Sort prov act</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove unspecified prov</from>
+      <to>Unspecified sink</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort prov act</from>
+      <to>Unique prov act</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique prov act</from>
+      <to>Rename</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add child indicator</from>
+      <to>Calc has childs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rename</from>
+      <to>Add child indicator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Missing ancestor id</from>
+      <to>Add child indicator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calc has childs</from>
+      <to>Lookup publisher name</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup publisher name</from>
+      <to>Write results by providers</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Baseline number</from>
+      <to>Actual number</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Actual number</from>
+      <to>Target number</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Target number</from>
+      <to>If agg status is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If agg status is null</from>
+      <to>Missing link fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join</from>
+      <to>Trim spaces from values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim spaces from values</from>
+      <to>Strip leading plus</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Strip leading plus</from>
+      <to>Baseline number</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Actual number</name>
@@ -182,11 +750,12 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <script><![CDATA[(^[-+]?[0-9]*\.?[0-9]+$)]]></script>    <matcher>actual-value</matcher>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <script>(^[-+]?[0-9]*\.?[0-9]+$)</script>
+    <matcher>actual-value</matcher>
     <resultfieldname>actual-is-number</resultfieldname>
     <usevar>N</usevar>
     <allowcapturegroups>Y</allowcapturegroups>
@@ -210,16 +779,23 @@
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
+        <currency/>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>729</xloc>
-      <yloc>282</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Add child indicator</name>
     <type>StreamLookup</type>
@@ -227,10 +803,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <from>Rename</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>N</preserve_memory>
@@ -248,14 +824,20 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1390</xloc>
-      <yloc>278</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Baseline number</name>
     <type>RegexEval</type>
@@ -263,11 +845,12 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <script><![CDATA[(^[-+]?[0-9]*\.?[0-9]+$)]]></script>    <matcher>baseline-value</matcher>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <script>(^[-+]?[0-9]*\.?[0-9]+$)</script>
+    <matcher>baseline-value</matcher>
     <resultfieldname>baseline-is-number</resultfieldname>
     <usevar>N</usevar>
     <allowcapturegroups>Y</allowcapturegroups>
@@ -291,16 +874,23 @@
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
+        <currency/>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>620</xloc>
-      <yloc>282</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Calc has childs</name>
     <type>Formula</type>
@@ -308,25 +898,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;has-childs&#x5d;&#x29;&#x3b;&#x22;N&#x22;&#x3b;&#x22;Y&#x22;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>has-childs</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1516</xloc>
-      <yloc>278</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF(ISBLANK([has-childs]);"N";"Y")</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>has-childs</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1632</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get activity results</name>
     <type>TableInput</type>
@@ -334,25 +931,59 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier&#x60;&#xd;&#xa;, &#x60;result-type-code&#x60;&#xd;&#xa;, &#x60;result-aggregation-status&#x60;&#xd;&#xa;, &#x60;result-title&#x60;&#xd;&#xa;, &#x60;result-description&#x60;&#xd;&#xa;, &#x60;indicator-measure-code&#x60;&#xd;&#xa;, &#x60;indicator-title&#x60;&#xd;&#xa;, &#x60;indicator-description&#x60;&#xd;&#xa;, &#x60;indicator-reference-bz&#x60;&#xd;&#xa;, &#x60;baseline-year&#x60;&#xd;&#xa;, &#x60;baseline-value&#x60;&#xd;&#xa;, &#x60;baseline-comment&#x60;&#xd;&#xa;, &#x60;period-start&#x60;&#xd;&#xa;, &#x60;period-end&#x60;&#xd;&#xa;, &#x60;actual-value&#x60;&#xd;&#xa;, &#x60;actual-comment&#x60;&#xd;&#xa;, &#x60;target-value&#x60;&#xd;&#xa;, &#x60;target-comment&#x60;&#xd;&#xa;, publisher&#xd;&#xa;, &#x60;publisher-id&#x60;&#xd;&#xa;, &#x60;url-id&#x60;&#xd;&#xa;, &#x60;generated-datetime&#x60;&#xd;&#xa;FROM iatischema.&#x60;dwh-results&#x60;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>SELECT
+  `iati-identifier`
+, `result-type-code`
+, `result-aggregation-status`
+, `result-title`
+, `result-description`
+, `indicator-measure-code`
+, `indicator-title`
+, `indicator-description`
+, `indicator-reference-bz`
+, `baseline-year`
+, `baseline-value`
+, `baseline-comment`
+, `period-start`
+, `period-end`
+, `actual-value`
+, `actual-comment`
+, `target-value`
+, `target-comment`
+, publisher
+, `publisher-id`
+, `url-id`
+, `generated-datetime`
+FROM iatischema.`dwh-results`
+
+
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>53</xloc>
-      <yloc>280</yloc>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Get child parent list</name>
     <type>TableInput</type>
@@ -360,25 +991,40 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;  &#x60;iati-identifier-child&#x60;&#xd;&#xa;, &#x60;iati-identifier-parent&#x60;&#xd;&#xa;, &#x60;buza-descendant-yn&#x60;&#xd;&#xa;, &#x60;buza-descendant-level&#x60;&#xd;&#xa;, &#x60;buza-ancestor-activity-id&#x60;&#xd;&#xa;FROM iatischema.&#x60;stg-parent-child-other&#x60;&#xd;&#xa;</sql>
+    <sql>SELECT
+  `iati-identifier-child`
+, `iati-identifier-parent`
+, `buza-descendant-yn`
+, `buza-descendant-level`
+, `buza-ancestor-activity-id`
+FROM iatischema.`stg-parent-child-other`
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>59</xloc>
-      <yloc>126</yloc>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>If agg status is null</name>
     <type>IfNull</type>
@@ -386,15 +1032,15 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
@@ -403,16 +1049,22 @@
         <value>N</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>930</xloc>
-      <yloc>282</yloc>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Lookup publisher name</name>
     <type>DBLookup</type>
@@ -420,10 +1072,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_database</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
@@ -437,7 +1089,7 @@
       <key>
         <name>publisher</name>
         <field>publisher</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
@@ -447,14 +1099,20 @@
         <type>String</type>
       </value>
     </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1647</xloc>
-      <yloc>278</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join</name>
     <type>MergeJoin</type>
@@ -462,27 +1120,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Sort on iati identifier</step1>
-<step2>Sort on child identifier</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort on iati identifier</step1>
+    <step2>Sort on child identifier</step2>
     <keys_1>
       <key>iati-identifier</key>
     </keys_1>
     <keys_2>
       <key>iati-identifier-child</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>373</xloc>
-      <yloc>281</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Missing ancestor id</name>
     <type>Formula</type>
@@ -490,25 +1154,32 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;buza-ancestor-activity-id&#x5d;&#x29;&#x3b;&#x5b;iati-identifier&#x5d;&#x3b;&#x5b;buza-ancestor-activity-id&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>buza-ancestor-activity-id</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1222</xloc>
-      <yloc>279</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp</field_name>
+      <formula_string>IF(ISBLANK([buza-ancestor-activity-id]);[iati-identifier];[buza-ancestor-activity-id])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>buza-ancestor-activity-id</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Missing link fields</name>
     <type>Formula</type>
@@ -516,39 +1187,48 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <formula><field_name>tmp1</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;buza-descendant-yn&#x5d;&#x29;&#x3b;&#x22;N&#x22;&#x3b;&#x5b;buza-descendant-yn&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>buza-descendant-yn</replace_field>
-</formula>
-       <formula><field_name>tmp2</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;iati-identifier-parent&#x5d;&#x29;&#x3b;&#x22;Unspecified&#x22;&#x3b;&#x5b;iati-identifier-parent&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>iati-identifier-parent</replace_field>
-</formula>
-       <formula><field_name>tmp3</field_name>
-<formula_string>IF&#x28;ISBLANK&#x28;&#x5b;buza-descendant-level&#x5d;&#x29;&#x3b;0&#x3b;&#x5b;buza-descendant-level&#x5d;&#x29;</formula_string>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<replace_field>buza-descendant-level</replace_field>
-</formula>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1059</xloc>
-      <yloc>279</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp1</field_name>
+      <formula_string>IF(ISBLANK([buza-descendant-yn]);"N";[buza-descendant-yn])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>buza-descendant-yn</replace_field>
+    </formula>
+    <formula>
+      <field_name>tmp2</field_name>
+      <formula_string>IF(ISBLANK([iati-identifier-parent]);"Unspecified";[iati-identifier-parent])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>iati-identifier-parent</replace_field>
+    </formula>
+    <formula>
+      <field_name>tmp3</field_name>
+      <formula_string>IF(ISBLANK([buza-descendant-level]);0;[buza-descendant-level])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>buza-descendant-level</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Read all provider act</name>
     <type>TableInput</type>
@@ -556,25 +1236,36 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_database</connection>
-    <sql>SELECT&#xd;&#xa;   &#x60;provider-org-activity-id&#x60;&#xd;&#xa;FROM &#x60;dwh-transactions&#x60;&#x3b;&#xd;&#xa;</sql>
+    <sql>SELECT
+   `provider-org-activity-id`
+FROM `dwh-transactions`;
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>905</xloc>
-      <yloc>124</yloc>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1024</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove unspecified prov</name>
     <type>FilterRows</type>
@@ -582,28 +1273,43 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Sort prov act</send_true_to>
-<send_false_to>Unspecified sink</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort prov act</send_true_to>
+    <send_false_to>Unspecified sink</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>provider-org-activity-id</leftvalue>
- <function>&#x3c;&#x3e;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>Unspecified</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>provider-org-activity-id</leftvalue>
+        <function>&lt;></function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Unspecified</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1062</xloc>
-      <yloc>124</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Rename</name>
     <type>SelectValues</type>
@@ -611,23 +1317,31 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>provider-org-activity-id</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>provider-org-activity-id</name>
         <rename>parent-activity</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1390</xloc>
-      <yloc>124</yloc>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort on child identifier</name>
     <type>SortRows</type>
@@ -635,33 +1349,41 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>500000</sort_size>
-      <free_memory>70</free_memory>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>500000</sort_size>
+    <free_memory>70</free_memory>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier-child</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>376</xloc>
-      <yloc>126</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort on iati identifier</name>
     <type>SortRows</type>
@@ -669,33 +1391,41 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>500000</sort_size>
-      <free_memory>70</free_memory>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>500000</sort_size>
+    <free_memory>70</free_memory>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>iati-identifier</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>201</xloc>
-      <yloc>280</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort prov act</name>
     <type>SortRows</type>
@@ -703,33 +1433,41 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>500000</sort_size>
-      <free_memory>70</free_memory>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>500000</sort_size>
+    <free_memory>70</free_memory>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>provider-org-activity-id</name>
         <ascending>Y</ascending>
         <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1192</xloc>
-      <yloc>124</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Target number</name>
     <type>RegexEval</type>
@@ -737,11 +1475,12 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <script><![CDATA[(^[-+]?[0-9]*\.?[0-9]+$)]]></script>    <matcher>target-value</matcher>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <script>(^[-+]?[0-9]*\.?[0-9]+$)</script>
+    <matcher>target-value</matcher>
     <resultfieldname>target-is-number</resultfieldname>
     <usevar>N</usevar>
     <allowcapturegroups>Y</allowcapturegroups>
@@ -765,16 +1504,23 @@
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
+        <currency/>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>834</xloc>
-      <yloc>282</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Trim spaces from values</name>
     <type>StringOperations</type>
@@ -782,10 +1528,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>baseline-value</in_stream_name>
@@ -827,14 +1573,20 @@
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>485</xloc>
-      <yloc>281</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Unique prov act</name>
     <type>Unique</type>
@@ -842,24 +1594,34 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <count_rows>N</count_rows>
-      <count_field/>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>provider-org-activity-id</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>provider-org-activity-id</name>
         <case_insensitive>N</case_insensitive>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1293</xloc>
-      <yloc>124</yloc>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Unspecified sink</name>
     <type>Dummy</type>
@@ -867,18 +1629,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1062</xloc>
-      <yloc>216</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Write results by providers</name>
     <type>TableOutput</type>
@@ -886,10 +1654,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>IATI_datamart</connection>
     <schema/>
     <table>clone-fct-results</table>
@@ -908,155 +1676,211 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>iati-identifier</column_name>
-          <stream_name>iati-identifier</stream_name>
-        </field>
-        <field>
-          <column_name>provider-org-activity-id</column_name>
-          <stream_name>iati-identifier-parent</stream_name>
-        </field>
-        <field>
-          <column_name>result-type-code</column_name>
-          <stream_name>result-type-code</stream_name>
-        </field>
-        <field>
-          <column_name>result-title</column_name>
-          <stream_name>result-title</stream_name>
-        </field>
-        <field>
-          <column_name>result-description</column_name>
-          <stream_name>result-description</stream_name>
-        </field>
-        <field>
-          <column_name>result-aggregation-status</column_name>
-          <stream_name>result-aggregation-status</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-measure-code</column_name>
-          <stream_name>indicator-measure-code</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-title</column_name>
-          <stream_name>indicator-title</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-description</column_name>
-          <stream_name>indicator-description</stream_name>
-        </field>
-        <field>
-          <column_name>indicator-reference-bz</column_name>
-          <stream_name>indicator-reference-bz</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-year</column_name>
-          <stream_name>baseline-year</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-value</column_name>
-          <stream_name>baseline-value</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-is-number</column_name>
-          <stream_name>baseline-is-number</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-total</column_name>
-          <stream_name>baseline-total</stream_name>
-        </field>
-        <field>
-          <column_name>baseline-comment</column_name>
-          <stream_name>baseline-comment</stream_name>
-        </field>
-        <field>
-          <column_name>period-start</column_name>
-          <stream_name>period-start</stream_name>
-        </field>
-        <field>
-          <column_name>period-end</column_name>
-          <stream_name>period-end</stream_name>
-        </field>
-        <field>
-          <column_name>actual-value</column_name>
-          <stream_name>actual-value</stream_name>
-        </field>
-        <field>
-          <column_name>actual-is-number</column_name>
-          <stream_name>actual-is-number</stream_name>
-        </field>
-        <field>
-          <column_name>actual-total</column_name>
-          <stream_name>actual-total</stream_name>
-        </field>
-        <field>
-          <column_name>actual-comment</column_name>
-          <stream_name>actual-comment</stream_name>
-        </field>
-        <field>
-          <column_name>target-value</column_name>
-          <stream_name>target-value</stream_name>
-        </field>
-        <field>
-          <column_name>target-is-number</column_name>
-          <stream_name>target-is-number</stream_name>
-        </field>
-        <field>
-          <column_name>target-total</column_name>
-          <stream_name>target-total</stream_name>
-        </field>
-        <field>
-          <column_name>target-comment</column_name>
-          <stream_name>target-comment</stream_name>
-        </field>
-        <field>
-          <column_name>publisher</column_name>
-          <stream_name>publisher</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-id</column_name>
-          <stream_name>publisher-id</stream_name>
-        </field>
-        <field>
-          <column_name>publisher-name</column_name>
-          <stream_name>publisher-name</stream_name>
-        </field>
-        <field>
-          <column_name>url-id</column_name>
-          <stream_name>url-id</stream_name>
-        </field>
-        <field>
-          <column_name>generated-datetime</column_name>
-          <stream_name>generated-datetime</stream_name>
-        </field>
-        <field>
-          <column_name>buza-descendant-yn</column_name>
-          <stream_name>buza-descendant-yn</stream_name>
-        </field>
-        <field>
-          <column_name>buza-ancestor-activity-id</column_name>
-          <stream_name>buza-ancestor-activity-id</stream_name>
-        </field>
-        <field>
-          <column_name>buza-descendant-level</column_name>
-          <stream_name>buza-descendant-level</stream_name>
-        </field>
-        <field>
-          <column_name>has-childs</column_name>
-          <stream_name>has-childs</stream_name>
-        </field>
+      <field>
+        <column_name>iati-identifier</column_name>
+        <stream_name>iati-identifier</stream_name>
+      </field>
+      <field>
+        <column_name>provider-org-activity-id</column_name>
+        <stream_name>iati-identifier-parent</stream_name>
+      </field>
+      <field>
+        <column_name>result-type-code</column_name>
+        <stream_name>result-type-code</stream_name>
+      </field>
+      <field>
+        <column_name>result-title</column_name>
+        <stream_name>result-title</stream_name>
+      </field>
+      <field>
+        <column_name>result-description</column_name>
+        <stream_name>result-description</stream_name>
+      </field>
+      <field>
+        <column_name>result-aggregation-status</column_name>
+        <stream_name>result-aggregation-status</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-measure-code</column_name>
+        <stream_name>indicator-measure-code</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-title</column_name>
+        <stream_name>indicator-title</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-description</column_name>
+        <stream_name>indicator-description</stream_name>
+      </field>
+      <field>
+        <column_name>indicator-reference-bz</column_name>
+        <stream_name>indicator-reference-bz</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-year</column_name>
+        <stream_name>baseline-year</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-value</column_name>
+        <stream_name>baseline-value</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-is-number</column_name>
+        <stream_name>baseline-is-number</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-total</column_name>
+        <stream_name>baseline-total</stream_name>
+      </field>
+      <field>
+        <column_name>baseline-comment</column_name>
+        <stream_name>baseline-comment</stream_name>
+      </field>
+      <field>
+        <column_name>period-start</column_name>
+        <stream_name>period-start</stream_name>
+      </field>
+      <field>
+        <column_name>period-end</column_name>
+        <stream_name>period-end</stream_name>
+      </field>
+      <field>
+        <column_name>actual-value</column_name>
+        <stream_name>actual-value</stream_name>
+      </field>
+      <field>
+        <column_name>actual-is-number</column_name>
+        <stream_name>actual-is-number</stream_name>
+      </field>
+      <field>
+        <column_name>actual-total</column_name>
+        <stream_name>actual-total</stream_name>
+      </field>
+      <field>
+        <column_name>actual-comment</column_name>
+        <stream_name>actual-comment</stream_name>
+      </field>
+      <field>
+        <column_name>target-value</column_name>
+        <stream_name>target-value</stream_name>
+      </field>
+      <field>
+        <column_name>target-is-number</column_name>
+        <stream_name>target-is-number</stream_name>
+      </field>
+      <field>
+        <column_name>target-total</column_name>
+        <stream_name>target-total</stream_name>
+      </field>
+      <field>
+        <column_name>target-comment</column_name>
+        <stream_name>target-comment</stream_name>
+      </field>
+      <field>
+        <column_name>publisher</column_name>
+        <stream_name>publisher</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-id</column_name>
+        <stream_name>publisher-id</stream_name>
+      </field>
+      <field>
+        <column_name>publisher-name</column_name>
+        <stream_name>publisher-name</stream_name>
+      </field>
+      <field>
+        <column_name>url-id</column_name>
+        <stream_name>url-id</stream_name>
+      </field>
+      <field>
+        <column_name>generated-datetime</column_name>
+        <stream_name>generated-datetime</stream_name>
+      </field>
+      <field>
+        <column_name>buza-descendant-yn</column_name>
+        <stream_name>buza-descendant-yn</stream_name>
+      </field>
+      <field>
+        <column_name>buza-ancestor-activity-id</column_name>
+        <stream_name>buza-ancestor-activity-id</stream_name>
+      </field>
+      <field>
+        <column_name>buza-descendant-level</column_name>
+        <stream_name>buza-descendant-level</stream_name>
+      </field>
+      <field>
+        <column_name>has-childs</column_name>
+        <stream_name>has-childs</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1803</xloc>
-      <yloc>278</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1920</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>Strip leading plus</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>tmp1</field_name>
+      <formula_string>IF(LEFT([baseline-value];1) = "+";RIGHT([baseline-value];LEN([baseline-value])-1);[baseline-value])
+</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>baseline-value</replace_field>
+    </formula>
+    <formula>
+      <field_name>tmp2</field_name>
+      <formula_string>IF(LEFT([target-value];1) = "+";RIGHT([target-value];LEN([target-value])-1);[target-value])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>target-value</replace_field>
+    </formula>
+    <formula>
+      <field_name>tmp3</field_name>
+      <formula_string>IF(LEFT([actual-value];1) = "+";RIGHT([actual-value];LEN([actual-value])-1);[actual-value])</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>actual-value</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step_error_handling>
   </step_error_handling>
-   <slave-step-copy-partition-distribution>
-</slave-step-copy-partition-distribution>
-   <slave_transformation>N</slave_transformation>
-
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>

@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2015/06/12 14:10:38.027</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/02/05 09:29:53.768</modified_date>
+    <modified_date>2025/03/26 17:01:08.748</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -437,8 +437,8 @@
     <notepad>
       <note>This version reads all result fields including every result reference in the IATI file.
 The indicator is replicated for each reference code.</note>
-      <xloc>1308</xloc>
-      <yloc>553</yloc>
+      <xloc>1392</xloc>
+      <yloc>544</yloc>
       <width>426</width>
       <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
@@ -460,8 +460,8 @@ The indicator is replicated for each reference code.</note>
       <note>This version only reads result reference fields (legacy soloution). 
 This functionality is superseded with the handling of multiple result references for an indicator.
 </note>
-      <xloc>1321</xloc>
-      <yloc>280</yloc>
+      <xloc>1408</xloc>
+      <yloc>272</yloc>
       <width>508</width>
       <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
@@ -484,8 +484,8 @@ This functionality is superseded with the handling of multiple result references
 indicator level takes 
 precedence over result
 level. Code tested for FCAM.</note>
-      <xloc>1007</xloc>
-      <yloc>286</yloc>
+      <xloc>1104</xloc>
+      <yloc>272</yloc>
       <width>160</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -507,8 +507,8 @@ level. Code tested for FCAM.</note>
       <note>Put the baseline information (baseline year, baseline value and baseline comment) on a seperate row 
 with a period start 1-1-&lt;baseline year> and period end &lt;31-12-baseline year>. This avoids replicating 
 the baseline value which results in double counting.</note>
-      <xloc>280</xloc>
-      <yloc>361</yloc>
+      <xloc>176</xloc>
+      <yloc>464</yloc>
       <width>545</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -530,8 +530,8 @@ the baseline value which results in double counting.</note>
       <note>Put the baseline information (baseline year, baseline value and baseline comment) on a seperate row 
 with a period start 1-1-&lt;baseline year> and period end &lt;31-12-baseline year>. This avoids replicating 
 the baseline value which results in double counting.</note>
-      <xloc>318</xloc>
-      <yloc>804</yloc>
+      <xloc>400</xloc>
+      <yloc>800</yloc>
       <width>545</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -555,7 +555,7 @@ the baseline value which results in double counting.</note>
     <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
-    <database>iatistaging</database>
+    <database>iatistaging_mysql</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -783,16 +783,11 @@ SET SESSION sql_mode = "";
     </hop>
     <hop>
       <from>Get results from XML 2.x</from>
-      <to>Filter rows</to>
+      <to>Has non-empty bl value</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows</from>
-      <to>Nullify actual &amp; targets</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
+      <from>Has non-empty bl value</from>
       <to>Empty baseline sink</to>
       <enabled>Y</enabled>
     </hop>
@@ -837,12 +832,7 @@ SET SESSION sql_mode = "";
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows 2</from>
-      <to>Nullify actual &amp; targets 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
+      <from>Non empty nref bl value</from>
       <to>Empty baseline sink 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -863,7 +853,7 @@ SET SESSION sql_mode = "";
     </hop>
     <hop>
       <from>Get multiple result references from XML 2.x</from>
-      <to>Filter rows 2</to>
+      <to>Non empty nref bl value</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -874,6 +864,36 @@ SET SESSION sql_mode = "";
     <hop>
       <from>Nullify baseline values 2</from>
       <to>Append streams 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Has non-empty bl value</from>
+      <to>Valid bl year</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid bl year</from>
+      <to>Nullify actual &amp; targets</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid bl year</from>
+      <to>Illegal bl year</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Non empty nref bl value</from>
+      <to>Valid bl year 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid bl year 2</from>
+      <to>Nullify actual &amp; targets 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Valid bl year 2</from>
+      <to>Illegal bl year 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -907,8 +927,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>214</yloc>
+      <xloc>960</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -934,8 +954,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>215</yloc>
+      <xloc>832</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -961,8 +981,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>790</xloc>
-      <yloc>661</yloc>
+      <xloc>880</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1002,8 +1022,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>287</yloc>
+      <xloc>640</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1043,8 +1063,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>579</xloc>
-      <yloc>737</yloc>
+      <xloc>672</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1076,8 +1096,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1092</xloc>
-      <yloc>214</yloc>
+      <xloc>1184</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1109,8 +1129,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1068</xloc>
-      <yloc>661</yloc>
+      <xloc>1184</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1196,8 +1216,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1868</xloc>
-      <yloc>216</yloc>
+      <xloc>1952</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1283,8 +1303,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2102</xloc>
-      <yloc>436</yloc>
+      <xloc>2192</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1380,8 +1400,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>197</xloc>
-      <yloc>382</yloc>
+      <xloc>176</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1405,13 +1425,13 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>232</xloc>
+      <xloc>176</xloc>
       <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
+    <name>Has non-empty bl value</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1421,7 +1441,7 @@ SET SESSION sql_mode = "";
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Nullify actual &amp; targets</send_true_to>
+    <send_true_to>Valid bl year</send_true_to>
     <send_false_to>Empty baseline sink</send_false_to>
     <compare>
       <condition>
@@ -1440,13 +1460,13 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>198</xloc>
-      <yloc>287</yloc>
+      <xloc>176</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows 2</name>
+    <name>Non empty nref bl value</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1456,7 +1476,7 @@ SET SESSION sql_mode = "";
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Nullify actual &amp; targets 2</send_true_to>
+    <send_true_to>Valid bl year 2</send_true_to>
     <send_false_to>Empty baseline sink 2</send_false_to>
     <compare>
       <condition>
@@ -1475,8 +1495,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>233</xloc>
-      <yloc>737</yloc>
+      <xloc>176</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2333,8 +2353,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>978</xloc>
-      <yloc>660</yloc>
+      <xloc>1008</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2408,8 +2428,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>986</xloc>
-      <yloc>213</yloc>
+      <xloc>1072</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2754,8 +2774,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>118</xloc>
-      <yloc>215</yloc>
+      <xloc>112</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2850,7 +2870,7 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>437</xloc>
+      <xloc>528</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2952,8 +2972,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>472</xloc>
-      <yloc>738</yloc>
+      <xloc>560</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3028,8 +3048,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1561</xloc>
-      <yloc>439</yloc>
+      <xloc>1648</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3092,8 +3112,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>317</xloc>
-      <yloc>287</yloc>
+      <xloc>416</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3156,8 +3176,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>737</yloc>
+      <xloc>448</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3202,8 +3222,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>319</xloc>
-      <yloc>214</yloc>
+      <xloc>416</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3248,8 +3268,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>359</xloc>
-      <yloc>661</yloc>
+      <xloc>448</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3366,8 +3386,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1205</xloc>
-      <yloc>659</yloc>
+      <xloc>1328</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3484,8 +3504,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1237</xloc>
-      <yloc>213</yloc>
+      <xloc>1328</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3601,8 +3621,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1818</xloc>
-      <yloc>437</yloc>
+      <xloc>1904</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3640,8 +3660,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1590</xloc>
-      <yloc>215</yloc>
+      <xloc>1680</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3743,8 +3763,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1688</xloc>
-      <yloc>439</yloc>
+      <xloc>1776</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3828,8 +3848,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>651</xloc>
-      <yloc>287</yloc>
+      <xloc>736</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3847,87 +3867,66 @@ SET SESSION sql_mode = "";
     <fields>
       <field>
         <name>iati-identifier</name>
-        <rename/>
       </field>
       <field>
         <name>result-type-code</name>
-        <rename/>
       </field>
       <field>
         <name>aggregation-status</name>
-        <rename/>
       </field>
       <field>
         <name>result-title</name>
-        <rename/>
       </field>
       <field>
         <name>result-description</name>
-        <rename/>
       </field>
       <field>
         <name>indicator-measure-code</name>
-        <rename/>
       </field>
       <field>
         <name>indicator-title</name>
-        <rename/>
       </field>
       <field>
         <name>indicator-description</name>
-        <rename/>
       </field>
       <field>
         <name>reference-code</name>
-        <rename/>
       </field>
       <field>
         <name>reference-vocabulary</name>
-        <rename/>
       </field>
       <field>
         <name>reference-uri</name>
-        <rename/>
       </field>
       <field>
         <name>indicator-aggregation-status</name>
-        <rename/>
       </field>
       <field>
         <name>period-start</name>
-        <rename/>
       </field>
       <field>
         <name>period-end</name>
-        <rename/>
       </field>
       <field>
         <name>baseline-comment</name>
-        <rename/>
       </field>
       <field>
         <name>actual-comment</name>
-        <rename/>
       </field>
       <field>
         <name>target-comment</name>
-        <rename/>
       </field>
       <field>
         <name>baseline-value</name>
-        <rename/>
       </field>
       <field>
         <name>target-value</name>
-        <rename/>
       </field>
       <field>
         <name>actual-value</name>
-        <rename/>
       </field>
       <field>
         <name>baseline-year</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -3940,8 +3939,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>686</xloc>
-      <yloc>737</yloc>
+      <xloc>768</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4290,8 +4289,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1409</xloc>
-      <yloc>214</yloc>
+      <xloc>1504</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4500,8 +4499,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1383</xloc>
-      <yloc>658</yloc>
+      <xloc>1504</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4553,8 +4552,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1963</xloc>
-      <yloc>436</yloc>
+      <xloc>2048</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4658,8 +4657,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1717</xloc>
-      <yloc>216</yloc>
+      <xloc>1808</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4790,8 +4789,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2279</xloc>
-      <yloc>217</yloc>
+      <xloc>2368</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4930,8 +4929,8 @@ SET SESSION sql_mode = "";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2279</xloc>
-      <yloc>438</yloc>
+      <xloc>2368</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5088,6 +5087,186 @@ SET SESSION sql_mode = "";
     <GUI>
       <xloc>2280</xloc>
       <yloc>108</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valid bl year</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Nullify actual &amp; targets</send_true_to>
+    <send_false_to>Illegal bl year</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>baseline-year</leftvalue>
+            <function>&gt;=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>Integer</type>
+              <text>1970</text>
+              <length>-1</length>
+              <precision>0</precision>
+              <isnull>N</isnull>
+              <mask>####0;-####0</mask>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>baseline-year</leftvalue>
+            <function>&lt;=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>Integer</type>
+              <text>2050</text>
+              <length>-1</length>
+              <precision>0</precision>
+              <isnull>N</isnull>
+              <mask>####0;-####0</mask>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Illegal bl year</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valid bl year 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Nullify actual &amp; targets 2</send_true_to>
+    <send_false_to>Illegal bl year 2</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>baseline-year</leftvalue>
+            <function>&gt;=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>Integer</type>
+              <text>1970</text>
+              <length>-1</length>
+              <precision>0</precision>
+              <isnull>N</isnull>
+              <mask>####0;-####0</mask>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>baseline-year</leftvalue>
+            <function>&lt;=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>Integer</type>
+              <text>2050</text>
+              <length>-1</length>
+              <precision>0</precision>
+              <isnull>N</isnull>
+              <mask>####0;-####0</mask>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Illegal bl year 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
