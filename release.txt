@@ -104,3 +104,4 @@ Version 4.13 Fixed replication of baseline values
 Version 4.14 Debugged baseline replication fix
 Version 4.15 Removed invalid baseline years to avoid invalid baseline periods and removed leading '+' characters from result values
 Version 4.16 Changed reverse geolocation provider
+Version 4.17 Fixed bug in reverse geocoding
