@@ -106,3 +106,4 @@ Version 4.15 Removed invalid baseline years to avoid invalid baseline periods an
 Version 4.16 Changed reverse geolocation provider
 Version 4.17 Fixed bug in reverse geocoding
 Version 4.18 Added blocking step in the preproces related activities transformation
+Version 4.19 Updated .gitignore file and removed already tracked objects from excluded directories
